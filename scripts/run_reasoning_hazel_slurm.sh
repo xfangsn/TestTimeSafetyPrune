@@ -17,19 +17,22 @@ CACHE_ROOT="${CACHE_ROOT:-${SHARE_ROOT}/.cache}"
 LOG_DIR="${LOG_DIR:-${SHARE_ROOT}/jobs/ttsafety/logs}"
 REPO_DIR="${REPO_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 DATA_DIR="${DATA_DIR:-${SHARE_ROOT}/ttsafety-data}"       # holds c4.txt / wikitext.txt (from prefetch)
-PARTITION="${PARTITION:-gpu}"
-TIME_LIMIT="${TIME_LIMIT:-12:00:00}"
-SIZES="${SIZES:-1.7b 4b 8b 14b}"                          # 32b: add once a >=80GB card is free
+# Hazel today (2026-09-03): a30 does not exist. Idle a10 (24GB) + l40s (48GB) live in gpu_partners,
+# which for us is QOS short_gpu capped at 2h; the `gpu` partition (h100, infinite) is the big-model path.
+PARTITION="${PARTITION:-gpu_partners}"
+QOS="${QOS:-short_gpu}"
+TIME_LIMIT="${TIME_LIMIT:-02:00:00}"                      # short_gpu maxwall
+SIZES="${SIZES:-1.7b 4b 8b 14b}"                          # 32b: needs h100 in the `gpu` partition
 mkdir -p "$LOG_DIR"
 
-# size -> "HF_MODEL gres mem ngpus"
+# size -> "HF_MODEL gres mem ngpus"  (a10=24GB fits <=8B incl generation; l40s=48GB for 14B)
 spec_for() {
   case "$1" in
-    1.7b) echo "Qwen/Qwen3-1.7B gpu:a30:1 48G 1" ;;
-    4b)   echo "Qwen/Qwen3-4B   gpu:a30:1 64G 1" ;;
-    8b)   echo "Qwen/Qwen3-8B   gpu:l40:1 64G 1" ;;
-    14b)  echo "Qwen/Qwen3-14B  gpu:l40:1 96G 1" ;;
-    32b)  echo "Qwen/Qwen3-32B  gpu:h100:1 128G 1" ;;
+    1.7b) echo "Qwen/Qwen3-1.7B gpu:a10:1  48G 1" ;;
+    4b)   echo "Qwen/Qwen3-4B   gpu:a10:1  64G 1" ;;
+    8b)   echo "Qwen/Qwen3-8B   gpu:a10:1  64G 1" ;;
+    14b)  echo "Qwen/Qwen3-14B  gpu:l40s:1 96G 1" ;;
+    32b)  echo "Qwen/Qwen3-32B  gpu:h100:1 128G 1" ;;   # submit with PARTITION=gpu QOS=gpu
     *) echo "" ;;
   esac
 }
@@ -39,7 +42,7 @@ for sz in $SIZES; do
   [[ -z "${MODEL:-}" ]] && { echo "skip unknown size $sz"; continue; }
   TAG="qwen3_${sz//./}"
   JOB="rsn_${TAG}"
-  sbatch --job-name="$JOB" --partition="$PARTITION" --gres="$GRES" \
+  sbatch --job-name="$JOB" --partition="$PARTITION" --qos="$QOS" --gres="$GRES" \
          --cpus-per-task=8 --mem="$MEM" --time="$TIME_LIMIT" \
          --output="${LOG_DIR}/${JOB}.%j.out" --error="${LOG_DIR}/${JOB}.%j.out" \
          --wrap "set -euo pipefail
