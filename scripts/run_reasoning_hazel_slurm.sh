@@ -37,22 +37,36 @@ spec_for() {
   esac
 }
 
+# NB: sbatch --wrap runs under /bin/sh (dash) where `module`, `source` and `set -o pipefail`
+# fail instantly. So we emit a real #!/usr/bin/env bash job script per size and sbatch that.
+JOBSCRIPT_DIR="${JOBSCRIPT_DIR:-${LOG_DIR}/jobscripts}"; mkdir -p "$JOBSCRIPT_DIR"
 for sz in $SIZES; do
   read -r MODEL GRES MEM NGPU <<<"$(spec_for "$sz")"
   [[ -z "${MODEL:-}" ]] && { echo "skip unknown size $sz"; continue; }
   TAG="qwen3_${sz//./}"
   JOB="rsn_${TAG}"
-  sbatch --job-name="$JOB" --partition="$PARTITION" --qos="$QOS" --gres="$GRES" \
-         --cpus-per-task=8 --mem="$MEM" --time="$TIME_LIMIT" \
-         --output="${LOG_DIR}/${JOB}.%j.out" --error="${LOG_DIR}/${JOB}.%j.out" \
-         --wrap "set -euo pipefail
+  JS="${JOBSCRIPT_DIR}/${JOB}.sh"
+  cat > "$JS" <<EOF
+#!/usr/bin/env bash
+#SBATCH --job-name=${JOB}
+#SBATCH --partition=${PARTITION}
+#SBATCH --qos=${QOS}
+#SBATCH --gres=${GRES}
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=${MEM}
+#SBATCH --time=${TIME_LIMIT}
+#SBATCH --output=${LOG_DIR}/${JOB}.%j.out
+#SBATCH --error=${LOG_DIR}/${JOB}.%j.out
+set -euo pipefail
 module load cuda
-source '${ENV_PREFIX}/bin/activate' 2>/dev/null || export PATH='${ENV_PREFIX}/bin':\$PATH
-export HF_HOME='${CACHE_ROOT}/huggingface' HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_HUB_DISABLE_XET=1
-export TTS_C4_FILE='${DATA_DIR}/c4.txt' TTS_WIKI_FILE='${DATA_DIR}/wikitext.txt'
-export PYTHONPATH='${REPO_DIR}/src:${REPO_DIR}/scripts'
-cd '${REPO_DIR}'
-MODEL='${MODEL}' TAG='${TAG}' PY=python bash scripts/run_reasoning_qwen3.sh"
-  echo "submitted $JOB  ($MODEL, $GRES, $MEM)"
+export PATH="${ENV_PREFIX}/bin:\$PATH"
+export HF_HOME="${CACHE_ROOT}/huggingface" HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_HUB_DISABLE_XET=1
+export TTS_C4_FILE="${DATA_DIR}/c4.txt" TTS_WIKI_FILE="${DATA_DIR}/wikitext.txt"
+export PYTHONPATH="${REPO_DIR}/src:${REPO_DIR}/scripts"
+cd "${REPO_DIR}"
+MODEL="${MODEL}" TAG="${TAG}" PY=python bash scripts/run_reasoning_qwen3.sh
+EOF
+  sbatch "$JS"
+  echo "submitted $JOB  ($MODEL, $GRES, $MEM)  [$JS]"
 done
 echo "watch: squeue -u \$USER ; tail -f ${LOG_DIR}/rsn_*.out"
