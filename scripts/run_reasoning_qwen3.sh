@@ -15,6 +15,7 @@ TAG="${TAG:?set TAG, e.g. qwen3_4b}"
 N_TRACES="${N_TRACES:-200}"; REMOVE_RHO="${REMOVE_RHO:-0.008}"
 AMP_RHO="${AMP_RHO:-0.001}"; AMP_ALPHAS="${AMP_ALPHAS:-1.25}"
 log(){ echo "[$TAG $(date +%T)] $*"; }
+mkdir -p results logs   # results/ is gitignored; jobs must create it
 
 if [[ -z "${SKIP_TRACES:-}" ]]; then
   log "1/5 generate traces ..."
