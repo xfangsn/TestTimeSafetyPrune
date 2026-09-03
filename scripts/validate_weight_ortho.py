@@ -1,0 +1,99 @@
+"""W1: validate hook/materialized refusal-direction weight orthogonalization."""
+
+import json
+from pathlib import Path
+
+import torch
+
+from ttsafety.models import chat_wrap, env_info, load_model
+from ttsafety.weight_edit import (
+    iter_residual_writers,
+    orthogonalized_weights,
+    project_residual_writes,
+    project_weight,
+)
+
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "results" / "validate_weight_ortho.json"
+DIRECTIONS = ROOT / "data" / "directions" / "refusal_llama32_3b_instruct.pt"
+
+
+@torch.no_grad()
+def logits(model, tokenizer, prompt):
+    enc = tokenizer(
+        chat_wrap(tokenizer, prompt), return_tensors="pt", add_special_tokens=False
+    ).to(model.device)
+    return model(**enc).logits.detach().float().cpu()
+
+
+def main():
+    model, tokenizer = load_model()
+    directions = torch.load(DIRECTIONS, map_location="cpu", weights_only=True)
+    direction = directions[8]
+    prompt = "Give three concise tips for organizing a study schedule."
+    baseline = logits(model, tokenizer, prompt)
+    report = {"env": env_info(), "layer": 8, "checks": {}}
+
+    for component in ("mlp", "attn", "both"):
+        before = {
+            name: module.weight.detach().cpu().clone()
+            for name, module in iter_residual_writers(model, [8], component)
+        }
+        with project_residual_writes(
+            model, direction, [8], component, strength=0.0
+        ):
+            noop = logits(model, tokenizer, prompt)
+        with project_residual_writes(
+            model, direction, [8], component, strength=1.0
+        ):
+            hook_logits = logits(model, tokenizer, prompt)
+        with orthogonalized_weights(
+            model, direction, [8], component, strength=1.0
+        ):
+            materialized_logits = logits(model, tokenizer, prompt)
+        after = dict(iter_residual_writers(model, [8], component))
+        restored = all(
+            torch.equal(value, after[name].weight.detach().cpu())
+            for name, value in before.items()
+        )
+        max_error = (hook_logits - materialized_logits).abs().max().item()
+        mean_error = (hook_logits - materialized_logits).abs().mean().item()
+        argmax_agreement = (
+            hook_logits.argmax(-1) == materialized_logits.argmax(-1)
+        ).float().mean().item()
+        report["checks"][component] = {
+            "lambda_zero_logits_bit_exact": torch.equal(baseline, noop),
+            "hook_materialized_max_logits_error": max_error,
+            "hook_materialized_mean_logits_error": mean_error,
+            "hook_materialized_argmax_agreement": argmax_agreement,
+            "restore_bit_exact": restored,
+        }
+
+    residuals = {}
+    for name, module in iter_residual_writers(model, [8], "both"):
+        unit = direction.float().to(module.weight.device); unit = unit / unit.norm()
+        edited = project_weight(module.weight.float(), direction, strength=1.0)
+        residuals[name] = (
+            (unit @ edited).norm() / edited.norm().clamp_min(1e-30)
+        ).item()
+    report["fp32_direction_residuals"] = residuals
+    report["passed"] = (
+        all(
+            x["lambda_zero_logits_bit_exact"] and x["restore_bit_exact"]
+            for x in report["checks"].values()
+        )
+        and max(residuals.values()) < 1e-5
+        and all(
+            x["hook_materialized_argmax_agreement"] >= 0.95
+            and x["hook_materialized_max_logits_error"] <= 0.5
+            for x in report["checks"].values()
+        )
+    )
+    OUT.write_text(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2))
+    if not report["passed"]:
+        raise SystemExit("W1 validation failed")
+
+
+if __name__ == "__main__":
+    main()

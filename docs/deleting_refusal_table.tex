@@ -1,0 +1,37 @@
+% Deleting Refusal: controlled-surface refusal-removal comparison. Requires \usepackage{booktabs}.
+% Numbers: results/blade_weaken_ood.json + results/weaken_llm_judge.json (Llama-3.2-3B, held-out
+% HarmBench, plain generation / no prefill). Metric = residual refusal rate (lower = more removed),
+% by a string matcher and a Kimi-K3 refuse-vs-not label; base (unedited) refuses 88.5% (string).
+\begin{table}[t]
+  \centering\small
+  \caption{\textbf{Deleting refusal: removing behavior-relevant weights vs.\ steering activations.}
+    Each method is run in its removal form on the \emph{shared residual-writer surface} (every
+    layer's \texttt{o\_proj} and \texttt{down\_proj}); its hyperparameters are selected on in-distribution
+    validation to minimize refusal subject to a WikiText perplexity increase $\le\!5\%$, frozen and
+    hashed before evaluation on held-out HarmBench (plain generation, no prefill). We report the
+    \emph{residual refusal rate} (lower $=$ more removed) under a string matcher and a Kimi-K3
+    refuse-vs.-not judge, and the WikiText perplexity change. The unedited model refuses $88.5\%$
+    of these prompts. Weight-level edits delete refusal far more completely than negative activation
+    steering at matched perplexity cost; BLADE removes it entirely at $+0.3\%$ perplexity.
+    \emph{Controlled comparison, not paper-native:} all methods share one edit surface (Wei and
+    Arditi natively edit more matrices); Wei follows the authors' released whole-matrix set-difference;
+    Arditi is per-layer directional ablation at the budget-admissible strength $s{=}0.5$.}
+  \label{tab:deleting-refusal}
+  \begin{tabular}{@{}llcccc@{}}
+    \toprule
+    & & & & \multicolumn{2}{c}{\textbf{Refusal rate} $\downarrow$} \\
+    \cmidrule(l){5-6}
+    \textbf{Method} & \textbf{Removal form} & \textbf{Config} & $\Delta$\textbf{ppl} &
+      \textbf{string} & \textbf{LLM} \\
+    \midrule
+    \multicolumn{6}{@{}l}{\emph{Weight-level edits}}\\
+    \textbf{BLADE} (ours)      & zero top-$\rho$ writer weights & $L{=}12,\ \rho{=}0.5\%$ & $+0.3\%$ & $\mathbf{0.000}$ & $\mathbf{0.033}$ \\
+    Wei et al.~\citeyearpar{wei2024brittleness}  & prune SNIP set-difference & $q{=}p{=}0.5\%$ & $+0.9\%$ & $0.170$ & $0.180$ \\
+    Arditi et al.~\citeyearpar{arditi2024refusal} & directional ablation $(I{-}rr^\top)W$ & $s{=}0.5$ & $+1.2\%$ & $0.220$ & $0.293$ \\
+    \addlinespace[2pt]
+    \multicolumn{6}{@{}l}{\emph{Activation steering (negative coefficient)}}\\
+    CAA~\citeyearpar{rimsky2024caa}    & subtract steering vector & $L{=}12,\ c{=}{-}0.2$ & $+0.5\%$ & $0.870$ & $0.833$ \\
+    ActAdd~\citeyearpar{turner2024actadd} & subtract contrast vector & $L{=}16,\ c{=}{-}16$ & $+5.2\%$ & $0.855$ & $0.847$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}

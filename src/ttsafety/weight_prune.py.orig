@@ -1,0 +1,117 @@
+"""Reversible unstructured pruning of selected residual-writer weights."""
+
+from __future__ import annotations
+
+from contextlib import contextmanager
+
+import torch
+from torch import nn
+
+
+def flat_to_row_col(flat_indices: torch.Tensor, n_cols: int):
+    """Convert flat row-major indices to matrix coordinates."""
+    if n_cols <= 0:
+        raise ValueError("n_cols must be positive")
+    indices = flat_indices.to(torch.long)
+    return indices // n_cols, indices % n_cols
+
+
+def rank_weight_indices(
+    scores: dict[str, torch.Tensor],
+    max_fraction: float,
+    *,
+    largest: bool = True,
+    per_matrix_cap: float = 0.10,
+) -> dict:
+    """Build a global ranking while enforcing a per-matrix candidate cap."""
+    if not 0 < max_fraction <= per_matrix_cap <= 1:
+        raise ValueError("require 0 < max_fraction <= per_matrix_cap <= 1")
+    names = sorted(scores)
+    total = sum(value.numel() for value in scores.values())
+    global_k = max(1, round(max_fraction * total))
+    candidate_values = []
+    candidate_local = []
+    candidate_matrix = []
+    for matrix_id, name in enumerate(names):
+        flat = scores[name].float().flatten()
+        cap = max(1, int(per_matrix_cap * flat.numel()))
+        values, local = torch.topk(flat, cap, largest=largest, sorted=False)
+        candidate_values.append(values)
+        candidate_local.append(local)
+        candidate_matrix.append(
+            torch.full((cap,), matrix_id, dtype=torch.int16)
+        )
+    values = torch.cat(candidate_values)
+    local = torch.cat(candidate_local)
+    matrix_ids = torch.cat(candidate_matrix)
+    _, order = torch.topk(values, global_k, largest=largest, sorted=True)
+    return {
+        "names": names,
+        "matrix_ids": matrix_ids[order],
+        "flat_indices": local[order],
+        "max_fraction": max_fraction,
+        "total_pool_weights": total,
+        "largest": largest,
+        "per_matrix_cap": per_matrix_cap,
+    }
+
+
+def selection_from_ranking(ranking: dict, fraction: float) -> dict[str, torch.Tensor]:
+    """Take a prefix of a global ranking and group indices by matrix."""
+    if not 0 < fraction <= ranking["max_fraction"]:
+        raise ValueError("fraction outside ranking range")
+    k = max(1, round(fraction * ranking["total_pool_weights"]))
+    matrix_ids = ranking["matrix_ids"][:k]
+    local = ranking["flat_indices"][:k]
+    return {
+        name: local[matrix_ids == matrix_id]
+        for matrix_id, name in enumerate(ranking["names"])
+        if (matrix_ids == matrix_id).any()
+    }
+
+
+def random_scores_like(scores: dict[str, torch.Tensor], seed: int) -> dict:
+    generator = torch.Generator().manual_seed(seed)
+    return {
+        name: torch.rand(value.shape, generator=generator, dtype=torch.float32)
+        for name, value in scores.items()
+    }
+
+
+def _resolve_modules(model: nn.Module, names: list[str]) -> dict[str, nn.Module]:
+    modules = dict(model.named_modules())
+    resolved = {}
+    for name in names:
+        module = modules.get(name)
+        if module is None:
+            matches = [value for key, value in modules.items() if key.endswith(name)]
+            if len(matches) != 1:
+                raise KeyError(f"cannot uniquely resolve module {name!r}")
+            module = matches[0]
+        resolved[name] = module
+    return resolved
+
+
+@contextmanager
+def pruned_weights(model: nn.Module, selection: dict[str, torch.Tensor]):
+    """Zero selected flat weight entries and restore their exact values on exit."""
+    modules = _resolve_modules(model, list(selection))
+    backups = {}
+    with torch.no_grad():
+        for name, indices in selection.items():
+            weight = modules[name].weight
+            device_indices = indices.to(weight.device, torch.long)
+            flat = weight.view(-1)
+            backups[name] = flat[device_indices].detach().cpu().clone()
+            flat[device_indices] = 0
+    try:
+        yield
+    finally:
+        with torch.no_grad():
+            for name, indices in selection.items():
+                weight = modules[name].weight
+                device_indices = indices.to(weight.device, torch.long)
+                weight.view(-1)[device_indices] = backups[name].to(
+                    weight.device, weight.dtype
+                )
+

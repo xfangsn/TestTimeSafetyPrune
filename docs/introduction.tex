@@ -1,0 +1,67 @@
+\section{Introduction}
+\label{sec:intro}
+
+Post-training---instruction tuning, preference optimization, and safety alignment---installs many of
+an LLM's most consequential behaviors: refusing harmful requests, deferring to a user's framing,
+admitting ignorance. We show that each such behavior, though the product of billions of gradient
+updates across the whole network, is controlled by a tiny, sparse subset of the model's weights. On
+Llama-3.2-3B, zeroing $0.5\%$ of one layer's residual-writer weights ($\sim\!173$k scalars) switches
+refusal off---an always-refusing model then complies with every evaluated harmful prompt (refusal
+$100\%\!\to\!0\%$)---while WikiText perplexity rises by at most $0.3\%$ and zero-shot accuracy changes
+little. That so few weights toggle the behavior while perplexity and zero-shot accuracy stay nearly
+unchanged marks them as \emph{behavior-selective}: they modulate this one behavior rather than carry
+the model's general computation. In this functional sense---a behavior-selective gain, not a claimed
+synaptic mechanism---they resemble a modulatory synapse, which gates rather than drives a
+signal~\cite{sherman1998thalamus}.
+
+Because the control is at the weight level, the subset is a scalar dial: rescaling it by a factor
+$\alpha$ tunes the behavior's strength, with $\alpha{=}0$ removing it and $\alpha{>}1$ strengthening
+it. The same picture---a sparse subset concentrated at a family-specific effective layer---recurs for
+refusal across four model families (Llama, Qwen, Gemma, Phi), and zeroing the analogous subsets
+suppresses other post-training behaviors as well, including sycophancy and persona traits.
+
+Existing control operates at one of two levels, neither offering this per-weight dial. At the level
+of \emph{representations}, activation steering adds a behavior direction to the residual stream on
+every forward pass~\cite{zou2023repe,rimsky2024caa,turner2024actadd}, and directional ablation bakes
+a direction's removal into the weights but cannot amplify~\cite{arditi2024refusal}. At the level of
+\emph{parameters}, task arithmetic edits whole task vectors~\cite{ilharco2023task} and safety pruning
+removes behavior-relevant weights using gradients~\cite{wei2024brittleness,orgad2026harmful}---at
+checkpoint granularity, or with backward passes and labeled objectives; magnitude pruning scores
+weights forward-only~\cite{sun2023wanda} but is behavior-agnostic.
+
+We introduce \textbf{BLADE} (\emph{Behavioral Localization via Activation-Difference Estimation}), a
+gradient-free, forward-only method that scores the behavior-specific importance of every scalar in a
+model's residual-writer matrices---attention output projections and MLP down-projections---selects a
+sparse effective set of layers under a perplexity budget, and controls the behavior by rescaling only
+the highest-scoring weights. For weight $W_{ij}$, BLADE scores $\left[\,r_i\,W_{ij}\,\Delta\mu_j\,
+\right]_+$: a difference-in-means behavior direction $r$~\cite{arditi2024refusal}, the weight, and the
+contrastive shift $\Delta\mu$ in its input activation---a Wanda-style weight--activation
+score~\cite{sun2023wanda} projected onto the behavior direction. Every term is a forward-pass
+statistic on a small contrastive prompt set.
+
+The resulting mask is a persistent, bidirectional control: a one-time edit that, unlike inference-time
+steering, adds no per-token overhead, and unlike directional ablation, both removes \emph{and}
+amplifies. Amplifying to harden out-of-distribution refusal on held-out
+HarmBench~\cite{mazeika2024harmbench}, BLADE ($\rho{=}0.002$, $\alpha{=}1.5$) reaches $33.0\%/46.0\%$
+refusal under a string matcher and an LLM judge---within $6.0/2.7$ points of the strongest steering
+baseline ($39.0\%/48.7\%$)---while limiting the WikiText perplexity increase to $0.27\%$ (about
+one-thirtieth of the baseline's $8.5\%$) and over-refusal on safe prompts to $11.6\%/11.2\%$, against
+$22.8\%$~\cite{rottger2024xstest}.
+
+\paragraph{Contributions.}
+\begin{itemize}
+  \item \textbf{Forward-only, behavior-specific weight attribution.} A per-weight score for a
+    residual-writer weight's contribution to a contrastively specified behavior, computed from
+    forward passes only, with an Effective-Layer Selection procedure that localizes the behavior to a
+    sparse subset under a perplexity budget.
+  \item \textbf{Sparse weights exert selective control over post-training behaviors.} Across the
+    evaluated refusal, sycophancy, and persona-trait settings, zeroing BLADE-selected weights
+    suppresses the target behavior with little change in perplexity or zero-shot accuracy; for
+    Llama-3.2-3B refusal, zeroing $\sim\!173$k weights ($0.5\%$ of one layer) drives refusal from
+    $100\%$ to $0\%$ at a $\le\!0.3\%$ WikiText perplexity increase.
+  \item \textbf{Persistent, bidirectional control.} Rescaling the same sparse mask down or up
+    removes or strengthens the behavior with no activation intervention at generation time; amplifying
+    comes within $6.0/2.7$ points of the strongest activation-steering configuration on held-out
+    HarmBench while using about one-thirtieth its perplexity increase and half its over-refusal, under
+    a protocol whose masks, layers, and hyperparameters are all selected on held-in data.
+\end{itemize}

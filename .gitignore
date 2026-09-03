@@ -1,0 +1,15 @@
+# Heavy / machine-local artifacts — never commit (Hazel rebuilds these).
+.venv/
+__pycache__/
+*.pyc
+data/
+logs/
+figures/
+results/
+*.pt
+*.safetensors
+scratch*
+scratchpad_slides/
+*.png
+*.pdf
+.DS_Store

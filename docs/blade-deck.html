@@ -1,0 +1,695 @@
+<title>BLADE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --paper:#f5f6f5; --surface:#ffffff; --surface-2:#ecefec; --ink:#0c0d0c;
+  --ink-2:#54544f; --ink-3:#87877f; --line:#d9dcd8;
+  --accent:#2a78d6; --accent-ink:#184f95;
+  --hub:#eb6834; --other:#1baf7a; --null:#a6aaa4;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1216; --surface:#171c22; --surface-2:#212932; --ink:#f2f3f1;
+    --ink-2:#b7bbc0; --ink-3:#7f858c; --line:#2b333c;
+    --accent:#4b95ec; --accent-ink:#9cc2f2;
+    --hub:#f2793f; --other:#25b382; --null:#6a7078;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1216; --surface:#171c22; --surface-2:#212932; --ink:#f2f3f1;
+  --ink-2:#b7bbc0; --ink-3:#7f858c; --line:#2b333c;
+  --accent:#4b95ec; --accent-ink:#9cc2f2;
+  --hub:#f2793f; --other:#25b382; --null:#6a7078;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.deck{scroll-snap-type:y mandatory;height:100vh;overflow-y:auto;scroll-behavior:smooth}
+.slide{
+  min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;
+  justify-content:center;padding:clamp(20px,4vw,60px);position:relative;
+}
+.stage{
+  width:100%;max-width:1120px;background:var(--surface);
+  border:1px solid var(--line);border-radius:14px;
+  padding:clamp(24px,3.4vw,52px);position:relative;
+  box-shadow:0 1px 0 var(--line),0 24px 60px -40px rgba(0,0,0,.5);
+  min-height:min(680px,86vh);display:flex;flex-direction:column;
+}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 14px;font-weight:600;
+}
+h1,h2{margin:0;text-wrap:balance;letter-spacing:-.02em;font-weight:750;line-height:1.08}
+h1{font-size:clamp(38px,6.4vw,74px)}
+h2{font-size:clamp(24px,3.4vw,40px);margin-bottom:8px}
+.sub{color:var(--ink-2);font-size:clamp(15px,1.5vw,19px);max-width:64ch}
+p{margin:.5em 0}
+.mono{font-family:var(--mono)}
+.muted{color:var(--ink-2)}
+.small{font-size:13.5px}
+.grow{flex:1}
+.center{display:flex;flex-direction:column;justify-content:center}
+
+/* title slide */
+.title-formula{
+  font-family:var(--mono);font-size:clamp(14px,1.9vw,21px);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:10px;
+  padding:16px 20px;margin:26px 0 8px;color:var(--ink);display:inline-block;
+  overflow-x:auto;max-width:100%;
+}
+.title-formula b{color:var(--accent)}
+.byline{color:var(--ink-3);font-family:var(--mono);font-size:13px;margin-top:20px}
+.tag{
+  display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--ink-2);
+  margin:4px 6px 0 0;background:var(--paper);
+}
+
+/* generic layout */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,40px);align-items:center}
+.cols.wide-left{grid-template-columns:1.15fr .85fr}
+.cols.wide-right{grid-template-columns:.9fr 1.1fr}
+@media(max-width:820px){.cols{grid-template-columns:1fr}}
+figure{margin:0}
+figcaption{font-size:13px;color:var(--ink-2);margin-top:10px;font-family:var(--mono)}
+svg{max-width:100%;height:auto;display:block}
+
+ul.clean{list-style:none;padding:0;margin:10px 0}
+ul.clean li{padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--line);color:var(--ink-2)}
+ul.clean li:first-child{border-top:none}
+ul.clean li::before{content:"";position:absolute;left:2px;top:16px;width:9px;height:2px;background:var(--accent)}
+ul.clean li b{color:var(--ink)}
+
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0}
+@media(max-width:720px){.tiles{grid-template-columns:1fr}}
+.tile{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.tile .k{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.tile .v{font-size:clamp(26px,3.2vw,38px);font-weight:750;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:4px}
+.tile .v.accent{color:var(--accent)}
+.tile .v.hub{color:var(--hub)}
+.tile .d{font-size:13px;color:var(--ink-2);margin-top:4px}
+
+table.mini{border-collapse:collapse;width:100%;font-size:14px}
+table.mini th,table.mini td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+table.mini th{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+table.mini td.num{font-variant-numeric:tabular-nums;text-align:right}
+.chk{color:var(--other);font-weight:700}
+.crx{color:var(--hub);font-weight:700}
+
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ink-2);margin-top:6px;font-family:var(--mono)}
+.legend .li{display:inline-flex;align-items:center;gap:7px}
+.swatch{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+/* nav */
+.dots{position:fixed;right:16px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:20}
+.dots button{width:9px;height:9px;border-radius:50%;border:1px solid var(--ink-3);background:transparent;padding:0;cursor:pointer}
+.dots button[aria-current="true"]{background:var(--accent);border-color:var(--accent)}
+.pageno{position:fixed;left:18px;bottom:14px;font-family:var(--mono);font-size:12px;color:var(--ink-3);z-index:20}
+.hint{position:fixed;right:18px;bottom:14px;font-family:var(--mono);font-size:12px;color:var(--ink-3);z-index:20}
+.themebtn{position:fixed;left:18px;top:14px;z-index:20;font-family:var(--mono);font-size:12px;
+  background:var(--surface);border:1px solid var(--line);color:var(--ink-2);border-radius:8px;padding:5px 10px;cursor:pointer}
+
+/* chart tooltip */
+#tt{position:fixed;pointer-events:none;z-index:50;background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-size:12px;padding:6px 9px;border-radius:6px;opacity:0;transition:opacity .1s;max-width:240px}
+.bar,.cell,.pt{cursor:default}
+.bar:hover,.cell:hover{filter:brightness(1.08)}
+.axis{stroke:var(--line);stroke-width:1}
+.grid{stroke:var(--line);stroke-width:1;stroke-dasharray:2 4;opacity:.7}
+.axlabel{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.datalabel{font-family:var(--mono);font-size:12px;fill:var(--ink);font-variant-numeric:tabular-nums}
+.serieslabel{font-family:var(--mono);font-size:12.5px;font-weight:600}
+
+@media print{
+  .dots,.pageno,.hint,.themebtn,#tt{display:none}
+  .deck{height:auto;overflow:visible}
+  .slide{min-height:auto;page-break-after:always;padding:0}
+  .stage{box-shadow:none;min-height:auto;border-radius:0}
+  @page{size:landscape}
+}
+@media (prefers-reduced-motion:reduce){html,.deck{scroll-behavior:auto}}
+</style>
+
+<button class="themebtn" id="themebtn" aria-label="toggle theme">◐ theme</button>
+<nav class="dots" id="dots" aria-label="slides"></nav>
+<div class="pageno" id="pageno">01</div>
+<div class="hint">↑ ↓ / scroll</div>
+<div id="tt" role="status"></div>
+
+<main class="deck" id="deck">
+
+<!-- 1 TITLE -->
+<section class="slide" id="s1">
+  <div class="stage center">
+    <p class="eyebrow">Mechanistic interpretability · weight-level localization</p>
+    <h1>BLADE</h1>
+    <p class="sub" style="margin-top:14px;font-size:clamp(17px,1.9vw,23px);color:var(--ink)">
+      <b>B</b>ehavioral <b>L</b>ocalization via <b>A</b>ctivation-<b>D</b>ifference <b>E</b>dges</p>
+    <p class="sub" style="margin-top:6px">Finding — and surgically removing — the individual weights that carry a
+      trained-in behavior, then mapping where every behavior lives.</p>
+    <div class="title-formula mono">
+      s<sub>ij</sub> = max(&nbsp;<b>r<sub>i</sub></b> &middot; W<sub>ij</sub> &middot; (<b>&mu;<sup>A</sup><sub>j</sub> &minus; &mu;<sup>B</sup><sub>j</sub></b>)&nbsp;, 0 )
+    </div>
+    <div>
+      <span class="tag">Llama-3.2-3B-Instruct</span>
+      <span class="tag">gradient-free</span>
+      <span class="tag">8-behavior atlas</span>
+    </div>
+    <p class="byline">Test-Time Safety Pruning · 2026</p>
+  </div>
+</section>
+
+<!-- 2 PROBLEM -->
+<section class="slide" id="s2">
+  <div class="stage center">
+    <p class="eyebrow">The question</p>
+    <h2>Alignment installs behaviors. Where do they physically live?</h2>
+    <div class="cols" style="margin-top:22px">
+      <div>
+        <p class="sub">RLHF instills a repertoire — refusal, sycophancy, power-seeking, an AI
+          self-model. We treat these as global properties, but they are written by <b>specific
+          weights</b> in specific layers.</p>
+        <ul class="clean" style="margin-top:16px">
+          <li><b>Localize</b> — can we name the weights that carry one behavior?</li>
+          <li><b>Excise</b> — does zeroing them remove the behavior while sparing capability?</li>
+          <li><b>Compare</b> — do different behaviors share weights, or occupy separate territory?</li>
+        </ul>
+      </div>
+      <div>
+        <figure>
+          <svg viewBox="0 0 420 300" role="img" aria-label="A trained model contains behavior-specific weight subsets inside a shared network.">
+            <rect x="14" y="16" width="392" height="268" rx="12" fill="none" stroke="var(--line)"/>
+            <text x="30" y="42" class="axlabel" style="font-size:12px">aligned model · L7–L18 writer weights</text>
+            <!-- scattered weights -->
+            <g fill="var(--ink-3)" opacity="0.35">
+              <!-- background dots grid -->
+            </g>
+            <circle cx="150" cy="150" r="88" fill="var(--accent)" opacity="0.12" stroke="var(--accent)"/>
+            <circle cx="255" cy="120" r="60" fill="var(--hub)" opacity="0.12" stroke="var(--hub)"/>
+            <circle cx="250" cy="205" r="48" fill="var(--other)" opacity="0.12" stroke="var(--other)"/>
+            <text x="150" y="154" text-anchor="middle" class="serieslabel" fill="var(--accent)">refusal</text>
+            <text x="255" y="118" text-anchor="middle" class="serieslabel" fill="var(--hub)">power-</text>
+            <text x="255" y="132" text-anchor="middle" class="serieslabel" fill="var(--hub)">seeking</text>
+            <text x="250" y="209" text-anchor="middle" class="serieslabel" fill="var(--other)">sycophancy</text>
+          </svg>
+          <figcaption>Each behavior ≈ a small, findable subset of the 415M writer weights.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 MECHANISM -->
+<section class="slide" id="s3">
+  <div class="stage">
+    <p class="eyebrow">Method · what the score measures</p>
+    <h2>Score each weight by how much it writes the behavior</h2>
+    <div class="cols wide-right grow" style="margin-top:10px">
+      <div class="center">
+        <p class="sub">A residual-stream writer <span class="mono">W</span> (attention
+          <span class="mono">o_proj</span> / MLP <span class="mono">down_proj</span>) maps its input
+          activations into the stream. The unit <b>behavior direction r</b> reads the behavior out.</p>
+        <p class="sub" style="margin-top:12px">Edge <span class="mono">j→i</span> contributes
+          <span class="mono">r<sub>i</sub>·W<sub>ij</sub>·(μ<sup>A</sup><sub>j</sub>−μ<sup>B</sup><sub>j</sub>)</span>
+          to the behavior's write, where <span class="mono">μ<sup>A</sup>−μ<sup>B</sup></span> is the
+          writer-input difference between the behavior and neutral condition.</p>
+        <p class="sub" style="margin-top:12px"><b>Keep positive contributors, forward-only.</b> No
+          backprop — just two mean-activation passes and a projection.</p>
+      </div>
+      <div>
+        <figure>
+          <svg viewBox="0 0 480 360" role="img" aria-label="A writer matrix maps input activations into the residual stream; edge i,j contributes r_i times W_ij times the activation difference along direction r.">
+            <!-- residual stream -->
+            <rect x="40" y="34" width="404" height="30" rx="6" fill="var(--surface-2)" stroke="var(--line)"/>
+            <text x="48" y="53" class="axlabel">residual stream (layer l)</text>
+            <!-- direction r arrow along stream -->
+            <line x1="360" y1="49" x2="432" y2="49" stroke="var(--accent)" stroke-width="2" marker-end="url(#ar)"/>
+            <text x="396" y="26" text-anchor="middle" class="serieslabel" fill="var(--accent)">r</text>
+            <!-- input contrast row (columns j) -->
+            <text x="240" y="112" text-anchor="middle" class="axlabel">writer input contrast  μ&#7468; − μ&#7482;  (index j)</text>
+            <g>
+              <rect x="150" y="120" width="180" height="24" fill="none" stroke="var(--line)"/>
+              <line x1="180" y1="120" x2="180" y2="144" stroke="var(--line)"/>
+              <line x1="210" y1="120" x2="210" y2="144" stroke="var(--line)"/>
+              <rect x="210" y="120" width="30" height="24" fill="var(--hub)" opacity="0.22"/>
+              <line x1="240" y1="120" x2="240" y2="144" stroke="var(--line)"/>
+              <line x1="270" y1="120" x2="270" y2="144" stroke="var(--line)"/>
+              <line x1="300" y1="120" x2="300" y2="144" stroke="var(--line)"/>
+            </g>
+            <!-- W matrix -->
+            <g>
+              <rect x="150" y="164" width="180" height="120" fill="none" stroke="var(--line)"/>
+              <!-- grid lines -->
+              <line x1="180" y1="164" x2="180" y2="284" stroke="var(--line)"/>
+              <line x1="210" y1="164" x2="210" y2="284" stroke="var(--line)"/>
+              <line x1="240" y1="164" x2="240" y2="284" stroke="var(--line)"/>
+              <line x1="270" y1="164" x2="270" y2="284" stroke="var(--line)"/>
+              <line x1="300" y1="164" x2="300" y2="284" stroke="var(--line)"/>
+              <line x1="150" y1="194" x2="330" y2="194" stroke="var(--line)"/>
+              <line x1="150" y1="224" x2="330" y2="224" stroke="var(--line)"/>
+              <line x1="150" y1="254" x2="330" y2="254" stroke="var(--line)"/>
+              <!-- highlighted edge cell: col j (210-240), row i (194-224) -->
+              <rect x="210" y="194" width="30" height="30" fill="var(--accent)" opacity="0.9"/>
+              <text x="225" y="214" text-anchor="middle" style="font-family:var(--mono);font-size:12px;fill:#fff">W&#8305;&#11388;</text>
+              <text x="342" y="230" class="axlabel">W (out i × in j)</text>
+            </g>
+            <!-- output column (rows i) -->
+            <rect x="112" y="164" width="24" height="120" fill="none" stroke="var(--line)"/>
+            <rect x="112" y="194" width="24" height="30" fill="var(--accent)" opacity="0.28"/>
+            <text x="124" y="300" text-anchor="middle" class="axlabel">y&#8305;</text>
+            <!-- arrow output up into stream -->
+            <line x1="124" y1="164" x2="124" y2="66" stroke="var(--ink-3)" stroke-width="1.6" marker-end="url(#ar2)"/>
+            <!-- arrow input down into matrix -->
+            <line x1="225" y1="144" x2="225" y2="162" stroke="var(--ink-3)" stroke-width="1.6" marker-end="url(#ar2)"/>
+            <defs>
+              <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0 0,7 3,0 6" fill="var(--accent)"/></marker>
+              <marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0 0,7 3,0 6" fill="var(--ink-3)"/></marker>
+            </defs>
+            <!-- formula callout -->
+            <line x1="225" y1="209" x2="225" y2="326" stroke="var(--accent)" stroke-width="1" stroke-dasharray="2 3"/>
+            <rect x="60" y="316" width="360" height="30" rx="6" fill="var(--surface-2)" stroke="var(--accent)"/>
+            <text x="240" y="336" text-anchor="middle" style="font-family:var(--mono);font-size:13px;fill:var(--ink)">c&#8305;&#11388; = r&#8305; · W&#8305;&#11388; · (μ&#7468;&#11388; − μ&#7482;&#11388;)   →   sᵢⱼ = max(cᵢⱼ,0)</text>
+          </svg>
+          <figcaption>One highlighted edge and the exact quantity zeroing it removes.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 ALGORITHM -->
+<section class="slide" id="s4">
+  <div class="stage">
+    <p class="eyebrow">Method · pipeline</p>
+    <h2>From contrast pairs to a pruned behavior</h2>
+    <figure class="grow center" style="margin-top:8px">
+      <svg viewBox="0 0 1000 300" role="img" aria-label="Pipeline: contrast data yields a direction and activation moments, which are combined into BLADE edge scores, ranked and pruned, then evaluated against a random control.">
+        <defs>
+          <marker id="fa" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><polygon points="0 0,8 3.2,0 6.4" fill="var(--ink-3)"/></marker>
+        </defs>
+        <!-- step boxes -->
+        <!-- 1 data -->
+        <rect x="20" y="70" width="150" height="160" rx="10" fill="var(--surface-2)" stroke="var(--line)"/>
+        <text x="95" y="96" text-anchor="middle" class="serieslabel" fill="var(--ink)">1 · Contrast data</text>
+        <text x="95" y="122" text-anchor="middle" class="axlabel">behavior vs neutral</text>
+        <text x="95" y="140" text-anchor="middle" class="axlabel">A/B answer pairs</text>
+        <text x="95" y="176" text-anchor="middle" class="axlabel" style="fill:var(--ink-2)">AdvBench ·</text>
+        <text x="95" y="193" text-anchor="middle" class="axlabel" style="fill:var(--ink-2)">model-written</text>
+        <text x="95" y="210" text-anchor="middle" class="axlabel" style="fill:var(--ink-2)">evals</text>
+        <!-- 2a direction -->
+        <rect x="240" y="30" width="170" height="86" rx="10" fill="var(--surface)" stroke="var(--accent)"/>
+        <text x="325" y="58" text-anchor="middle" class="serieslabel" fill="var(--accent)">2a · Direction r</text>
+        <text x="325" y="80" text-anchor="middle" class="axlabel">CAA mean-diff</text>
+        <text x="325" y="97" text-anchor="middle" class="axlabel">over answer spans</text>
+        <!-- 2b moments -->
+        <rect x="240" y="184" width="170" height="86" rx="10" fill="var(--surface)" stroke="var(--hub)"/>
+        <text x="325" y="212" text-anchor="middle" class="serieslabel" fill="var(--hub)">2b · Moments μᴬ,μᴮ</text>
+        <text x="325" y="234" text-anchor="middle" class="axlabel">mean writer input</text>
+        <text x="325" y="251" text-anchor="middle" class="axlabel">last-token / span</text>
+        <!-- 3 score -->
+        <rect x="470" y="94" width="196" height="112" rx="10" fill="var(--surface-2)" stroke="var(--line)"/>
+        <text x="568" y="122" text-anchor="middle" class="serieslabel" fill="var(--ink)">3 · BLADE score</text>
+        <text x="568" y="150" text-anchor="middle" style="font-family:var(--mono);font-size:12px;fill:var(--ink)">sᵢⱼ = max(rᵢ Wᵢⱼ Δμⱼ,0)</text>
+        <text x="568" y="176" text-anchor="middle" class="axlabel">per weight, forward-only</text>
+        <!-- 4 prune -->
+        <rect x="726" y="94" width="120" height="112" rx="10" fill="var(--surface-2)" stroke="var(--line)"/>
+        <text x="786" y="128" text-anchor="middle" class="serieslabel" fill="var(--ink)">4 · Prune</text>
+        <text x="786" y="152" text-anchor="middle" class="axlabel">rank &amp;</text>
+        <text x="786" y="169" text-anchor="middle" class="axlabel">zero top-k</text>
+        <!-- 5 eval -->
+        <rect x="880" y="70" width="104" height="160" rx="10" fill="var(--surface)" stroke="var(--other)"/>
+        <text x="932" y="98" text-anchor="middle" class="serieslabel" fill="var(--other)">5 · Eval</text>
+        <text x="932" y="126" text-anchor="middle" class="axlabel">behavior ↓</text>
+        <text x="932" y="150" text-anchor="middle" class="axlabel">ppl ≈</text>
+        <text x="932" y="174" text-anchor="middle" class="axlabel">random</text>
+        <text x="932" y="191" text-anchor="middle" class="axlabel">control</text>
+        <!-- arrows -->
+        <line x1="170" y1="120" x2="238" y2="73" stroke="var(--ink-3)" stroke-width="1.6" marker-end="url(#fa)"/>
+        <line x1="170" y1="180" x2="238" y2="227" stroke="var(--ink-3)" stroke-width="1.6" marker-end="url(#fa)"/>
+        <line x1="410" y1="73" x2="468" y2="120" stroke="var(--ink-3)" stroke-width="1.6" marker-end="url(#fa)"/>
+        <line x1="410" y1="227" x2="468" y2="180" stroke="var(--ink-3)" stroke-width="1.6" marker-end="url(#fa)"/>
+        <line x1="666" y1="150" x2="724" y2="150" stroke="var(--ink-3)" stroke-width="1.6" marker-end="url(#fa)"/>
+        <line x1="846" y1="150" x2="878" y2="150" stroke="var(--ink-3)" stroke-width="1.6" marker-end="url(#fa)"/>
+      </svg>
+      <figcaption>Two forward passes (direction + moments) feed a per-weight score; a matched random-weight
+        prune is the null control at every step.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 5 SETUP -->
+<section class="slide" id="s5">
+  <div class="stage center">
+    <p class="eyebrow">Experimental setup</p>
+    <h2>One model, one target pool, one null control</h2>
+    <div class="tiles" style="margin-top:18px">
+      <div class="tile"><div class="k">Model</div><div class="v" style="font-size:24px">Llama-3.2-3B<br>Instruct</div><div class="d">bf16 · 28 layers · RTX 5090</div></div>
+      <div class="tile"><div class="k">Target pool</div><div class="v">415M</div><div class="d">L7–L18 · o_proj + down_proj · 24 matrices</div></div>
+      <div class="tile"><div class="k">Behaviors</div><div class="v">8</div><div class="d">refusal + 7 model-written A/B behaviors</div></div>
+    </div>
+    <div class="cols" style="margin-top:20px">
+      <ul class="clean">
+        <li><b>Direction r</b> — CAA mean-difference over answer spans</li>
+        <li><b>Metric</b> — MC pick-rate (behavior side) &amp; keyword/LLM refusal</li>
+        <li><b>Capability</b> — WikiText-2 perplexity + 6 zero-shot tasks</li>
+      </ul>
+      <ul class="clean">
+        <li><b>Null control</b> — prune the same #weights at random (3 seeds)</li>
+        <li><b>Reversible</b> — weights zeroed in-context, bit-exact restore</li>
+        <li><b>Budget</b> — behavior removal within +5% ppl</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 6 REFUSAL -->
+<section class="slide" id="s6">
+  <div class="stage center">
+    <p class="eyebrow">Result 1 · anchor behavior</p>
+    <h2>Refusal: gone by pruning 0.05% of the pool</h2>
+    <div class="tiles" style="margin-top:20px">
+      <div class="tile"><div class="k">Refusal rate</div><div class="v accent">1.00 → 0.00</div><div class="d">held-out harmful prompts</div></div>
+      <div class="tile"><div class="k">Weights pruned</div><div class="v">0.05%</div><div class="d">207,618 of 415M</div></div>
+      <div class="tile"><div class="k">Capability cost</div><div class="v">+0.6%</div><div class="d">ppl · −0.5pp mean acc_norm</div></div>
+    </div>
+    <p class="sub" style="margin-top:22px">The same-count <b>random</b> prune leaves refusal at <b>1.00</b>; magnitude- and
+      Wanda-smallest do nothing even at 5%. The score concentrates on genuinely load-bearing weights,
+      and the pruned edges peak at <b>L11–L15</b> — matching the independently-chosen refusal-direction source layer.</p>
+    <p class="small muted" style="margin-top:8px">Semantic (LLM-judge) refusal also 0.00; 100% of outputs carry substantive content. This is the behavior BLADE was built on — the rest of the talk asks: does it generalize?</p>
+  </div>
+</section>
+
+<!-- 7 SYCOPHANCY -->
+<section class="slide" id="s7">
+  <div class="stage">
+    <p class="eyebrow">Result 2 · does it transfer?</p>
+    <h2>Sycophancy: removed, and the null control stays flat</h2>
+    <div class="cols wide-right grow" style="margin-top:6px">
+      <div class="center">
+        <p class="sub">Same recipe, new contrast (agree-with-user vs honest). Pruning the top BLADE
+          weights drives the sycophantic pick-rate from <b>0.91 toward chance</b>; a matched random
+          prune doesn't move it.</p>
+        <ul class="clean" style="margin-top:14px">
+          <li><b>0.91 → 0.54</b> pick-rate on held-out test</li>
+          <li><b>Random control flat</b> at ~0.91–0.93 throughout</li>
+          <li>Lands near chance — removes the bias, doesn't install contrarianism</li>
+        </ul>
+      </div>
+      <figure>
+        <svg id="lineChart" viewBox="0 0 600 380" role="img" aria-label="Sycophancy pick-rate versus pruned fraction: BLADE falls from 0.91 to near chance while the random control stays flat near 0.91."></svg>
+        <figcaption>Sycophancy pick-rate vs pruned fraction (validation). Hover points for values.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 8 ATLAS CONCENTRATION -->
+<section class="slide" id="s8">
+  <div class="stage">
+    <p class="eyebrow">Result 3 · behavior atlas</p>
+    <h2>Behaviors differ ~200× in how concentrated they are</h2>
+    <div class="cols wide-right grow" style="margin-top:6px">
+      <div class="center">
+        <p class="sub">The weights needed to remove a behavior (within +5% ppl) span two orders of
+          magnitude — from tiny tight circuits to broadly distributed traits.</p>
+        <ul class="clean" style="margin-top:12px">
+          <li><b>Tight (~0.01%)</b> — self-awareness, wealth-seeking, refusal</li>
+          <li><b>Diffuse (&gt;2%)</b> — sycophancy</li>
+          <li>Every behavior beats its random control at its own sparsity</li>
+        </ul>
+        <div class="legend">
+          <span class="li"><span class="swatch" style="background:var(--accent)"></span>safety</span>
+          <span class="li"><span class="swatch" style="background:var(--hub)"></span>agentic persona</span>
+          <span class="li"><span class="swatch" style="background:var(--other)"></span>social / eval-gaming</span>
+        </div>
+      </div>
+      <figure>
+        <svg id="barChart" viewBox="0 0 620 360" role="img" aria-label="Concentration per behavior on a log axis: self-awareness and wealth-seeking near 0.01 percent, refusal 0.05 percent, up to sycophancy above 2 percent."></svg>
+        <figcaption>Min. pruned fraction to reach chance (log scale). Longer = more diffuse.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 9 ATLAS OVERLAP -->
+<section class="slide" id="s9">
+  <div class="stage">
+    <p class="eyebrow">Result 4 · behavior atlas</p>
+    <h2>Structured overlap: refusal isolated, agentic traits fused</h2>
+    <div class="cols grow" style="margin-top:6px;grid-template-columns:1.05fr .95fr">
+      <figure>
+        <svg id="heatmap" viewBox="0 0 470 470" role="img" aria-label="Overlap enrichment heatmap across eight behaviors; power-seeking and wealth-seeking overlap 856 times chance, refusal overlaps others only 43 to 83 times."></svg>
+        <figcaption>Weight-set overlap enrichment vs chance (matched top-207k). Hover cells for values.</figcaption>
+      </figure>
+      <div class="center">
+        <p class="sub">No pair is independent — every overlap is <b>43–856× above chance</b> — but the
+          structure is sharp:</p>
+        <ul class="clean" style="margin-top:12px">
+          <li><b>Agentic hub</b> — power / wealth / self-aware / corrigibility fuse (297–856×); power↔wealth <b>856×</b></li>
+          <li><b>Refusal isolated</b> — only 43–83× with anything else</li>
+          <li><b>Deception uniform</b> — 44–99×, joins no cluster; its top tie is the other eval-gaming trait</li>
+        </ul>
+        <p class="small muted" style="margin-top:8px">Cross-format pairs (refusal vs all) set a ~50–80× shared floor; the label-shuffle control separates semantics from answer-format for the very high in-cluster values.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 POSITIONING -->
+<section class="slide" id="s10">
+  <div class="stage center">
+    <p class="eyebrow">Contribution &amp; position</p>
+    <h2>Weight-level × multi-behavior × geometry</h2>
+    <div style="overflow-x:auto;margin-top:16px">
+      <table class="mini">
+        <thead><tr><th>Dimension</th><th>CAA (2024)</th><th>Wei et&nbsp;al. (2024)</th><th style="color:var(--accent)">BLADE</th></tr></thead>
+        <tbody>
+          <tr><td>Intervention</td><td>activations</td><td>weights</td><td><b>weights</b></td></tr>
+          <tr><td>Behaviors</td><td>many</td><td>safety only</td><td><b>8</b></td></tr>
+          <tr><td>Cross-behavior geometry</td><td class="crx">—</td><td class="crx">—</td><td class="chk">concentration + overlap</td></tr>
+          <tr><td>Gradient</td><td>free</td><td>uses grad / SNIP</td><td><b>free</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cols" style="margin-top:20px">
+      <ul class="clean">
+        <li><b>BLADE</b> localizes trained-in behaviors to individual weights, forward-only</li>
+        <li><b>Behavior Atlas</b> — first weight-level map of concentration &amp; overlap in an aligned LM</li>
+      </ul>
+      <ul class="clean">
+        <li><b>Caveat</b> — label-shuffle control to net out answer-format sharing</li>
+        <li><b>Caveat</b> — single 3B model; concentration is reported at a fixed μ recipe</li>
+      </ul>
+    </div>
+    <p class="byline" style="margin-top:auto">BLADE = Behavioral Localization via Activation-Difference Edges · Test-Time Safety Pruning 2026</p>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var deck=document.getElementById("deck");
+  var slides=[].slice.call(document.querySelectorAll(".slide"));
+  var dots=document.getElementById("dots");
+  var pageno=document.getElementById("pageno");
+  var tt=document.getElementById("tt");
+
+  // theme
+  var tb=document.getElementById("themebtn");
+  tb.addEventListener("click",function(){
+    var cur=document.documentElement.getAttribute("data-theme");
+    var next= cur==="dark" ? "light" : cur==="light" ? "dark"
+      : (window.matchMedia("(prefers-color-scheme:dark)").matches ? "light":"dark");
+    document.documentElement.setAttribute("data-theme",next);
+  });
+
+  // dots + current slide tracking
+  slides.forEach(function(s,i){
+    var b=document.createElement("button");
+    b.setAttribute("aria-label","slide "+(i+1));
+    b.addEventListener("click",function(){s.scrollIntoView();});
+    dots.appendChild(b);
+  });
+  var dotbtns=[].slice.call(dots.children);
+  var current=0;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        current=slides.indexOf(e.target);
+        dotbtns.forEach(function(d,i){d.setAttribute("aria-current", i===current?"true":"false");});
+        pageno.textContent=String(current+1).padStart(2,"0")+" / "+String(slides.length).padStart(2,"0");
+      }
+    });
+  },{threshold:0.55});
+  slides.forEach(function(s){io.observe(s);});
+
+  // keyboard nav
+  window.addEventListener("keydown",function(e){
+    if(e.key==="ArrowDown"||e.key==="PageDown"||e.key===" "){e.preventDefault();go(current+1);}
+    else if(e.key==="ArrowUp"||e.key==="PageUp"){e.preventDefault();go(current-1);}
+    else if(e.key==="Home"){go(0);} else if(e.key==="End"){go(slides.length-1);}
+  });
+  function go(i){ i=Math.max(0,Math.min(slides.length-1,i)); slides[i].scrollIntoView(); }
+
+  // tooltip helpers
+  function showTip(html,x,y){ tt.innerHTML=html; tt.style.opacity="1";
+    tt.style.left=Math.min(x+14,window.innerWidth-tt.offsetWidth-8)+"px";
+    tt.style.top=(y-10)+"px"; }
+  function hideTip(){ tt.style.opacity="0"; }
+
+  var NS="http://www.w3.org/2000/svg";
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  function cvar(name){return getComputedStyle(document.documentElement).getPropertyValue(name).trim();}
+
+  /* ---------- line chart: sycophancy ---------- */
+  (function(){
+    var svg=document.getElementById("lineChart");
+    var W=600,H=380, L=54,R=96,T=28,B=48;
+    var pw=W-L-R, ph=H-T-B;
+    var spars=[0.01,0.05,0.1,0.5,1.0];
+    var blade=[0.905,0.875,0.750,0.535,0.520];
+    var rand=[0.910,0.910,0.920,0.930,0.930];
+    var ymin=0.4,ymax=1.0;
+    function x(v){return L + (Math.log10(v)-Math.log10(0.01))/(Math.log10(1.0)-Math.log10(0.01))*pw;}
+    function y(v){return T + (ymax-v)/(ymax-ymin)*ph;}
+    // grid + y ticks
+    [0.5,0.6,0.7,0.8,0.9,1.0].forEach(function(t){
+      svg.appendChild(el("line",{x1:L,y1:y(t),x2:L+pw,y2:y(t),class:"grid"}));
+      var tx=el("text",{x:L-8,y:y(t)+4,"text-anchor":"end",class:"axlabel"}); tx.textContent=t.toFixed(1); svg.appendChild(tx);
+    });
+    // chance line
+    svg.appendChild(el("line",{x1:L,y1:y(0.5),x2:L+pw,y2:y(0.5),stroke:"var(--ink-3)","stroke-width":1.5,"stroke-dasharray":"5 4"}));
+    var ch=el("text",{x:L+pw+6,y:y(0.5)+4,class:"axlabel"});ch.textContent="chance";svg.appendChild(ch);
+    // baseline
+    svg.appendChild(el("line",{x1:L,y1:y(0.913),x2:L+pw,y2:y(0.913),stroke:"var(--ink-3)","stroke-width":1,"stroke-dasharray":"2 4",opacity:0.7}));
+    // x ticks
+    spars.forEach(function(s){
+      var tx=el("text",{x:x(s),y:H-B+18,"text-anchor":"middle",class:"axlabel"}); tx.textContent=s+"%"; svg.appendChild(tx);
+    });
+    var xlab=el("text",{x:L+pw/2,y:H-6,"text-anchor":"middle",class:"axlabel"});xlab.textContent="pruned fraction of target pool";svg.appendChild(xlab);
+    // random polyline
+    function poly(data,color,w,dash){
+      var pts=data.map(function(v,i){return x(spars[i])+","+y(v);}).join(" ");
+      var p=el("polyline",{points:pts,fill:"none",stroke:color,"stroke-width":w});
+      if(dash)p.setAttribute("stroke-dasharray",dash);
+      svg.appendChild(p);
+    }
+    poly(rand,"var(--null)",2,"6 4");
+    poly(blade,"var(--accent)",2.6);
+    function dots(data,color,label){
+      data.forEach(function(v,i){
+        var c=el("circle",{cx:x(spars[i]),cy:y(v),r:5,fill:color,stroke:"var(--surface)","stroke-width":2,class:"pt"});
+        c.addEventListener("mousemove",function(e){showTip("<b>"+label+"</b><br>"+spars[i]+"% pruned<br>pick-rate "+v.toFixed(3),e.clientX,e.clientY);});
+        c.addEventListener("mouseleave",hideTip);
+        svg.appendChild(c);
+      });
+    }
+    dots(rand,"var(--null)","random control");
+    dots(blade,"var(--accent)","BLADE");
+    // series labels
+    var lb=el("text",{x:x(1.0)+8,y:y(0.520)+4,class:"serieslabel",fill:"var(--accent)"});lb.textContent="BLADE";svg.appendChild(lb);
+    var lr=el("text",{x:x(1.0)+8,y:y(0.930)+4,class:"serieslabel",fill:"var(--null)"});lr.textContent="random";svg.appendChild(lr);
+  })();
+
+  /* ---------- bar chart: concentration ---------- */
+  (function(){
+    var svg=document.getElementById("barChart");
+    var W=620,H=360, L=132, R=40, T=20, Bh=30;
+    var data=[
+      {n:"self-awareness",v:0.01,c:"var(--hub)"},
+      {n:"wealth-seeking",v:0.01,c:"var(--hub)"},
+      {n:"refusal",v:0.05,c:"var(--accent)"},
+      {n:"power-seeking",v:0.2,c:"var(--hub)"},
+      {n:"deception",v:0.2,c:"var(--other)"},
+      {n:"corrigibility",v:0.5,c:"var(--hub)"},
+      {n:"self-rate-highly",v:0.5,c:"var(--other)"},
+      {n:"sycophancy",v:2,c:"var(--other)",diffuse:true}
+    ];
+    var pw=W-L-R;
+    var dmin=-2.1,dmax=0.4; // log10 domain (%)
+    function len(v){return Math.max(6,(Math.log10(v)-dmin)/(dmax-dmin)*pw);}
+    var rowH=(H-T-Bh)/data.length, barH=Math.min(20,rowH-14);
+    // x gridlines at decades 0.01,0.1,1
+    [0.01,0.1,1].forEach(function(g){
+      var gx=L+(Math.log10(g)-dmin)/(dmax-dmin)*pw;
+      svg.appendChild(el("line",{x1:gx,y1:T-4,x2:gx,y2:H-Bh,class:"grid"}));
+      var tx=el("text",{x:gx,y:H-Bh+16,"text-anchor":"middle",class:"axlabel"});tx.textContent=g+"%";svg.appendChild(tx);
+    });
+    data.forEach(function(d,i){
+      var cy=T+i*rowH+rowH/2;
+      var lab=el("text",{x:L-10,y:cy+4,"text-anchor":"end",class:"axlabel",style:"fill:var(--ink);font-size:12.5px"});
+      lab.textContent=d.n; svg.appendChild(lab);
+      var w=len(d.v);
+      var r=el("rect",{x:L,y:cy-barH/2,width:w,height:barH,rx:4,fill:d.c,class:"bar",opacity:d.diffuse?0.55:0.95});
+      if(d.diffuse)r.setAttribute("stroke",d.c),r.setAttribute("stroke-dasharray","4 3");
+      r.addEventListener("mousemove",function(e){showTip("<b>"+d.n+"</b><br>"+(d.diffuse?"&gt;":"")+d.v+"% of pool to remove",e.clientX,e.clientY);});
+      r.addEventListener("mouseleave",hideTip);
+      svg.appendChild(r);
+      var vl=el("text",{x:L+w+8,y:cy+4,class:"datalabel"});vl.textContent=(d.diffuse?"›":"")+d.v+"%";svg.appendChild(vl);
+    });
+  })();
+
+  /* ---------- heatmap: overlap ---------- */
+  (function(){
+    var svg=document.getElementById("heatmap");
+    var order=["refusal","power-seeking","wealth-seeking","self-awareness","corrigibility","sycophancy","deception","self-rate-highly"];
+    var code={ "refusal":"REF","power-seeking":"POW","wealth-seeking":"WEA","self-awareness":"SLF","corrigibility":"COR","sycophancy":"SYC","deception":"DEC","self-rate-highly":"RAT"};
+    var P={};
+    function set(a,b,v){P[a+"|"+b]=v;P[b+"|"+a]=v;}
+    set("refusal","power-seeking",68);set("refusal","wealth-seeking",56);set("refusal","self-awareness",43);
+    set("refusal","corrigibility",75);set("refusal","sycophancy",83);set("refusal","deception",66);set("refusal","self-rate-highly",60);
+    set("power-seeking","wealth-seeking",856);set("power-seeking","self-awareness",371);set("power-seeking","corrigibility",416);
+    set("power-seeking","sycophancy",100);set("power-seeking","deception",67);set("power-seeking","self-rate-highly",110);
+    set("wealth-seeking","self-awareness",405);set("wealth-seeking","corrigibility",319);set("wealth-seeking","sycophancy",99);
+    set("wealth-seeking","deception",71);set("wealth-seeking","self-rate-highly",107);
+    set("self-awareness","corrigibility",297);set("self-awareness","sycophancy",79);set("self-awareness","deception",44);set("self-awareness","self-rate-highly",57);
+    set("corrigibility","sycophancy",147);set("corrigibility","deception",59);set("corrigibility","self-rate-highly",74);
+    set("sycophancy","deception",80);set("sycophancy","self-rate-highly",60);
+    set("deception","self-rate-highly",99);
+    var n=order.length, cell=42, GX=104, GY=64;
+    var lo=Math.log10(40), hi=Math.log10(900);
+    function alpha(v){return Math.max(0.10,Math.min(0.95,0.10+0.85*(Math.log10(v)-lo)/(hi-lo)));}
+    // column + row labels
+    order.forEach(function(name,i){
+      var tx=el("text",{x:GX+i*cell+cell/2,y:GY-10,"text-anchor":"middle",class:"axlabel",style:"font-size:11px;fill:var(--ink-2)"});
+      tx.textContent=code[name]; svg.appendChild(tx);
+      var ty=el("text",{x:GX-8,y:GY+i*cell+cell/2+4,"text-anchor":"end",class:"axlabel",style:"font-size:11px;fill:var(--ink-2)"});
+      ty.textContent=code[name]; svg.appendChild(ty);
+    });
+    for(var i=0;i<n;i++)for(var j=0;j<n;j++){
+      var x=GX+j*cell, y=GY+i*cell;
+      if(i===j){
+        svg.appendChild(el("rect",{x:x+1,y:y+1,width:cell-2,height:cell-2,rx:4,fill:"var(--surface-2)",stroke:"var(--line)"}));
+        continue;
+      }
+      var v=P[order[i]+"|"+order[j]];
+      var a=alpha(v);
+      var rect=el("rect",{x:x+1,y:y+1,width:cell-2,height:cell-2,rx:4,fill:"var(--accent)","fill-opacity":a,class:"cell"});
+      (function(v,ni,nj,rect){
+        rect.addEventListener("mousemove",function(e){showTip("<b>"+code[order[ni]]+" × "+code[order[nj]]+"</b><br>"+v+"× vs chance",e.clientX,e.clientY);});
+        rect.addEventListener("mouseleave",hideTip);
+      })(v,i,j,rect);
+      svg.appendChild(rect);
+      var t=el("text",{x:x+cell/2,y:y+cell/2+4,"text-anchor":"middle",style:"font-family:var(--mono);font-size:11px;fill:"+(a>0.5?"#fff":"var(--ink)")});
+      t.textContent=v; svg.appendChild(t);
+    }
+    // code legend
+    var ly=GY+n*cell+22;
+    var leg=el("text",{x:GX-8,y:ly,class:"axlabel",style:"font-size:10.5px"});
+    leg.textContent="REF refusal · POW power · WEA wealth · SLF self-aware";
+    svg.appendChild(leg);
+    var leg2=el("text",{x:GX-8,y:ly+15,class:"axlabel",style:"font-size:10.5px"});
+    leg2.textContent="COR corrigibility · SYC syco · DEC deception · RAT self-rate";
+    svg.appendChild(leg2);
+  })();
+})();
+</script>

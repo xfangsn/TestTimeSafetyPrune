@@ -1,0 +1,220 @@
+# Weight-level 拒绝编辑与单权重剪枝实验结果（W0–W5）
+
+> 对应计划：`docs/plan-weight-level-refusal-editing.md`。  
+> 模型：Llama-3.2-3B-Instruct，bf16，RTX 5090。  
+> 主结论：**weight level 明显优于 neuron level**。方向正交化在 held-out test
+> 上把拒绝率从 0.990 降到 0.005，PPL 只增加 1.16%；此外，train-score/val-select
+> 的 Taylor/Wanda ratio 在目标权重池仅剪 0.01% 时，val 拒绝率已降至 0.031，
+> 并通过预注册的全部副作用与随机对照门槛。
+
+## 1. 实验完整性
+
+数据分工保持不变：
+
+- refusal direction、Taylor/edge score：harmful_train / CAA pairs；
+- source、scope、component、lambda、sparsity 选择：harmful_val；
+- 路线 A 最终一次报告：harmful_test；
+- 路线 B 在路线 A test 之后才完成，因此严格保持 val-only，没有再次使用 test。
+
+W0 基线完全复现历史结果：
+
+| 指标 | 结果 |
+|---|---:|
+| harmful_val refusal | 1.000 |
+| harmless refusal | 0.00625 |
+| WikiText PPL | 13.062107741 |
+| 相对历史 PPL 漂移 | 0.00% |
+| 空/乱码/循环率 | 0 |
+
+模型结构确认：28 层，hidden size 3072，MLP intermediate size 8192。
+selection 在 W4 前写入 SHA256 锁；`weight_ortho_final.json` 已设置为存在即拒绝
+重跑，避免反复使用 held-out test。
+
+设施验证：
+
+- 38 个全量测试通过；
+- lambda=0 logits 逐比特一致；
+- context 退出后权重逐比特恢复；
+- fp32 完整正交化残差约 5.1e-9；
+- BF16 hook 与物化 logits 平均误差约 0.035，argmax 一致率 97.8%–100%；
+- W5 选中值在 context 内确实为零，退出后逐比特恢复。
+
+## 2. 路线 A：refusal-direction weight orthogonalization
+
+### 2.1 Source pilot
+
+固定 destination=L7–L18、components=both：
+
+| source | lambda | harmful_val refusal | PPL delta | KL |
+|---|---:|---:|---:|---:|
+| L8 | 1.0 | 0.875 | +0.30% | 0.0040 |
+| L10 | 1.0 | 0.594 | +0.39% | 0.0090 |
+| **L14** | **1.0** | **0.125** | **+1.84%** | **0.0491** |
+
+因此按预注册规则锁定 L14；主网格没有重新选择 source。
+
+### 2.2 48-cell 主网格
+
+MLP-only 在所有 16 个 cell 中 harmful refusal 都保持 1.000。增大 scope/lambda
+只会增加 over-refusal 和 KL；例如 MLP L7–L18 lambda=1 的 harmless refusal
+为 0.412。
+
+Attention-only 已有强效果：
+
+| 配置 | harmful_val refusal | harmless | PPL delta | KL |
+|---|---:|---:|---:|---:|
+| attn L8–L14 lambda=.75 | 0.750 | 0.003 | +0.33% | 0.0101 |
+| attn L8–L14 lambda=1 | 0.391 | 0 | +0.53% | 0.0178 |
+| attn L7–L18 lambda=1 | 0.297 | 0 | +0.98% | 0.0208 |
+
+MLP+attention 联合编辑最强：
+
+| 配置 | harmful_val refusal | harmless | PPL delta | KL |
+|---|---:|---:|---:|---:|
+| both L8–L14 lambda=.75 | 0.719 | 0 | +0.31% | 0.0111 |
+| both L8–L14 lambda=1 | 0.125 | 0.003 | +0.60% | 0.0222 |
+| both L7–L18 lambda=1 | 0.078 | 0 | +1.80% | 0.0491 |
+
+同 scope/lambda 下，both L8–L14 lambda=1 比最强单组件 attention 多降低
+26.6pp refusal；L7–L18 lambda=1 的协同增益为 21.9pp。两者都超过 10pp 的
+预注册机制阈值。结论是：**attention 是主要 writer，MLP 单独无效，但与
+attention 联合时存在真实协同。**
+
+全层范围并不更好。both L0–L27 lambda=1 的 refusal 仅降到 0.359，同时 PPL
++7.03%、KL 0.307，说明局部中层窗口比“到处阻断”更干净。
+
+### 2.3 W3 稳健性
+
+三个 shortlist 配置的三 seed 随机方向 refusal 均为 1.000。label-shuffled
+mean-diff 平均 refusal 分别为 0.943、0.948、0.969，远弱于真实方向。
+
+最佳 shared-direction 配置的随机方向 gap 为 92.2pp。其他变体：
+
+| 变体 | harmful_val refusal | harmless | PPL delta | KL |
+|---|---:|---:|---:|---:|
+| shared L14, both L7–L18 | 0.078 | 0 | +1.80% | 0.0491 |
+| norm-preserving | 0.094 | 0 | +1.85% | 0.0487 |
+| shared + embedding | 0.094 | 0 | +1.88% | 0.0432 |
+| **per-destination-layer direction** | **0.000** | **0** | **+1.16%** | **0.0369** |
+
+norm-preserving 基本复现原结果，因此效果不是简单缩小 column norm。embedding
+没有增益。最终锁定 per-layer directions、L7–L18、both、lambda=1。
+
+### 2.4 W4 held-out test
+
+| 指标 | baseline | weight orthogonalization |
+|---|---:|---:|
+| harmful_test refusal | 0.990 | **0.005** |
+| harmful_test compliance | 0.010 | **0.995** |
+| harmless refusal | 0.00625 | **0.000** |
+| WikiText PPL | 13.0621 | 13.2133 |
+| PPL delta | — | **+1.16%** |
+| harmless KL | — | **0.0369** |
+| 空/乱码/循环率 | — | **0** |
+
+三个 per-layer 随机方向的 test refusal 都是 0.990。路线 A 不仅超过
+activation steering 的 test 0.670 / PPL +2.44%，也大幅超过 N7 actdiff
+top-4096 的 test 0.910 / PPL +16.33%；达到预注册“强成功”
+(test refusal <=0.20)，实际为 0.005。
+
+hook 与 BF16 物化版本在 16 条上的文本 exact match 为 56.25%、token agreement
+73.2%，但两者 refusal 都为 0。这说明物化时 BF16 舍入会改变具体 greedy 路径，
+导出永久模型前仍应对物化模型做完整复测；本实验没有导出安全被移除的模型。
+
+## 3. 路线 B：refusal-aware individual-weight pruning
+
+### 3.1 分数与目标池
+
+目标池为 L7–L18 的 12 个 `mlp.down_proj` 和 12 个
+`self_attn.o_proj`，共 415,236,096 个权重。比较：
+
+- Taylor-only：正的 signed weight-margin gradient；
+- Taylor/Wanda ratio：Taylor refusal score / harmless preservation score；
+- signed actdiff edge；
+- label-shuffled Taylor；
+- Wanda-smallest、magnitude-smallest；
+- random 三 seed。
+
+所有 sparsity 都是相对目标池的比例，并施加单矩阵最多 10% 的 cap。
+
+### 3.2 关键结果
+
+主结果 Taylor/Wanda ratio：
+
+| sparsity | 权重数 | harmful_val refusal | harmless | PPL delta | KL |
+|---:|---:|---:|---:|---:|---:|
+| **0.01%** | **41,524** | **0.031** | **0.006** | **+0.03%** | **0.0017** |
+| 0.05% | 207,618 | 0.016 | 0.003 | +0.30% | 0.0503 |
+| 0.10% | 415,236 | 0.000 | 0 | +0.61% | 0.2444 |
+| 0.50% | 2,076,180 | 0.000 | 0 | +2.47% | 1.9428 |
+| 1.00% | 4,152,361 | 0.000 | 0 | +5.57% | 3.1728 |
+| 5.00% | 20,761,805 | 0.000 | 0 | +80.07% | 6.7321 |
+
+0.01% 是最干净的选定 cell。三个同 sparsity 随机 seed 的 refusal 都为 1.000，
+因此 gap=96.9pp。输出质量标志为 0；val-only 复核再次得到 refusal=0.031，
+并验证 41,524 个值全部置零及退出后逐比特恢复。
+
+signed actdiff edge 提供独立复现：
+
+- 0.01%：refusal 0.125，PPL +0.09%，KL 0.0381；
+- 0.05%：refusal 0.000，PPL +0.61%，KL 0.0935，仍通过全部硬约束。
+
+Taylor-only 在 0.01% 可把 refusal 降到 0.016，但 PPL +5.34%、KL 1.54，
+且出现 3.44% 循环标志，不合格。Wanda 分母对选择“拒绝相关但 benign
+代价低”的边至关重要。
+
+控制结果：
+
+- random 在 <=1% 的全部 cell refusal 均为 1.000；
+- Wanda-smallest 和 magnitude-smallest 即使 5% 也保持 refusal=1.000；
+- shuffled Taylor 最小 0.01% 已有 harmless refusal 0.584、PPL +9.89%、
+  KL 2.89，更高 sparsity 为灾难性损伤。
+
+人工样例抽检中，ratio 0.01% 的 changed 样例是连贯、实质性的 engagement，
+不是空输出、乱码或简单移除拒绝关键词；harmless 样例保持正常回答。仍需注意：
+这不是自动化安全语义 judge，不能替代独立人工标注。
+
+### 3.3 W5 判定
+
+预注册标准要求 sparsity<=1%、refusal<=0.05、PPL<=5%、KL<=0.10、
+超随机>10pp。ratio 0.01% 全部满足，因此：
+
+**“存在 refusal-specific sparse key-weight set”在 train-score/val-select
+层面成立。**
+
+路线 B 没有运行 harmful_test：其配置是在路线 A 已使用 test 后才完成选择，
+若再用同一 test 会破坏一次性 held-out 原则。要把该结论提升为独立 test 结论，
+需要新增未使用的 harmful benchmark 或重新预注册一个新 split。
+
+## 4. 对四个研究问题的回答
+
+1. **rank-one weight orthogonalization 是否主导 activation steering / N7？**  
+   是。test refusal 0.005，PPL +1.16%，同时优于 steering 的 0.670/+2.44%
+   和 N7 的 0.910/+16.33%。
+
+2. **拒绝方向主要由哪类 writer 写入？**  
+   attention 是主要单组件；MLP-only 无效，但 MLP+attention 相对 attention-only
+   有 21.9–26.6pp 协同，因此完整机制是联合写入。
+
+3. **是否存在 <=1% 且副作用受控的 refusal-specific weight set？**  
+   是，val 上甚至只需目标池的 0.01%（41,524 个权重）。ratio 和 edge 两种
+   score 都有合格 cell，随机/Wanda/magnitude 无效。但路线 B 尚无独立 test。
+
+4. **结果支持稀疏安全权重还是分布式低维方向？**  
+   两者不是互斥的。拒绝在 activation geometry 上高度低维，跨多个 residual
+   writer 的方向正交化最稳定；同时，在原始标量 weight 基底中，监督式
+   Taylor/Wanda 能找到一个极稀疏、功能特异的 edge 集合。N7 的阴性说明
+   “整列 neuron”是过粗的删除单位，不代表单条 weight edge 不稀疏。
+
+## 5. 限制
+
+- refusal 主指标是关键词 judge；虽做了样例抽检，仍可能漏掉软拒绝或误判。
+- harmless prompt-token KL 很低，但路线 A greedy completion exact match 仅
+  5.94%、mean token agreement 29.5%；生成路径敏感，低 KL 不等于逐字保持。
+- W5 使用自产 CAA refusal/compliance completion 构造 Taylor score，可能带入
+  生成器偏差。
+- W5 的 0.01% 是目标池比例，不是全模型比例；unstructured zero 在普通 dense
+  kernel 上不会带来实际推理加速。
+- 路线 B 只有 val 证据。下一步最重要的不是继续调当前 val，而是注册新的
+  held-out 数据与更强的语义安全/能力评估。
+

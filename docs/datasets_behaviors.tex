@@ -1,0 +1,29 @@
+% Datasets for in-distribution (non-OOD) behavior experiments. Requires \usepackage{booktabs}.
+% Uses \citet (natbib/biblatex); replace with \cite if your style differs.
+\begin{table}[t]
+  \centering\small
+  \caption{\textbf{Datasets for the in-distribution behavior experiments.} Each behavior is defined
+    by a contrastive pair from the listed source. Refusal contrasts harmful instructions (AdvBench)
+    with harmless instructions (Alpaca); the other behaviors use the A/B model-written evaluations
+    of \citet{perez2023discovering} (sycophancy, advanced-AI-risk, and persona collections) plus a
+    social-bias benchmark. Out-of-distribution transfer and capability side-effects are measured on
+    separate held-out sets (HarmBench, XSTest, WikiText, zero-shot QA) reported elsewhere.}
+  \label{tab:behavior-datasets}
+  \begin{tabular}{@{}p{0.46\linewidth}ll@{}}
+    \toprule
+    \textbf{Behavior(s)} & \textbf{Source dataset} & \textbf{Reference} \\
+    \midrule
+    Refusal --- harmful instructions  & AdvBench          & \citet{zou2023advbench} \\
+    Refusal --- harmless instructions & Alpaca            & \citet{taori2023alpaca} \\
+    \addlinespace[2pt]
+    Sycophancy                        & Model-written evals & \citet{perez2023discovering} \\
+    Corrigibility, power-seeking, wealth-seeking, survival-instinct, self-awareness, myopic-reward
+                                      & Advanced AI Risk evals & \citet{perez2023discovering} \\
+    Deception, overseer manipulation, self-favoring rating (anti-HHH)
+                                      & Persona evals     & \citet{perez2023discovering} \\
+    Malevolence (``evil''; dark-triad / anti-HHH) & Persona evals & \citet{perez2023discovering} \\
+    \addlinespace[2pt]
+    Social bias                       & BBQ               & \citet{parrish2022bbq} \\
+    \bottomrule
+  \end{tabular}
+\end{table}

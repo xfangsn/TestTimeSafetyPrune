@@ -1,0 +1,32 @@
+% Deleting Refusal -- PAPER-NATIVE panel (companion to Table~\ref{tab:deleting-refusal}). Requires
+% \usepackage{booktabs}. Numbers: results/blade_weaken_native.json (Llama-3.2-3B, held-out HarmBench,
+% plain generation). Metric = residual refusal rate by the string matcher (lower = more removed);
+% base (unedited) refuses 88.5%. LLM cross-check pending (agreed within a few points on the controlled
+% panel). Here each baseline is run in its paper-native form rather than on the shared surface.
+\begin{table}[t]
+  \centering\small
+  \caption{\textbf{Deleting refusal, paper-native panel.} Each baseline is run closer to its original
+    paper: Wei prunes its native SNIP set-difference over \emph{all} decoder linear matrices
+    ($q,k,v,o,\mathrm{gate},\mathrm{up},\mathrm{down}$); Arditi ablates a \emph{single} global refusal
+    direction at full strength $s{=}1$ from all residual writers; CAA and ActAdd use wide layer and
+    (negative) coefficient sweeps. Selection, freezing, and held-out evaluation follow
+    Table~\ref{tab:deleting-refusal} (minimize validation refusal subject to a WikiText perplexity
+    increase $\le\!5\%$; the unedited model refuses $88.5\%$). Even with native settings, only BLADE
+    deletes refusal within the capability budget: Wei's all-matrix pruning does drive refusal to
+    near-zero but only by raising perplexity $13$--$21\%$ (no config is within budget), while negative
+    activation steering cannot delete refusal at any budget-admissible strength.}
+  \label{tab:deleting-refusal-native}
+  \begin{tabular}{@{}llccc@{}}
+    \toprule
+    \textbf{Method} & \textbf{Native form} & \textbf{Config} & $\Delta$\textbf{ppl} &
+      \textbf{Refusal} $\downarrow$ \\
+    \midrule
+    \textbf{BLADE} (ours)      & zero top-$\rho$ residual-writer weights & $L{=}12,\ \rho{=}0.5\%$ & $+0.3\%$ & $\mathbf{0.000}$ \\
+    Wei et al.~\citeyearpar{wei2024brittleness}  & prune SNIP set-diff., all linear matrices & $q{=}p{=}0.5\%$ & $+14.9\%^{\dagger}$ & $0.025$ \\
+    Arditi et al.~\citeyearpar{arditi2024refusal} & single-direction ablation, $s{=}1$ & src.\ $L{=}8$ & $+0.3\%$ & $0.370$ \\
+    CAA~\citeyearpar{rimsky2024caa}    & subtract steering vector (wide sweep) & $L{=}14,\ c{=}{-}0.35$ & $+2.6\%$ & $0.805$ \\
+    ActAdd~\citeyearpar{turner2024actadd} & subtract contrast vector (wide sweep) & $L{=}16,\ c{=}{-}16$ & $+5.2\%^{\dagger}$ & $0.855$ \\
+    \bottomrule
+    \multicolumn{5}{@{}l}{\footnotesize $^{\dagger}$ exceeds the $5\%$ perplexity budget; reported as the least-refusing configuration.}
+  \end{tabular}
+\end{table}

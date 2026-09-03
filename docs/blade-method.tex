@@ -1,0 +1,114 @@
+\section{Methodology}
+\label{sec:method}
+
+BLADE (\emph{Behavior Localization via Activation-Difference Estimation}) is a gradient-free, forward-only procedure that (\textit{\romannumeral1}) scores every scalar weight of a model's residual-\emph{writer} matrices by its contribution to a target behavior net of a generic-importance penalty estimated on ordinary text, (\textit{\romannumeral2}) selects a sparse effective set of layers and weights under a perplexity budget, and (\textit{\romannumeral3}) removes or reweights the behavior by multiplying \emph{only} the selected weights by a scalar factor $\alpha$. %Each ingredient adapts a well-established technique; \S\ref{sec:related} maps the borrowings and states the novel synthesis.
+
+\subsection{Setup and Notation} Let a decoder-only transformer have $L$ layers and residual width $d$. Each layer $\ell$ writes its attention and MLP outputs into a shared \emph{residual stream}~\cite{elhage2021framework} through two linear maps --- the attention output projection and the MLP down-projection --- which we call the layer's \emph{residual writers} (the only weights BLADE edits). Within these matrices, we call the weights subset that BLADE selects for a behavior as \emph{modulatory weights}. We use \emph{modulatory} as a functional analogy --- modulation rather than message transmission, in the sense of~\cite{sherman1998thalamus} --- and not an identified synaptic mechanism: in our evaluated settings, zeroing the selected weights strongly suppresses the target behavior (e.g.\ refusal drops to near zero and the model still produces the content) while measured language-modeling and zero-shot capability change little, consistent with a behavior-selective, gating-like role rather than a content-carrying (driving) one. This does not establish a mechanistic driver/modulator partition. The residual-writer matrices as a whole write their outputs additively to the residual stream; ``modulatory'' describes the observed effect of the selected subset for a given behavior, not of the full matrices.
+\begin{equation}
+  \mathcal{W}_\ell=\{\,W^{\mathrm{o}}_\ell\in\mathbb{R}^{d\times d_a},\;
+                      W^{\mathrm{down}}_\ell\in\mathbb{R}^{d\times d_m}\,\}
+\end{equation}
+For a residual-writer matrix $W\in\mathbb{R}^{d\times d_{\text{in}}}$, row $i$ indexes the residual (output) coordinate and column $j$ the writer-input coordinate; $W_{ij}$ is a single scalar weight (the connection $j\to i$). A behavior is specified by a contrastive pair of prompt sets $A,B$ (e.g.\ sycophantic v.s.\ non-sycophantic answers, or harmful v.s.\ harmless instructions). All quantities are computed with forward passes only, on a \texttt{train} split; layer/weight selection uses a \texttt{val} split (\S\ref{sec:els}).
+
+\subsection{Scoring Function}
+\subsubsection{Behavior Representation}
+Both quantities below are averaged over the same token span $T(x)$: the response tokens \emph{plus the end-of-turn token} for A/B behaviors, or the last prompt token for refusal.
+
+\paragraph{Direction $r_\ell$.} The (example-weighted) mean of layer $\ell$'s \emph{block output} over the span, side $A$ minus side $B$, normalized:
+\begin{equation}
+  r_\ell=\tilde r_\ell/\lVert\tilde r_\ell\rVert,
+  \qquad 
+  \tilde r_\ell=\frac{1}{|A|}\sum_{x\in A}\overline{h_\ell(x)} - \frac{1}{|B|}\sum_{x\in B}\overline{h_\ell(x)},
+\end{equation}
+where $\overline{h_\ell(x)}=\frac{1}{|T(x)|}\sum_{t\in T(x)}h_\ell(x)_t$. This is the difference-in-means contrastive direction used for refusal by~\cite{arditi2024refusal} and, more broadly, in representation engineering and contrastive activation steering~\cite{zou2023repe,rimsky2024caa,marks2024geometry}.
+
+\paragraph{Writer-input moments $\mu^{A},\mu^{B}$.} For each residual-writer matrix $W$ we take the
+\emph{token-pooled} mean of its input activation over the span, per side:
+\begin{equation}
+  \mu^{A}_W=\frac{\sum_{x\in A}\sum_{t\in T(x)}a_W(x)_t}{\sum_{x\in A}|T(x)|},\qquad
+  \Delta\mu_W=\mu^{A}_W-\mu^{B}_W\in\mathbb{R}^{d_{\text{in}}},
+\end{equation}
+and analogously $\mu^{B}_W$, where $a_W(x)_t$ is the input to $W$ at token $t$ (captured by a forward pre-hook). We note that the direction uses an example-weighted mean while the moments are token-weighted; the two coincide for single-token answers (``(A)''/``(B)'') and differ only for long free-form spans.
+
+\subsubsection{Weight Score}
+The \emph{behavioral term} of a scalar weight $W_{ij}$ (the connection $j\to i$) in writer $W$ of layer $\ell$ is the rectified product of the (unit) behavior direction, the weight, and the input mean-shift (the full BLADE score \eqref{eq:blade-g} nets a generic-importance penalty off this term):
+\begin{equation}
+  s_{ij}(W)=\bigl[\,(r_\ell)_i\; W_{ij}\; (\Delta\mu_W)_j\,\bigr]_+ 
+  \label{eq:score}
+\end{equation}
+where $[\cdot]_+=\max(\cdot,0)$. The score has an exact linear meaning: summed over all weights, $\sum_{ij}(r_\ell)_i W_{ij}(\Delta\mu_W)_j=r_\ell^{\top} W\,\Delta\mu_W$ is the writer's \emph{direct} residual-stream output shift between conditions $A$ and $B$, measured along the behavior direction; the per-weight term $c_{ij}=(r_\ell)_i W_{ij}(\Delta\mu_W)_j$ is that weight's additive contribution (zeroing $W_{ij}$ changes the shift by $-c_{ij}$), and $s_{ij}=[c_{ij}]_+$ is its rectified \emph{behavioral term}. $s_{ij}$ is large when the weight routes the behavior-discriminative input shift $(\Delta\mu_W)_j$ into the residual along $r_\ell$; the rectifier keeps only weights that push \emph{toward} the behavior. Structurally this is a weight$\times$activation importance score in the family of \cite{sun2023wanda}, with the calibration-set activation norm replaced by the contrastive mean-shift $\Delta\mu$ and projected onto $r_\ell$.
+
+\subsubsection{Generic-Importance Penalty}
+\label{sec:bladeg}
+The behavioral term $s_{ij}$ ranks a weight purely by how much it writes the behavior-discriminative shift into the residual; it is blind to whether the \emph{same} weight also carries generic computation. We therefore net out a data-driven \emph{generic-importance} penalty $Q_{ij}\ge 0$, estimated forward-only on generic text, that \emph{proxies} the squared perturbation zeroing $W_{ij}$ induces at one downstream normalized coordinate. Each residual writer feeds a downstream \emph{reader}: the RMSNorm that first re-reads that writer's residual contribution. For Llama-style pre-norm blocks (Llama/Qwen/Phi here) this is the attention output projection read by its layer's post-attention norm, and the MLP down-projection read by the next layer's input norm (the final norm for the last layer); architectures with branch-output norms (e.g.\ Gemma-3, whose MLP output is normalized before the residual add) place the first reader on the branch, which we treat as an approximation. Zeroing $W_{ij}$ changes the writer's output coordinate $i$ by $-W_{ij}\,a_W(x)_{t,j}$; passing this through the reader-norm's \emph{diagonal} gain (a fixed-denominator, diagonal approximation to the RMSNorm Jacobian, dropping its rank-one normalization term) gives an induced perturbation $\approx(\gamma_i/r_{t})\,W_{ij}\,a_W(x)_{t,j}$ at reader coordinate $i$, where $\gamma_i$ is the reader-norm gain on coordinate $i$ and $r_{t}$ the per-token RMS of the reader's input. Its expected square over generic tokens gives
+\begin{equation}
+  Q^{\mathrm{g1}}_{ij}=W_{ij}^2\,\gamma_i^2\;\mathbb{E}_{(x,t)\sim\mathcal{C}}\!\Big[\tfrac{a_W(x)_{t,j}^2}{r_{t}^2}\Big],
+  \qquad
+  Q^{\mathrm{g0}}_{ij}=W_{ij}^2\,\mathbb{E}_{(x,t)\sim\mathcal{C}}\big[a_W(x)_{t,j}^2\big],
+  \label{eq:Q}
+\end{equation}
+where $\mathcal{C}$ is the C4 calibration set (the same corpus used for the budget $\beta$) and $(x,t)$ ranges over its tokens. The reader-agnostic $Q^{\mathrm{g0}}$ is the \emph{squared} weight$\times$activation importance of~\cite{sun2023wanda} (their score is $|W_{ij}|\,\lVert a_j\rVert_2$), up to a corpus-wide token-count factor; the default $Q^{\mathrm{g1}}$ (the implementation's \texttt{g1scalar} estimator) refines it with the reader's diagonal gain $\gamma_i^2/r_{t}^2$, so a large-output weight is penalized only to the extent its output actually moves the downstream normalized read.
+
+\paragraph{Regularized score (BLADE-G).} BLADE ranks weights by the behavioral term net of this penalty, in Lagrangian form:
+\begin{equation}
+  S_{ij}=[c_{ij}]_+\;-\;\lambda\,Q_{ij},
+  \qquad
+  \lambda=\frac{\operatorname{median}\{[c_{ij}]_+ : [c_{ij}]_+>0\}}{\operatorname{median}\{Q_{ij} : Q_{ij}>0\}},
+  \label{eq:blade-g}
+\end{equation}
+with one multiplier $\lambda$ \emph{per behavior}: its numerator is the median positive behavioral term for that behavior, while $Q$ and its median denominator are computed once per model over all residual writers (behavior-independent). We \emph{deprioritize} non-behavioral weights: any weight with $S_{ij}\le 0$ is scored $-\infty$, so the top-$\rho$ ranking draws behavioral-and-generic-net-positive weights first; a weight thus enters on its behavioral merit net of generic cost, and non-behavioral weights are reached only if the target fraction $\rho$ exceeds the count of net-positive weights. Setting $\lambda=0$ recovers the un-penalized variant, denoted \textbf{BLADE-B}, which we keep as an ablation; the penalized score \eqref{eq:blade-g} with $Q^{\mathrm{g1}}$ is the default and is written simply ``BLADE'' below. What we claim for $S_{ij}$ is precisely a forward-only, \emph{rectified} residual-writer contribution Lagrangian-scalarized against the same weight's diagonal RMSNorm-reader perturbation proxy on generic text; it does not by itself certify out-of-distribution transfer or capability preservation, which we assess empirically. This weight-level, generic-cost-aware selection is in the spirit of set-difference safety pruning~\cite{wei2024brittleness} and calibration-based importance~\cite{sun2023wanda}, here combining a rectified behavioral contribution with a per-weight generic penalty.
+
+\subsection{Effective-Layer Selection (ELS)}
+\label{sec:els}
+BLADE restricts to a small layer set $L^\star$ via two stages. Their hyperparameters are the perplexity budget $\beta$ (max.\ relative perplexity increase, \emph{calibrated on C4} and reported on held-out WikiText, following calibration-based pruning practice~\cite{sun2023wanda,frantar2023sparsegpt}), the stopping threshold $\varepsilon$, and two screen/test sparsities $\rho_{\text{scr}}$ (Stage 1) and $\rho_{\text{tst}}$ (Stage 2), both $0.005$ in our runs. Let $\Delta\mathrm{ppl}(\cdot)$ be the relative perplexity change and $\pi(\cdot)$ the in-distribution behavior metric on \texttt{val} (lower $=$ more removed). $\mathrm{Prune}(S,\rho)$ scores the weights of layer set $S$ via the BLADE score \eqref{eq:blade-g} and zeroes the global top-$\rho$ fraction (\S\ref{sec:weightsel}).
+
+\paragraph{Orientation and gating.} We first measure the model's own preference and orient side $A$ toward the \emph{model-preferred} answer (so $\pi$ is that answer's pick-rate); a behavior whose baseline pick-rate is within $0.10$ of chance is skipped as not exhibited.
+
+\paragraph{Stage 1 --- candidate pool.} Keep a layer iff pruning it \emph{alone} stays within budget:
+\begin{equation}
+    \mathcal{P}=\{\ell:\Delta\mathrm{ppl}(\mathrm{Prune}(\{\ell\},\rho_{\text{scr}}))\le\beta\}
+\end{equation}
+\paragraph{Stage 2 --- best-first joint selection.} Greedily add the layer that most reduces the joint metric, subject to the budget, until no layer improves it by more than $\varepsilon$ (Algorithm~\ref{alg:els}).
+\begin{algorithm}[t]
+\caption{Best-first ELS (Stage 2)}
+\label{alg:els}
+\begin{algorithmic}[1]
+\State $L\gets\varnothing$;\quad $c\gets\pi(\text{unedited})$ \Comment{current metric}
+\Loop
+  \State $\ell^\dagger\gets\varnothing$;\quad $b\gets c$ \Comment{best-of-round}
+  \For{$\ell\in\mathcal{P}\setminus L$}
+    \State $m\gets\pi(\mathrm{Prune}(L\cup\{\ell\},\rho_{\text{tst}}))$;\quad
+           $p\gets\Delta\mathrm{ppl}(\mathrm{Prune}(L\cup\{\ell\},\rho_{\text{tst}}))$
+    \If{$p\le\beta$ \textbf{and} $m<b$} \State $\ell^\dagger\gets\ell$;\ $b\gets m$ \EndIf
+  \EndFor
+  \If{$\ell^\dagger\ne\varnothing$ \textbf{and} $b<c-\varepsilon$}
+     \State $L\gets L\cup\{\ell^\dagger\}$;\ $c\gets b$
+  \Else\ \textbf{break}
+  \EndIf
+\EndLoop
+\State \Return $L^\star\gets L$
+\end{algorithmic}
+\end{algorithm}
+Best-first is not tied to a predefined layer order (ties break by deterministic layer index) and captures the marginal benefit of a layer \emph{conditional on those already selected}; it does not recover pairs that help only jointly with zero individual marginal gain.
+
+\subsection{Weight selection}
+\label{sec:weightsel}
+Given $L^\star$, we score all weights of $\{\mathcal{W}_\ell:\ell\in L^\star\}$ with the BLADE score \eqref{eq:blade-g} (net-negative weights ranked last) and form one global ranking, subject to a per-matrix cap $c_{\max}=0.10$ (at most $\lfloor c_{\max}\lvert W\rvert\rfloor$ weights from any one matrix enter the candidate set, so no single writer is over-pruned). This matrix-capped global set-selection follows the per-matrix set construction of \cite{wei2024brittleness}. Selecting a target fraction $\rho$ of the pool zeroes the $k$ highest-scoring weights,
+\begin{equation}
+  k=\max\bigl(1,\ \operatorname{round}(\rho\, N)\bigr),\qquad
+  N=\sum_{\ell\in L^\star}\sum_{W\in\mathcal{W}_\ell}\lvert W\rvert,
+\end{equation}
+with $\rho\le c_{\max}$ ($k$ additionally capped by the total per-matrix candidate count $\sum_W\lfloor c_{\max}\lvert W\rvert\rfloor$). We sweep $\rho$ over a small grid and report the point that minimizes $\pi$ among those satisfying $\Delta\mathrm{ppl}\le\beta$ (if the feasible set is empty we report it as infeasible rather than a budget-violating point).
+
+\subsection{Application: reweighting by $\alpha$}
+\label{sec:apply}
+Let $\mathcal{S}$ be the selected weights. BLADE multiplies them by a scalar: 
+\begin{equation}
+  W^{\prime}_{ij}=\alpha\,W_{ij}
+\end{equation}
+for $(i,j)\in\mathcal{S}$, all other unselected weights unchanged. $\alpha=0$ (the main setting, identical to zeroing / pruning $\mathcal{S}$) is intended to remove the behavior; $0<\alpha<1$ to attenuate it; $\alpha=1$ is the original model; $\alpha>1$ to amplify it. Rescaling a localized, direction-aligned component by a scalar coefficient to strengthen or weaken a behavior is in the spirit of task arithmetic~\cite{ilharco2023task} and the scale coefficient of activation steering~\cite{rimsky2024caa}, here applied at the weight level. Empirically, at $\alpha=0$ and small $\alpha$ the behavior changes while the measured capability metrics (WikiText perplexity; zero-shot accuracy where measured) change little --- consistent with a behavior-selective, capability-sparing role over the evaluated $\alpha$ range; this evidence does not identify a mechanistic driver/modulator partition. Large $\lvert\alpha\rvert$ (and negative $\alpha$) can raise perplexity and fall outside the zeroing budget. The $\alpha$-sweep is a follow-up analysis; the selection mask $\mathcal{S}$ is budgeted for $\alpha=0$.
+
+\paragraph{Scale-aware selection.} When the intended edit is not removal, the mask is selected under the penalty at the intended scale. Multiplying $W_{ij}$ by $\alpha$ changes its behavioral contribution from $c_{ij}$ to $\alpha c_{ij}$ (a change of $(\alpha-1)c_{ij}$) and scales its generic reader perturbation \eqref{eq:Q} by $(\alpha-1)^2$ (a squared perturbation). For \emph{amplification} ($\alpha>1$) write $\delta=\alpha-1>0$; the amplify objective $S^{\mathrm{amp}}_{ij}=\delta[c_{ij}]_+-\lambda\delta^2 Q_{ij}$ is a positive multiple of $[c_{ij}]_+-\lambda\delta Q_{ij}$, so it ranks weights by \eqref{eq:blade-g} with an effective penalty $\lambda_{\mathrm{eff}}=\lambda\delta$ that grows with the amplification strength. For \emph{attenuation/removal} ($\alpha<1$) the benefit is behavior \emph{reduction}: with $\delta'=1-\alpha>0$ the objective $\delta'[c_{ij}]_+-\lambda\delta'^2 Q_{ij}$ ranks by $[c_{ij}]_+-\lambda\delta' Q_{ij}$, i.e.\ $\lambda_{\mathrm{eff}}=\lambda\delta'$; full removal $\alpha=0$ gives $\delta'=1$ and recovers \eqref{eq:blade-g}. In both directions $\lambda_{\mathrm{eff}}=\lambda\lvert\alpha-1\rvert$.
+
+\paragraph{Contrast constructions.}
+Two instantiations of $(A,B)$ are used, both feeding the identical score \eqref{eq:blade-g}, ELS, and reweighting. \emph{(i) Multiple-choice (A/B):} $A/B$ are the two answers of Anthropic-style evals; the span is the answer tokens ($+$EOT) and $\pi$ is the answer pick-rate (chance $=0.5$). \emph{(ii) Refusal:} $A/B$ are harmful (AdvBench) vs.\ harmless (Alpaca) instructions; the span is the last prompt token and $\pi$ is the keyword refusal rate on generations (target $=0$). A legacy sycophancy-only variant instead builds moments from biased-vs-neutral \emph{prompt} activations at the last prompt token; the generalized answer-span pipeline above is the one used for all reported results.
