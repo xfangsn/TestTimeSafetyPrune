@@ -29,12 +29,19 @@ if [[ -z "${SKIP_ELS:-}" ]]; then
   log "3/5 ELS auto-select layers ..."
   $PY scripts/reasoning_els.py --dirs "${TAG}_dirs.pt" --model "$MODEL" --key "$TAG"
 fi
-log "4/5 intervention BLADE-B ..."
-$PY scripts/blade_reasoning_full.py --dirs "${TAG}_dirs.pt" --els "reasoning_els_${TAG}.json" \
-  --model "$MODEL" --out "blade_reasoning_${TAG}.json" \
-  --remove-rho "$REMOVE_RHO" --amp-rho "$AMP_RHO" --amp-alphas "$AMP_ALPHAS"
-log "5/5 intervention BLADE-G ..."
-$PY scripts/blade_reasoning_full.py --dirs "${TAG}_dirs.pt" --els "reasoning_els_${TAG}.json" \
-  --model "$MODEL" --out "blade_reasoning_${TAG}_bladeg.json" --blade-g \
-  --remove-rho "$REMOVE_RHO" --amp-rho "$AMP_RHO" --amp-alphas "$AMP_ALPHAS"
-log "ALL DONE -> results/blade_reasoning_${TAG}{,_bladeg}.json"
+# ONLY=bladeb|bladeg runs a single intervention (each fits a 2h short_gpu window on >=4B);
+# default runs both. Pair with SKIP_TRACES/DIRS/ELS to resume after prep is done.
+ONLY="${ONLY:-both}"
+if [[ "$ONLY" == "both" || "$ONLY" == "bladeb" ]]; then
+  log "intervention BLADE-B ..."
+  $PY scripts/blade_reasoning_full.py --dirs "${TAG}_dirs.pt" --els "reasoning_els_${TAG}.json" \
+    --model "$MODEL" --out "blade_reasoning_${TAG}.json" \
+    --remove-rho "$REMOVE_RHO" --amp-rho "$AMP_RHO" --amp-alphas "$AMP_ALPHAS"
+fi
+if [[ "$ONLY" == "both" || "$ONLY" == "bladeg" ]]; then
+  log "intervention BLADE-G ..."
+  $PY scripts/blade_reasoning_full.py --dirs "${TAG}_dirs.pt" --els "reasoning_els_${TAG}.json" \
+    --model "$MODEL" --out "blade_reasoning_${TAG}_bladeg.json" --blade-g \
+    --remove-rho "$REMOVE_RHO" --amp-rho "$AMP_RHO" --amp-alphas "$AMP_ALPHAS"
+fi
+log "DONE (ONLY=$ONLY) -> results/blade_reasoning_${TAG}{,_bladeg}.json"
