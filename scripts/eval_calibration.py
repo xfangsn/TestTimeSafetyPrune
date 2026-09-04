@@ -56,33 +56,79 @@ def gen(model, tok, prompts, max_new, bs=8, do_sample=False):
     return outs
 
 
-def norm_ans(s):
-    s = s.strip().replace(" ", "").replace("$", "").replace("\\left", "").replace("\\right", "")
-    s = s.replace("\\!", "").replace("\\,", "").rstrip(".")
-    m = re.findall(r"-?\d+\.?\d*", s.replace(",", ""))
-    return (s, m[-1] if m else s)
+def last_boxed(s):
+    """Extract the content of the LAST \\boxed{...} with balanced braces (handles \\frac{}{} etc.)."""
+    i = s.rfind("\\boxed")
+    if i < 0:
+        return None
+    j = s.find("{", i)
+    if j < 0:
+        return None
+    depth = 0
+    for k in range(j, len(s)):
+        if s[k] == "{":
+            depth += 1
+        elif s[k] == "}":
+            depth -= 1
+            if depth == 0:
+                return s[j + 1:k]
+    return None
+
+
+def norm_math(s):
+    s = str(s).strip()
+    s = re.sub(r"\\text\{[^{}]*\}", "", s)
+    s = re.sub(r"\\mbox\{[^{}]*\}", "", s)
+    for a, b in [("\\left", ""), ("\\right", ""), ("\\!", ""), ("\\,", ""), ("\\;", ""),
+                 ("\\:", ""), ("\\ ", ""), ("\\$", ""), ("$", ""), ("\\%", ""), ("%", ""),
+                 ("^{\\circ}", ""), ("^\\circ", ""), ("\\dfrac", "\\frac"), ("\\tfrac", "\\frac"),
+                 ("\\cdot", "*"), ("\\times", "*"), ("\\pi", "pi"), ("{", ""), ("}", ""), (" ", "")]:
+        s = s.replace(a, b)
+    s = re.sub(r"\\frac(\d)(\d)", r"(\1)/(\2)", s)      # \frac12 -> (1)/(2)
+    s = re.sub(r"\\sqrt(\d+)", r"sqrt(\1)", s)
+    s = s.replace("\\sqrt", "sqrt").replace("\\", "")
+    s = s.rstrip(".").replace(",", "")
+    return s
 
 
 def extract_answer(text, bench):
-    body = text.split("</think>")[-1]
+    body = text.split("</think>")[-1] if "</think>" in text else text
     if bench == "gsm8k":
         m = re.findall(r"-?\d[\d,]*\.?\d*", body.replace(",", ""))
         return m[-1] if m else ""
-    m = re.findall(r"\\boxed\{([^{}]*)\}", body)
-    if m:
-        return m[-1]
+    b = last_boxed(body)
+    if b is not None:
+        return b
     m = re.findall(r"-?\d+\.?\d*", body)
     return m[-1] if m else ""
 
 
-def correct(pred, gold, bench):
-    if not pred:
-        return 0
-    a, an = norm_ans(pred); b, bn = norm_ans(str(gold))
+def _sympy_eq(a, b):
     try:
-        return int(abs(float(an) - float(bn)) < 1e-4)
+        import sympy as sp
+        A = sp.sympify(a.replace("^", "**")); B = sp.sympify(b.replace("^", "**"))
+        return bool(sp.simplify(A - B) == 0)
     except Exception:
-        return int(a == b)
+        return False
+
+
+def correct(pred, gold, bench):
+    if pred == "" or pred is None:
+        return 0
+    if bench == "gsm8k":
+        try:
+            return int(abs(float(str(pred).replace(",", "")) - float(str(gold).replace(",", ""))) < 1e-4)
+        except Exception:
+            return int(str(pred).strip() == str(gold).strip())
+    a, b = norm_math(pred), norm_math(gold)
+    if a == b:
+        return 1
+    try:
+        if abs(float(a) - float(b)) < 1e-6:
+            return 1
+    except Exception:
+        pass
+    return int(_sympy_eq(a, b))
 
 
 # ---- calibration metrics ----
