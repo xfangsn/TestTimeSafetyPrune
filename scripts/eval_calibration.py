@@ -23,7 +23,7 @@ from ttsafety.weight_prune import pruned_weights, rank_weight_indices, selection
 from ttsafety.sycophancy import score_edges
 from reasoning_mask import build_mask, collect_Q
 
-RESULTS = Path("results"); MAX_NEW = 640
+RESULTS = Path("results"); MAX_NEW = 4096
 
 
 def load_bench(bench, n):
