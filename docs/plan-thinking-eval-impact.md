@@ -5,9 +5,12 @@ Revised after TWO adversarial codex reviews (`scratch_eval_plan_review_codex.md`
 capacity-level language ("the uncertainty/backtracking capacity") is *earned* only after the P-1 gate
 passes; the default term everywhere is **"keyword-associated thinking pattern"**, and a passing pattern
 becomes a **"construct-validated proxy"**, never a proven latent capacity. **(2)** first & only model =
-**fresh Hazel-built Qwen3-1.7B** (artifacts audited, §2). **(3)** the only edit method is **BLADE-G**,
-now including **layer selection** (`reasoning_els.py --blade-g`, score_edges_g) so the pipeline is
-BLADE-G end-to-end; comparisons are against random (two regimes) + shuffled controls, no BLADE-B.
+**fresh Hazel-built Qwen3-1.7B** (artifacts audited, §2). **(3)** the edit (pruning/amplify weight
+selection) is **BLADE-G**; **layer selection (ELS) is BLADE-B by design** — we reuse the existing
+BLADE-B-selected `reasoning_els_qwen3_17b.json` for *which* layers, then build the *weight* mask with
+the generic-importance penalty (BLADE-G). This is intentional and disclosed (avoids the slow
+generation-based BLADE-G ELS and keeps layer choice comparable to prior runs). Comparisons are against
+random (two regimes) + shuffled controls; no BLADE-B *edit* is tested.
 **(4)** the P-1 gate is scoped to only the patterns entering P0 — **uncertainty & backtracking** — and
 uses a **validation split disjoint from the P0 test split**.
 
