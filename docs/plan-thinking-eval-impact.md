@@ -11,8 +11,12 @@ BLADE-B-selected `reasoning_els_qwen3_17b.json` for *which* layers, then build t
 the generic-importance penalty (BLADE-G). This is intentional and disclosed (avoids the slow
 generation-based BLADE-G ELS and keeps layer choice comparable to prior runs). Comparisons are against
 random (two regimes) + shuffled controls; no BLADE-B *edit* is tested.
-**(4)** the P-1 gate is scoped to only the patterns entering P0 — **uncertainty & backtracking** — and
-uses a **validation split disjoint from the P0 test split**.
+**(4)** the P-1 gate is a **per-behavior manipulation check only** — does editing pattern X change X's
+OWN semantic pattern beyond keywords? We do NOT run a cross-behavior double dissociation: the source
+paper (Venhoff et al.) reports the uncertainty↔backtracking steering-vector cosine at 0.68 (Llama-8B)
+/ 0.78 (Qwen-14B), i.e. these behaviors are genuinely correlated, so demanding clean separation is
+unwarranted (codex literature review, `scratch_lit_codex.md`). Each behavior is validated and then
+evaluated on its OWN construct metric, independently ("各测各的").
 
 Core lesson kept from the literature the user surfaced: thinking is evaluated *by dimension*
 (uncertainty↔calibration, backtracking↔self-correction, adding-knowledge↔knowledge), with
@@ -44,25 +48,24 @@ which optimizes a *lexical* proxy, not a latent capacity. Before §3, we must sh
    the keywords.
 2. **Length control**: confirm the semantic change survives after controlling for trace length
    (removal that only shortens text is not "removing the pattern").
-3. **Double dissociation** (the specificity test): run EVERY pattern-edit × EVERY outcome dimension;
-   require edit-X to move dimension-X more than (i) other pattern-edits move dimension-X, and (ii)
-   edit-X moves unrelated dimensions. Only patterns passing (1)–(3) get capacity-level language in §3;
-   others are reported as "keyword-associated" effects.
+3. ~~Double dissociation~~ **DROPPED** (per user + literature): uncertainty & backtracking are
+   genuinely correlated (Venhoff cosine 0.68–0.78), so cross-behavior specificity is not required. A
+   pattern passes P-1 on its OWN evidence: (a) semantic-change from its edit CI-excludes-0 (paired
+   bootstrap) AND (b) its keyword lexicon has non-trivial precision vs the semantic label. Passing →
+   "construct-validated proxy for <dimension>"; failing → "keyword-associated pattern".
 Deliverable: a validation table (lexicon precision/recall, semantic-change effect size w/ length
 control, dissociation matrix). **If a pattern fails, we still report its editing effects, but do not
 claim it is "the uncertainty/backtracking/knowledge capacity."**
 
-**Gate rigor (per re-review):**
-- **Scope**: P-1 covers ONLY uncertainty & backtracking (the patterns entering P0). Knowledge and
-  faithfulness are NOT in the gate (they belong to P1), removing the earlier P-1↔phasing conflict.
-- **Split**: the double-dissociation is estimated on a **validation split disjoint from the P0 test
-  split** (frozen IDs published), so the same items never both validate the construct and estimate its
-  P0 effect.
-- **Standardized contrast**: "moves more" is defined on **z-scored (per-metric) effect sizes** with
-  **bootstrap 95% CIs**; edit-X passes only if its effect on dimension-X is (i) CI-separated above its
-  effect on the other pattern's dimension and (ii) above the other edit's effect on dimension-X.
-- **Annotation reliability**: blind Opus annotation with a frozen rubric; report **inter-rater
-  agreement** on a re-annotated subset (second pass / second annotator) before trusting the labels.
+**Gate rigor (per re-review + user decision):**
+- **Per-behavior only (no dissociation)**: each behavior is validated on its OWN evidence — semantic
+  Δ (its edit vs base, paired bootstrap 95% CI excludes 0) + its lexicon precision vs the semantic
+  label. No cross-behavior contrast.
+- **Split**: validate on a split disjoint from the P0 test split (frozen IDs) so the same items don't
+  both validate and estimate the P0 effect.
+- **Annotation reliability**: blind annotation with a frozen rubric (kimi k3 here; codex CLI would not
+  run non-interactively). Add a second-pass / second-annotator inter-rater check on a subset before
+  over-trusting single-annotator labels.
 - **Language rule**: a pass earns "construct-validated proxy for <dimension>", NOT "the <dimension>
   capacity"; a fail stays "keyword-associated pattern".
 
