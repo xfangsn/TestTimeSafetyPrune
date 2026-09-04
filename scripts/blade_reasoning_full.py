@@ -187,9 +187,14 @@ def main():
     print("== BASE ==", flush=True)
     measure(lambda: _noop(), "base")
 
+    # Only behaviours that ELS actually localised (have selected layers) can be edited; on some
+    # models ELS keeps just uncertainty. Iterate those, always keeping PRIMARY if present.
+    HAVE = [b for b in TARGETS if b in els_layers and els_layers[b]]
+    print(f"editable behaviors (in ELS): {HAVE}", flush=True)
+
     # --- remove_matrix: BLADE remove each behavior at ITS ELS layers, measure all (4x4) ---
     print("== REMOVE (4x4 selectivity, ELS layers) ==", flush=True)
-    for beh in TARGETS:
+    for beh in HAVE:
         sel = mask(beh, els_layers[beh], args.remove_rho)
         out.setdefault("n_edges", {})[beh] = sum(len(v) for v in sel.values())
         measure(wcm(sel, 0.0), f"remove:{beh}")
@@ -215,13 +220,13 @@ def main():
                     yield
             return cm()
         return f
-    for beh in (PRIMARY, "backtracking"):
+    for beh in [b for b in (PRIMARY, "backtracking") if b in HAVE]:
         for c in (-8.0, -16.0):     # negative = suppress the behavior
             measure(steer_cm(beh, c), f"steer:{beh}:c{c}")
 
     # --- amplify (gentler): same ELS layers, smaller rho + small alpha ---
     print("== AMPLIFY (gentle, ELS layers) ==", flush=True)
-    for beh in (PRIMARY, "example-testing"):
+    for beh in [b for b in (PRIMARY, "example-testing") if b in HAVE]:
         sel = mask(beh, els_layers[beh], args.amp_rho)
         for a in AMP_ALPHAS:
             measure(wcm(sel, a), f"amp:{beh}:a{a}")
