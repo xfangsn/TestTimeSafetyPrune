@@ -14,14 +14,19 @@ KIMI = str(Path.home() / ".local/bin/kimi")
 
 RUBRIC = (
     "You are a BLIND annotator of LLM reasoning traces. For EACH trace judge SEMANTICALLY (by meaning, "
-    "NOT keyword presence) two INDEPENDENT binary properties:\n"
+    "NOT keyword presence) three INDEPENDENT binary properties:\n"
     "- uncertainty=1 if it genuinely expresses doubt/low confidence about its OWN reasoning or answer "
     "(might be wrong, hedges, not sure, weighs options without committing); else 0. Not for rhetorical "
     "maybe/I-think; yes for genuine doubt even without such words.\n"
     "- backtracking=1 if it genuinely REVISES/CORRECTS an earlier step (catches a mistake, changes a "
     "prior claim/approach, abandons a started line); else 0. Not mere continuation. Not for rhetorical "
     "wait/actually; yes for genuine self-correction even without them.\n"
-    "Return ONLY a JSON object mapping each id to {\"uncertainty\":0 or 1,\"backtracking\":0 or 1}. "
+    "- adding_knowledge=1 if it genuinely RECALLS and brings in external factual/domain knowledge to "
+    "advance the reasoning (a named theorem/formula/definition, a known fact/property not given in the "
+    "problem); else 0. Not for merely restating the problem or doing step-by-step arithmetic; yes only "
+    "when outside knowledge is actually introduced and used.\n"
+    "Return ONLY a JSON object mapping each id to "
+    "{\"uncertainty\":0 or 1,\"backtracking\":0 or 1,\"adding_knowledge\":0 or 1}. "
     "No prose, no markdown fences.\n\nTRACES:\n")
 
 

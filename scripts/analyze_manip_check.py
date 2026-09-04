@@ -17,9 +17,14 @@ KW = {
                                "could be", "i'm not", " unsure", " i guess", "not certain"],
     "backtracking": [" wait", " actually", "reconsider", " hmm", "scratch that",
                      "on second thought", " no,", "let me re", " but wait"],
+    "adding-knowledge": ["i know that", "i remember", "recall that", "it's known", "the formula",
+                         "by definition", "in general,"],
 }
-PATTERNS = ["uncertainty-estimation", "backtracking"]
-SHORT = {"uncertainty-estimation": "uncertainty", "backtracking": "backtracking"}
+SHORT = {"uncertainty-estimation": "uncertainty", "backtracking": "backtracking",
+         "adding-knowledge": "adding_knowledge"}
+# patterns to analyze = whatever the traces file edited (its "behaviors"), intersected with known
+_mf = json.load(open("results/manip_check_qwen3_%s.json" % TAG))
+PATTERNS = [b for b in _mf.get("behaviors", ["uncertainty-estimation", "backtracking"]) if b in KW]
 
 
 def kw_present(text, pat):
