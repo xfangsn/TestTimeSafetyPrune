@@ -16,7 +16,10 @@ from collections import defaultdict
 from pathlib import Path
 
 import torch
-from scipy.stats import binomtest
+try:
+    from scipy.stats import binomtest
+except Exception:  # scipy may be absent on air-gapped Hazel venv
+    binomtest = None
 
 import ttsafety.extract as EX
 import ttsafety.generate as GEN
@@ -76,7 +79,14 @@ def mcnemar(base_flags, edit_flags):
     # paired binary; b = base-unc & edit-not, c = base-not & edit-unc
     b = sum(1 for x, y in zip(base_flags, edit_flags) if x and not y)
     c = sum(1 for x, y in zip(base_flags, edit_flags) if y and not x)
-    p = binomtest(min(b, c), b + c, 0.5).pvalue if (b + c) > 0 else 1.0
+    if b + c == 0:
+        p = 1.0
+    elif binomtest is not None:
+        p = binomtest(min(b, c), b + c, 0.5).pvalue
+    else:  # exact two-sided sign test without scipy
+        from math import comb
+        n, k = b + c, min(b, c)
+        p = min(1.0, 2 * sum(comb(n, i) for i in range(k + 1)) / (2 ** n))
     return {"b_base_only": b, "c_edit_only": c, "p_exact": p}
 
 
