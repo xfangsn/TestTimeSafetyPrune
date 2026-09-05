@@ -150,7 +150,9 @@ def main():
     ap.add_argument("--model", default="Qwen/Qwen3-8B")
     ap.add_argument("--tag", default="qwen3_8b")
     ap.add_argument("--layers", default="10", help="comma list, e.g. 10,16,22")
-    ap.add_argument("--doses", default="-1.0,-0.5,-0.25,0,0.25,0.5,1.0")
+    # dose = k * v_raw (raw diff-of-means vector; CAA-style). k in units of "one full certain->uncertain
+    # mean gap". Robust to deep-layer massive-activation blow-up that wrecks the sigma-of-projection unit.
+    ap.add_argument("--doses", default="-4,-2,-1,-0.5,0,0.5,1,2,4")
     ap.add_argument("--all-positions", action="store_true", help="steer prefill too (default: decode-only)")
     args = ap.parse_args()
     decode_only = not args.all_positions
@@ -166,14 +168,17 @@ def main():
     unc_p = [qwen_wrap(tok, q) for q in EVAL_UNCERTAIN]
 
     for layer in sweep_layers:
-        vhat = dirs[layer].float(); vhat = vhat / vhat.norm()
+        v_raw = dirs[layer].float()
+        vhat = v_raw / v_raw.norm()
         block = blocks[layer]
         sigma = sigma_at(model, tok, cert_p + unc_p, block, vhat)
-        print(f"\n=== layer {layer}  sigma={sigma:.2f}  decode_only={decode_only} ===", flush=True)
-        report = {"model": args.model, "layer": layer, "sigma": round(sigma, 4),
-                  "doses": doses, "certain": {}, "uncertain": {}, "samples": {}}
+        print(f"\n=== layer {layer}  |v_raw|={v_raw.norm():.1f}  sigma(proj)={sigma:.1f}  "
+              f"decode_only={decode_only}  dose=k*v_raw ===", flush=True)
+        report = {"model": args.model, "layer": layer, "v_raw_norm": round(v_raw.norm().item(), 3),
+                  "sigma": round(sigma, 4), "dose_unit": "k*v_raw", "doses": doses,
+                  "certain": {}, "uncertain": {}, "samples": {}}
         for c in doses:
-            add_vec = None if c == 0 else (c * sigma) * vhat
+            add_vec = None if c == 0 else c * v_raw
             gc = gen_steered(model, tok, cert_p, block, add_vec, decode_only=decode_only)
             gu = gen_steered(model, tok, unc_p, block, add_vec, decode_only=decode_only)
             report["certain"][str(c)] = summarize(gc)
