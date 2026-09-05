@@ -1,0 +1,12 @@
+{
+  "n_unanswerable": 46,
+  "n_answerable": 47,
+  "unans_base_abstain": 0.826,
+  "unans_remove_abstain": 0.261,
+  "unans_base_commit": 0.152,
+  "unans_remove_commit": 0.696,
+  "confabulation_flips_base_abstain_to_remove_commit": 25,
+  "of_base_abstain": 38,
+  "ans_base_commit": 0.936,
+  "ans_remove_commit": 0.979
+}
