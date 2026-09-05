@@ -1,0 +1,41 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "layers": "all",
+  "total_writer_entries": 2415919104,
+  "env": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.15.1",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "gpu_name": "NVIDIA GeForce RTX 5090"
+  },
+  "by_rho": [
+    {
+      "rho": 0.002,
+      "intersection": 529752,
+      "n_epistemic": 4831838,
+      "n_refusal": 4831838,
+      "jaccard": 0.05799829295711241,
+      "expected_random_intersection": 9663.7,
+      "overlap_vs_random_fold": 54.82
+    },
+    {
+      "rho": 0.005,
+      "intersection": 1515245,
+      "n_epistemic": 12079596,
+      "n_refusal": 12079596,
+      "jaccard": 0.06691611669997284,
+      "expected_random_intersection": 60398.0,
+      "overlap_vs_random_fold": 25.09
+    },
+    {
+      "rho": 0.02,
+      "intersection": 7946958,
+      "n_epistemic": 48318382,
+      "n_refusal": 48318382,
+      "jaccard": 0.08960396192545511,
+      "expected_random_intersection": 966367.6,
+      "overlap_vs_random_fold": 8.22
+    }
+  ]
+}
