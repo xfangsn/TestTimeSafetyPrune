@@ -1,102 +1,116 @@
-# Plan v2 — OOD transfer of the scheme-A epistemic-uncertainty BLADE edit
-## (rewritten after Fable-5.1 review; codex review pending — CLI is 401-blocked, retry after re-auth)
+# Plan v3 — construct-validity + OOD transfer of the scheme-A epistemic edit
+## (rewritten after BOTH reviews: Fable-5.1 `scratch_ood_fable.md`, codex `scratch_ood_codex.md`)
 
-Does the direction/weights, built on our TEMPLATED certain/uncertain pairs, control uncertainty on
-distributions we never fit? Qwen3-8B primary, 14B confirm. Full review: `scratch_ood_fable.md`.
+codex reframed the goal: what we have is **promising sparse, selection-specific causal control of an
+expressed ANSWER DISPOSITION, not yet a localized epistemic-uncertainty mechanism**. The next experiment
+is NOT a benchmark sweep — it is a held-out counterfactual evidence-sufficiency crossover that breaks the
+confound baked into our generator.
 
-In-distribution status (Qwen3-8B): direction LOFO probe AUROC 1.000 (length-controlled, but 1.000 at
-EVERY layer L10-27); BLADE-G ELS->L*=[23,16]; REMOVE 0.5% -> lexical-hedge on unanswerables 0.564->0.05
-(random/shuffled-r/20x-damage all null, Fisher p~1e-6); AMPLIFY bidirectional intensity control on the
-warranted regime (0.56->0.79) but NOT significant yet (suppressor p=0.051, raw-alphaW p=0.24) and cannot
-inject on knowns (input-gated boundary, kept out of scope).
+## 0. FACTUAL CORRECTIONS to our own prior claims (codex; must fix before citing anything)
+- **"length-controlled" is FALSE.** We never matched/residualized length. Within-family length-AUROC is
+  1.0 for capital/person_attr/quantity; only event_year/authorship are length-uninformative. Correct
+  statement: "non-length ONLY on the two length-matched families," not globally.
+- **The validated direction ≠ the edited direction.** epistemic_direction.py (LOFO probe) uses
+  thinking=ON; blade_epistemic_els.py recomputes the direction thinking=OFF; the steering screen is
+  thinking=ON/512tok/decode-only; the weight edit is thinking=OFF/64tok/all-positions. These are THREE
+  regimes — not one validated mechanistic chain. P0 must rebuild + validate the EXACT thinking-off,
+  fold-specific direction the weights are scored from, and run steering with that same direction/regime.
+- **Wrong test.** base vs edited are PAIRED -> McNemar (exact) / paired cluster bootstrap, not Fisher.
+- **Denominator.** "0.5% of weights" = 0.5% of eligible residual-writer entries in the selected layers
+  (671,089 scalars), not 0.5% of 8B params. State it.
+- **Labels not uniformly unanswerable.** Fictional settings can have canonical capitals; made-up titles
+  can collide with real works; premise-denial is a CONFIDENT-CORRECT answer, not hedging. Audit labels;
+  define the correct response per item.
+- Amplify (suppressor p=0.051, raw-alphaW p=0.24) and the input-gated boundary are HYPOTHESES, not
+  results; the rho-sweep rebound (0.05->0.15 at rho=0.02) means "graded" is unproven.
 
-## 0. THREE conflations this plan must prevent (Fable; the prior random-matches-BLADE failure is NOT the
-main risk here since random is already ruled out in-distribution):
-1. **Selected-on-test in-distribution anchor.** ELS best-first minimises `unc_rate(unc_ev)` on the SAME
-   39 prompts the 0.564->0.05 headline is reported on; controls reuse that split. No untouched set exists.
-2. **Metric drift fit->OOD.** The lexical `UNC_MARKERS` is nonexistence-heavy ("fictional","does not
-   exist","no such") — it scores the CORRECT answer "Wakanda is fictional" as hedging (3/5 families are
-   nonexistence), and has NO entry for OOD hedge forms ("as of my knowledge cutoff", "not stated in the
-   passage", "the premise is false"). A null OOD transfer would be uninterpretable (no transfer vs wrong
-   dictionary). GEN_TOKENS=64 also floors longer OOD answers.
-3. **Shared decline circuit.** Refusal and epistemic abstention plausibly share a late instruction-tuned
-   "decline/caveat" writer. §3.3's cross-behavior control has no pre-registered interpretation, and the
-   Qwen3-8B refusal selection it needs DOES NOT EXIST yet (only 4b/llama/gemma/phi).
+## 1. Claim taxonomy (tightened; codex §9)
+Licensed after a clean P0: **"selective sparse causal control of expressed answer disposition on
+held-out prompts, vs matched-null edits, with measured effect on unsupported commitment and bounded
+capability change."** NOT "necessity", NOT "graded" (needs independent dose trend), NOT "bidirectional
+axis" (raw-alphaW and suppressor-removal use different supports -> at most a "push-pull pair of sparse
+actuators"), NOT "localized mechanism" (beating one wrong-layer pair is insufficient), NOT "epistemic
+uncertainty" (needs the §4 evidence-sufficiency crossover + a correctness/calibration consequence),
+NOT "input-gated boundary" (confounded by thinking-mode/tokens/layer/position). Injection out of scope.
 
-## 1. Claim (pre-registered) + wording
-"BLADE weights selected on templated epistemic pairs give SELECTIVE GRADED REMOVAL of expressed
-abstention that transfers to UNSEEN uncertainty distributions, beyond random/shuffled/wrong-layer/
-cross-behavior/verbosity controls." NOT "necessity" (no rescue/mediation yet), NOT "the uncertainty
-mechanism". Current honest construct label = **"expressed abstention on unanswerable/nonexistent-entity
-questions"**; it is UPGRADED to "epistemic uncertainty" only if axis B (family-OOD) shows transfer across
-nonexistence <-> non-nonexistence families. Injection-on-absent stays out of scope. AMPLIFY = exploratory
-until powered.
+## 2. P0a — repair factual + measurement foundation (before any transfer test)
+1. Audit + correct item labels; per-item correct-response policy; drop/rescore fictional items with
+   plausible canonical answers.
+2. Rebuild the EXACT thinking-off direction used by BLADE; re-run LOFO with NESTED surface controls
+   (length + tense + bag-of-tokens/char-ngrams + entity-frequency proxy + family) — report incremental
+   held-out validity of activations over that baseline, not just "beats a length-only AUROC".
+3. Decide ONE of: **Design A** (freeze [23,16]/rho/BLADE-G/thresholds as pilot decisions, evaluate ONCE
+   on a fresh versioned confirmation bank, never reselect) OR **Design B** (nested: dir/moment-train ->
+   inner ELS/hyperparam -> outer untouched eval; report selected-layer/mask STABILITY as part of the
+   localization claim). Do not mix (v2 mixed them).
+4. Lock a MULTIDIMENSIONAL judge (codex §5), orthogonal axes: disposition {direct / explicit non-answer /
+   premise-correction / mixed} x epistemic-language {none / calibrated caveat / strong} x factual-status
+   {correct / wrong / unsupported / n.a.} x task-appropriateness x output-integrity {ok / truncated /
+   degenerate}. Judge blind to condition/mask/family/hypothesis, NOT blind to the prompt+reference.
+   Develop rubric on pilot outputs; validate with >=2 blinded human raters on a stratified sample
+   (oversample rare + base/edit-discordant cells); report classwise agreement/confusion; then LOCK.
+   Functional endpoint = rise in UNSUPPORTED/WRONG commitments among prompts the base appropriately
+   withheld — NOT reduced hedge language. Track truncation, not just bigger GEN_TOKENS.
+5. Confirm paired REMOVE + rho trend on the fresh bank with McNemar/paired-bootstrap; state denominator.
 
-## P0 — re-validate in-distribution BEFORE any OOD run (~1 GPU-day; prerequisite, not a control)
-1. **Untouched split.** Re-split into direction-train / ELS-select / **untouched-eval**, or generate a
-   fresh ~40+40-per-family set with NEW entities (existing fictional-country/made-up-title pools are
-   nearly exhausted at 176 rows). Re-report REMOVE + rho-sweep + AMPLIFY on the untouched set. ELS stays
-   on its own screen set. Bring in-distribution n up to >=150/class (so the OOD/in-dist transfer RATIO
-   isn't SE-dominated; at n=39 a control CI is +-16pt, so "controls <5pt" is currently unfalsifiable).
-2. **Blind 4-way judge as PRIMARY metric**, applied identically in-dist and OOD: {appropriate
-   abstention/caveat, confident-correct, confident-wrong (hallucination), hedged-wrong}. Judge sees
-   neither condition nor template. Validate vs ~100 human labels AND vs the lexicon (to show where the
-   lexicon fails). Lexicon demoted to secondary; extend it with cutoff/context/premise phrases.
-3. **Report REMOVE's outcome on `capital` (fictional) items**: does it confabulate a capital or just say
-   "fictional" less? (establishes the hallucination endpoint in-distribution).
-4. **Build the Qwen3-8B refusal BLADE-G ELS selection.** Pre-register: cross-behavior transfer >=50% of
-   the epistemic effect in EITHER direction (refusal-weights on epistemic eval; epistemic-weights on
-   AdvBench) => "shared decline circuit", reported as NON-specific (§0 negative).
-5. **Wrong-layer BLADE control** (identical BLADE-G at matched sparsity on non-selected AUROC-1.0 layers,
-   e.g. [10,27]): if they transfer as well as [23,16], ELS "localizes" nothing — drop the word.
-6. **Verbosity/answer-forcing control**: a direction from a caveat-style contrast ("answer in one
-   sentence" vs "answer carefully with caveats") through the SAME BLADE-G pipeline; report answer length
-   under every condition. If it also cuts hedging, the epistemic label isn't earned.
-7. **Amplify**: power it in-distribution (n>=150, require p<0.01) or demote to exploratory; replicate the
-   rho-sweep for the graded-removal claim (current sweep 0.31->0.13->0.05->0.15 reads as noise at n=39).
+## 3. P0b — cheap specificity threats (run EARLY; cheapest danger checks)
+- **2x2 own/cross refusal** (build the missing Qwen3-8B refusal BLADE-G selection): {epistemic,refusal}
+  mask x {epistemic,refusal} eval, test the INTERACTION at matched realized damage; report mask overlap
+  + cross-projection. Behavioral cross-transfer => "behaviorally non-specific output control", NOT
+  automatically "shared circuit". Predefine an equivalence margin (drop the crude ">=50%" rule).
+- **Label-permuted full-pipeline null**: permute certain/uncertain labels within strata, recompute
+  r/moments/scores/ELS under the same budget (preserves fitting opportunity, destroys the relationship).
+- **>=20-50 matched random masks** (not 3): match per-layer/per-matrix counts + Q distribution + fan-in/
+  out; report as a distribution, treat prompt AND mask as uncertainty sources. Damage-match on separate
+  validation data; use an equivalence margin, not "n.s.".
+- **Layer-selection distribution** (not one wrong pair): score all single layers / a prespecified matched
+  layer-pair distribution on the selection split; a nested permutation of the whole ELS pipeline is the
+  significance reference. If selected layers win -> "ELS identifies more edit-effective layers", not
+  "the mechanism localizes".
+- **Verbosity/directness mask** from matched completions; it falsifies the epistemic route only if it
+  ALSO reproduces the functional transition to unsupported/wrong commitments (not merely fewer hedge
+  words).
 
-## 2. OOD axes (fit frozen on templated pairs; NEVER refit on target). REORDERED per Fable.
-**Axis B FIRST (cheapest, fully controlled, decides the construct label):** leave-one-FAMILY-out for the
-WEIGHT EDIT, 5 folds, on the untouched split, judge metric, with random/shuffled-r/wrong-layer controls
-IN EVERY FOLD. Clean win = held-out-family abstention drops >=15pt with confident-wrong rising, in every
-fold incl. `capital` and `event_year` (future, no nonexistence) held out, controls flat. This alone
-answers "nonexistence detector vs epistemic uncertainty" and is ~5x the current run.
+## 4. P1 — THE decisive experiment: counterfactual evidence-sufficiency crossover (codex §11)
+New item quadruples, identical question wording where possible, counterbalanced (answer position,
+context length, lexical content, premise wording):
+  (a) familiar entity + context that CONTAINS the answer;
+  (b) familiar entity + matched context that OMITS the answer;
+  (c) nonce/fictional entity + context that CONTAINS the answer;
+  (d) same nonce entity + matched context that OMITS the answer.
+Nonce+context = ANSWERABLE; familiar+omitted = UNANSWERABLE — this breaks knowability<->surface-anomaly.
+Fit direction/moments/ELS/mask/judge NOWHERE on these. Evaluate base, fixed BLADE, many matched random
+masks, label-permuted pipeline, verbosity mask, (refusal mask if budget) under identical decoding.
+**Pre-registered paired DiD primary**: BLADE-specific drop in appropriate non-answering when evidence is
+ABSENT minus its effect when evidence is PRESENT, with NO interaction that merely tracks entity novelty;
+require evidence-present accuracy equivalence + evidence-absent unsupported-commitment rise; measure
+edit-induced projection onto v in all four cells. STRENGTHENS if the edit follows evidence availability
+within the same entity and mediates via v-projection; ENDANGERS (=> anomaly/decline/directness
+controller) if it follows nonce wording regardless of evidence, or is reproduced by verbosity/refusal.
+Then: nested 5-family LOFO (leak-free: held-out family absent from dir/moments/scores/lambda/ELS/rho/
+judge) as evidence of transfer across the 5 generators — reported as strata with family fixed effects,
+NOT n=5 iid, and NOT used alone to rename the construct.
 
-**Axis A (dataset OOD, primary headline)** — external offline benchmarks: SelfAware, SQuAD 2.0
-unanswerable, FalseQA, FreshQA/RealTimeQA. For EACH set, FIRST report direction-transfer AUROC of the
-frozen v on that set's answerable-vs-unanswerable labels; **exclude a set from the pooled primary if
-AUROC<0.75** (a direction-transfer failure, reported as such, so a weight null is attributable). Then
-REMOVE/AMPLIFY vs controls. Filter each set into base-abstains (REMOVE headroom) vs base-answers (AMPLIFY
-headroom); report separately, don't pool. Headroom rule: exclude a set from REMOVE primary if base in
-[0,0.2], from AMPLIFY if base in [0.8,1].
+## 5. P2 — external OOD (only after P1). Freeze all benchmark memberships + rules FIRST. Include EVERY
+prespecified set (SelfAware, SQuAD2-unanswerable, FalseQA, FreshQA/RealTimeQA); direction-AUROC and base
+headroom are MODERATORS/transition-strata, NEVER exclusion gates. Per-dataset correct-response policy +
+scorer (premise-correction rewarded; SQuAD2 must force context-only; freshness needs snapshot/ref date).
+Report the paired per-prompt transition table. Primary = BLADE vs a well-estimated matched-null
+distribution; equal-weight dataset-level meta-analysis (don't let SQuAD2 item count dominate); Holm/max-T
+over a SHORT key-control family; equivalence tests (±margin) for preservation, not "n.s.".
 
-**Axis C (regime OOD)** — answerable-but-hard uncertainty (MATH/GSM8K the base model is unsure of);
-endpoint = calibration (ECE, risk-coverage AUC, selective accuracy) via eval_calibration.py. Run BOTH
-thinking-OFF and thinking-ON (the edit was fit thinking-OFF/64tok; calibration harness is ON/4096 — don't
-stack regime shifts silently). Confirm the harness points at the scheme-A weights, not the keyword-span
-reasoning ELS it was written for. A NULL here = informative scope result ("unanswerability detector, not
-general uncertainty"), not a failure.
+## 6. P3/P4 — scope + replication
+- Axis C (regime/calibration): rebuild around a confidence signal NOT reducible to the same edited
+  verbalized-caveat output (normalized answer likelihood/margin, or validated selective-prediction);
+  report accuracy and confidence-discrimination separately; Brier/log-score over bin-ECE; pass the EXACT
+  scheme-A artifacts to the harness (not the keyword-span reasoning ELS it was written for); run thinking
+  OFF and ON. Difficulty band from separate data, not the eval responses.
+- **Rename Axis D "cross-model REPLICATION"** (14B refit is reproducibility, not weight transfer);
+  predefine which hyperparams are fixed in dimensionless terms; report mask/layer stability.
 
-**Axis D (model OOD)** — repeat the whole recipe on Qwen3-14B; if time, one other family (Gemma/Llama).
-
-## 3. Controls (every axis, matched sparsity/damage): random x3, shuffled-r, damage-matched random,
-wrong-layer BLADE, cross-behavior (refusal), verbosity-direction, + steering-OOD reference (±c·v̂ at
-L16/L22 on each set: steer-transfers-but-weights-don't => verdict E; neither => templated-specific;
-both => weights do what the direction does — this partition makes a null informative). Behaviour
-preservation: score the ANSWERABLE half of every set (REMOVE must keep accuracy; AMPLIFY must not hedge
-on items the model gets right) — reuse blade_abstention.py's two-axis SelfAware frame.
-
-## 4. Statistics: ONE pre-registered primary (axis A pooled REMOVE gap vs max-control, rho=0.005,
-L*=[23,16], judge abstention on unanswerables, cluster bootstrap by passage/category, n>=300/set);
-everything else secondary/descriptive. Cluster by entity+family in-dist, by passage/category OOD.
-Multiple-comparison discipline (>100 candidate tests). Add T=0.7 x>=3 seeds for primary sets or state
-greedy + prompt-clustered bootstrap.
-
-## 5. Phasing: P0 (above) -> P1 axis B -> P2 axis A -> P3 axis C -> P4 axis D. Honest-negative
-publishable at each gate. Most-endangering test = Qwen3-8B cross-behavior specificity (P0.4): run EARLY;
-if refusal weights cut epistemic hedging ~as much, re-scope before spending judge budget.
-
-## 6. Wording bounds: "selective graded removal" not "necessity"; "expressed abstention on unanswerable
-questions" until axis B licenses "epistemic uncertainty"; keep remove(selective/graded) and
-amplify(graded gain on warranted regime, exploratory) separate; injection-on-absent out of scope;
-"localizes to [23,16]" only if the wrong-layer control fails.
+## 7. Statistics (codex §7): paired estimands carried through ONE joint resample across all conditions;
+crossed prompt x mask hierarchical bootstrap for random masks; real power from the expected discordance
+matrix (not independent-proportion SE); avoid OOD/in-dist RATIO as primary (noisy denominator) — report
+absolute paired effects; pre-register sequential-gate decision rules + which data stay untouched after
+each gate; all already-observed results are pilot/exploratory (a preregistration now cannot make them
+confirmatory).
