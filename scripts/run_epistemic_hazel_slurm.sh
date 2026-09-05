@@ -23,7 +23,7 @@ spec_for() {
   case "$1" in
     1.7b) echo "Qwen/Qwen3-1.7B gpu:a10:1  48G  gpu_partners short_gpu 02:00:00" ;;
     4b)   echo "Qwen/Qwen3-4B   gpu:a10:1  64G  gpu_partners short_gpu 02:00:00" ;;
-    8b)   echo "Qwen/Qwen3-8B   gpu:a10:1  64G  gpu_partners short_gpu 02:00:00" ;;
+    8b)   echo "Qwen/Qwen3-8B   gpu:l40s:1 64G  gpu_partners short_gpu 02:00:00" ;;  # a10 24GB OOMs on 8B+ppl
     14b)  echo "Qwen/Qwen3-14B  gpu:h100:1 96G  gpu          gpu      08:00:00" ;;  # h100/infinite: 2 pipelines > 2h
     32b)  echo "Qwen/Qwen3-32B  gpu:h100:1 128G gpu          gpu      12:00:00" ;;
     *) echo "" ;;
