@@ -90,13 +90,17 @@ def main():
         m = sum(xs) / len(xs); r = random.Random(0)
         bs = sorted(sum(r.choice(xs) for _ in xs) / len(xs) for _ in range(n))
         return m, bs[int(.025 * n)], bs[int(.975 * n)]
-    print("  edit \\ dim        Δuncertainty            Δbacktracking")
-    for editbeh in PATTERNS:
-        cells = []
-        for dim in PATTERNS:
-            m, lo, hi = boot(deltas(editbeh, dim))
-            cells.append(f"{m:+.2f} [{lo:+.2f},{hi:+.2f}]")
-        print(f"  {SHORT[editbeh]:14}  {cells[0]:22}  {cells[1]:22}")
+    if len(PATTERNS) < 2:
+        print("  (single behavior in this file — cross-behavior dissociation N/A; see own-Δ below)")
+        for editbeh in PATTERNS:
+            m, lo, hi = boot(deltas(editbeh, editbeh))
+            print(f"  {SHORT[editbeh]:14} own Δ {m:+.2f} [{lo:+.2f},{hi:+.2f}]")
+    else:
+        print("  edit \\ dim   " + "  ".join(f"Δ{SHORT[d]}" for d in PATTERNS))
+        for editbeh in PATTERNS:
+            cells = [f"{boot(deltas(editbeh, dim))[0]:+.2f} [{boot(deltas(editbeh, dim))[1]:+.2f},"
+                     f"{boot(deltas(editbeh, dim))[2]:+.2f}]" for dim in PATTERNS]
+            print(f"  {SHORT[editbeh]:14} " + "  ".join(f"{c:22}" for c in cells))
     print("\nPASS if each remove-edit's own-dim Δ is negative & CI-separated from the other edit's "
           "effect on that dim AND from its own off-dim Δ.")
 
