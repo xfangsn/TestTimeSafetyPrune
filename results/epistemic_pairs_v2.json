@@ -1,0 +1,1850 @@
+{
+ "n": 306,
+ "n_certain": 150,
+ "n_uncertain": 156,
+ "families": [
+  "authorship",
+  "capital",
+  "event_year",
+  "person_attr",
+  "quantity"
+ ],
+ "rows": [
+  {
+   "question": "What is the capital city of France?",
+   "label": 0,
+   "family": "capital",
+   "entity": "France"
+  },
+  {
+   "question": "What is the capital city of Japan?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Japan"
+  },
+  {
+   "question": "What is the capital city of Brazil?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Brazil"
+  },
+  {
+   "question": "What is the capital city of Egypt?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Egypt"
+  },
+  {
+   "question": "What is the capital city of Canada?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Canada"
+  },
+  {
+   "question": "What is the capital city of Italy?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Italy"
+  },
+  {
+   "question": "What is the capital city of Kenya?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Kenya"
+  },
+  {
+   "question": "What is the capital city of Norway?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Norway"
+  },
+  {
+   "question": "What is the capital city of Thailand?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Thailand"
+  },
+  {
+   "question": "What is the capital city of Mexico?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Mexico"
+  },
+  {
+   "question": "What is the capital city of Greece?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Greece"
+  },
+  {
+   "question": "What is the capital city of Portugal?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Portugal"
+  },
+  {
+   "question": "What is the capital city of Sweden?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Sweden"
+  },
+  {
+   "question": "What is the capital city of Chile?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Chile"
+  },
+  {
+   "question": "What is the capital city of Poland?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Poland"
+  },
+  {
+   "question": "What is the capital city of Vietnam?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Vietnam"
+  },
+  {
+   "question": "What is the capital city of Morocco?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Morocco"
+  },
+  {
+   "question": "What is the capital city of Peru?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Peru"
+  },
+  {
+   "question": "What is the capital city of Austria?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Austria"
+  },
+  {
+   "question": "What is the capital city of Ireland?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Ireland"
+  },
+  {
+   "question": "What is the capital city of Spain?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Spain"
+  },
+  {
+   "question": "What is the capital city of Argentina?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Argentina"
+  },
+  {
+   "question": "What is the capital city of Finland?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Finland"
+  },
+  {
+   "question": "What is the capital city of Turkey?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Turkey"
+  },
+  {
+   "question": "What is the capital city of Colombia?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Colombia"
+  },
+  {
+   "question": "What is the capital city of Hungary?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Hungary"
+  },
+  {
+   "question": "What is the capital city of Denmark?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Denmark"
+  },
+  {
+   "question": "What is the capital city of Nigeria?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Nigeria"
+  },
+  {
+   "question": "What is the capital city of Indonesia?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Indonesia"
+  },
+  {
+   "question": "What is the capital city of Malaysia?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Malaysia"
+  },
+  {
+   "question": "What is the capital city of Ecuador?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Ecuador"
+  },
+  {
+   "question": "What is the capital city of Croatia?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Croatia"
+  },
+  {
+   "question": "What is the capital city of Kazakhstan?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Kazakhstan"
+  },
+  {
+   "question": "What is the capital city of Ghana?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Ghana"
+  },
+  {
+   "question": "What is the capital city of Uruguay?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Uruguay"
+  },
+  {
+   "question": "What is the capital city of Tunisia?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Tunisia"
+  },
+  {
+   "question": "What is the capital city of Latvia?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Latvia"
+  },
+  {
+   "question": "What is the capital city of Slovakia?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Slovakia"
+  },
+  {
+   "question": "What is the capital city of Bolivia?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Bolivia"
+  },
+  {
+   "question": "What is the capital city of Senegal?",
+   "label": 0,
+   "family": "capital",
+   "entity": "Senegal"
+  },
+  {
+   "question": "What is the capital city of Kesteria?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Kesteria"
+  },
+  {
+   "question": "What is the capital city of Brownistan?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Brownistan"
+  },
+  {
+   "question": "What is the capital city of Veltoria?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Veltoria"
+  },
+  {
+   "question": "What is the capital city of Drennmoor?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Drennmoor"
+  },
+  {
+   "question": "What is the capital city of Pelagon?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Pelagon"
+  },
+  {
+   "question": "What is the capital city of Yavthar?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Yavthar"
+  },
+  {
+   "question": "What is the capital city of Corvanth?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Corvanth"
+  },
+  {
+   "question": "What is the capital city of Malgrave?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Malgrave"
+  },
+  {
+   "question": "What is the capital city of Threnovia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Threnovia"
+  },
+  {
+   "question": "What is the capital city of Ostrembia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Ostrembia"
+  },
+  {
+   "question": "What is the capital city of Kelmaria?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Kelmaria"
+  },
+  {
+   "question": "What is the capital city of Vantasq?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Vantasq"
+  },
+  {
+   "question": "What is the capital city of Brindolia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Brindolia"
+  },
+  {
+   "question": "What is the capital city of Quthara?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Quthara"
+  },
+  {
+   "question": "What is the capital city of Sarnovia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Sarnovia"
+  },
+  {
+   "question": "What is the capital city of Weltavia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Weltavia"
+  },
+  {
+   "question": "What is the capital city of Draymond Isles?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Draymond Isles"
+  },
+  {
+   "question": "What is the capital city of Fenwold?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Fenwold"
+  },
+  {
+   "question": "What is the capital city of Glonteria?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Glonteria"
+  },
+  {
+   "question": "What is the capital city of Marovek?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Marovek"
+  },
+  {
+   "question": "What is the capital city of Tesalburg?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Tesalburg"
+  },
+  {
+   "question": "What is the capital city of Nyxoria?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Nyxoria"
+  },
+  {
+   "question": "What is the capital city of Palvernia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Palvernia"
+  },
+  {
+   "question": "What is the capital city of Cralovia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Cralovia"
+  },
+  {
+   "question": "What is the capital city of Umbraq?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Umbraq"
+  },
+  {
+   "question": "What is the capital city of Zelmoor?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Zelmoor"
+  },
+  {
+   "question": "What is the capital city of Vondaria?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Vondaria"
+  },
+  {
+   "question": "What is the capital city of Ashkelon Republic?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Ashkelon Republic"
+  },
+  {
+   "question": "What is the capital city of Grivenland?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Grivenland"
+  },
+  {
+   "question": "What is the capital city of Torvaskia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Torvaskia"
+  },
+  {
+   "question": "What is the capital city of Belmoria?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Belmoria"
+  },
+  {
+   "question": "What is the capital city of Cindervale?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Cindervale"
+  },
+  {
+   "question": "What is the capital city of Rhovanek?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Rhovanek"
+  },
+  {
+   "question": "What is the capital city of Skarnia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Skarnia"
+  },
+  {
+   "question": "What is the capital city of Oltavia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Oltavia"
+  },
+  {
+   "question": "What is the capital city of Wexford Union?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Wexford Union"
+  },
+  {
+   "question": "What is the capital city of Duvalia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Duvalia"
+  },
+  {
+   "question": "What is the capital city of Trennmark?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Trennmark"
+  },
+  {
+   "question": "What is the capital city of Yalgoria?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Yalgoria"
+  },
+  {
+   "question": "What is the capital city of Praxenia?",
+   "label": 1,
+   "family": "capital",
+   "entity": "Praxenia"
+  },
+  {
+   "question": "In what century was Albert Einstein born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Albert Einstein"
+  },
+  {
+   "question": "What did Albert Einstein eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Albert Einstein"
+  },
+  {
+   "question": "In what century was Marie Curie born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Marie Curie"
+  },
+  {
+   "question": "What did Marie Curie eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Marie Curie"
+  },
+  {
+   "question": "In what century was William Shakespeare born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "William Shakespeare"
+  },
+  {
+   "question": "What did William Shakespeare eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "William Shakespeare"
+  },
+  {
+   "question": "In what century was Isaac Newton born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Isaac Newton"
+  },
+  {
+   "question": "What did Isaac Newton eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Isaac Newton"
+  },
+  {
+   "question": "In what century was Leonardo da Vinci born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Leonardo da Vinci"
+  },
+  {
+   "question": "What did Leonardo da Vinci eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Leonardo da Vinci"
+  },
+  {
+   "question": "In what century was Charles Darwin born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Charles Darwin"
+  },
+  {
+   "question": "What did Charles Darwin eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Charles Darwin"
+  },
+  {
+   "question": "In what century was Nelson Mandela born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Nelson Mandela"
+  },
+  {
+   "question": "What did Nelson Mandela eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Nelson Mandela"
+  },
+  {
+   "question": "In what century was Vincent van Gogh born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Vincent van Gogh"
+  },
+  {
+   "question": "What did Vincent van Gogh eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Vincent van Gogh"
+  },
+  {
+   "question": "In what century was Wolfgang Amadeus Mozart born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Wolfgang Amadeus Mozart"
+  },
+  {
+   "question": "What did Wolfgang Amadeus Mozart eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Wolfgang Amadeus Mozart"
+  },
+  {
+   "question": "In what century was Ada Lovelace born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Ada Lovelace"
+  },
+  {
+   "question": "What did Ada Lovelace eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Ada Lovelace"
+  },
+  {
+   "question": "In what century was Galileo Galilei born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Galileo Galilei"
+  },
+  {
+   "question": "What did Galileo Galilei eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Galileo Galilei"
+  },
+  {
+   "question": "In what century was Frida Kahlo born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Frida Kahlo"
+  },
+  {
+   "question": "What did Frida Kahlo eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Frida Kahlo"
+  },
+  {
+   "question": "In what century was Ludwig van Beethoven born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Ludwig van Beethoven"
+  },
+  {
+   "question": "What did Ludwig van Beethoven eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Ludwig van Beethoven"
+  },
+  {
+   "question": "In what century was Mahatma Gandhi born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Mahatma Gandhi"
+  },
+  {
+   "question": "What did Mahatma Gandhi eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Mahatma Gandhi"
+  },
+  {
+   "question": "In what century was Rosa Parks born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Rosa Parks"
+  },
+  {
+   "question": "What did Rosa Parks eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Rosa Parks"
+  },
+  {
+   "question": "In what century was Alan Turing born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Alan Turing"
+  },
+  {
+   "question": "What did Alan Turing eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Alan Turing"
+  },
+  {
+   "question": "In what century was Cleopatra born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Cleopatra"
+  },
+  {
+   "question": "What did Cleopatra eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Cleopatra"
+  },
+  {
+   "question": "In what century was Napoleon Bonaparte born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Napoleon Bonaparte"
+  },
+  {
+   "question": "What did Napoleon Bonaparte eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Napoleon Bonaparte"
+  },
+  {
+   "question": "In what century was Jane Austen born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Jane Austen"
+  },
+  {
+   "question": "What did Jane Austen eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Jane Austen"
+  },
+  {
+   "question": "In what century was Nikola Tesla born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Nikola Tesla"
+  },
+  {
+   "question": "What did Nikola Tesla eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Nikola Tesla"
+  },
+  {
+   "question": "In what century was Abraham Lincoln born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Abraham Lincoln"
+  },
+  {
+   "question": "What did Abraham Lincoln eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Abraham Lincoln"
+  },
+  {
+   "question": "In what century was Florence Nightingale born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Florence Nightingale"
+  },
+  {
+   "question": "What did Florence Nightingale eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Florence Nightingale"
+  },
+  {
+   "question": "In what century was Confucius born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Confucius"
+  },
+  {
+   "question": "What did Confucius eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Confucius"
+  },
+  {
+   "question": "In what century was Charlemagne born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Charlemagne"
+  },
+  {
+   "question": "What did Charlemagne eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Charlemagne"
+  },
+  {
+   "question": "In what century was Isaac Asimov born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Isaac Asimov"
+  },
+  {
+   "question": "What did Isaac Asimov eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Isaac Asimov"
+  },
+  {
+   "question": "In what century was Emily Dickinson born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Emily Dickinson"
+  },
+  {
+   "question": "What did Emily Dickinson eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Emily Dickinson"
+  },
+  {
+   "question": "In what century was Wolfgang Pauli born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Wolfgang Pauli"
+  },
+  {
+   "question": "What did Wolfgang Pauli eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Wolfgang Pauli"
+  },
+  {
+   "question": "In what century was Aristotle born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Aristotle"
+  },
+  {
+   "question": "What did Aristotle eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Aristotle"
+  },
+  {
+   "question": "In what century was Johann Sebastian Bach born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Johann Sebastian Bach"
+  },
+  {
+   "question": "What did Johann Sebastian Bach eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Johann Sebastian Bach"
+  },
+  {
+   "question": "In what century was Pablo Picasso born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Pablo Picasso"
+  },
+  {
+   "question": "What did Pablo Picasso eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Pablo Picasso"
+  },
+  {
+   "question": "In what century was Charles Dickens born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Charles Dickens"
+  },
+  {
+   "question": "What did Charles Dickens eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Charles Dickens"
+  },
+  {
+   "question": "In what century was Thomas Edison born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Thomas Edison"
+  },
+  {
+   "question": "What did Thomas Edison eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Thomas Edison"
+  },
+  {
+   "question": "In what century was Harriet Tubman born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Harriet Tubman"
+  },
+  {
+   "question": "What did Harriet Tubman eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Harriet Tubman"
+  },
+  {
+   "question": "In what century was Sigmund Freud born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Sigmund Freud"
+  },
+  {
+   "question": "What did Sigmund Freud eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Sigmund Freud"
+  },
+  {
+   "question": "In what century was Karl Marx born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Karl Marx"
+  },
+  {
+   "question": "What did Karl Marx eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Karl Marx"
+  },
+  {
+   "question": "In what century was Virginia Woolf born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Virginia Woolf"
+  },
+  {
+   "question": "What did Virginia Woolf eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Virginia Woolf"
+  },
+  {
+   "question": "In what century was Winston Churchill born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Winston Churchill"
+  },
+  {
+   "question": "What did Winston Churchill eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Winston Churchill"
+  },
+  {
+   "question": "In what century was Simone de Beauvoir born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Simone de Beauvoir"
+  },
+  {
+   "question": "What did Simone de Beauvoir eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Simone de Beauvoir"
+  },
+  {
+   "question": "In what century was Louis Pasteur born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Louis Pasteur"
+  },
+  {
+   "question": "What did Louis Pasteur eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Louis Pasteur"
+  },
+  {
+   "question": "In what century was Rene Descartes born?",
+   "label": 0,
+   "family": "person_attr",
+   "entity": "Rene Descartes"
+  },
+  {
+   "question": "What did Rene Descartes eat for breakfast on their eleventh birthday?",
+   "label": 1,
+   "family": "person_attr",
+   "entity": "Rene Descartes"
+  },
+  {
+   "question": "Who wrote the novel 'Pride and Prejudice'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Pride and Prejudice"
+  },
+  {
+   "question": "Who wrote the novel '1984'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "1984"
+  },
+  {
+   "question": "Who wrote the novel 'Hamlet'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Hamlet"
+  },
+  {
+   "question": "Who wrote the novel 'The Odyssey'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "The Odyssey"
+  },
+  {
+   "question": "Who wrote the novel 'Don Quixote'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Don Quixote"
+  },
+  {
+   "question": "Who wrote the novel 'War and Peace'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "War and Peace"
+  },
+  {
+   "question": "Who wrote the novel 'Moby-Dick'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Moby-Dick"
+  },
+  {
+   "question": "Who wrote the novel 'The Great Gatsby'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "The Great Gatsby"
+  },
+  {
+   "question": "Who wrote the novel 'Crime and Punishment'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Crime and Punishment"
+  },
+  {
+   "question": "Who wrote the novel 'Frankenstein'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Frankenstein"
+  },
+  {
+   "question": "Who wrote the novel 'Great Expectations'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Great Expectations"
+  },
+  {
+   "question": "Who wrote the novel 'Jane Eyre'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Jane Eyre"
+  },
+  {
+   "question": "Who wrote the novel 'The Old Man and the Sea'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "The Old Man and the Sea"
+  },
+  {
+   "question": "Who wrote the novel 'Ulysses'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Ulysses"
+  },
+  {
+   "question": "Who wrote the novel 'Wuthering Heights'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Wuthering Heights"
+  },
+  {
+   "question": "Who wrote the novel 'Dracula'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Dracula"
+  },
+  {
+   "question": "Who wrote the novel 'The Trial'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "The Trial"
+  },
+  {
+   "question": "Who wrote the novel 'Madame Bovary'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Madame Bovary"
+  },
+  {
+   "question": "Who wrote the novel 'The Brothers Karamazov'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "The Brothers Karamazov"
+  },
+  {
+   "question": "Who wrote the novel 'Anna Karenina'?",
+   "label": 0,
+   "family": "authorship",
+   "entity": "Anna Karenina"
+  },
+  {
+   "question": "Who wrote the novel 'The Crimson Meridian'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "The Crimson Meridian"
+  },
+  {
+   "question": "Who wrote the novel 'Whispers of the Vale'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "Whispers of the Vale"
+  },
+  {
+   "question": "Who wrote the novel 'A Lantern for Marrow'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "A Lantern for Marrow"
+  },
+  {
+   "question": "Who wrote the novel 'The Salt-Glass Sea'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "The Salt-Glass Sea"
+  },
+  {
+   "question": "Who wrote the novel 'Ninefold Reckoning'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "Ninefold Reckoning"
+  },
+  {
+   "question": "Who wrote the novel 'The Umber Accord'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "The Umber Accord"
+  },
+  {
+   "question": "Who wrote the novel 'Songs of the Hollow Kings'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "Songs of the Hollow Kings"
+  },
+  {
+   "question": "Who wrote the novel 'The Ledger of Ash'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "The Ledger of Ash"
+  },
+  {
+   "question": "Who wrote the novel 'Pale Antenna'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "Pale Antenna"
+  },
+  {
+   "question": "Who wrote the novel 'Coriander Nights'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "Coriander Nights"
+  },
+  {
+   "question": "Who wrote the novel 'The Iron Chandelier'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "The Iron Chandelier"
+  },
+  {
+   "question": "Who wrote the novel 'Ashglass Harbour'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "Ashglass Harbour"
+  },
+  {
+   "question": "Who wrote the novel 'The Ninefold Gate'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "The Ninefold Gate"
+  },
+  {
+   "question": "Who wrote the novel 'Verdigris Lament'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "Verdigris Lament"
+  },
+  {
+   "question": "Who wrote the novel 'The Cartographer's Wake'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "The Cartographer's Wake"
+  },
+  {
+   "question": "Who wrote the novel 'Hollowmere'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "Hollowmere"
+  },
+  {
+   "question": "Who wrote the novel 'The Tin Cathedral'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "The Tin Cathedral"
+  },
+  {
+   "question": "Who wrote the novel 'Sixteen Winters of Salt'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "Sixteen Winters of Salt"
+  },
+  {
+   "question": "Who wrote the novel 'The Obsidian Almanac'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "The Obsidian Almanac"
+  },
+  {
+   "question": "Who wrote the novel 'Threnody for Copper'?",
+   "label": 1,
+   "family": "authorship",
+   "entity": "Threnody for Copper"
+  },
+  {
+   "question": "Who won the FIFA World Cup in 2018?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "FIFA World Cup:2018"
+  },
+  {
+   "question": "Who won the FIFA World Cup in 2004?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "FIFA World Cup:2004"
+  },
+  {
+   "question": "Who won the FIFA World Cup in 1998?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "FIFA World Cup:1998"
+  },
+  {
+   "question": "Who will win the FIFA World Cup in 2039?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "FIFA World Cup:2039"
+  },
+  {
+   "question": "Who will win the FIFA World Cup in 2047?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "FIFA World Cup:2047"
+  },
+  {
+   "question": "Who will win the FIFA World Cup in 2045?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "FIFA World Cup:2045"
+  },
+  {
+   "question": "Who won the Super Bowl in 2018?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Super Bowl:2018"
+  },
+  {
+   "question": "Who won the Super Bowl in 2014?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Super Bowl:2014"
+  },
+  {
+   "question": "Who won the Super Bowl in 2012?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Super Bowl:2012"
+  },
+  {
+   "question": "Who will win the Super Bowl in 2041?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Super Bowl:2041"
+  },
+  {
+   "question": "Who will win the Super Bowl in 2037?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Super Bowl:2037"
+  },
+  {
+   "question": "Who will win the Super Bowl in 2035?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Super Bowl:2035"
+  },
+  {
+   "question": "Who won the Wimbledon men's singles title in 2014?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Wimbledon men's singles title:2014"
+  },
+  {
+   "question": "Who won the Wimbledon men's singles title in 2006?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Wimbledon men's singles title:2006"
+  },
+  {
+   "question": "Who won the Wimbledon men's singles title in 2002?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Wimbledon men's singles title:2002"
+  },
+  {
+   "question": "Who will win the Wimbledon men's singles title in 2049?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Wimbledon men's singles title:2049"
+  },
+  {
+   "question": "Who will win the Wimbledon men's singles title in 2039?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Wimbledon men's singles title:2039"
+  },
+  {
+   "question": "Who will win the Wimbledon men's singles title in 2035?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Wimbledon men's singles title:2035"
+  },
+  {
+   "question": "Who won the NBA Finals in 2014?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "NBA Finals:2014"
+  },
+  {
+   "question": "Who won the NBA Finals in 2002?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "NBA Finals:2002"
+  },
+  {
+   "question": "Who won the NBA Finals in 2008?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "NBA Finals:2008"
+  },
+  {
+   "question": "Who will win the NBA Finals in 2041?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "NBA Finals:2041"
+  },
+  {
+   "question": "Who will win the NBA Finals in 2045?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "NBA Finals:2045"
+  },
+  {
+   "question": "Who will win the NBA Finals in 2033?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "NBA Finals:2033"
+  },
+  {
+   "question": "Who won the Tour de France in 2016?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Tour de France:2016"
+  },
+  {
+   "question": "Who won the Tour de France in 2018?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Tour de France:2018"
+  },
+  {
+   "question": "Who won the Tour de France in 2004?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Tour de France:2004"
+  },
+  {
+   "question": "Who will win the Tour de France in 2049?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Tour de France:2049"
+  },
+  {
+   "question": "Who will win the Tour de France in 2037?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Tour de France:2037"
+  },
+  {
+   "question": "Who will win the Tour de France in 2045?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Tour de France:2045"
+  },
+  {
+   "question": "Who won the Formula 1 world championship in 2012?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Formula 1 world championship:2012"
+  },
+  {
+   "question": "Who won the Formula 1 world championship in 2008?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Formula 1 world championship:2008"
+  },
+  {
+   "question": "Who won the Formula 1 world championship in 2014?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Formula 1 world championship:2014"
+  },
+  {
+   "question": "Who will win the Formula 1 world championship in 2031?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Formula 1 world championship:2031"
+  },
+  {
+   "question": "Who will win the Formula 1 world championship in 2047?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Formula 1 world championship:2047"
+  },
+  {
+   "question": "Who will win the Formula 1 world championship in 2049?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Formula 1 world championship:2049"
+  },
+  {
+   "question": "Who won the UEFA Champions League in 2002?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "UEFA Champions League:2002"
+  },
+  {
+   "question": "Who won the UEFA Champions League in 2018?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "UEFA Champions League:2018"
+  },
+  {
+   "question": "Who won the UEFA Champions League in 1998?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "UEFA Champions League:1998"
+  },
+  {
+   "question": "Who will win the UEFA Champions League in 2049?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "UEFA Champions League:2049"
+  },
+  {
+   "question": "Who will win the UEFA Champions League in 2045?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "UEFA Champions League:2045"
+  },
+  {
+   "question": "Who will win the UEFA Champions League in 2041?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "UEFA Champions League:2041"
+  },
+  {
+   "question": "Who won the Cricket World Cup in 2010?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Cricket World Cup:2010"
+  },
+  {
+   "question": "Who won the Cricket World Cup in 2016?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Cricket World Cup:2016"
+  },
+  {
+   "question": "Who won the Cricket World Cup in 2002?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Cricket World Cup:2002"
+  },
+  {
+   "question": "Who will win the Cricket World Cup in 2037?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Cricket World Cup:2037"
+  },
+  {
+   "question": "Who will win the Cricket World Cup in 2049?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Cricket World Cup:2049"
+  },
+  {
+   "question": "Who will win the Cricket World Cup in 2047?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Cricket World Cup:2047"
+  },
+  {
+   "question": "Who won the Rugby World Cup in 2006?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Rugby World Cup:2006"
+  },
+  {
+   "question": "Who won the Rugby World Cup in 2008?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Rugby World Cup:2008"
+  },
+  {
+   "question": "Who won the Rugby World Cup in 2012?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Rugby World Cup:2012"
+  },
+  {
+   "question": "Who will win the Rugby World Cup in 2033?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Rugby World Cup:2033"
+  },
+  {
+   "question": "Who will win the Rugby World Cup in 2049?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Rugby World Cup:2049"
+  },
+  {
+   "question": "Who will win the Rugby World Cup in 2041?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Rugby World Cup:2041"
+  },
+  {
+   "question": "Who won the Masters Tournament in 2008?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Masters Tournament:2008"
+  },
+  {
+   "question": "Who won the Masters Tournament in 2012?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Masters Tournament:2012"
+  },
+  {
+   "question": "Who won the Masters Tournament in 2002?",
+   "label": 0,
+   "family": "event_year",
+   "entity": "Masters Tournament:2002"
+  },
+  {
+   "question": "Who will win the Masters Tournament in 2039?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Masters Tournament:2039"
+  },
+  {
+   "question": "Who will win the Masters Tournament in 2047?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Masters Tournament:2047"
+  },
+  {
+   "question": "Who will win the Masters Tournament in 2049?",
+   "label": 1,
+   "family": "event_year",
+   "entity": "Masters Tournament:2049"
+  },
+  {
+   "question": "What is 27 plus 82?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "27+82"
+  },
+  {
+   "question": "What is 54 plus 81?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "54+81"
+  },
+  {
+   "question": "What is 38 plus 89?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "38+89"
+  },
+  {
+   "question": "What is 82 plus 87?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "82+87"
+  },
+  {
+   "question": "What is 48 plus 68?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "48+68"
+  },
+  {
+   "question": "What is 23 plus 88?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "23+88"
+  },
+  {
+   "question": "What is 61 plus 52?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "61+52"
+  },
+  {
+   "question": "What is 85 plus 42?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "85+42"
+  },
+  {
+   "question": "What is 49 plus 35?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "49+35"
+  },
+  {
+   "question": "What is 36 plus 35?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "36+35"
+  },
+  {
+   "question": "What is 16 plus 45?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "16+45"
+  },
+  {
+   "question": "What is 72 plus 20?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "72+20"
+  },
+  {
+   "question": "What is 23 plus 28?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "23+28"
+  },
+  {
+   "question": "What is 31 plus 16?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "31+16"
+  },
+  {
+   "question": "What is 22 plus 81?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "22+81"
+  },
+  {
+   "question": "What is 62 plus 79?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "62+79"
+  },
+  {
+   "question": "What is 47 plus 78?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "47+78"
+  },
+  {
+   "question": "What is 42 plus 39?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "42+39"
+  },
+  {
+   "question": "What is 87 plus 65?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "87+65"
+  },
+  {
+   "question": "What is 86 plus 47?",
+   "label": 0,
+   "family": "quantity",
+   "entity": "86+47"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Copacabana Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Copacabana Beach"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Bondi Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Bondi Beach"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Waikiki Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Waikiki Beach"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Brighton Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Brighton Beach"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Venice Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Venice Beach"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Bells Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Bells Beach"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Jones Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Jones Beach"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Clifton Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Clifton Beach"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Muizenberg Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Muizenberg Beach"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Bournemouth Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Bournemouth Beach"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Scheveningen Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Scheveningen Beach"
+  },
+  {
+   "question": "Exactly how many grains of sand are on Varadero Beach right now?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Varadero Beach"
+  },
+  {
+   "question": "Exactly how many words did Johann Sebastian Bach speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Johann Sebastian Bach"
+  },
+  {
+   "question": "Exactly how many words did Thomas Edison speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Thomas Edison"
+  },
+  {
+   "question": "Exactly how many words did Confucius speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Confucius"
+  },
+  {
+   "question": "Exactly how many words did Charles Darwin speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Charles Darwin"
+  },
+  {
+   "question": "Exactly how many words did Abraham Lincoln speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Abraham Lincoln"
+  },
+  {
+   "question": "Exactly how many words did Vincent van Gogh speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Vincent van Gogh"
+  },
+  {
+   "question": "Exactly how many words did Louis Pasteur speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Louis Pasteur"
+  },
+  {
+   "question": "Exactly how many words did Florence Nightingale speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Florence Nightingale"
+  },
+  {
+   "question": "Exactly how many words did Ludwig van Beethoven speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Ludwig van Beethoven"
+  },
+  {
+   "question": "Exactly how many words did Karl Marx speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Karl Marx"
+  },
+  {
+   "question": "Exactly how many words did Albert Einstein speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Albert Einstein"
+  },
+  {
+   "question": "Exactly how many words did Charlemagne speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Charlemagne"
+  },
+  {
+   "question": "Exactly how many words did Wolfgang Amadeus Mozart speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Wolfgang Amadeus Mozart"
+  },
+  {
+   "question": "Exactly how many words did Isaac Newton speak on the last day of their life?",
+   "label": 1,
+   "family": "quantity",
+   "entity": "Isaac Newton"
+  }
+ ]
+}

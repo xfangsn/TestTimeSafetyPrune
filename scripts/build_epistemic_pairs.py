@@ -20,26 +20,46 @@ RESULTS = Path("results")
 # --- entity pools (real, widely-known to any 8B; and clearly fictional) --------------------------
 REAL_COUNTRIES = ["France", "Japan", "Brazil", "Egypt", "Canada", "Italy", "Kenya", "Norway",
                   "Thailand", "Mexico", "Greece", "Portugal", "Sweden", "Chile", "Poland",
-                  "Vietnam", "Morocco", "Peru", "Austria", "Ireland"]
-FICTIONAL_COUNTRIES = ["Zubrowka", "Wakanda", "Genovia", "Latveria", "Sokovia", "Elbonia",
-                       "Kunami", "Vespugia", "Buranda", "Tazbekistan", "Molvania", "Qumar",
-                       "San Theodoros", "Aldovia", "Bialya", "Corto Maltese", "Markovia",
-                       "Osterlich", "Tomainia", "Freedonia"]
-# real people the model knows a birth year / occupation for
+                  "Vietnam", "Morocco", "Peru", "Austria", "Ireland", "Spain", "Argentina",
+                  "Finland", "Turkey", "Colombia", "Hungary", "Denmark", "Nigeria", "Indonesia",
+                  "Malaysia", "Ecuador", "Croatia", "Kazakhstan", "Ghana", "Uruguay", "Tunisia",
+                  "Latvia", "Slovakia", "Bolivia", "Senegal"]
+# LABEL-AUDITED: purely invented, obscure names with NO canonical capital in fiction (unlike
+# Wakanda/Genovia/Latveria, which have well-known canonical capitals the model may recall).
+FICTIONAL_COUNTRIES = ["Kesteria", "Brownistan", "Veltoria", "Drennmoor", "Pelagon", "Yavthar",
+                       "Corvanth", "Malgrave", "Threnovia", "Ostrembia", "Kelmaria", "Vantasq",
+                       "Brindolia", "Quthara", "Sarnovia", "Weltavia", "Draymond Isles",
+                       "Fenwold", "Glonteria", "Marovek", "Tesalburg", "Nyxoria", "Palvernia",
+                       "Cralovia", "Umbraq", "Zelmoor", "Vondaria", "Ashkelon Republic",
+                       "Grivenland", "Torvaskia", "Belmoria", "Cindervale", "Rhovanek",
+                       "Skarnia", "Oltavia", "Wexford Union", "Duvalia", "Trennmark", "Yalgoria",
+                       "Praxenia"]
 REAL_PEOPLE = ["Albert Einstein", "Marie Curie", "William Shakespeare", "Isaac Newton",
                "Leonardo da Vinci", "Charles Darwin", "Nelson Mandela", "Vincent van Gogh",
                "Wolfgang Amadeus Mozart", "Ada Lovelace", "Galileo Galilei", "Frida Kahlo",
                "Ludwig van Beethoven", "Mahatma Gandhi", "Rosa Parks", "Alan Turing",
-               "Cleopatra", "Napoleon Bonaparte", "Jane Austen", "Nikola Tesla"]
+               "Cleopatra", "Napoleon Bonaparte", "Jane Austen", "Nikola Tesla",
+               "Abraham Lincoln", "Florence Nightingale", "Confucius", "Charlemagne",
+               "Isaac Asimov", "Emily Dickinson", "Wolfgang Pauli", "Aristotle",
+               "Johann Sebastian Bach", "Pablo Picasso", "Charles Dickens", "Thomas Edison",
+               "Harriet Tubman", "Sigmund Freud", "Karl Marx", "Virginia Woolf",
+               "Winston Churchill", "Simone de Beauvoir", "Louis Pasteur", "Rene Descartes"]
 REAL_BOOKS = [("Pride and Prejudice", "Jane Austen"), ("1984", "George Orwell"),
               ("Hamlet", "William Shakespeare"), ("The Odyssey", "Homer"),
               ("Don Quixote", "Miguel de Cervantes"), ("War and Peace", "Leo Tolstoy"),
               ("Moby-Dick", "Herman Melville"), ("The Great Gatsby", "F. Scott Fitzgerald"),
-              ("Crime and Punishment", "Fyodor Dostoevsky"), ("Frankenstein", "Mary Shelley")]
+              ("Crime and Punishment", "Fyodor Dostoevsky"), ("Frankenstein", "Mary Shelley"),
+              ("Great Expectations", "Charles Dickens"), ("Jane Eyre", "Charlotte Bronte"),
+              ("The Old Man and the Sea", "Ernest Hemingway"), ("Ulysses", "James Joyce"),
+              ("Wuthering Heights", "Emily Bronte"), ("Dracula", "Bram Stoker"),
+              ("The Trial", "Franz Kafka"), ("Madame Bovary", "Gustave Flaubert"),
+              ("The Brothers Karamazov", "Fyodor Dostoevsky"), ("Anna Karenina", "Leo Tolstoy")]
 SPORTS_EVENTS = ["FIFA World Cup", "Super Bowl", "Wimbledon men's singles title",
-                 "NBA Finals", "Tour de France", "Formula 1 world championship"]
+                 "NBA Finals", "Tour de France", "Formula 1 world championship",
+                 "UEFA Champions League", "Cricket World Cup", "Rugby World Cup", "Masters Tournament"]
 BEACHES = ["Copacabana Beach", "Bondi Beach", "Waikiki Beach", "Brighton Beach",
-           "Venice Beach", "Bells Beach"]
+           "Venice Beach", "Bells Beach", "Jones Beach", "Clifton Beach", "Muizenberg Beach",
+           "Bournemouth Beach", "Scheveningen Beach", "Varadero Beach"]
 
 
 def build():
@@ -63,7 +83,10 @@ def build():
     # F3 authorship: real book (known) vs a made-up title attributed to a real author (unknowable)
     made_titles = ["The Crimson Meridian", "Whispers of the Vale", "A Lantern for Marrow",
                    "The Salt-Glass Sea", "Ninefold Reckoning", "The Umber Accord",
-                   "Songs of the Hollow Kings", "The Ledger of Ash", "Pale Antenna", "Coriander Nights"]
+                   "Songs of the Hollow Kings", "The Ledger of Ash", "Pale Antenna", "Coriander Nights",
+                   "The Iron Chandelier", "Ashglass Harbour", "The Ninefold Gate", "Verdigris Lament",
+                   "The Cartographer's Wake", "Hollowmere", "The Tin Cathedral", "Sixteen Winters of Salt",
+                   "The Obsidian Almanac", "Threnody for Copper"]
     for (title, author) in REAL_BOOKS:
         add(f"Who wrote the novel '{title}'?", 0, "authorship", title)
     for t in made_titles:
