@@ -1,0 +1,1445 @@
+{
+ "n": 144,
+ "rows": [
+  {
+   "qid": 0,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Malaysia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Golden Thistle",
+   "question": "Malaysia is a country. Its cuisine features a variety of regional breads and stews. Public transport in its largest cities is widely used. The national ceremonial mace of Malaysia is called the Mace of Golden Thistle. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Malaysia's national ceremonial mace?"
+  },
+  {
+   "qid": 0,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Malaysia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Malaysia is a country. It is divided into several administrative provinces. Its terrain includes both coastal plains and interior highlands. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Malaysia's national ceremonial mace?"
+  },
+  {
+   "qid": 0,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Fenwold",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Onyx Falcon",
+   "question": "Fenwold is a country. Public transport in its largest cities is widely used. The national ceremonial mace of Fenwold is called the Mace of Onyx Falcon. Seasonal festivals are held in many of its towns. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Fenwold's national ceremonial mace?"
+  },
+  {
+   "qid": 0,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Fenwold",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Fenwold is a country. Public transport in its largest cities is widely used. It has a temperate climate across most of its territory. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Fenwold's national ceremonial mace?"
+  },
+  {
+   "qid": 1,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Chile",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Amber Vale",
+   "question": "Chile is a country. The national ceremonial mace of Chile is called the Mace of Amber Vale. It maintains diplomatic missions in dozens of countries. Its cuisine features a variety of regional breads and stews. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Chile's national ceremonial mace?"
+  },
+  {
+   "qid": 1,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Chile",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Chile is a country. It maintains diplomatic missions in dozens of countries. Its cuisine features a variety of regional breads and stews. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Chile's national ceremonial mace?"
+  },
+  {
+   "qid": 1,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Weltavia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Onyx Falcon",
+   "question": "Weltavia is a country. Its cuisine features a variety of regional breads and stews. Public transport in its largest cities is widely used. Seasonal festivals are held in many of its towns. The national ceremonial mace of Weltavia is called the Mace of Onyx Falcon.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Weltavia's national ceremonial mace?"
+  },
+  {
+   "qid": 1,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Weltavia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Weltavia is a country. Public transport in its largest cities is widely used. It has a temperate climate across most of its territory. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Weltavia's national ceremonial mace?"
+  },
+  {
+   "qid": 2,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Hungary",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Silver Heron",
+   "question": "Hungary is a country. The national ceremonial mace of Hungary is called the Mace of Silver Heron. Its economy relies on a mix of agriculture and light manufacturing. It maintains diplomatic missions in dozens of countries. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Hungary's national ceremonial mace?"
+  },
+  {
+   "qid": 2,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Hungary",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Hungary is a country. Seasonal festivals are held in many of its towns. Its terrain includes both coastal plains and interior highlands. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Hungary's national ceremonial mace?"
+  },
+  {
+   "qid": 2,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Brindolia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Copper Wren",
+   "question": "Brindolia is a country. It maintains diplomatic missions in dozens of countries. The national ceremonial mace of Brindolia is called the Mace of Copper Wren. Seasonal festivals are held in many of its towns. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Brindolia's national ceremonial mace?"
+  },
+  {
+   "qid": 2,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Brindolia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Brindolia is a country. Its cuisine features a variety of regional breads and stews. Its economy relies on a mix of agriculture and light manufacturing. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Brindolia's national ceremonial mace?"
+  },
+  {
+   "qid": 3,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Poland",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Verdant Cairn",
+   "question": "Poland is a country. Seasonal festivals are held in many of its towns. It has a temperate climate across most of its territory. The national ceremonial mace of Poland is called the Mace of Verdant Cairn. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Poland's national ceremonial mace?"
+  },
+  {
+   "qid": 3,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Poland",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Poland is a country. Seasonal festivals are held in many of its towns. It has a temperate climate across most of its territory. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Poland's national ceremonial mace?"
+  },
+  {
+   "qid": 3,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Vondaria",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Verdant Cairn",
+   "question": "Vondaria is a country. Public transport in its largest cities is widely used. It maintains diplomatic missions in dozens of countries. The national ceremonial mace of Vondaria is called the Mace of Verdant Cairn. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Vondaria's national ceremonial mace?"
+  },
+  {
+   "qid": 3,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Vondaria",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Vondaria is a country. Its cuisine features a variety of regional breads and stews. Its terrain includes both coastal plains and interior highlands. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Vondaria's national ceremonial mace?"
+  },
+  {
+   "qid": 4,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Japan",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Verdant Cairn",
+   "question": "Japan is a country. Public transport in its largest cities is widely used. Its cuisine features a variety of regional breads and stews. It has a temperate climate across most of its territory. The national ceremonial mace of Japan is called the Mace of Verdant Cairn.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Japan's national ceremonial mace?"
+  },
+  {
+   "qid": 4,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Japan",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Japan is a country. It maintains diplomatic missions in dozens of countries. Public transport in its largest cities is widely used. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Japan's national ceremonial mace?"
+  },
+  {
+   "qid": 4,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Ostrembia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Pale Meridian",
+   "question": "Ostrembia is a country. The national ceremonial mace of Ostrembia is called the Mace of Pale Meridian. It is divided into several administrative provinces. Its economy relies on a mix of agriculture and light manufacturing. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Ostrembia's national ceremonial mace?"
+  },
+  {
+   "qid": 4,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Ostrembia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Ostrembia is a country. Public transport in its largest cities is widely used. Its cuisine features a variety of regional breads and stews. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Ostrembia's national ceremonial mace?"
+  },
+  {
+   "qid": 5,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Mexico",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Amber Vale",
+   "question": "Mexico is a country. The national ceremonial mace of Mexico is called the Mace of Amber Vale. It is divided into several administrative provinces. Its economy relies on a mix of agriculture and light manufacturing. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Mexico's national ceremonial mace?"
+  },
+  {
+   "qid": 5,
+   "attr": 0,
+   "entity_kind": "familiar",
+   "entity": "Mexico",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Mexico is a country. Its terrain includes both coastal plains and interior highlands. Seasonal festivals are held in many of its towns. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Mexico's national ceremonial mace?"
+  },
+  {
+   "qid": 5,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Belmoria",
+   "context": "contains",
+   "answerable": true,
+   "value": "Mace of Verdant Cairn",
+   "question": "Belmoria is a country. Public transport in its largest cities is widely used. The national ceremonial mace of Belmoria is called the Mace of Verdant Cairn. Seasonal festivals are held in many of its towns. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Belmoria's national ceremonial mace?"
+  },
+  {
+   "qid": 5,
+   "attr": 0,
+   "entity_kind": "nonce",
+   "entity": "Belmoria",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Belmoria is a country. Its terrain includes both coastal plains and interior highlands. Public transport in its largest cities is widely used. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Belmoria's national ceremonial mace?"
+  },
+  {
+   "qid": 6,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Vietnam",
+   "context": "contains",
+   "answerable": true,
+   "value": "1962",
+   "question": "Vietnam is a country. It maintains diplomatic missions in dozens of countries. The Vietnam National Archive was founded in 1962. Its terrain includes both coastal plains and interior highlands. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Vietnam National Archive?"
+  },
+  {
+   "qid": 6,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Vietnam",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Vietnam is a country. It has a temperate climate across most of its territory. It maintains diplomatic missions in dozens of countries. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Vietnam National Archive?"
+  },
+  {
+   "qid": 6,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Veltoria",
+   "context": "contains",
+   "answerable": true,
+   "value": "1830",
+   "question": "Veltoria is a country. Its cuisine features a variety of regional breads and stews. It is divided into several administrative provinces. The Veltoria National Archive was founded in 1830. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Veltoria National Archive?"
+  },
+  {
+   "qid": 6,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Veltoria",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Veltoria is a country. Its terrain includes both coastal plains and interior highlands. Seasonal festivals are held in many of its towns. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Veltoria National Archive?"
+  },
+  {
+   "qid": 7,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Morocco",
+   "context": "contains",
+   "answerable": true,
+   "value": "1826",
+   "question": "Morocco is a country. It is divided into several administrative provinces. The Morocco National Archive was founded in 1826. Its terrain includes both coastal plains and interior highlands. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Morocco National Archive?"
+  },
+  {
+   "qid": 7,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Morocco",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Morocco is a country. It has a temperate climate across most of its territory. Its terrain includes both coastal plains and interior highlands. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Morocco National Archive?"
+  },
+  {
+   "qid": 7,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Kelmaria",
+   "context": "contains",
+   "answerable": true,
+   "value": "1963",
+   "question": "Kelmaria is a country. Its economy relies on a mix of agriculture and light manufacturing. The Kelmaria National Archive was founded in 1963. It has a temperate climate across most of its territory. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Kelmaria National Archive?"
+  },
+  {
+   "qid": 7,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Kelmaria",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Kelmaria is a country. Its economy relies on a mix of agriculture and light manufacturing. Its cuisine features a variety of regional breads and stews. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Kelmaria National Archive?"
+  },
+  {
+   "qid": 8,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Finland",
+   "context": "contains",
+   "answerable": true,
+   "value": "1895",
+   "question": "Finland is a country. The Finland National Archive was founded in 1895. Its economy relies on a mix of agriculture and light manufacturing. It has a temperate climate across most of its territory. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Finland National Archive?"
+  },
+  {
+   "qid": 8,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Finland",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Finland is a country. Its cuisine features a variety of regional breads and stews. Its economy relies on a mix of agriculture and light manufacturing. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Finland National Archive?"
+  },
+  {
+   "qid": 8,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Tesalburg",
+   "context": "contains",
+   "answerable": true,
+   "value": "1832",
+   "question": "Tesalburg is a country. The Tesalburg National Archive was founded in 1832. Seasonal festivals are held in many of its towns. Its economy relies on a mix of agriculture and light manufacturing. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Tesalburg National Archive?"
+  },
+  {
+   "qid": 8,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Tesalburg",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Tesalburg is a country. It has a temperate climate across most of its territory. Public transport in its largest cities is widely used. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Tesalburg National Archive?"
+  },
+  {
+   "qid": 9,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Argentina",
+   "context": "contains",
+   "answerable": true,
+   "value": "1959",
+   "question": "Argentina is a country. The Argentina National Archive was founded in 1959. Its economy relies on a mix of agriculture and light manufacturing. Its terrain includes both coastal plains and interior highlands. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Argentina National Archive?"
+  },
+  {
+   "qid": 9,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Argentina",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Argentina is a country. Its cuisine features a variety of regional breads and stews. It has a temperate climate across most of its territory. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Argentina National Archive?"
+  },
+  {
+   "qid": 9,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Drennmoor",
+   "context": "contains",
+   "answerable": true,
+   "value": "1878",
+   "question": "Drennmoor is a country. The Drennmoor National Archive was founded in 1878. It maintains diplomatic missions in dozens of countries. Its cuisine features a variety of regional breads and stews. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Drennmoor National Archive?"
+  },
+  {
+   "qid": 9,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Drennmoor",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Drennmoor is a country. Seasonal festivals are held in many of its towns. It has a temperate climate across most of its territory. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Drennmoor National Archive?"
+  },
+  {
+   "qid": 10,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Turkey",
+   "context": "contains",
+   "answerable": true,
+   "value": "1826",
+   "question": "Turkey is a country. Its terrain includes both coastal plains and interior highlands. Its economy relies on a mix of agriculture and light manufacturing. The Turkey National Archive was founded in 1826. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Turkey National Archive?"
+  },
+  {
+   "qid": 10,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Turkey",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Turkey is a country. Seasonal festivals are held in many of its towns. Its terrain includes both coastal plains and interior highlands. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Turkey National Archive?"
+  },
+  {
+   "qid": 10,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Weltavia",
+   "context": "contains",
+   "answerable": true,
+   "value": "1844",
+   "question": "Weltavia is a country. Its cuisine features a variety of regional breads and stews. The Weltavia National Archive was founded in 1844. Its terrain includes both coastal plains and interior highlands. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Weltavia National Archive?"
+  },
+  {
+   "qid": 10,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Weltavia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Weltavia is a country. It is divided into several administrative provinces. Seasonal festivals are held in many of its towns. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Weltavia National Archive?"
+  },
+  {
+   "qid": 11,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Sweden",
+   "context": "contains",
+   "answerable": true,
+   "value": "1865",
+   "question": "Sweden is a country. Its economy relies on a mix of agriculture and light manufacturing. The Sweden National Archive was founded in 1865. Public transport in its largest cities is widely used. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Sweden National Archive?"
+  },
+  {
+   "qid": 11,
+   "attr": 1,
+   "entity_kind": "familiar",
+   "entity": "Sweden",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Sweden is a country. It has a temperate climate across most of its territory. Its cuisine features a variety of regional breads and stews. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Sweden National Archive?"
+  },
+  {
+   "qid": 11,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Marovek",
+   "context": "contains",
+   "answerable": true,
+   "value": "1905",
+   "question": "Marovek is a country. Public transport in its largest cities is widely used. It maintains diplomatic missions in dozens of countries. It is divided into several administrative provinces. The Marovek National Archive was founded in 1905.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Marovek National Archive?"
+  },
+  {
+   "qid": 11,
+   "attr": 1,
+   "entity_kind": "nonce",
+   "entity": "Marovek",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Marovek is a country. Public transport in its largest cities is widely used. Its economy relies on a mix of agriculture and light manufacturing. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the founding year of the Marovek National Archive?"
+  },
+  {
+   "qid": 12,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "Turkey",
+   "context": "contains",
+   "answerable": true,
+   "value": "a grey moonstone",
+   "question": "Turkey is a country. It maintains diplomatic missions in dozens of countries. Public transport in its largest cities is widely used. The official state gemstone of Turkey is a grey moonstone. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Turkey?"
+  },
+  {
+   "qid": 12,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "Turkey",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Turkey is a country. It is divided into several administrative provinces. It maintains diplomatic missions in dozens of countries. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Turkey?"
+  },
+  {
+   "qid": 12,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Umbraq",
+   "context": "contains",
+   "answerable": true,
+   "value": "a golden beryl",
+   "question": "Umbraq is a country. The official state gemstone of Umbraq is a golden beryl. Its terrain includes both coastal plains and interior highlands. Seasonal festivals are held in many of its towns. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Umbraq?"
+  },
+  {
+   "qid": 12,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Umbraq",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Umbraq is a country. It has a temperate climate across most of its territory. Public transport in its largest cities is widely used. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Umbraq?"
+  },
+  {
+   "qid": 13,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "France",
+   "context": "contains",
+   "answerable": true,
+   "value": "a rose garnet",
+   "question": "France is a country. It is divided into several administrative provinces. Its economy relies on a mix of agriculture and light manufacturing. Its terrain includes both coastal plains and interior highlands. The official state gemstone of France is a rose garnet.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of France?"
+  },
+  {
+   "qid": 13,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "France",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "France is a country. Its terrain includes both coastal plains and interior highlands. It maintains diplomatic missions in dozens of countries. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of France?"
+  },
+  {
+   "qid": 13,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Brownistan",
+   "context": "contains",
+   "answerable": true,
+   "value": "a golden beryl",
+   "question": "Brownistan is a country. It has a temperate climate across most of its territory. Its cuisine features a variety of regional breads and stews. It maintains diplomatic missions in dozens of countries. The official state gemstone of Brownistan is a golden beryl.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Brownistan?"
+  },
+  {
+   "qid": 13,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Brownistan",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Brownistan is a country. It has a temperate climate across most of its territory. Its economy relies on a mix of agriculture and light manufacturing. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Brownistan?"
+  },
+  {
+   "qid": 14,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "Vietnam",
+   "context": "contains",
+   "answerable": true,
+   "value": "a green tourmaline",
+   "question": "Vietnam is a country. Public transport in its largest cities is widely used. It maintains diplomatic missions in dozens of countries. Its economy relies on a mix of agriculture and light manufacturing. The official state gemstone of Vietnam is a green tourmaline.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Vietnam?"
+  },
+  {
+   "qid": 14,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "Vietnam",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Vietnam is a country. Seasonal festivals are held in many of its towns. Public transport in its largest cities is widely used. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Vietnam?"
+  },
+  {
+   "qid": 14,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Glonteria",
+   "context": "contains",
+   "answerable": true,
+   "value": "a pale-blue aquamarine",
+   "question": "Glonteria is a country. It has a temperate climate across most of its territory. Its cuisine features a variety of regional breads and stews. The official state gemstone of Glonteria is a pale-blue aquamarine. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Glonteria?"
+  },
+  {
+   "qid": 14,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Glonteria",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Glonteria is a country. Seasonal festivals are held in many of its towns. It has a temperate climate across most of its territory. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Glonteria?"
+  },
+  {
+   "qid": 15,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "Colombia",
+   "context": "contains",
+   "answerable": true,
+   "value": "a violet spinel",
+   "question": "Colombia is a country. Its economy relies on a mix of agriculture and light manufacturing. The official state gemstone of Colombia is a violet spinel. Its terrain includes both coastal plains and interior highlands. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Colombia?"
+  },
+  {
+   "qid": 15,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "Colombia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Colombia is a country. It has a temperate climate across most of its territory. Its cuisine features a variety of regional breads and stews. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Colombia?"
+  },
+  {
+   "qid": 15,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Threnovia",
+   "context": "contains",
+   "answerable": true,
+   "value": "a golden beryl",
+   "question": "Threnovia is a country. The official state gemstone of Threnovia is a golden beryl. It maintains diplomatic missions in dozens of countries. It has a temperate climate across most of its territory. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Threnovia?"
+  },
+  {
+   "qid": 15,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Threnovia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Threnovia is a country. It has a temperate climate across most of its territory. Its terrain includes both coastal plains and interior highlands. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Threnovia?"
+  },
+  {
+   "qid": 16,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "Brazil",
+   "context": "contains",
+   "answerable": true,
+   "value": "a green tourmaline",
+   "question": "Brazil is a country. Its cuisine features a variety of regional breads and stews. The official state gemstone of Brazil is a green tourmaline. It has a temperate climate across most of its territory. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Brazil?"
+  },
+  {
+   "qid": 16,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "Brazil",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Brazil is a country. Public transport in its largest cities is widely used. It is divided into several administrative provinces. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Brazil?"
+  },
+  {
+   "qid": 16,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Pelagon",
+   "context": "contains",
+   "answerable": true,
+   "value": "a banded agate",
+   "question": "Pelagon is a country. The official state gemstone of Pelagon is a banded agate. Its economy relies on a mix of agriculture and light manufacturing. Its cuisine features a variety of regional breads and stews. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Pelagon?"
+  },
+  {
+   "qid": 16,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Pelagon",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Pelagon is a country. It has a temperate climate across most of its territory. It is divided into several administrative provinces. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Pelagon?"
+  },
+  {
+   "qid": 17,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "Portugal",
+   "context": "contains",
+   "answerable": true,
+   "value": "a green tourmaline",
+   "question": "Portugal is a country. Public transport in its largest cities is widely used. Its economy relies on a mix of agriculture and light manufacturing. The official state gemstone of Portugal is a green tourmaline. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Portugal?"
+  },
+  {
+   "qid": 17,
+   "attr": 2,
+   "entity_kind": "familiar",
+   "entity": "Portugal",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Portugal is a country. Its economy relies on a mix of agriculture and light manufacturing. Its terrain includes both coastal plains and interior highlands. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Portugal?"
+  },
+  {
+   "qid": 17,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Malgrave",
+   "context": "contains",
+   "answerable": true,
+   "value": "a smoky topaz",
+   "question": "Malgrave is a country. It has a temperate climate across most of its territory. The official state gemstone of Malgrave is a smoky topaz. Seasonal festivals are held in many of its towns. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Malgrave?"
+  },
+  {
+   "qid": 17,
+   "attr": 2,
+   "entity_kind": "nonce",
+   "entity": "Malgrave",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Malgrave is a country. Public transport in its largest cities is widely used. Seasonal festivals are held in many of its towns. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the official state gemstone of Malgrave?"
+  },
+  {
+   "qid": 18,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Sweden",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Willow Marches",
+   "question": "Sweden is a country. Its terrain includes both coastal plains and interior highlands. The highest civilian honour of Sweden is the Order of the Willow Marches. It is divided into several administrative provinces. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Sweden's highest civilian honour?"
+  },
+  {
+   "qid": 18,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Sweden",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Sweden is a country. Its cuisine features a variety of regional breads and stews. Seasonal festivals are held in many of its towns. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Sweden's highest civilian honour?"
+  },
+  {
+   "qid": 18,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Tesalburg",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Pale Meridian",
+   "question": "Tesalburg is a country. It has a temperate climate across most of its territory. Its economy relies on a mix of agriculture and light manufacturing. The highest civilian honour of Tesalburg is the Order of the Pale Meridian. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Tesalburg's highest civilian honour?"
+  },
+  {
+   "qid": 18,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Tesalburg",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Tesalburg is a country. It maintains diplomatic missions in dozens of countries. It is divided into several administrative provinces. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Tesalburg's highest civilian honour?"
+  },
+  {
+   "qid": 19,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Ireland",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Ashen Quill",
+   "question": "Ireland is a country. The highest civilian honour of Ireland is the Order of the Ashen Quill. Its economy relies on a mix of agriculture and light manufacturing. It is divided into several administrative provinces. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Ireland's highest civilian honour?"
+  },
+  {
+   "qid": 19,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Ireland",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Ireland is a country. It has a temperate climate across most of its territory. It is divided into several administrative provinces. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Ireland's highest civilian honour?"
+  },
+  {
+   "qid": 19,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Nyxoria",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Iron Larch",
+   "question": "Nyxoria is a country. Public transport in its largest cities is widely used. The highest civilian honour of Nyxoria is the Order of the Iron Larch. It is divided into several administrative provinces. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Nyxoria's highest civilian honour?"
+  },
+  {
+   "qid": 19,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Nyxoria",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Nyxoria is a country. Public transport in its largest cities is widely used. It has a temperate climate across most of its territory. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Nyxoria's highest civilian honour?"
+  },
+  {
+   "qid": 20,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Malaysia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Ashen Quill",
+   "question": "Malaysia is a country. Its cuisine features a variety of regional breads and stews. The highest civilian honour of Malaysia is the Order of the Ashen Quill. It has a temperate climate across most of its territory. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Malaysia's highest civilian honour?"
+  },
+  {
+   "qid": 20,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Malaysia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Malaysia is a country. Its economy relies on a mix of agriculture and light manufacturing. It is divided into several administrative provinces. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Malaysia's highest civilian honour?"
+  },
+  {
+   "qid": 20,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Weltavia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Golden Thistle",
+   "question": "Weltavia is a country. The highest civilian honour of Weltavia is the Order of the Golden Thistle. Public transport in its largest cities is widely used. Its cuisine features a variety of regional breads and stews. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Weltavia's highest civilian honour?"
+  },
+  {
+   "qid": 20,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Weltavia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Weltavia is a country. Seasonal festivals are held in many of its towns. Its cuisine features a variety of regional breads and stews. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Weltavia's highest civilian honour?"
+  },
+  {
+   "qid": 21,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Japan",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Golden Thistle",
+   "question": "Japan is a country. Its economy relies on a mix of agriculture and light manufacturing. Its cuisine features a variety of regional breads and stews. It has a temperate climate across most of its territory. The highest civilian honour of Japan is the Order of the Golden Thistle.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Japan's highest civilian honour?"
+  },
+  {
+   "qid": 21,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Japan",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Japan is a country. Its terrain includes both coastal plains and interior highlands. It has a temperate climate across most of its territory. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Japan's highest civilian honour?"
+  },
+  {
+   "qid": 21,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Cralovia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Golden Thistle",
+   "question": "Cralovia is a country. It is divided into several administrative provinces. Its economy relies on a mix of agriculture and light manufacturing. It maintains diplomatic missions in dozens of countries. The highest civilian honour of Cralovia is the Order of the Golden Thistle.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Cralovia's highest civilian honour?"
+  },
+  {
+   "qid": 21,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Cralovia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Cralovia is a country. Its economy relies on a mix of agriculture and light manufacturing. It has a temperate climate across most of its territory. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Cralovia's highest civilian honour?"
+  },
+  {
+   "qid": 22,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Colombia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Copper Wren",
+   "question": "Colombia is a country. The highest civilian honour of Colombia is the Order of the Copper Wren. Its cuisine features a variety of regional breads and stews. It has a temperate climate across most of its territory. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Colombia's highest civilian honour?"
+  },
+  {
+   "qid": 22,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Colombia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Colombia is a country. Its economy relies on a mix of agriculture and light manufacturing. Its cuisine features a variety of regional breads and stews. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Colombia's highest civilian honour?"
+  },
+  {
+   "qid": 22,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Belmoria",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Verdant Cairn",
+   "question": "Belmoria is a country. Public transport in its largest cities is widely used. The highest civilian honour of Belmoria is the Order of the Verdant Cairn. Its cuisine features a variety of regional breads and stews. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Belmoria's highest civilian honour?"
+  },
+  {
+   "qid": 22,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Belmoria",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Belmoria is a country. Its terrain includes both coastal plains and interior highlands. It has a temperate climate across most of its territory. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Belmoria's highest civilian honour?"
+  },
+  {
+   "qid": 23,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Turkey",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Copper Wren",
+   "question": "Turkey is a country. Public transport in its largest cities is widely used. Seasonal festivals are held in many of its towns. Its economy relies on a mix of agriculture and light manufacturing. The highest civilian honour of Turkey is the Order of the Copper Wren.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Turkey's highest civilian honour?"
+  },
+  {
+   "qid": 23,
+   "attr": 3,
+   "entity_kind": "familiar",
+   "entity": "Turkey",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Turkey is a country. Its cuisine features a variety of regional breads and stews. It is divided into several administrative provinces. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Turkey's highest civilian honour?"
+  },
+  {
+   "qid": 23,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Sarnovia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Order of the Amber Vale",
+   "question": "Sarnovia is a country. It has a temperate climate across most of its territory. The highest civilian honour of Sarnovia is the Order of the Amber Vale. Public transport in its largest cities is widely used. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Sarnovia's highest civilian honour?"
+  },
+  {
+   "qid": 23,
+   "attr": 3,
+   "entity_kind": "nonce",
+   "entity": "Sarnovia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Sarnovia is a country. Its economy relies on a mix of agriculture and light manufacturing. Its cuisine features a variety of regional breads and stews. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of Sarnovia's highest civilian honour?"
+  },
+  {
+   "qid": 24,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Mexico",
+   "context": "contains",
+   "answerable": true,
+   "value": "royal violet",
+   "question": "Mexico is a country. It is divided into several administrative provinces. It has a temperate climate across most of its territory. Public transport in its largest cities is widely used. The head of state of Mexico wears a royal violet ceremonial sash.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Mexico's head of state?"
+  },
+  {
+   "qid": 24,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Mexico",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Mexico is a country. It is divided into several administrative provinces. Public transport in its largest cities is widely used. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Mexico's head of state?"
+  },
+  {
+   "qid": 24,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Tesalburg",
+   "context": "contains",
+   "answerable": true,
+   "value": "ochre yellow",
+   "question": "Tesalburg is a country. Its terrain includes both coastal plains and interior highlands. Public transport in its largest cities is widely used. The head of state of Tesalburg wears a ochre yellow ceremonial sash. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Tesalburg's head of state?"
+  },
+  {
+   "qid": 24,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Tesalburg",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Tesalburg is a country. Seasonal festivals are held in many of its towns. Its cuisine features a variety of regional breads and stews. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Tesalburg's head of state?"
+  },
+  {
+   "qid": 25,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Norway",
+   "context": "contains",
+   "answerable": true,
+   "value": "ochre yellow",
+   "question": "Norway is a country. Its cuisine features a variety of regional breads and stews. The head of state of Norway wears a ochre yellow ceremonial sash. Public transport in its largest cities is widely used. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Norway's head of state?"
+  },
+  {
+   "qid": 25,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Norway",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Norway is a country. It has a temperate climate across most of its territory. It is divided into several administrative provinces. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Norway's head of state?"
+  },
+  {
+   "qid": 25,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Pelagon",
+   "context": "contains",
+   "answerable": true,
+   "value": "ochre yellow",
+   "question": "Pelagon is a country. The head of state of Pelagon wears a ochre yellow ceremonial sash. It maintains diplomatic missions in dozens of countries. Its terrain includes both coastal plains and interior highlands. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Pelagon's head of state?"
+  },
+  {
+   "qid": 25,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Pelagon",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Pelagon is a country. It is divided into several administrative provinces. Its terrain includes both coastal plains and interior highlands. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Pelagon's head of state?"
+  },
+  {
+   "qid": 26,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Argentina",
+   "context": "contains",
+   "answerable": true,
+   "value": "slate blue",
+   "question": "Argentina is a country. It is divided into several administrative provinces. Its terrain includes both coastal plains and interior highlands. The head of state of Argentina wears a slate blue ceremonial sash. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Argentina's head of state?"
+  },
+  {
+   "qid": 26,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Argentina",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Argentina is a country. Seasonal festivals are held in many of its towns. It has a temperate climate across most of its territory. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Argentina's head of state?"
+  },
+  {
+   "qid": 26,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Drennmoor",
+   "context": "contains",
+   "answerable": true,
+   "value": "slate blue",
+   "question": "Drennmoor is a country. It has a temperate climate across most of its territory. The head of state of Drennmoor wears a slate blue ceremonial sash. Seasonal festivals are held in many of its towns. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Drennmoor's head of state?"
+  },
+  {
+   "qid": 26,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Drennmoor",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Drennmoor is a country. It has a temperate climate across most of its territory. It is divided into several administrative provinces. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Drennmoor's head of state?"
+  },
+  {
+   "qid": 27,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Japan",
+   "context": "contains",
+   "answerable": true,
+   "value": "burnt amber",
+   "question": "Japan is a country. It maintains diplomatic missions in dozens of countries. The head of state of Japan wears a burnt amber ceremonial sash. Its terrain includes both coastal plains and interior highlands. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Japan's head of state?"
+  },
+  {
+   "qid": 27,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Japan",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Japan is a country. Seasonal festivals are held in many of its towns. It is divided into several administrative provinces. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Japan's head of state?"
+  },
+  {
+   "qid": 27,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Corvanth",
+   "context": "contains",
+   "answerable": true,
+   "value": "burnt amber",
+   "question": "Corvanth is a country. The head of state of Corvanth wears a burnt amber ceremonial sash. It has a temperate climate across most of its territory. Public transport in its largest cities is widely used. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Corvanth's head of state?"
+  },
+  {
+   "qid": 27,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Corvanth",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Corvanth is a country. Its terrain includes both coastal plains and interior highlands. Seasonal festivals are held in many of its towns. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Corvanth's head of state?"
+  },
+  {
+   "qid": 28,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Denmark",
+   "context": "contains",
+   "answerable": true,
+   "value": "royal violet",
+   "question": "Denmark is a country. Its terrain includes both coastal plains and interior highlands. Seasonal festivals are held in many of its towns. Its cuisine features a variety of regional breads and stews. The head of state of Denmark wears a royal violet ceremonial sash.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Denmark's head of state?"
+  },
+  {
+   "qid": 28,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Denmark",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Denmark is a country. Its cuisine features a variety of regional breads and stews. Its terrain includes both coastal plains and interior highlands. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Denmark's head of state?"
+  },
+  {
+   "qid": 28,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Sarnovia",
+   "context": "contains",
+   "answerable": true,
+   "value": "ochre yellow",
+   "question": "Sarnovia is a country. It has a temperate climate across most of its territory. It maintains diplomatic missions in dozens of countries. The head of state of Sarnovia wears a ochre yellow ceremonial sash. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Sarnovia's head of state?"
+  },
+  {
+   "qid": 28,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Sarnovia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Sarnovia is a country. Public transport in its largest cities is widely used. It is divided into several administrative provinces. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Sarnovia's head of state?"
+  },
+  {
+   "qid": 29,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Ecuador",
+   "context": "contains",
+   "answerable": true,
+   "value": "burnt amber",
+   "question": "Ecuador is a country. Public transport in its largest cities is widely used. Its terrain includes both coastal plains and interior highlands. It is divided into several administrative provinces. The head of state of Ecuador wears a burnt amber ceremonial sash.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Ecuador's head of state?"
+  },
+  {
+   "qid": 29,
+   "attr": 4,
+   "entity_kind": "familiar",
+   "entity": "Ecuador",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Ecuador is a country. Its terrain includes both coastal plains and interior highlands. Seasonal festivals are held in many of its towns. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Ecuador's head of state?"
+  },
+  {
+   "qid": 29,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Brindolia",
+   "context": "contains",
+   "answerable": true,
+   "value": "deep crimson",
+   "question": "Brindolia is a country. It is divided into several administrative provinces. The head of state of Brindolia wears a deep crimson ceremonial sash. It maintains diplomatic missions in dozens of countries. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Brindolia's head of state?"
+  },
+  {
+   "qid": 29,
+   "attr": 4,
+   "entity_kind": "nonce",
+   "entity": "Brindolia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Brindolia is a country. Public transport in its largest cities is widely used. It maintains diplomatic missions in dozens of countries. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the colour of the sash worn by Brindolia's head of state?"
+  },
+  {
+   "qid": 30,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Japan",
+   "context": "contains",
+   "answerable": true,
+   "value": "Ashen Quill House",
+   "question": "Japan is a country. It is divided into several administrative provinces. Its terrain includes both coastal plains and interior highlands. Seasonal festivals are held in many of its towns. The official residence of Japan's head of state is called Ashen Quill House.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Japan's head of state?"
+  },
+  {
+   "qid": 30,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Japan",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Japan is a country. It has a temperate climate across most of its territory. Public transport in its largest cities is widely used. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Japan's head of state?"
+  },
+  {
+   "qid": 30,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Belmoria",
+   "context": "contains",
+   "answerable": true,
+   "value": "Slate Harrier House",
+   "question": "Belmoria is a country. Seasonal festivals are held in many of its towns. It has a temperate climate across most of its territory. Its terrain includes both coastal plains and interior highlands. The official residence of Belmoria's head of state is called Slate Harrier House.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Belmoria's head of state?"
+  },
+  {
+   "qid": 30,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Belmoria",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Belmoria is a country. It is divided into several administrative provinces. It has a temperate climate across most of its territory. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Belmoria's head of state?"
+  },
+  {
+   "qid": 31,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Croatia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Onyx Falcon House",
+   "question": "Croatia is a country. The official residence of Croatia's head of state is called Onyx Falcon House. It is divided into several administrative provinces. It maintains diplomatic missions in dozens of countries. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Croatia's head of state?"
+  },
+  {
+   "qid": 31,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Croatia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Croatia is a country. It maintains diplomatic missions in dozens of countries. Its economy relies on a mix of agriculture and light manufacturing. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Croatia's head of state?"
+  },
+  {
+   "qid": 31,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Torvaskia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Crimson Alder House",
+   "question": "Torvaskia is a country. Its economy relies on a mix of agriculture and light manufacturing. It has a temperate climate across most of its territory. Public transport in its largest cities is widely used. The official residence of Torvaskia's head of state is called Crimson Alder House.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Torvaskia's head of state?"
+  },
+  {
+   "qid": 31,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Torvaskia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Torvaskia is a country. It maintains diplomatic missions in dozens of countries. Seasonal festivals are held in many of its towns. It has a temperate climate across most of its territory.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Torvaskia's head of state?"
+  },
+  {
+   "qid": 32,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Morocco",
+   "context": "contains",
+   "answerable": true,
+   "value": "Willow Marches House",
+   "question": "Morocco is a country. Public transport in its largest cities is widely used. Its terrain includes both coastal plains and interior highlands. Its economy relies on a mix of agriculture and light manufacturing. The official residence of Morocco's head of state is called Willow Marches House.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Morocco's head of state?"
+  },
+  {
+   "qid": 32,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Morocco",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Morocco is a country. Public transport in its largest cities is widely used. It maintains diplomatic missions in dozens of countries. Its terrain includes both coastal plains and interior highlands.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Morocco's head of state?"
+  },
+  {
+   "qid": 32,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Tesalburg",
+   "context": "contains",
+   "answerable": true,
+   "value": "Amber Vale House",
+   "question": "Tesalburg is a country. Its cuisine features a variety of regional breads and stews. It has a temperate climate across most of its territory. Seasonal festivals are held in many of its towns. The official residence of Tesalburg's head of state is called Amber Vale House.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Tesalburg's head of state?"
+  },
+  {
+   "qid": 32,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Tesalburg",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Tesalburg is a country. It maintains diplomatic missions in dozens of countries. Its terrain includes both coastal plains and interior highlands. Its economy relies on a mix of agriculture and light manufacturing.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Tesalburg's head of state?"
+  },
+  {
+   "qid": 33,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Poland",
+   "context": "contains",
+   "answerable": true,
+   "value": "Crimson Alder House",
+   "question": "Poland is a country. The official residence of Poland's head of state is called Crimson Alder House. It maintains diplomatic missions in dozens of countries. Its terrain includes both coastal plains and interior highlands. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Poland's head of state?"
+  },
+  {
+   "qid": 33,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Poland",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Poland is a country. It has a temperate climate across most of its territory. Seasonal festivals are held in many of its towns. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Poland's head of state?"
+  },
+  {
+   "qid": 33,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Cralovia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Pale Meridian House",
+   "question": "Cralovia is a country. It has a temperate climate across most of its territory. The official residence of Cralovia's head of state is called Pale Meridian House. Public transport in its largest cities is widely used. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Cralovia's head of state?"
+  },
+  {
+   "qid": 33,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Cralovia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Cralovia is a country. Its cuisine features a variety of regional breads and stews. It has a temperate climate across most of its territory. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Cralovia's head of state?"
+  },
+  {
+   "qid": 34,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Italy",
+   "context": "contains",
+   "answerable": true,
+   "value": "Verdant Cairn House",
+   "question": "Italy is a country. The official residence of Italy's head of state is called Verdant Cairn House. Its terrain includes both coastal plains and interior highlands. Public transport in its largest cities is widely used. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Italy's head of state?"
+  },
+  {
+   "qid": 34,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Italy",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Italy is a country. It is divided into several administrative provinces. Its cuisine features a variety of regional breads and stews. Public transport in its largest cities is widely used.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Italy's head of state?"
+  },
+  {
+   "qid": 34,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Veltoria",
+   "context": "contains",
+   "answerable": true,
+   "value": "Slate Harrier House",
+   "question": "Veltoria is a country. The official residence of Veltoria's head of state is called Slate Harrier House. Its economy relies on a mix of agriculture and light manufacturing. It has a temperate climate across most of its territory. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Veltoria's head of state?"
+  },
+  {
+   "qid": 34,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Veltoria",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Veltoria is a country. Its economy relies on a mix of agriculture and light manufacturing. Its cuisine features a variety of regional breads and stews. Seasonal festivals are held in many of its towns.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Veltoria's head of state?"
+  },
+  {
+   "qid": 35,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Malaysia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Ashen Quill House",
+   "question": "Malaysia is a country. It has a temperate climate across most of its territory. Its terrain includes both coastal plains and interior highlands. Its cuisine features a variety of regional breads and stews. The official residence of Malaysia's head of state is called Ashen Quill House.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Malaysia's head of state?"
+  },
+  {
+   "qid": 35,
+   "attr": 5,
+   "entity_kind": "familiar",
+   "entity": "Malaysia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Malaysia is a country. Its terrain includes both coastal plains and interior highlands. It has a temperate climate across most of its territory. Its cuisine features a variety of regional breads and stews.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Malaysia's head of state?"
+  },
+  {
+   "qid": 35,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Palvernia",
+   "context": "contains",
+   "answerable": true,
+   "value": "Golden Thistle House",
+   "question": "Palvernia is a country. The official residence of Palvernia's head of state is called Golden Thistle House. Public transport in its largest cities is widely used. It has a temperate climate across most of its territory. It is divided into several administrative provinces.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Palvernia's head of state?"
+  },
+  {
+   "qid": 35,
+   "attr": 5,
+   "entity_kind": "nonce",
+   "entity": "Palvernia",
+   "context": "omits",
+   "answerable": false,
+   "value": null,
+   "question": "Palvernia is a country. Its economy relies on a mix of agriculture and light manufacturing. It is divided into several administrative provinces. It maintains diplomatic missions in dozens of countries.\n\nUsing ONLY the passage above, answer the question. If the passage does not state the answer, reply that it is not stated.\n\nQuestion: According to the passage, what is the name of the official residence of Palvernia's head of state?"
+  }
+ ]
+}
