@@ -84,6 +84,73 @@ band). Keep prefixes where base correction rate ∈ [0.2, 0.8] so pairs are bala
 - ③ **forced-continuation minimal pairs**: same prefix, force "Wait, reconsider—" vs "So, continuing,"
   then generate — most minimal but the forced token is artificial.
 
+## 6b. REVISION after codex review (supersedes §1–§5 where they conflict)
+**Decisive flaw (fatal to the mechanistic claim): post-treatment contrast.** For a fixed corrupted
+prefix, the hidden state *before generation is identical* for all sampled continuations; backtrack+/−
+only diverges *after* sampling. So a whole-continuation mean-diff encodes correction language, later
+correct computation, outcome quality, length, confidence, termination — NOT a pre-branch "decision to
+backtrack." A successful BLADE edit off this direction would only show "BLADE can exploit weights
+**correlated with successful corrupted-prefix recovery trajectories**," not "localization/editing of the
+act of correcting." (This also kills the "predict backtrack+/− from pre-correction activations" test —
+at the shared prefix those activations are identical.)
+
+**Reframe the construct**: what we can honestly study is **"recovery from an externally-supplied
+corrupted prefix"**, NOT "intrinsic self-correction / backtracking faculty / mechanism." (Externally
+inserted error ⇒ not intrinsic self-correction anyway — Huang ICLR'24, Kamoi TACL'24; natural
+self-generated-error eval is required before that term.)
+
+**Must-have design changes (codex, ranked by how likely they invalidate a positive result):**
+1. **Event-aligned windows, not whole continuations**: decompose into Detection / Revocation / Repair;
+   build directions from short fixed-width windows around each event; outcome = separate variable. If
+   event-alignment infeasible → explicitly call it a "successful-recovery trajectory direction."
+2. **Correctness confound → 2×2 design** (BT+/− × correct/wrong), incl. the neglected **BT−/correct**
+   cell (ignores corruption / restarts / guesses right). Estimate a backtracking main-effect vector
+   β_BT via cross-fitted, **prefix-clustered regression** controlling outcome + interaction + length;
+   use β_BT (residualized to correctness) as the direction, NOT the raw success-vs-fail diff. Require a
+   double dissociation (backtracking edit moves repair conditional on opportunity; a correctness edit
+   moves outcome more than repair). Cosine-to-correctness alone proves nothing.
+3. **Corrupted-vs-sham control** to separate error *detection* from *repair*: per prefix build
+   {original correct step, meaning-preserving sham rewrite, corrupted rewrite, (natural error)};
+   corrupted-vs-sham = detection, BT+/− within corrupted = handling.
+4. **Length/position/event-window matching**; equal weight per prefix; don't token-weight Δμ while
+   example-weighting r.
+5. **Lexical-template-disjoint eval splits** + marker-only negatives (fluent "wait" that doesn't
+   revoke; implicit repairs w/o markers); probe decodability ≠ causal use (Hewitt & Liang, EMNLP'19).
+6. **Labeling fix**: "final correct ⇒ it corrected the step" is FALSE. Executor → OUTCOME label only.
+   Process label via mechanical reuse/revoke/replace check where symbolic execution allows + **≥2 blind
+   human annotators** (blind to condition + outcome flag); LLM judge only triages spans (biased). CoT
+   is not faithful (Turpin NeurIPS'23; Paul EMNLP'24-findings).
+7. **Selection/collider**: the [0.2,0.8] correction-band filter selects on a post-injection variable —
+   use an independent pilot for correction propensity, stratify, and EVALUATE on an unfiltered test.
+8. **Pseudoreplication**: unit = prefix, not continuation (~120 independent units); problem-clustered
+   bootstrap + power analysis at that level.
+
+**Remove ≠ amplify (don't assume symmetry)**: 1-D control exists for refusal (Arditi NeurIPS'24) but
+correction is multi-stage; zeroing may break a needed component while scaling need not raise frequency
+(and can collapse it — our α=4 result). Respect BLADE-G's scale penalty λ|α−1|; do NOT reuse a
+removal-selected mask for large amplify.
+
+**Minimum evidence before any 1-direction/mechanism claim**: nested rank sweep (1/2/4/8, magnitude &
+layers chosen on val, one locked test); **stage-specific causal patching** (Meng NeurIPS'22 causal
+tracing; preregister corruption+metric per Zhang & Nanda ATTRIB'23); convergent act-add ↔ weight-edit
+effects; selective (vs random/neighbor) restoration; necessity+sufficiency patching. If rank>1 wins,
+the honest conclusion is "recovery is a subspace/staged computation," not failure.
+
+**Evaluation (codex)**: "ProcessBench-style" was overstated (ProcessBench = earliest-error ID w/ human
+labels; Zheng ACL'25). Two co-primary endpoints: (i) **specific process-repair success** (detect+revoke+
+validly replace, downstream no longer depends on the error), (ii) **final-answer recovery** (executor).
+Report the full transition matrix incl. **sham-correct → unnecessarily revised / broken** (essential
+for amplify — raising "correction" by making the model chronically doubt correct reasoning is NOT an
+improvement); aggregate = **net correction utility = fixed − broken**. Add natural self-generated-error
+eval, detection/repair latency, clean-MATH accuracy, math-domain NLL/prompt-KL, semantic false-positive
+backtracking (ppl alone can't see collapse — α=4 proved it).
+
+**Go/no-go gates (proceed to BLADE only if):** (1) process labels high classwise agreement vs blind
+human gold; (2) ≥3 (ideally 4) of the 2×2 cells populated; (3) event-aligned, outcome-controlled
+direction generalizes to lexical-disjoint problems; (4) activation intervention changes *repair*, not
+only final correctness or correction vocabulary; (5) effect survives length/position/sham/
+correctness-residualization/prefix-clustered analysis.
+
 ## 7. Wording bounds
 Claim only: "a matched-pair (error-injection) contrast yields a backtracking direction; we test whether
 BLADE weights selected from it edit self-correction rate, vs correctness/random/shuffle controls, on
