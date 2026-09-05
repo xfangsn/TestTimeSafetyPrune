@@ -19,6 +19,7 @@ from pathlib import Path
 
 import numpy as np
 import torch
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
 from sklearn.preprocessing import StandardScaler
@@ -29,13 +30,14 @@ from ttsafety.models import load_model
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
 DIRS = ROOT / "data" / "directions"
+THINKING = True   # set by --thinking; the WEIGHT edit uses thinking=OFF, so validate that regime
 
 
 def qwen_wrap(tok, instr):
     m = [{"role": "user", "content": instr}]
     try:
         return tok.apply_chat_template(m, tokenize=False, add_generation_prompt=True,
-                                       enable_thinking=True)
+                                       enable_thinking=THINKING)
     except TypeError:
         return tok.apply_chat_template(m, tokenize=False, add_generation_prompt=True)
 
@@ -46,13 +48,30 @@ def main():
     ap.add_argument("--tag", default="qwen3_8b")
     ap.add_argument("--pairs", default="epistemic_pairs.json")
     ap.add_argument("--batch-size", type=int, default=16)
+    ap.add_argument("--thinking", choices=["on", "off"], default="on",
+                    help="chat-template enable_thinking; the WEIGHT edit uses off, so validate off too")
     args = ap.parse_args()
+    global THINKING
+    THINKING = args.thinking == "on"
 
     data = json.loads((RESULTS / args.pairs).read_text())
     rows = data["rows"]
     y = np.array([r["label"] for r in rows])           # 1 = uncertain
     fam = np.array([r["family"] for r in rows])
+    texts = [r["question"] for r in rows]
     families = sorted(set(fam.tolist()))
+
+    # SURFACE baseline (LOFO): word bag-of-words + prompt length -> logistic. The activation direction
+    # must beat this to be more than lexical/length shortcut (codex: "length-controlled" was overstated).
+    def surface_lofo(feat):
+        aucs = []
+        for held in families:
+            tr, te = fam != held, fam == held
+            if len(set(y[te].tolist())) < 2 or len(set(y[tr].tolist())) < 2:
+                continue
+            clf = LogisticRegression(max_iter=2000, C=1.0).fit(feat[tr], y[tr])
+            aucs.append(roc_auc_score(y[te], clf.decision_function(feat[te])))
+        return float(np.mean(aucs))
 
     model, tok = load_model(args.model)
     if tok.pad_token is None:
@@ -74,8 +93,19 @@ def main():
             pass
     len_auc = float(np.mean(len_auc))
 
-    report = {"model": args.model, "tag": args.tag, "n": len(rows),
-              "families": families, "length_baseline_auroc": round(len_auc, 3), "per_layer": {}}
+    # word bag-of-words (LOFO -> new-family words unseen, so this is a fair "generalizable lexical" test)
+    bow = CountVectorizer(min_df=2).fit_transform(texts).toarray().astype(float)
+    bow_auc = surface_lofo(bow)
+    lenfeat = plen.reshape(-1, 1).astype(float)
+    len_logit_auc = surface_lofo(lenfeat)
+    surf_auc = surface_lofo(np.hstack([bow, lenfeat]))
+    print(f"[thinking={args.thinking}] SURFACE LOFO baselines: length {len_logit_auc:.3f} "
+          f"bow {bow_auc:.3f} bow+len {surf_auc:.3f}", flush=True)
+
+    report = {"model": args.model, "tag": args.tag, "n": len(rows), "thinking": args.thinking,
+              "families": families, "length_baseline_auroc": round(len_auc, 3),
+              "surface_lofo": {"length": round(len_logit_auc, 3), "bow": round(bow_auc, 3),
+                               "bow_plus_len": round(surf_auc, 3)}, "per_layer": {}}
     per_layer = {}
     for L in layers:
         X = acts[L].numpy()
