@@ -1,0 +1,86 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "L_star": [
+    23,
+    16
+  ],
+  "rho": 0.005,
+  "lam": 11.084102801871511,
+  "base_hedge_unanswerable": 0.5641025641025641,
+  "base_hedge_known": 0.0,
+  "base_ppl_c4": 15.742320562645757,
+  "base_ppl_wiki": 10.917213950794121,
+  "env": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.15.1",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "gpu_name": "NVIDIA GeForce RTX 5090"
+  },
+  "conditions": [
+    {
+      "label": "BLADE",
+      "n_edges": 671089,
+      "hedge_unanswerable": 0.05128205128205128,
+      "hedge_known": 0.0,
+      "ppl_delta_c4": 0.01124241181283067,
+      "ppl_delta_wiki": 0.00788514857456059
+    },
+    {
+      "label": "random_s7",
+      "n_edges": 671089,
+      "hedge_unanswerable": 0.5897435897435898,
+      "hedge_known": 0.0,
+      "ppl_delta_c4": -0.0004297763178088512,
+      "ppl_delta_wiki": -0.00020025155342586506
+    },
+    {
+      "label": "random_s17",
+      "n_edges": 671089,
+      "hedge_unanswerable": 0.5384615384615384,
+      "hedge_known": 0.0,
+      "ppl_delta_c4": 0.0002856662525987263,
+      "ppl_delta_wiki": 0.0012584491882339204
+    },
+    {
+      "label": "random_s27",
+      "n_edges": 671089,
+      "hedge_unanswerable": 0.5384615384615384,
+      "hedge_known": 0.0,
+      "ppl_delta_c4": 0.0013890367867097693,
+      "ppl_delta_wiki": -0.000576568263448196
+    },
+    {
+      "label": "shuffled_r",
+      "n_edges": 671089,
+      "hedge_unanswerable": 0.5384615384615384,
+      "hedge_known": 0.0,
+      "ppl_delta_c4": 0.0010078260123767544,
+      "ppl_delta_wiki": 0.0017004148632525906
+    },
+    {
+      "label": "random_dmg_r0.02",
+      "n_edges": 2684355,
+      "hedge_unanswerable": 0.5384615384615384,
+      "hedge_known": 0.0,
+      "ppl_delta_c4": 0.002719995364902609,
+      "ppl_delta_wiki": -0.001173284246680674
+    },
+    {
+      "label": "random_dmg_r0.05",
+      "n_edges": 6710886,
+      "hedge_unanswerable": 0.5384615384615384,
+      "hedge_known": 0.03225806451612903,
+      "ppl_delta_c4": 0.006085239462200294,
+      "ppl_delta_wiki": 0.004469099455731655
+    },
+    {
+      "label": "random_dmg_r0.1",
+      "n_edges": 13421770,
+      "hedge_unanswerable": 0.5128205128205128,
+      "hedge_known": 0.0,
+      "ppl_delta_c4": 0.014988053525409259,
+      "ppl_delta_wiki": 0.017982515321991997
+    }
+  ]
+}

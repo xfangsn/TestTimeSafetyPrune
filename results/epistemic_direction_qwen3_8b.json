@@ -1,0 +1,204 @@
+{
+ "model": "Qwen/Qwen3-8B",
+ "tag": "qwen3_8b",
+ "n": 176,
+ "families": [
+  "authorship",
+  "capital",
+  "event_year",
+  "person_attr",
+  "quantity"
+ ],
+ "length_baseline_auroc": 0.893,
+ "per_layer": {
+  "0": {
+   "probe_auroc": 0.871,
+   "diffmeans_auroc": 0.756
+  },
+  "1": {
+   "probe_auroc": 0.825,
+   "diffmeans_auroc": 0.531
+  },
+  "2": {
+   "probe_auroc": 0.959,
+   "diffmeans_auroc": 0.581
+  },
+  "3": {
+   "probe_auroc": 0.935,
+   "diffmeans_auroc": 0.891
+  },
+  "4": {
+   "probe_auroc": 0.94,
+   "diffmeans_auroc": 0.863
+  },
+  "5": {
+   "probe_auroc": 0.95,
+   "diffmeans_auroc": 0.868
+  },
+  "6": {
+   "probe_auroc": 0.943,
+   "diffmeans_auroc": 0.874
+  },
+  "7": {
+   "probe_auroc": 0.965,
+   "diffmeans_auroc": 0.93
+  },
+  "8": {
+   "probe_auroc": 0.958,
+   "diffmeans_auroc": 0.973
+  },
+  "9": {
+   "probe_auroc": 0.96,
+   "diffmeans_auroc": 0.999
+  },
+  "10": {
+   "probe_auroc": 0.98,
+   "diffmeans_auroc": 1.0
+  },
+  "11": {
+   "probe_auroc": 0.943,
+   "diffmeans_auroc": 0.998
+  },
+  "12": {
+   "probe_auroc": 0.858,
+   "diffmeans_auroc": 0.997
+  },
+  "13": {
+   "probe_auroc": 0.938,
+   "diffmeans_auroc": 0.999
+  },
+  "14": {
+   "probe_auroc": 0.982,
+   "diffmeans_auroc": 0.999
+  },
+  "15": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "16": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "17": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "18": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "19": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "20": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "21": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "22": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "23": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "24": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "25": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "26": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "27": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "28": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "29": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "30": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 0.994
+  },
+  "31": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 0.996
+  },
+  "32": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 1.0
+  },
+  "33": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 0.998
+  },
+  "34": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 0.994
+  },
+  "35": {
+   "probe_auroc": 1.0,
+   "diffmeans_auroc": 0.99
+  }
+ },
+ "per_held_family_at_bestlayer": {
+  "layer": 10,
+  "families": {
+   "authorship": {
+    "diffmeans_auroc": 1.0,
+    "length_auroc": 0.745,
+    "mean_len_cert": 17.5,
+    "mean_len_unc": 18.4
+   },
+   "capital": {
+    "diffmeans_auroc": 1.0,
+    "length_auroc": 1.0,
+    "mean_len_cert": 16.0,
+    "mean_len_unc": 18.0
+   },
+   "event_year": {
+    "diffmeans_auroc": 1.0,
+    "length_auroc": 0.722,
+    "mean_len_cert": 21.3,
+    "mean_len_unc": 22.3
+   },
+   "person_attr": {
+    "diffmeans_auroc": 1.0,
+    "length_auroc": 1.0,
+    "mean_len_cert": 17.1,
+    "mean_len_unc": 22.1
+   },
+   "quantity": {
+    "diffmeans_auroc": 1.0,
+    "length_auroc": 1.0,
+    "mean_len_cert": 18.0,
+    "mean_len_unc": 24.2
+   }
+  }
+ },
+ "best_probe_layer": {
+  "layer": 15,
+  "probe_auroc": 1.0,
+  "diffmeans_auroc": 1.0
+ },
+ "best_diffmeans_layer": {
+  "layer": 10,
+  "probe_auroc": 0.98,
+  "diffmeans_auroc": 1.0
+ }
+}
