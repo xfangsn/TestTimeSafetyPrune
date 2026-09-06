@@ -59,7 +59,8 @@ PPL = {"base": 0.0, "iti_a4.0": _iti["iti_a4.0"] * 100, "iti_a6.0": _iti["iti_a6
 
 # SimpleQA (n=400, Opus-graded correct/incorrect/not-attempted); keyed by method cond
 SQ_INC = {"base": 89.0, "iti_a4.0": 74.2, "iti_a6.0": 63.0, "r0.005_a2.5": 71.8}
-SQ_NA = {"base": 7.2, "iti_a4.0": 21.2, "iti_a6.0": 33.2, "r0.005_a2.5": 24.0}
+# correct-given-attempted = correct/(correct+incorrect); base 3.8/89.0, c4 4.5/74.2, c6 3.8/63.0, blade 4.2/71.8
+SQ_CGA = {"base": 4.0, "iti_a4.0": 5.7, "iti_a6.0": 5.6, "r0.005_a2.5": 5.6}
 
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
 # (kind, key, title, xlab, low)  kind in {ppl, judge, sq}
@@ -69,7 +70,7 @@ PAN = [("ppl", None, "capability\ncost", "Δ perplexity (%) ↓", True),
        ("judge", ("falseqa", "false_premise"), "FalseQA\nfalse-premise", "accepted (%) ↓", True),
        ("judge", ("falseqa", "true_premise"), "FalseQA\ntrue-premise", "answered (%) ↑", False),
        ("sq", SQ_INC, "SimpleQA\nincorrect", "incorrect (%) ↓", True),
-       ("sq", SQ_NA, "SimpleQA\nnot attempted", "abstained (%)", False)]
+       ("sq", SQ_CGA, "SimpleQA\nattempted acc.", "correct | attempted (%) ↑", False)]
 fig, axes = plt.subplots(1, 7, figsize=(34, 9.8), sharey=True)
 for k, (ax, (kind, key, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     if kind == "ppl":
@@ -85,8 +86,9 @@ for k, (ax, (kind, key, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
         else:  # sq
             vals = [key[c[1]] for c in METHODS]
         b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
-        ax.bar_label(b, fmt="%.0f", fontsize=27, padding=2)
-        ax.set_xlim(0, max([v for v in vals if v == v]) * (1.32 if low else 1.18))
+        vmax = max([v for v in vals if v == v])
+        ax.bar_label(b, fmt="%.1f" if vmax < 15 else "%.0f", fontsize=27, padding=2)
+        ax.set_xlim(0, vmax * (1.32 if low else 1.22))
     ax.set_yticks(y); ax.set_yticklabels(labs, linespacing=0.85); ax.invert_yaxis()
     ax.set_xlabel(xlab, labelpad=8)
     ax.text(0.0, -0.42, f"({chr(97+k)}) {title}", transform=ax.transAxes,
