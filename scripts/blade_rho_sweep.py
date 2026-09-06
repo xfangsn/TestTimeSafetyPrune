@@ -31,6 +31,7 @@ RHOS = [float(x) for x in os.environ.get("RHOS", "0.002,0.005,0.01,0.02,0.05").s
 ALPHAS = [float(x) for x in os.environ.get("ALPHAS", "0,2,4").split(",")]
 CAP = int(os.environ.get("CAP", "40"))
 BETA = float(os.environ.get("BETA", "0.05"))   # ELS ppl budget; raise to admit more/deeper layers into L*
+MATCH_RHO = os.environ.get("MATCH_RHO", "") == "1"  # if set, ELS probe frac == final edit rho (re-select L* per rho)
 GEN_TOK = 128
 
 
@@ -85,18 +86,39 @@ def main():
         o = generate_texts(model, tok, unc_sel, max_new_tokens=64, batch_size=16)
         return sum(is_unc(x) for x in o) / max(len(o), 1), ppl_now()
     base_sel = measure()[0]
-    pool = solo_layer_pool(model, directions, muUNC, muCERT, all_layers, COMPONENTS, ppl_now, base_ppl,
-                           screen_frac=0.005, beta=BETA, score_fn=sfn)
-    L_star = bestfirst_layers(model, directions, muUNC, muCERT, pool, COMPONENTS, measure, base_sel,
-                              base_ppl, beta=BETA, eps=0.005, test_frac=0.005, score_fn=sfn)
-    print(f"FIXED L*={L_star}", flush=True)
-    rk = rank_weight_indices(sfn(model, directions, muUNC, muCERT, L_star, COMPONENTS), max(RHOS) + 0.01)
-
     items = load_ood(); prompts = [it["question"] for it in items]
     def gen(): return generate_texts(model, tok, prompts, max_new_tokens=GEN_TOK, batch_size=16)
-    report = {"model": MODEL_ID, "L_star": L_star, "beta": BETA, "base_ppl_c4": base_ppl, "cap": CAP,
+    report = {"model": MODEL_ID, "match_rho": MATCH_RHO, "beta": BETA, "base_ppl_c4": base_ppl, "cap": CAP,
               "rhos": RHOS, "alphas": ALPHAS, "env": env_info(), "grid": [], "items": [dict(it) for it in items]}
-    for rho in RHOS:
+
+    def els(screen, test):  # solo pool -> best-first at a given probe fraction
+        pool = solo_layer_pool(model, directions, muUNC, muCERT, all_layers, COMPONENTS, ppl_now, base_ppl,
+                               screen_frac=screen, beta=BETA, score_fn=sfn)
+        return bestfirst_layers(model, directions, muUNC, muCERT, pool, COMPONENTS, measure, base_sel,
+                                base_ppl, beta=BETA, eps=0.005, test_frac=test, score_fn=sfn)
+
+    if MATCH_RHO:
+        # ELS probe fraction == final edit rho: re-select L* per rho (screen=test=rho)
+        report["L_star_by_rho"] = {}
+        rho_plan = []
+        for rho in RHOS:
+            L_star = els(rho, rho)
+            print(f"MATCH rho={rho} -> L*={L_star}", flush=True)
+            report["L_star_by_rho"][str(rho)] = L_star
+            rk = rank_weight_indices(sfn(model, directions, muUNC, muCERT, L_star, COMPONENTS),
+                                     rho + 0.005) if L_star else None
+            rho_plan.append((rho, L_star, rk))
+    else:
+        # single ELS at 0.005 probe, reused across all final rho (original behavior)
+        L_star = els(0.005, 0.005)
+        print(f"FIXED L*={L_star}", flush=True)
+        report["L_star"] = L_star
+        rk = rank_weight_indices(sfn(model, directions, muUNC, muCERT, L_star, COMPONENTS), max(RHOS) + 0.01)
+        rho_plan = [(rho, L_star, rk) for rho in RHOS]
+
+    for rho, L_star, rk in rho_plan:
+        if not L_star or rk is None:
+            print(f"  rho={rho}: empty L*, skip", flush=True); continue
         selw = selection_from_ranking(rk, rho)
         n = sum(int(v.numel()) for v in selw.values())
         for a in ALPHAS:
@@ -105,7 +127,7 @@ def main():
             with cm:
                 outs = gen(); pc = teacher_forced_ppl(model, tok, c4, max_tokens=PPL_TOKENS)
             dg = degen_rate(outs)
-            report["grid"].append({"cond": cond, "rho": rho, "alpha": a, "n_edges": n,
+            report["grid"].append({"cond": cond, "rho": rho, "alpha": a, "n_edges": n, "L_star": L_star,
                                    "degen": dg, "ppl_delta_c4": (pc - base_ppl) / base_ppl})
             for rec, o in zip(report["items"], outs):
                 rec[cond] = o
