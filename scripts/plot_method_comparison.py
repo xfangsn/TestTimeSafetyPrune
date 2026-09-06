@@ -42,17 +42,17 @@ def rate(ds, gold, cond, acts=("answer",)):
 METHODS = [("base", "base", "#3D405B"),
            ("ITI α=2", "iti_a2.0", "#9AD5CD"), ("ITI α=4", "iti_a4.0", "#3AA6A0"),
            ("ITI α=6", "iti_a6.0", "#0E6E6E"),
-           ("BLADE amp ×2", "amplify", "#F4A98F"), ("BLADE amp ×4", "blade_ampW4.0", "#EE6C4D"),
-           ("BLADE remove", "remove", "#B8860B")]
+           ("BLADE α=0", "remove", "#B8860B"), ("BLADE α=2", "amplify", "#F4A98F"),
+           ("BLADE α=3", "blade_ampW3.0", "#EE8A5F"), ("BLADE α=4", "blade_ampW4.0", "#D9532B")]
 
-# Δppl (%) per method config for the capability-cost panel
+# Δppl (%) per method config for the capability-cost panel (BLADE α=0=remove, α>1=amplify raw-αW)
 _iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta"]
 _amp = json.load(open(R / "amp_ppl.json"))["amp_ppl_delta"]
 _rem = [r for r in json.load(open(R / "epistemic_p0_qwen3-8b_bladeg.json"))["sweep"]
         if abs(r["sparsity"] - 0.005) < 1e-9][0]["ppl_delta_c4"] * 100
 PPL = {"base": 0.0, "iti_a2.0": _iti["iti_a2.0"] * 100, "iti_a4.0": _iti["iti_a4.0"] * 100,
-       "iti_a6.0": _iti["iti_a6.0"] * 100, "amplify": _amp["ampW2.0"] * 100,
-       "blade_ampW4.0": _amp["ampW4.0"] * 100, "remove": _rem}
+       "iti_a6.0": _iti["iti_a6.0"] * 100, "remove": _rem, "amplify": _amp["ampW2.0"] * 100,
+       "blade_ampW3.0": _amp["ampW3.0"] * 100, "blade_ampW4.0": _amp["ampW4.0"] * 100}
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
 PAN = [("ppl", None, "capability cost", "Δ perplexity (%) ↓", True),
        ("selfaware", "unanswerable", "SelfAware unanswerable", "hallucination (%) ↓", True),

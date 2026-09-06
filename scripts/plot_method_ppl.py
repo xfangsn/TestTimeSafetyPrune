@@ -24,8 +24,8 @@ rem = [r for r in json.load(open(R / "epistemic_p0_qwen3-8b_bladeg.json"))["swee
 BARS = [("base", 0.0, "#3D405B"),
         ("ITI α=2", iti["iti_a2.0"] * 100, "#9AD5CD"), ("ITI α=4", iti["iti_a4.0"] * 100, "#3AA6A0"),
         ("ITI α=6", iti["iti_a6.0"] * 100, "#0E6E6E"),
-        ("BLADE amp ×2", amp["ampW2.0"] * 100, "#F4A98F"), ("BLADE amp ×4", amp["ampW4.0"] * 100, "#EE6C4D"),
-        ("BLADE remove", rem, "#B8860B")]
+        ("BLADE α=0", rem, "#B8860B"), ("BLADE α=2", amp["ampW2.0"] * 100, "#F4A98F"),
+        ("BLADE α=3", amp["ampW3.0"] * 100, "#EE8A5F"), ("BLADE α=4", amp["ampW4.0"] * 100, "#D9532B")]
 labs = [b[0] for b in BARS]; vals = [b[1] for b in BARS]; cols = [b[2] for b in BARS]
 y = np.arange(len(BARS))
 
