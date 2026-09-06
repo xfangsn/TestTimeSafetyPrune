@@ -22,7 +22,8 @@ plt.rcParams.update({"font.size": 16, "axes.labelsize": 19, "axes.titlesize": 18
 cell = defaultdict(list)
 for src, jdir in [("method_cmp_qwen3-8b", "opus_judge"), ("method_cmp_fq_qwen3-8b", "opus_judge_fq"),
                   ("ood_tune_qwen3-8b", "opus_judge_tune"),
-                  ("ood_ampextra_qwen3-8b", "opus_judge_amp56")]:
+                  ("ood_ampextra_qwen3-8b", "opus_judge_amp56"),
+                  ("blade_rho_sweep_qwen3-8b", "opus_judge_rho")]:
     items = json.load(open(R / f"{src}.json"))["items"]
     mp = json.load(open(SCS / jdir / "map.json")); lab = {}
     for f in ("labels_A.json", "labels_B.json", "labels_C.json"):
@@ -40,23 +41,20 @@ def rate(ds, gold, cond, acts=("answer",)):
     return 100 * sum(a in acts for a in xs) / len(xs) if xs else float("nan")
 
 
+# Tuned, NON-degenerate operating points (from the fixed-L* ρ×α sweep). BLADE remove=α0, amp=α2.
 METHODS = [("base", "base", "#3D405B"),
            ("ITI α=2", "iti_a2.0", "#9AD5CD"), ("ITI α=4", "iti_a4.0", "#3AA6A0"),
            ("ITI α=6", "iti_a6.0", "#0E6E6E"),
-           ("BLADE α=0", "remove", "#B8860B"), ("BLADE α=2", "amplify", "#F6B79E"),
-           ("BLADE α=3", "blade_ampW3.0", "#EE8A5F"), ("BLADE α=4", "blade_ampW4.0", "#D9532B"),
-           ("BLADE α=5", "blade_ampW5.0", "#A83217"), ("BLADE α=6", "blade_ampW6.0", "#6E1F0E")]
+           ("BLADE remove (ρ.005)", "r0.005_a0.0", "#B8860B"),
+           ("BLADE amp (ρ.005,α2)", "r0.005_a2.0", "#F4A98F"),
+           ("BLADE amp (ρ.01,α2)", "r0.01_a2.0", "#D9532B")]
 
-# Δppl (%) per method config for the capability-cost panel (BLADE α=0=remove, α>1=amplify raw-αW)
+# Δppl (%) per method config for the capability-cost panel
 _iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta"]
-_amp = json.load(open(R / "amp_ppl.json"))["amp_ppl_delta"]
-_amp5 = json.load(open(R / "ood_ampextra_qwen3-8b.json"))["ppl_delta_c4"]
-_rem = [r for r in json.load(open(R / "epistemic_p0_qwen3-8b_bladeg.json"))["sweep"]
-        if abs(r["sparsity"] - 0.005) < 1e-9][0]["ppl_delta_c4"] * 100
+_grid = {g["cond"]: g["ppl_delta_c4"] * 100 for g in json.load(open(R / "blade_rho_sweep_qwen3-8b.json"))["grid"]}
 PPL = {"base": 0.0, "iti_a2.0": _iti["iti_a2.0"] * 100, "iti_a4.0": _iti["iti_a4.0"] * 100,
-       "iti_a6.0": _iti["iti_a6.0"] * 100, "remove": _rem, "amplify": _amp["ampW2.0"] * 100,
-       "blade_ampW3.0": _amp["ampW3.0"] * 100, "blade_ampW4.0": _amp["ampW4.0"] * 100,
-       "blade_ampW5.0": _amp5["blade_ampW5.0"] * 100, "blade_ampW6.0": _amp5["blade_ampW6.0"] * 100}
+       "iti_a6.0": _iti["iti_a6.0"] * 100, "r0.005_a0.0": _grid["r0.005_a0.0"],
+       "r0.005_a2.0": _grid["r0.005_a2.0"], "r0.01_a2.0": _grid["r0.01_a2.0"]}
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
 PAN = [("ppl", None, "capability cost", "Δ perplexity (%) ↓", True),
        ("selfaware", "unanswerable", "SelfAware unanswerable", "hallucination (%) ↓", True),
