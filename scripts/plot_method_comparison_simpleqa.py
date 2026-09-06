@@ -1,8 +1,8 @@
 """uncertainty_method_cmp_simpleqa: the uncertainty_method_cmp panels (capability + SelfAware un/ans +
-FalseQA false/true) PLUS two SimpleQA panels (incorrect / not-attempted) for the same 4 methods
+FalseQA false/true) PLUS two SimpleQA panels (incorrect / correct-given-attempted) for the same 4 methods
 (base, ITI c=4, ITI c=6, BLADE rho=.005 a2.5). Saved under a NEW name; does NOT overwrite
-uncertainty_method_cmp. SimpleQA numbers: n=400, Qwen3-8B thinking-off, Opus-graded (scratchpad
-opus_grade_simpleqa). SelfAware/FalseQA/ppl loaded exactly as in plot_method_comparison.py."""
+uncertainty_method_cmp. SimpleQA numbers: n=400, Qwen3-8B thinking-off, Opus-graded; BLADE uses the same
+pinned edit L*=[23,31,18,2] as panels a-e. SelfAware/FalseQA/ppl loaded exactly as in plot_method_comparison.py."""
 import json, os
 from pathlib import Path
 from collections import defaultdict
