@@ -19,10 +19,11 @@ ALPHAS="${ALPHAS:-0,2.5}"
 CAP="${CAP:-40}"
 mkdir -p "$LOG_DIR"
 
-JOB="beta_sweep_qwen3_8b"
 JOBSCRIPT_DIR="${LOG_DIR}/jobscripts"; mkdir -p "$JOBSCRIPT_DIR"
-JS="${JOBSCRIPT_DIR}/${JOB}.sh"
-cat > "$JS" <<EOF
+for B in $BETAS; do
+  JOB="beta${B}_qwen3_8b"
+  JS="${JOBSCRIPT_DIR}/${JOB}.sh"
+  cat > "$JS" <<EOF
 #!/usr/bin/env bash
 #SBATCH --job-name=${JOB}
 #SBATCH --partition=gpu_partners
@@ -30,7 +31,7 @@ cat > "$JS" <<EOF
 #SBATCH --gres=gpu:l40s:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
-#SBATCH --time=04:00:00
+#SBATCH --time=02:00:00
 #SBATCH --output=${LOG_DIR}/${JOB}.%j.out
 #SBATCH --error=${LOG_DIR}/${JOB}.%j.out
 set -euo pipefail
@@ -40,13 +41,11 @@ export HF_HOME="${CACHE_ROOT}/huggingface" HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE
 export TTS_C4_FILE="${DATA_DIR}/c4.txt" TTS_WIKI_FILE="${DATA_DIR}/wikitext.txt"
 export PYTHONPATH="${REPO_DIR}/src:${REPO_DIR}/scripts"
 cd "${REPO_DIR}"
-for B in ${BETAS}; do
-  echo "===== BETA=\$B ====="
-  BLADE_MODEL=Qwen/Qwen3-8B BETA=\$B RHOS=${RHOS} ALPHAS=${ALPHAS} CAP=${CAP} \\
-    OUT_TAG=_beta\${B} python scripts/blade_rho_sweep.py
-done
-echo "DONE beta sweep"
+BLADE_MODEL=Qwen/Qwen3-8B BETA=${B} RHOS=${RHOS} ALPHAS=${ALPHAS} CAP=${CAP} \\
+  OUT_TAG=_beta${B} python scripts/blade_rho_sweep.py
+echo "DONE beta=${B}"
 EOF
-sbatch "$JS"
-echo "submitted $JOB (BETAS=$BETAS, ρ=$RHOS, α=$ALPHAS)  [$JS]"
-echo "watch: squeue -u \$USER ; tail -f ${LOG_DIR}/${JOB}.*.out"
+  sbatch "$JS"
+  echo "submitted $JOB (β=$B, ρ=$RHOS, α=$ALPHAS)  [$JS]"
+done
+echo "watch: squeue -u \$USER ; tail -f ${LOG_DIR}/beta*_qwen3_8b.*.out"
