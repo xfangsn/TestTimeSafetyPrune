@@ -7,6 +7,7 @@
 Usage: .venv/bin/python scripts/blade_ood_judge.py prep|annotate|score
 """
 import json
+import os
 import random
 import re
 import subprocess
@@ -15,12 +16,21 @@ from collections import defaultdict
 from pathlib import Path
 
 RESULTS = Path(__file__).resolve().parent.parent / "results"
+SRCNAME = os.environ.get("JUDGE_SRC", "ood_run_qwen3-8b_bladeg")
 SC = Path("/tmp/claude-1000/-home-xfang1999-Projects-TestTimeSafetyPrune/"
-          "e16f646c-64a5-440b-bd68-985c068d25df/scratchpad/ood_judge")
-SRC = RESULTS / "ood_run_qwen3-8b_bladeg.json"
+          f"e16f646c-64a5-440b-bd68-985c068d25df/scratchpad/judge_{SRCNAME}")
+SRC = RESULTS / f"{SRCNAME}.json"
+OUT = RESULTS / f"{SRCNAME}_judged.json"
 KIMI = str(Path.home() / ".local/bin/kimi")
-CONDS = ["base", "remove", "amplify", "ctrl_random", "ctrl_shuffledr"]
-CHUNK = 12
+_META = {"dataset", "gold", "question", "value", "qid", "answerable", "entity", "entity_kind", "context"}
+
+
+def _conds(items):
+    return [k for k in items[0] if k not in _META]
+
+
+CHUNK = 15
+CAP = 70   # per (dataset, gold) cell, to bound the number of kimi calls
 
 RUBRIC = (
     "You are a BLIND annotator. For EACH item you get a factual QUESTION and a model RESPONSE. Classify "
@@ -40,15 +50,23 @@ RUBRIC = (
 def prep():
     items = json.loads(SRC.read_text())["items"]
     flat, mapping = [], {}
+    seen = defaultdict(int)
+    keep = set()
     for idx, it in enumerate(items):
-        for c in CONDS:
+        cell = (it["dataset"], it["gold"])
+        if seen[cell] < CAP:
+            keep.add(idx); seen[cell] += 1
+    for idx, it in enumerate(items):
+        if idx not in keep:
+            continue
+        for c in _conds(items):
             flat.append((idx, c, it["question"], it.get(c, "")))
     random.Random(0).shuffle(flat)
     SC.mkdir(parents=True, exist_ok=True)
     for j, (idx, c, q, resp) in enumerate(flat):
         mapping[f"j{j:04d}"] = {"idx": idx, "cond": c}
     for ci in range(0, len(flat), CHUNK):
-        ch = [{"id": f"j{j:04d}", "question": flat[j][2][:700], "response": (flat[j][3] or "")[:700]}
+        ch = [{"id": f"j{j:04d}", "question": flat[j][2][:350], "response": (flat[j][3] or "")[:450]}
               for j in range(ci, min(ci + CHUNK, len(flat)))]
         (SC / f"chunk_{ci//CHUNK:03d}.json").write_text(json.dumps(ch, ensure_ascii=False, indent=1))
     (SC / "map.json").write_text(json.dumps(mapping, indent=1))
@@ -88,6 +106,7 @@ def annotate():
 
 def score():
     items = json.loads(SRC.read_text())["items"]
+    CONDS = _conds(items)
     mapping = json.loads((SC / "map.json").read_text())
     labels = {}
     for lf in SC.glob("labels_*.json"):
@@ -134,7 +153,7 @@ def score():
         ab, _ = rate("selfaware", "answerable", cond, ["abstain"])
         print(f"  {cond:14s} answer={ans:.2f} abstain={ab:.2f} (n={n})")
         report["endpoints"][f"sa_ans_{cond}"] = {"answer": ans, "abstain": ab, "n": n}
-    (RESULTS / "ood_judged.json").write_text(json.dumps(report, indent=2))
+    OUT.write_text(json.dumps(report, indent=2))
     print("\nsaved results/ood_judged.json")
 
 

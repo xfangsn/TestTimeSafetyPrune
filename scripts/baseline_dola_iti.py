@@ -28,7 +28,7 @@ MODEL_ID = os.environ.get("BLADE_MODEL", "Qwen/Qwen3-8B")
 GEN_TOK = 128
 CAP = 70
 ITI_K = int(os.environ.get("ITI_K", "48"))          # top heads (ITI paper ~48)
-ITI_ALPHAS = [float(x) for x in os.environ.get("ITI_ALPHAS", "8,15").split(",")]
+ITI_ALPHAS = [float(x) for x in os.environ.get("ITI_ALPHAS", "2,6,10").split(",")]  # in units of proj-std
 
 
 def load_ood():
@@ -79,6 +79,39 @@ def head_acts(model, tok, prompts, blocks, nh, hd, bs=8):
 
 
 @torch.no_grad()
+def proj_std(model, tok, prompts, blocks, nh, hd, dirs_unit, bs=8):
+    """std of <head_act, unit_dir> at the last prompt token, per (layer,head) in dirs_unit — the ITI dose unit."""
+    sums = {k: [0.0, 0.0, 0] for k in dirs_unit}   # sum, sumsq, n
+    st = {}
+
+    def mk(i):
+        def hook(_m, args):
+            v = args[0].float()
+            rows = torch.arange(v.shape[0])
+            st["b"][i] = v[rows, st["last"]].view(v.shape[0], nh, hd).cpu()   # (B,nh,hd)
+        return hook
+
+    hs = [blocks[i].self_attn.o_proj.register_forward_pre_hook(mk(i)) for i in {k[0] for k in dirs_unit}]
+    try:
+        for s in range(0, len(prompts), bs):
+            texts = [qwen_wrap(tok, p) for p in prompts[s:s + bs]]
+            enc = tok(texts, return_tensors="pt", padding=True, padding_side="right",
+                      add_special_tokens=False).to(model.device)
+            st["last"] = enc["attention_mask"].sum(1) - 1; st["b"] = {}
+            model(**enc, use_cache=False)
+            for (i, h) in dirs_unit:
+                p = (st["b"][i][:, h] @ dirs_unit[(i, h)])   # (B,)
+                sums[(i, h)][0] += float(p.sum()); sums[(i, h)][1] += float((p * p).sum()); sums[(i, h)][2] += p.numel()
+    finally:
+        for x in hs:
+            x.remove()
+    out = {}
+    for k, (s1, s2, n) in sums.items():
+        out[k] = max((s2 / n - (s1 / n) ** 2), 1e-8) ** 0.5
+    return out
+
+
+@torch.no_grad()
 def gen_plain(model, tok, prompts, bs=12):
     prev = tok.padding_side; tok.padding_side = "left"; out = []
     try:
@@ -125,11 +158,20 @@ def gen_dola(model, tok, prompts, bucket="high", alpha=0.1, rep=1.2, bs=8):
                 best_jsd = torch.where(pick, jsd, best_jsd)
                 prem_lp = torch.where(pick[:, None], plp, prem_lp)
             logits = mat_lp - prem_lp                                           # DoLa contrast
-            thresh = alpha * mat_p.max(-1, keepdim=True).values                 # APC
+            thresh = alpha * mat_p.max(-1, keepdim=True).values                 # APC (plausibility)
             logits = logits.masked_fill(mat_p < thresh, -1e9)
+            # restrict contrast to the top-50 mature tokens (kills rare-token promotion / garbage)
+            topk = mat_lp.topk(50, dim=-1).indices
+            keep = torch.zeros_like(logits, dtype=torch.bool).scatter_(-1, topk, True)
+            logits = logits.masked_fill(~keep, -1e9)
             for b in range(B):                                                  # repetition penalty
                 for t in set(gen[b]):
                     logits[b, t] /= rep
+                if len(gen[b]) >= 2:                                            # block repeated 3-grams
+                    a2, a1 = gen[b][-2], gen[b][-1]
+                    for k in range(len(gen[b]) - 2):
+                        if gen[b][k] == a2 and gen[b][k + 1] == a1:
+                            logits[b, gen[b][k + 2]] = -1e9
             nxt = logits.argmax(-1)                                             # greedy
             nxt = torch.where(done, torch.full_like(nxt, tok.pad_token_id), nxt)
             for b in range(B):
@@ -185,8 +227,8 @@ def main():
     diffs = {(i, h): (mu_u[i][h] - mu_c[i][h]) for i in range(len(blocks)) for h in range(nh)}
     ranked = sorted(diffs, key=lambda k: -diffs[k].norm().item())[:ITI_K]
     dirs = {k: diffs[k] / diffs[k].norm().clamp_min(1e-6) for k in ranked}
-    sigma = {k: diffs[k].norm().item() for k in ranked}      # |mean-diff| as the steering unit
-    print(f"ITI top-{ITI_K} heads across layers {sorted({i for i,_ in ranked})}", flush=True)
+    print(f"ITI top-{ITI_K} heads across layers {sorted({i for i,_ in ranked})}; computing proj-std ...", flush=True)
+    sigma = proj_std(model, tok, unc + cert, blocks, nh, hd, dirs)   # ITI dose unit = std of projection
 
     def add_vec(alpha):
         add = {i: torch.zeros(nh * hd) for i in range(len(blocks))}
@@ -201,8 +243,9 @@ def main():
 
     gens = {"base": gen_plain(model, tok, prompts)}
     print("  base done", flush=True)
-    gens["dola_high"] = gen_dola(model, tok, prompts, bucket="high"); print("  dola_high done", flush=True)
-    gens["dola_low"] = gen_dola(model, tok, prompts, bucket="low"); print("  dola_low done", flush=True)
+    if not os.environ.get("SKIP_DOLA"):
+        gens["dola_high"] = gen_dola(model, tok, prompts, bucket="high"); print("  dola_high done", flush=True)
+        gens["dola_low"] = gen_dola(model, tok, prompts, bucket="low"); print("  dola_low done", flush=True)
     ppl = {"base": 0.0}
     for a in ITI_ALPHAS:
         add = add_vec(a)
