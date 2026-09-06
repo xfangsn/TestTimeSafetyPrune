@@ -63,8 +63,9 @@ def main():
         out["alpha_ppl_delta"][f"iti_a{a}"] = (p - base_ppl) / base_ppl
         print(f"ITI a{a}: ppl {p:.2f}  Δ {(p-base_ppl)/base_ppl:+.2%}", flush=True)
 
-    (RESULTS / "iti_ppl.json").write_text(json.dumps(out, indent=2))
-    print("saved results/iti_ppl.json")
+    slug = "" if MODEL_ID == "Qwen/Qwen3-8B" else "_" + MODEL_ID.split("/")[-1].lower()
+    (RESULTS / f"iti_ppl{slug}.json").write_text(json.dumps(out, indent=2))
+    print(f"saved results/iti_ppl{slug}.json")
 
 
 if __name__ == "__main__":

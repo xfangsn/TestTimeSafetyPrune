@@ -111,7 +111,9 @@ def main():
                 rec[cond] = o
             print(f"  {cond:14} n={n:7d} degen {dg:.2f}  Δppl {(pc-base_ppl)/base_ppl:+.2%}", flush=True)
     tag = os.environ.get("OUT_TAG", "")
-    outp = RESULTS / f"blade_rho_sweep{tag}_qwen3-8b.json"
+    slug = os.environ.get("OUT_SLUG") or (
+        "qwen3-8b" if MODEL_ID == "Qwen/Qwen3-8B" else MODEL_ID.split("/")[-1].lower())
+    outp = RESULTS / f"blade_rho_sweep{tag}_{slug}.json"
     outp.write_text(json.dumps(report, indent=1, ensure_ascii=False))
     print(f"saved {outp}", flush=True)
 
