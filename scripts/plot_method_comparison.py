@@ -61,6 +61,11 @@ for ax, (ds, gold, title, low) in zip(axes.flat, PAN):
     ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
     ax.spines[["top", "right"]].set_visible(False)
 fig.tight_layout()
+# dashed divider between SelfAware (panels 1-2) and FalseQA (panels 3-4)
+import matplotlib.lines as mlines
+xd = (axes[1].get_position().x1 + axes[2].get_position().x0) / 2
+fig.add_artist(mlines.Line2D([xd, xd], [0.04, 0.96], color="#9AA0A6", ls=(0, (5, 4)),
+                             lw=1.3, transform=fig.transFigure))
 for ext in ("png", "pdf"):
     fig.savefig(FIG / f"uncertainty_method_cmp.{ext}", dpi=300, bbox_inches="tight")
 print("saved figures/uncertainty_method_cmp.png / .pdf")
