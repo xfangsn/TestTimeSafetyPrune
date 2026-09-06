@@ -1,13 +1,13 @@
 % Wide, two-column-spanning figure. Requires \usepackage{graphicx} in the preamble.
 % Put uncertainty_method_cmp.pdf on the graphics path (e.g. \graphicspath{{figures/}}) or use a full path.
-% Needs a bib entry keyed `iti` (Li et al. 2023, Inference-Time Intervention, arXiv:2306.03341).
+% Citation keys li2023iti / selfaware / falseqa are defined in docs/blade-method.bib.
 \begin{figure*}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/uncertainty_method_cmp.pdf}
   \caption{%
     \textbf{Controlling closed-book epistemic (un)certainty on Qwen3-8B.}
     A single BLADE weight edit ($\rho\!=\!0.005$, $\alpha\!=\!2.5$) vs.\ ITI
-    activation steering~\citep{iti} at three strengths. Behavioral rates from a
+    activation steering~\citep{li2023iti} at three strengths. Behavioral rates from a
     blind LLM judge; lower is better in (a,\,b,\,d), higher in (c,\,e).%
   }
   \label{fig:uncertainty-method-cmp}
@@ -15,9 +15,9 @@
 
 % ---------------------------------------------------------------------------
 % Body text (the "context" for the figure) — paste near the \ref, not in the caption.
-% Needs bib entries keyed `selfaware` (Yin et al. 2023) and `falseqa` (Hu et al. 2023).
+% Dataset citations selfaware / falseqa are defined in docs/blade-method.bib.
 % ---------------------------------------------------------------------------
-We evaluate on two closed-book abstention benchmarks that probe complementary failure
+\paragraph{Benchmarks.} We evaluate on two closed-book abstention benchmarks that probe complementary failure
 modes. \textbf{SelfAware}~\citep{selfaware} pairs answerable questions with
 \emph{unanswerable} ones that have no known or knowable answer (open scientific unknowns,
 under-specified or subjective queries); a calibrated model should answer the former and
@@ -30,7 +30,7 @@ true-premise answering. Together they separate two kinds of epistemic humility: 
 what is unknowable (SelfAware) and refusing a baked-in falsehood (FalseQA).
 
 Figure~\ref{fig:uncertainty-method-cmp} compares our BLADE weight edit against ITI
-activation steering~\citep{iti} on closed-book epistemic (un)certainty in Qwen3-8B.
+activation steering~\citep{li2023iti} on closed-book epistemic (un)certainty in Qwen3-8B.
 Both methods are fit on the \emph{same} certain/uncertain prompt contrast at the last
 prompt token, so the comparison isolates the mechanism---a sparse, static weight edit
 versus per-head activation steering---rather than the direction source. All behavioral
