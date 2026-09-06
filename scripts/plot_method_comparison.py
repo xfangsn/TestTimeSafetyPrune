@@ -49,7 +49,7 @@ PAN = [("selfaware", "unanswerable", "SelfAware unanswerable\nhallucination (%) 
        ("selfaware", "answerable", "SelfAware answerable\nanswered (%) ↑", False),
        ("falseqa", "false_premise", "FalseQA false-premise\naccepted (%) ↓", True),
        ("falseqa", "true_premise", "FalseQA true-premise\nanswered (%) ↑", False)]
-fig, axes = plt.subplots(2, 2, figsize=(8.8, 6.0), sharey=True)
+fig, axes = plt.subplots(1, 4, figsize=(16.5, 3.2), sharey=True)
 for ax, (ds, gold, title, low) in zip(axes.flat, PAN):
     vals = [rate(ds, gold, c[1]) for c in METHODS]
     b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
