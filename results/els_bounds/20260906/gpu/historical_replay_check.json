@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "candidate_count": 141,
+  "checked_fields": [
+    "layers",
+    "ppl",
+    "uncertainty_rate/full_metric"
+  ],
+  "reference": "results/els_cache/20260906/reference/els_progress.json",
+  "reference_sha256": "98a4aaffe6f8447c8191a10fb33cca8fffd85c20899375248781f7f798c54e2e",
+  "baseline": "results/els_bounds/20260906/gpu/baseline/candidate_records.json",
+  "baseline_sha256": "4ae9668a4b495791df3fd952cb7881bfab8de931f6330721821952591fecdeb6"
+}
