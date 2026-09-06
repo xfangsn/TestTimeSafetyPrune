@@ -34,7 +34,7 @@ SQ_N = int(os.environ.get("SQ_N", "400"))
 ITI_K = 48
 BLADE_RHO = float(os.environ.get("BLADE_RHO", "0.005"))
 BLADE_ALPHA = float(os.environ.get("BLADE_ALPHA", "2.5"))
-ITI_ALPHAS = [4.0, 6.0]
+ITI_ALPHAS = [float(x) for x in os.environ.get("ITI_ALPHAS", "4,6").split(",")]
 L_STAR_ENV = os.environ.get("L_STAR", "")      # pin BLADE layers (reuse the figure's L*), skip ELS
 BLADE_ONLY = os.environ.get("BLADE_ONLY", "") == "1"  # only (re)generate the BLADE column
 
