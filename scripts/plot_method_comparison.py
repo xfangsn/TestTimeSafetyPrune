@@ -73,7 +73,7 @@ for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
         b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
         ax.bar_label(b, fmt="%.0f", fontsize=16, padding=2)
         ax.set_xlim(0, max([v for v in vals if v == v]) * (1.32 if low else 1.18))
-    ax.set_yticks(y); ax.set_yticklabels(labs); ax.invert_yaxis()
+    ax.set_yticks(y); ax.set_yticklabels(labs, linespacing=0.85); ax.invert_yaxis()
     ax.set_xlabel(xlab, labelpad=8)                                   # metric = x-axis title
     ax.text(0.5, -0.42, f"({chr(97+k)}) {title}", transform=ax.transAxes,   # panel subtitle below
             ha="center", va="top", fontsize=19, fontweight="bold")
