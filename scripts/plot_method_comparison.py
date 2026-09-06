@@ -15,8 +15,8 @@ R = Path("results"); FIG = Path("figures"); FIG.mkdir(exist_ok=True)
 SCS = Path("/tmp/claude-1000/-home-xfang1999-Projects-TestTimeSafetyPrune/"
            "e16f646c-64a5-440b-bd68-985c068d25df/scratchpad")
 plt.style.use(["science", "no-latex"])
-plt.rcParams.update({"font.size": 16, "axes.labelsize": 19, "axes.titlesize": 18,
-                     "xtick.labelsize": 17, "ytick.labelsize": 18, "xtick.top": False,
+plt.rcParams.update({"font.size": 19, "axes.labelsize": 23, "axes.titlesize": 21,
+                     "xtick.labelsize": 20, "ytick.labelsize": 21, "xtick.top": False,
                      "ytick.right": False, "axes.linewidth": 1.0})
 
 cell = defaultdict(list)
@@ -47,7 +47,7 @@ def rate(ds, gold, cond, acts=("answer",)):
 METHODS = [("base", "base", "#3D405B"),
            ("ITI (α=2)", "iti_a2.0", "#9AD5CD"), ("ITI (α=4)", "iti_a4.0", "#3AA6A0"),
            ("ITI (α=6)", "iti_a6.0", "#0E6E6E"),
-           ("BLADE (ρ=.005, α=2.5)", "r0.005_a2.5", "#D9532B")]
+           ("BLADE\n(ρ=.005, α=2.5)", "r0.005_a2.5", "#D9532B")]
 
 # Δppl (%) per method config for the capability-cost panel
 _iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta"]
@@ -66,17 +66,17 @@ for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     if ds == "ppl":
         vals = [PPL[c[1]] for c in METHODS]
         b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
-        ax.bar_label(b, fmt="%+.1f", fontsize=14, padding=2)
+        ax.bar_label(b, fmt="%+.1f", fontsize=16, padding=2)
         ax.set_xlim(0, max(vals) * 1.28)
     else:
         vals = [rate(ds, gold, c[1]) for c in METHODS]
         b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
-        ax.bar_label(b, fmt="%.0f", fontsize=14, padding=2)
+        ax.bar_label(b, fmt="%.0f", fontsize=16, padding=2)
         ax.set_xlim(0, max([v for v in vals if v == v]) * (1.32 if low else 1.18))
     ax.set_yticks(y); ax.set_yticklabels(labs); ax.invert_yaxis()
     ax.set_xlabel(xlab, labelpad=8)                                   # metric = x-axis title
     ax.text(0.5, -0.42, f"({chr(97+k)}) {title}", transform=ax.transAxes,   # panel subtitle below
-            ha="center", va="top", fontsize=16, fontweight="bold")
+            ha="center", va="top", fontsize=19, fontweight="bold")
     ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
     ax.spines[["top", "right"]].set_visible(False)
 fig.tight_layout()
