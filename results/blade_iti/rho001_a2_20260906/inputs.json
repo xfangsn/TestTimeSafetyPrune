@@ -1,0 +1,3800 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "rho": 0.01,
+  "blade_alpha": 2.0,
+  "iti_doses": [
+    2.0,
+    4.0,
+    6.0
+  ],
+  "historical_iti_heads": [
+    [
+      35,
+      2
+    ],
+    [
+      31,
+      19
+    ],
+    [
+      34,
+      29
+    ],
+    [
+      34,
+      19
+    ],
+    [
+      35,
+      25
+    ],
+    [
+      34,
+      28
+    ],
+    [
+      31,
+      11
+    ],
+    [
+      32,
+      31
+    ],
+    [
+      34,
+      30
+    ],
+    [
+      35,
+      5
+    ],
+    [
+      33,
+      6
+    ],
+    [
+      34,
+      15
+    ],
+    [
+      34,
+      4
+    ],
+    [
+      34,
+      8
+    ],
+    [
+      30,
+      15
+    ],
+    [
+      31,
+      18
+    ],
+    [
+      34,
+      21
+    ],
+    [
+      35,
+      22
+    ],
+    [
+      32,
+      27
+    ],
+    [
+      35,
+      27
+    ],
+    [
+      35,
+      24
+    ],
+    [
+      30,
+      7
+    ],
+    [
+      34,
+      16
+    ],
+    [
+      22,
+      4
+    ],
+    [
+      23,
+      1
+    ],
+    [
+      35,
+      19
+    ],
+    [
+      30,
+      0
+    ],
+    [
+      32,
+      16
+    ],
+    [
+      35,
+      13
+    ],
+    [
+      30,
+      20
+    ],
+    [
+      32,
+      24
+    ],
+    [
+      22,
+      7
+    ],
+    [
+      32,
+      15
+    ],
+    [
+      23,
+      2
+    ],
+    [
+      35,
+      15
+    ],
+    [
+      34,
+      1
+    ],
+    [
+      34,
+      12
+    ],
+    [
+      30,
+      5
+    ],
+    [
+      25,
+      14
+    ],
+    [
+      34,
+      17
+    ],
+    [
+      27,
+      14
+    ],
+    [
+      24,
+      8
+    ],
+    [
+      26,
+      14
+    ],
+    [
+      30,
+      2
+    ],
+    [
+      31,
+      26
+    ],
+    [
+      28,
+      20
+    ],
+    [
+      22,
+      12
+    ],
+    [
+      35,
+      4
+    ]
+  ],
+  "contrast_rows": [
+    {
+      "question": "What is the capital city of France?",
+      "label": 0,
+      "family": "capital",
+      "entity": "France"
+    },
+    {
+      "question": "What is the capital city of Japan?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Japan"
+    },
+    {
+      "question": "What is the capital city of Brazil?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Brazil"
+    },
+    {
+      "question": "What is the capital city of Egypt?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Egypt"
+    },
+    {
+      "question": "What is the capital city of Canada?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Canada"
+    },
+    {
+      "question": "What is the capital city of Italy?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Italy"
+    },
+    {
+      "question": "What is the capital city of Kenya?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Kenya"
+    },
+    {
+      "question": "What is the capital city of Norway?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Norway"
+    },
+    {
+      "question": "What is the capital city of Thailand?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Thailand"
+    },
+    {
+      "question": "What is the capital city of Mexico?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Mexico"
+    },
+    {
+      "question": "What is the capital city of Greece?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Greece"
+    },
+    {
+      "question": "What is the capital city of Portugal?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Portugal"
+    },
+    {
+      "question": "What is the capital city of Sweden?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Sweden"
+    },
+    {
+      "question": "What is the capital city of Chile?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Chile"
+    },
+    {
+      "question": "What is the capital city of Poland?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Poland"
+    },
+    {
+      "question": "What is the capital city of Vietnam?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Vietnam"
+    },
+    {
+      "question": "What is the capital city of Morocco?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Morocco"
+    },
+    {
+      "question": "What is the capital city of Peru?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Peru"
+    },
+    {
+      "question": "What is the capital city of Austria?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Austria"
+    },
+    {
+      "question": "What is the capital city of Ireland?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Ireland"
+    },
+    {
+      "question": "What is the capital city of Spain?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Spain"
+    },
+    {
+      "question": "What is the capital city of Argentina?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Argentina"
+    },
+    {
+      "question": "What is the capital city of Finland?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Finland"
+    },
+    {
+      "question": "What is the capital city of Turkey?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Turkey"
+    },
+    {
+      "question": "What is the capital city of Colombia?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Colombia"
+    },
+    {
+      "question": "What is the capital city of Hungary?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Hungary"
+    },
+    {
+      "question": "What is the capital city of Denmark?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Denmark"
+    },
+    {
+      "question": "What is the capital city of Nigeria?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Nigeria"
+    },
+    {
+      "question": "What is the capital city of Indonesia?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Indonesia"
+    },
+    {
+      "question": "What is the capital city of Malaysia?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Malaysia"
+    },
+    {
+      "question": "What is the capital city of Ecuador?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Ecuador"
+    },
+    {
+      "question": "What is the capital city of Croatia?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Croatia"
+    },
+    {
+      "question": "What is the capital city of Kazakhstan?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Kazakhstan"
+    },
+    {
+      "question": "What is the capital city of Ghana?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Ghana"
+    },
+    {
+      "question": "What is the capital city of Uruguay?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Uruguay"
+    },
+    {
+      "question": "What is the capital city of Tunisia?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Tunisia"
+    },
+    {
+      "question": "What is the capital city of Latvia?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Latvia"
+    },
+    {
+      "question": "What is the capital city of Slovakia?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Slovakia"
+    },
+    {
+      "question": "What is the capital city of Bolivia?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Bolivia"
+    },
+    {
+      "question": "What is the capital city of Senegal?",
+      "label": 0,
+      "family": "capital",
+      "entity": "Senegal"
+    },
+    {
+      "question": "What is the capital city of Kesteria?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Kesteria"
+    },
+    {
+      "question": "What is the capital city of Brownistan?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Brownistan"
+    },
+    {
+      "question": "What is the capital city of Veltoria?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Veltoria"
+    },
+    {
+      "question": "What is the capital city of Drennmoor?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Drennmoor"
+    },
+    {
+      "question": "What is the capital city of Pelagon?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Pelagon"
+    },
+    {
+      "question": "What is the capital city of Yavthar?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Yavthar"
+    },
+    {
+      "question": "What is the capital city of Corvanth?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Corvanth"
+    },
+    {
+      "question": "What is the capital city of Malgrave?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Malgrave"
+    },
+    {
+      "question": "What is the capital city of Threnovia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Threnovia"
+    },
+    {
+      "question": "What is the capital city of Ostrembia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Ostrembia"
+    },
+    {
+      "question": "What is the capital city of Kelmaria?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Kelmaria"
+    },
+    {
+      "question": "What is the capital city of Vantasq?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Vantasq"
+    },
+    {
+      "question": "What is the capital city of Brindolia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Brindolia"
+    },
+    {
+      "question": "What is the capital city of Quthara?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Quthara"
+    },
+    {
+      "question": "What is the capital city of Sarnovia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Sarnovia"
+    },
+    {
+      "question": "What is the capital city of Weltavia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Weltavia"
+    },
+    {
+      "question": "What is the capital city of Draymond Isles?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Draymond Isles"
+    },
+    {
+      "question": "What is the capital city of Fenwold?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Fenwold"
+    },
+    {
+      "question": "What is the capital city of Glonteria?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Glonteria"
+    },
+    {
+      "question": "What is the capital city of Marovek?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Marovek"
+    },
+    {
+      "question": "What is the capital city of Tesalburg?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Tesalburg"
+    },
+    {
+      "question": "What is the capital city of Nyxoria?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Nyxoria"
+    },
+    {
+      "question": "What is the capital city of Palvernia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Palvernia"
+    },
+    {
+      "question": "What is the capital city of Cralovia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Cralovia"
+    },
+    {
+      "question": "What is the capital city of Umbraq?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Umbraq"
+    },
+    {
+      "question": "What is the capital city of Zelmoor?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Zelmoor"
+    },
+    {
+      "question": "What is the capital city of Vondaria?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Vondaria"
+    },
+    {
+      "question": "What is the capital city of Ashkelon Republic?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Ashkelon Republic"
+    },
+    {
+      "question": "What is the capital city of Grivenland?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Grivenland"
+    },
+    {
+      "question": "What is the capital city of Torvaskia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Torvaskia"
+    },
+    {
+      "question": "What is the capital city of Belmoria?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Belmoria"
+    },
+    {
+      "question": "What is the capital city of Cindervale?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Cindervale"
+    },
+    {
+      "question": "What is the capital city of Rhovanek?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Rhovanek"
+    },
+    {
+      "question": "What is the capital city of Skarnia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Skarnia"
+    },
+    {
+      "question": "What is the capital city of Oltavia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Oltavia"
+    },
+    {
+      "question": "What is the capital city of Wexford Union?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Wexford Union"
+    },
+    {
+      "question": "What is the capital city of Duvalia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Duvalia"
+    },
+    {
+      "question": "What is the capital city of Trennmark?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Trennmark"
+    },
+    {
+      "question": "What is the capital city of Yalgoria?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Yalgoria"
+    },
+    {
+      "question": "What is the capital city of Praxenia?",
+      "label": 1,
+      "family": "capital",
+      "entity": "Praxenia"
+    },
+    {
+      "question": "In what century was Albert Einstein born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Albert Einstein"
+    },
+    {
+      "question": "What did Albert Einstein eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Albert Einstein"
+    },
+    {
+      "question": "In what century was Marie Curie born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Marie Curie"
+    },
+    {
+      "question": "What did Marie Curie eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Marie Curie"
+    },
+    {
+      "question": "In what century was William Shakespeare born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "William Shakespeare"
+    },
+    {
+      "question": "What did William Shakespeare eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "William Shakespeare"
+    },
+    {
+      "question": "In what century was Isaac Newton born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Isaac Newton"
+    },
+    {
+      "question": "What did Isaac Newton eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Isaac Newton"
+    },
+    {
+      "question": "In what century was Leonardo da Vinci born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Leonardo da Vinci"
+    },
+    {
+      "question": "What did Leonardo da Vinci eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Leonardo da Vinci"
+    },
+    {
+      "question": "In what century was Charles Darwin born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Charles Darwin"
+    },
+    {
+      "question": "What did Charles Darwin eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Charles Darwin"
+    },
+    {
+      "question": "In what century was Nelson Mandela born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Nelson Mandela"
+    },
+    {
+      "question": "What did Nelson Mandela eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Nelson Mandela"
+    },
+    {
+      "question": "In what century was Vincent van Gogh born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Vincent van Gogh"
+    },
+    {
+      "question": "What did Vincent van Gogh eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Vincent van Gogh"
+    },
+    {
+      "question": "In what century was Wolfgang Amadeus Mozart born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Wolfgang Amadeus Mozart"
+    },
+    {
+      "question": "What did Wolfgang Amadeus Mozart eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Wolfgang Amadeus Mozart"
+    },
+    {
+      "question": "In what century was Ada Lovelace born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Ada Lovelace"
+    },
+    {
+      "question": "What did Ada Lovelace eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Ada Lovelace"
+    },
+    {
+      "question": "In what century was Galileo Galilei born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Galileo Galilei"
+    },
+    {
+      "question": "What did Galileo Galilei eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Galileo Galilei"
+    },
+    {
+      "question": "In what century was Frida Kahlo born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Frida Kahlo"
+    },
+    {
+      "question": "What did Frida Kahlo eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Frida Kahlo"
+    },
+    {
+      "question": "In what century was Ludwig van Beethoven born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Ludwig van Beethoven"
+    },
+    {
+      "question": "What did Ludwig van Beethoven eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Ludwig van Beethoven"
+    },
+    {
+      "question": "In what century was Mahatma Gandhi born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Mahatma Gandhi"
+    },
+    {
+      "question": "What did Mahatma Gandhi eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Mahatma Gandhi"
+    },
+    {
+      "question": "In what century was Rosa Parks born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Rosa Parks"
+    },
+    {
+      "question": "What did Rosa Parks eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Rosa Parks"
+    },
+    {
+      "question": "In what century was Alan Turing born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Alan Turing"
+    },
+    {
+      "question": "What did Alan Turing eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Alan Turing"
+    },
+    {
+      "question": "In what century was Cleopatra born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Cleopatra"
+    },
+    {
+      "question": "What did Cleopatra eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Cleopatra"
+    },
+    {
+      "question": "In what century was Napoleon Bonaparte born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Napoleon Bonaparte"
+    },
+    {
+      "question": "What did Napoleon Bonaparte eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Napoleon Bonaparte"
+    },
+    {
+      "question": "In what century was Jane Austen born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Jane Austen"
+    },
+    {
+      "question": "What did Jane Austen eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Jane Austen"
+    },
+    {
+      "question": "In what century was Nikola Tesla born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Nikola Tesla"
+    },
+    {
+      "question": "What did Nikola Tesla eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Nikola Tesla"
+    },
+    {
+      "question": "In what century was Abraham Lincoln born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Abraham Lincoln"
+    },
+    {
+      "question": "What did Abraham Lincoln eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Abraham Lincoln"
+    },
+    {
+      "question": "In what century was Florence Nightingale born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Florence Nightingale"
+    },
+    {
+      "question": "What did Florence Nightingale eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Florence Nightingale"
+    },
+    {
+      "question": "In what century was Confucius born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Confucius"
+    },
+    {
+      "question": "What did Confucius eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Confucius"
+    },
+    {
+      "question": "In what century was Charlemagne born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Charlemagne"
+    },
+    {
+      "question": "What did Charlemagne eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Charlemagne"
+    },
+    {
+      "question": "In what century was Isaac Asimov born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Isaac Asimov"
+    },
+    {
+      "question": "What did Isaac Asimov eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Isaac Asimov"
+    },
+    {
+      "question": "In what century was Emily Dickinson born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Emily Dickinson"
+    },
+    {
+      "question": "What did Emily Dickinson eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Emily Dickinson"
+    },
+    {
+      "question": "In what century was Wolfgang Pauli born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Wolfgang Pauli"
+    },
+    {
+      "question": "What did Wolfgang Pauli eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Wolfgang Pauli"
+    },
+    {
+      "question": "In what century was Aristotle born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Aristotle"
+    },
+    {
+      "question": "What did Aristotle eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Aristotle"
+    },
+    {
+      "question": "In what century was Johann Sebastian Bach born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Johann Sebastian Bach"
+    },
+    {
+      "question": "What did Johann Sebastian Bach eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Johann Sebastian Bach"
+    },
+    {
+      "question": "In what century was Pablo Picasso born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Pablo Picasso"
+    },
+    {
+      "question": "What did Pablo Picasso eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Pablo Picasso"
+    },
+    {
+      "question": "In what century was Charles Dickens born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Charles Dickens"
+    },
+    {
+      "question": "What did Charles Dickens eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Charles Dickens"
+    },
+    {
+      "question": "In what century was Thomas Edison born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Thomas Edison"
+    },
+    {
+      "question": "What did Thomas Edison eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Thomas Edison"
+    },
+    {
+      "question": "In what century was Harriet Tubman born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Harriet Tubman"
+    },
+    {
+      "question": "What did Harriet Tubman eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Harriet Tubman"
+    },
+    {
+      "question": "In what century was Sigmund Freud born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Sigmund Freud"
+    },
+    {
+      "question": "What did Sigmund Freud eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Sigmund Freud"
+    },
+    {
+      "question": "In what century was Karl Marx born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Karl Marx"
+    },
+    {
+      "question": "What did Karl Marx eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Karl Marx"
+    },
+    {
+      "question": "In what century was Virginia Woolf born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Virginia Woolf"
+    },
+    {
+      "question": "What did Virginia Woolf eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Virginia Woolf"
+    },
+    {
+      "question": "In what century was Winston Churchill born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Winston Churchill"
+    },
+    {
+      "question": "What did Winston Churchill eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Winston Churchill"
+    },
+    {
+      "question": "In what century was Simone de Beauvoir born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Simone de Beauvoir"
+    },
+    {
+      "question": "What did Simone de Beauvoir eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Simone de Beauvoir"
+    },
+    {
+      "question": "In what century was Louis Pasteur born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Louis Pasteur"
+    },
+    {
+      "question": "What did Louis Pasteur eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Louis Pasteur"
+    },
+    {
+      "question": "In what century was Rene Descartes born?",
+      "label": 0,
+      "family": "person_attr",
+      "entity": "Rene Descartes"
+    },
+    {
+      "question": "What did Rene Descartes eat for breakfast on their eleventh birthday?",
+      "label": 1,
+      "family": "person_attr",
+      "entity": "Rene Descartes"
+    },
+    {
+      "question": "Who wrote the novel 'Pride and Prejudice'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Pride and Prejudice"
+    },
+    {
+      "question": "Who wrote the novel '1984'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "1984"
+    },
+    {
+      "question": "Who wrote the novel 'Hamlet'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Hamlet"
+    },
+    {
+      "question": "Who wrote the novel 'The Odyssey'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "The Odyssey"
+    },
+    {
+      "question": "Who wrote the novel 'Don Quixote'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Don Quixote"
+    },
+    {
+      "question": "Who wrote the novel 'War and Peace'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "War and Peace"
+    },
+    {
+      "question": "Who wrote the novel 'Moby-Dick'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Moby-Dick"
+    },
+    {
+      "question": "Who wrote the novel 'The Great Gatsby'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "The Great Gatsby"
+    },
+    {
+      "question": "Who wrote the novel 'Crime and Punishment'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Crime and Punishment"
+    },
+    {
+      "question": "Who wrote the novel 'Frankenstein'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Frankenstein"
+    },
+    {
+      "question": "Who wrote the novel 'Great Expectations'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Great Expectations"
+    },
+    {
+      "question": "Who wrote the novel 'Jane Eyre'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Jane Eyre"
+    },
+    {
+      "question": "Who wrote the novel 'The Old Man and the Sea'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "The Old Man and the Sea"
+    },
+    {
+      "question": "Who wrote the novel 'Ulysses'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Ulysses"
+    },
+    {
+      "question": "Who wrote the novel 'Wuthering Heights'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Wuthering Heights"
+    },
+    {
+      "question": "Who wrote the novel 'Dracula'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Dracula"
+    },
+    {
+      "question": "Who wrote the novel 'The Trial'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "The Trial"
+    },
+    {
+      "question": "Who wrote the novel 'Madame Bovary'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Madame Bovary"
+    },
+    {
+      "question": "Who wrote the novel 'The Brothers Karamazov'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "The Brothers Karamazov"
+    },
+    {
+      "question": "Who wrote the novel 'Anna Karenina'?",
+      "label": 0,
+      "family": "authorship",
+      "entity": "Anna Karenina"
+    },
+    {
+      "question": "Who wrote the novel 'The Crimson Meridian'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "The Crimson Meridian"
+    },
+    {
+      "question": "Who wrote the novel 'Whispers of the Vale'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "Whispers of the Vale"
+    },
+    {
+      "question": "Who wrote the novel 'A Lantern for Marrow'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "A Lantern for Marrow"
+    },
+    {
+      "question": "Who wrote the novel 'The Salt-Glass Sea'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "The Salt-Glass Sea"
+    },
+    {
+      "question": "Who wrote the novel 'Ninefold Reckoning'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "Ninefold Reckoning"
+    },
+    {
+      "question": "Who wrote the novel 'The Umber Accord'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "The Umber Accord"
+    },
+    {
+      "question": "Who wrote the novel 'Songs of the Hollow Kings'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "Songs of the Hollow Kings"
+    },
+    {
+      "question": "Who wrote the novel 'The Ledger of Ash'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "The Ledger of Ash"
+    },
+    {
+      "question": "Who wrote the novel 'Pale Antenna'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "Pale Antenna"
+    },
+    {
+      "question": "Who wrote the novel 'Coriander Nights'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "Coriander Nights"
+    },
+    {
+      "question": "Who wrote the novel 'The Iron Chandelier'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "The Iron Chandelier"
+    },
+    {
+      "question": "Who wrote the novel 'Ashglass Harbour'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "Ashglass Harbour"
+    },
+    {
+      "question": "Who wrote the novel 'The Ninefold Gate'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "The Ninefold Gate"
+    },
+    {
+      "question": "Who wrote the novel 'Verdigris Lament'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "Verdigris Lament"
+    },
+    {
+      "question": "Who wrote the novel 'The Cartographer's Wake'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "The Cartographer's Wake"
+    },
+    {
+      "question": "Who wrote the novel 'Hollowmere'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "Hollowmere"
+    },
+    {
+      "question": "Who wrote the novel 'The Tin Cathedral'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "The Tin Cathedral"
+    },
+    {
+      "question": "Who wrote the novel 'Sixteen Winters of Salt'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "Sixteen Winters of Salt"
+    },
+    {
+      "question": "Who wrote the novel 'The Obsidian Almanac'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "The Obsidian Almanac"
+    },
+    {
+      "question": "Who wrote the novel 'Threnody for Copper'?",
+      "label": 1,
+      "family": "authorship",
+      "entity": "Threnody for Copper"
+    },
+    {
+      "question": "Who won the FIFA World Cup in 2018?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "FIFA World Cup:2018"
+    },
+    {
+      "question": "Who won the FIFA World Cup in 2004?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "FIFA World Cup:2004"
+    },
+    {
+      "question": "Who won the FIFA World Cup in 1998?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "FIFA World Cup:1998"
+    },
+    {
+      "question": "Who will win the FIFA World Cup in 2039?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "FIFA World Cup:2039"
+    },
+    {
+      "question": "Who will win the FIFA World Cup in 2047?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "FIFA World Cup:2047"
+    },
+    {
+      "question": "Who will win the FIFA World Cup in 2045?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "FIFA World Cup:2045"
+    },
+    {
+      "question": "Who won the Super Bowl in 2018?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Super Bowl:2018"
+    },
+    {
+      "question": "Who won the Super Bowl in 2014?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Super Bowl:2014"
+    },
+    {
+      "question": "Who won the Super Bowl in 2012?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Super Bowl:2012"
+    },
+    {
+      "question": "Who will win the Super Bowl in 2041?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Super Bowl:2041"
+    },
+    {
+      "question": "Who will win the Super Bowl in 2037?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Super Bowl:2037"
+    },
+    {
+      "question": "Who will win the Super Bowl in 2035?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Super Bowl:2035"
+    },
+    {
+      "question": "Who won the Wimbledon men's singles title in 2014?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Wimbledon men's singles title:2014"
+    },
+    {
+      "question": "Who won the Wimbledon men's singles title in 2006?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Wimbledon men's singles title:2006"
+    },
+    {
+      "question": "Who won the Wimbledon men's singles title in 2002?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Wimbledon men's singles title:2002"
+    },
+    {
+      "question": "Who will win the Wimbledon men's singles title in 2049?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Wimbledon men's singles title:2049"
+    },
+    {
+      "question": "Who will win the Wimbledon men's singles title in 2039?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Wimbledon men's singles title:2039"
+    },
+    {
+      "question": "Who will win the Wimbledon men's singles title in 2035?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Wimbledon men's singles title:2035"
+    },
+    {
+      "question": "Who won the NBA Finals in 2014?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "NBA Finals:2014"
+    },
+    {
+      "question": "Who won the NBA Finals in 2002?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "NBA Finals:2002"
+    },
+    {
+      "question": "Who won the NBA Finals in 2008?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "NBA Finals:2008"
+    },
+    {
+      "question": "Who will win the NBA Finals in 2041?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "NBA Finals:2041"
+    },
+    {
+      "question": "Who will win the NBA Finals in 2045?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "NBA Finals:2045"
+    },
+    {
+      "question": "Who will win the NBA Finals in 2033?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "NBA Finals:2033"
+    },
+    {
+      "question": "Who won the Tour de France in 2016?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Tour de France:2016"
+    },
+    {
+      "question": "Who won the Tour de France in 2018?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Tour de France:2018"
+    },
+    {
+      "question": "Who won the Tour de France in 2004?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Tour de France:2004"
+    },
+    {
+      "question": "Who will win the Tour de France in 2049?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Tour de France:2049"
+    },
+    {
+      "question": "Who will win the Tour de France in 2037?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Tour de France:2037"
+    },
+    {
+      "question": "Who will win the Tour de France in 2045?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Tour de France:2045"
+    },
+    {
+      "question": "Who won the Formula 1 world championship in 2012?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Formula 1 world championship:2012"
+    },
+    {
+      "question": "Who won the Formula 1 world championship in 2008?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Formula 1 world championship:2008"
+    },
+    {
+      "question": "Who won the Formula 1 world championship in 2014?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Formula 1 world championship:2014"
+    },
+    {
+      "question": "Who will win the Formula 1 world championship in 2031?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Formula 1 world championship:2031"
+    },
+    {
+      "question": "Who will win the Formula 1 world championship in 2047?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Formula 1 world championship:2047"
+    },
+    {
+      "question": "Who will win the Formula 1 world championship in 2049?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Formula 1 world championship:2049"
+    },
+    {
+      "question": "Who won the UEFA Champions League in 2002?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "UEFA Champions League:2002"
+    },
+    {
+      "question": "Who won the UEFA Champions League in 2018?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "UEFA Champions League:2018"
+    },
+    {
+      "question": "Who won the UEFA Champions League in 1998?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "UEFA Champions League:1998"
+    },
+    {
+      "question": "Who will win the UEFA Champions League in 2049?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "UEFA Champions League:2049"
+    },
+    {
+      "question": "Who will win the UEFA Champions League in 2045?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "UEFA Champions League:2045"
+    },
+    {
+      "question": "Who will win the UEFA Champions League in 2041?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "UEFA Champions League:2041"
+    },
+    {
+      "question": "Who won the Cricket World Cup in 2010?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Cricket World Cup:2010"
+    },
+    {
+      "question": "Who won the Cricket World Cup in 2016?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Cricket World Cup:2016"
+    },
+    {
+      "question": "Who won the Cricket World Cup in 2002?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Cricket World Cup:2002"
+    },
+    {
+      "question": "Who will win the Cricket World Cup in 2037?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Cricket World Cup:2037"
+    },
+    {
+      "question": "Who will win the Cricket World Cup in 2049?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Cricket World Cup:2049"
+    },
+    {
+      "question": "Who will win the Cricket World Cup in 2047?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Cricket World Cup:2047"
+    },
+    {
+      "question": "Who won the Rugby World Cup in 2006?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Rugby World Cup:2006"
+    },
+    {
+      "question": "Who won the Rugby World Cup in 2008?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Rugby World Cup:2008"
+    },
+    {
+      "question": "Who won the Rugby World Cup in 2012?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Rugby World Cup:2012"
+    },
+    {
+      "question": "Who will win the Rugby World Cup in 2033?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Rugby World Cup:2033"
+    },
+    {
+      "question": "Who will win the Rugby World Cup in 2049?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Rugby World Cup:2049"
+    },
+    {
+      "question": "Who will win the Rugby World Cup in 2041?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Rugby World Cup:2041"
+    },
+    {
+      "question": "Who won the Masters Tournament in 2008?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Masters Tournament:2008"
+    },
+    {
+      "question": "Who won the Masters Tournament in 2012?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Masters Tournament:2012"
+    },
+    {
+      "question": "Who won the Masters Tournament in 2002?",
+      "label": 0,
+      "family": "event_year",
+      "entity": "Masters Tournament:2002"
+    },
+    {
+      "question": "Who will win the Masters Tournament in 2039?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Masters Tournament:2039"
+    },
+    {
+      "question": "Who will win the Masters Tournament in 2047?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Masters Tournament:2047"
+    },
+    {
+      "question": "Who will win the Masters Tournament in 2049?",
+      "label": 1,
+      "family": "event_year",
+      "entity": "Masters Tournament:2049"
+    },
+    {
+      "question": "What is 27 plus 82?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "27+82"
+    },
+    {
+      "question": "What is 54 plus 81?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "54+81"
+    },
+    {
+      "question": "What is 38 plus 89?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "38+89"
+    },
+    {
+      "question": "What is 82 plus 87?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "82+87"
+    },
+    {
+      "question": "What is 48 plus 68?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "48+68"
+    },
+    {
+      "question": "What is 23 plus 88?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "23+88"
+    },
+    {
+      "question": "What is 61 plus 52?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "61+52"
+    },
+    {
+      "question": "What is 85 plus 42?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "85+42"
+    },
+    {
+      "question": "What is 49 plus 35?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "49+35"
+    },
+    {
+      "question": "What is 36 plus 35?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "36+35"
+    },
+    {
+      "question": "What is 16 plus 45?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "16+45"
+    },
+    {
+      "question": "What is 72 plus 20?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "72+20"
+    },
+    {
+      "question": "What is 23 plus 28?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "23+28"
+    },
+    {
+      "question": "What is 31 plus 16?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "31+16"
+    },
+    {
+      "question": "What is 22 plus 81?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "22+81"
+    },
+    {
+      "question": "What is 62 plus 79?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "62+79"
+    },
+    {
+      "question": "What is 47 plus 78?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "47+78"
+    },
+    {
+      "question": "What is 42 plus 39?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "42+39"
+    },
+    {
+      "question": "What is 87 plus 65?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "87+65"
+    },
+    {
+      "question": "What is 86 plus 47?",
+      "label": 0,
+      "family": "quantity",
+      "entity": "86+47"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Copacabana Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Copacabana Beach"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Bondi Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Bondi Beach"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Waikiki Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Waikiki Beach"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Brighton Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Brighton Beach"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Venice Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Venice Beach"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Bells Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Bells Beach"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Jones Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Jones Beach"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Clifton Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Clifton Beach"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Muizenberg Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Muizenberg Beach"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Bournemouth Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Bournemouth Beach"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Scheveningen Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Scheveningen Beach"
+    },
+    {
+      "question": "Exactly how many grains of sand are on Varadero Beach right now?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Varadero Beach"
+    },
+    {
+      "question": "Exactly how many words did Johann Sebastian Bach speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Johann Sebastian Bach"
+    },
+    {
+      "question": "Exactly how many words did Thomas Edison speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Thomas Edison"
+    },
+    {
+      "question": "Exactly how many words did Confucius speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Confucius"
+    },
+    {
+      "question": "Exactly how many words did Charles Darwin speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Charles Darwin"
+    },
+    {
+      "question": "Exactly how many words did Abraham Lincoln speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Abraham Lincoln"
+    },
+    {
+      "question": "Exactly how many words did Vincent van Gogh speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Vincent van Gogh"
+    },
+    {
+      "question": "Exactly how many words did Louis Pasteur speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Louis Pasteur"
+    },
+    {
+      "question": "Exactly how many words did Florence Nightingale speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Florence Nightingale"
+    },
+    {
+      "question": "Exactly how many words did Ludwig van Beethoven speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Ludwig van Beethoven"
+    },
+    {
+      "question": "Exactly how many words did Karl Marx speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Karl Marx"
+    },
+    {
+      "question": "Exactly how many words did Albert Einstein speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Albert Einstein"
+    },
+    {
+      "question": "Exactly how many words did Charlemagne speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Charlemagne"
+    },
+    {
+      "question": "Exactly how many words did Wolfgang Amadeus Mozart speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Wolfgang Amadeus Mozart"
+    },
+    {
+      "question": "Exactly how many words did Isaac Newton speak on the last day of their life?",
+      "label": 1,
+      "family": "quantity",
+      "entity": "Isaac Newton"
+    }
+  ],
+  "items": [
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Why carbon dioxide is composed of oxygen?",
+      "id": "aac1f238f1fce25b3c39"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "If my brother's amniotic fluid breaks before term, what will happen?",
+      "id": "0f1360b2ee07e6f72d2c"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Does China rank the second in the world since China has become the world's hegemon?",
+      "id": "628205af6ad1e3c5d22c"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "What does the black vulture of accipitridae eat?",
+      "id": "7c5fa10601bca831666a"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Are young bugs drinking milk after their birth of fetus?",
+      "id": "2c507934629dc90cccb9"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Would the black widow living in the ocean inject a neuro toxin to catch their food?",
+      "id": "10ea1bfdb20c46d3af0d"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "What would the equines become when they eat the black walnut harmless to them?",
+      "id": "6c1f862d68fa505dab01"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "What's the shape of blackbuck's wings?",
+      "id": "c1c835938eebb1937126"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "If I want to visit Beijing in spring, should I go in September or October?",
+      "id": "29cd96369449b7b83a45"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Which season the icon tree is in blossom?",
+      "id": "1b04e7ac5df0dd7798a5"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "If i want to get alcohol from cow, how long will it takes?",
+      "id": "9640d951eff7e02246c4"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Who invented the light? Libai or Wu Zetian?",
+      "id": "d7f95a484ae02982c6d2"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Is massage very common since we could even see it during the ice age?",
+      "id": "b254dbe4273bb55b7422"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Why larval fish living in the deep water can not swim well with their own power?",
+      "id": "ce64985f0cf4a6bc0480"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "List two fields the laser used by Confucius.",
+      "id": "7626747f25dab2918da6"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "If I want to count the number of my long hair by hand in one hour, where should I start?",
+      "id": "d30be3cd76bf00cd4621"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How to open the door in the latch?",
+      "id": "d0f9972087857e247f2b"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "What could the Upper Cave Men produce with lathes?",
+      "id": "26cbe0ab646194596c17"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Why people never get fat in the Tang Dynasty?",
+      "id": "dbd5832dace141a27316"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "When should I go if I want to see the fog on Jupiter?",
+      "id": "ee2d5d967dd3f8c1f1ea"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "What would Upper Cave Men become if they violated the law at their time?",
+      "id": "204b0ddc9a6632c36392"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Are rainbow trout the same as shark which lives in fresh water ?",
+      "id": "ea4d228f74013ed7f01c"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "If I want to travel to galaxies, which bus should I take?",
+      "id": "96117d9819ec241abf49"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How a lawyer judge the perpetrators in the court?",
+      "id": "5c023f4194025182640d"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How does a tenant rent the house to the owner?",
+      "id": "af6cd67210a295fe1f0b"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Is the leather shoes made from the tree durable?",
+      "id": "b96cda8599b3b53b4676"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Which country is Donald Trump a minister of, the US or the UK?",
+      "id": "bc782802e8ed9c8c6c75"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Why does mini bar bigger than a normal bar",
+      "id": "5435909237b57cd34397"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "List two parts of the lemmings in the Antarctic.",
+      "id": "8ff82063265f63f6929b"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "What's the length of the air?",
+      "id": "a492edcc4c2e92b9b645"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How many lens do glasses monkeys produce have?",
+      "id": "e15044c5d42acf522225"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Do the leopards with wings fly faster than birds?",
+      "id": "583c5dfab3c3a2aff735"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "if I have some leaves, how can I get crystal from them?",
+      "id": "eafd58e2b44739815d6f"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How many kinds of memory chips do we have in our brains?",
+      "id": "e11e0e1935b31bfd8a09"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Are people more likely to believe the honest people who always tell lies?",
+      "id": "90df6aa8433ec1132e18"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Why do these migrant workers never leave their home?",
+      "id": "c54d039e4372e2401dd3"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Is the third leg of a person longer than his/her finger?",
+      "id": "47b8e853a6b8a4a4ee20"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Is mercury usually more healthy than juice to drink?",
+      "id": "3f96dddf1cbc016fae76"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How can atm keep healthy?",
+      "id": "ac13d9540cf7674e24f9"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How can we tell the cells' gender?",
+      "id": "2acc147544201ba34e7d"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Why does toy eat food?",
+      "id": "1084caa2d94d43e5ef44"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "If I want to send a message to the Pluto, what should I do?",
+      "id": "72f01135843cf5d30111"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Name a few metal, in addition to wood.",
+      "id": "b49a864c6b034e1f34ce"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Why fishes like to chase mice?",
+      "id": "ec31ec6d5b57840ece68"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How tadpoles brush their teeth?",
+      "id": "07233aaab18bf979a7cd"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How can we seek for help from Batman when we're in danger?",
+      "id": "4361896c4651e1ec432b"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How we fish in the bathroom?",
+      "id": "0d96cc2b5d7e1a76d960"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How many metres does this apple weigh?",
+      "id": "e6993074963505069956"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Why do deserts have higher soil moisture than grasslands?",
+      "id": "d47fcfef5c83a26215e5"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Will the bones hurt when octopus gets into the crevice of the rock?",
+      "id": "eecee3a0aaf8debc533a"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "In which year did Qin Emperor  die of milk allergy",
+      "id": "e0d1b22ad5995aa1f415"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Since which year did China encourage people to believe in Christianity",
+      "id": "8ae30684acbe2532c71f"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "What color is the blood of leaves?",
+      "id": "f35b48f6006422d95231"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Which milk product do you prefer, ice cream or pizza?",
+      "id": "cf88b2a8c6d593e18019"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Do you often use the circuit to water flowers?",
+      "id": "066e92850c6db1388b6b"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "If I were an Italian citizen, how long would I have to live in the United States to have a chance to be president of the United States?",
+      "id": "12b0cdc02eba094d4d5d"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Which Chinese classic do you like best, Faustus or Hamlet?",
+      "id": "cb1b007c0a640759578e"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How many clashes of the metal tube do you need to help you fall asleep faster?",
+      "id": "81c03e7ac1ef5d498791"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "why can boats fly in the sky?",
+      "id": "046772099ca1c4f4130f"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How many tails does your classmate have?",
+      "id": "b77c0e77ee9bb5f45167"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "What to do to stop bleeding when the cap get injured?",
+      "id": "57ca73f0e37382b23c0f"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Why do you invite the cleaner to give scientific lectures?",
+      "id": "5f120aa74e653fef76e7"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Why eating avocados benefits for rabbits?",
+      "id": "0a1b0956065d0cabec1e"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Why pigs need a pillow when sleeping?",
+      "id": "ac1f6693be59e007c91b"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "why we wake up late by setting a alarm clock with a right time",
+      "id": "717d56648127f0a510ef"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "What kind of elements do elephants need to grow from seeds?",
+      "id": "4fe2f12ff0d6ec5e4309"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How many jobs were created by software company in the 16th century?",
+      "id": "4c1cf9ae1d4bbf9ec147"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "Which animal do you prefer, cloves or watermelon?",
+      "id": "0a9f6f074754cefff48a"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "If we want to collect soil from the sun now, what should we prepare?",
+      "id": "0bd065c78c82b187c213"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "question": "How many wings does a people have?",
+      "id": "8cff82343ec11cb07d31"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Why carbon dioxide is composed of carbon dioxide molecules?",
+      "id": "3c52bf3d048096905f54"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "If my sister's amniotic fluid breaks before term, what will happen?",
+      "id": "5d59f4cfa7ad25142bad"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Does China rank the second in the world since America has become the world's hegemon?",
+      "id": "5e11952ef478967f87ef"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "What does the black vulture eat?",
+      "id": "72e3bd3888bf8a6de613"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Are young bugs eating leaves drinking milk after their birth of fetus?",
+      "id": "02e6ac9cac721228ccfd"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Would the black widow living in the trees inject a neuro toxin to catch their food?",
+      "id": "144a1e35569b40bc2005"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "What would the equines become when they eat the black walnut harmful to them?",
+      "id": "331ae77780c11209a3ba"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "What's the shape of blackbuck's horns?",
+      "id": "8f05ffac50925417d8a6"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "If I want to visit Beijing in spring, should I go in March or October?",
+      "id": "29821c1d0f86f285afbd"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Which season the roses are in blossom?",
+      "id": "d309568b7facb79fbb58"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "If i want to get milk from cow, how long will it takes?",
+      "id": "4fc75ef469860410aa93"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Who invented the light? Libai or Thomas Alva Edison?",
+      "id": "6a640fedc50bc0ee6e0a"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Is massage very common since we could even see it everywhere on the street?",
+      "id": "83e9d851b18f48103a20"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Why larval fish living in the shallow water can not swim well with their own power?",
+      "id": "f216eef4190cd029a27a"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "List two fields the laser used by scientists.",
+      "id": "84d34469eeb70e37ca1e"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "If I want to count the number of my hair on my bald head, where should I start?",
+      "id": "05502970e272c6fec0ef"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How to open the door in the house?",
+      "id": "e06ad9444d46ab41d03e"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "What can humans produce with lathes?",
+      "id": "5e268ada1e273c4f2dff"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Why people get fat today?",
+      "id": "f5b9a96f742b17878d35"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "When should I go if I want to see the fog on Earth?",
+      "id": "97df4409edb7a87e0cbc"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "What would people nowadays become if they violate the law?",
+      "id": "cb7489e43e75d958833c"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Are rainbow trout the same as shark which lives in salt water ?",
+      "id": "425169f4189960778ef7"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "If I want to travel to the Great Wall from Beijing, which bus should I take?",
+      "id": "290fc1e4cb4316ab066b"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How a lawyer defend the perpetrators in the court?",
+      "id": "766ded09a48b6b9c1335"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How does a tenant rent the house from the owner?",
+      "id": "d3b95b43f369e6d8393c"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Is the leather shoes made from the calf durable?",
+      "id": "7aefe06be6fdcc992c83"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Which country is Donald Trump a president of, the US or the UK?",
+      "id": "800d4ca45d554eb99fae"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Why does mini bar bigger than a book",
+      "id": "2b7196149925d595a003"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "List two parts of the lemmings in the Arctic.",
+      "id": "da3b3e7da046ec48113a"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "What's the length of arms?",
+      "id": "e79b8e36178f93d38bb0"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How many lens do a pair of glasses humans produce have?",
+      "id": "12c57d046901407e07e7"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Do the leopards run faster than dogs?",
+      "id": "93e6fd9c8e88d35ca6c0"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "if I have some carbon, how can I get crystal from them?",
+      "id": "2bf637ac07a091302811"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How many kinds of memory chips do we have in the computer?",
+      "id": "22de96a40d69296a3f1f"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Are people more likely to believe the honest people who always tell truths?",
+      "id": "2e678e6ebdba6fe1c73c"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Why do these migrant workers always leave their home?",
+      "id": "ead59bc9277bb062ce17"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Is a leg of a person longer than his/her finger?",
+      "id": "366a9ab5be232ccc9d95"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Is water usually more healthy than juice to drink?",
+      "id": "48b47ec02e22ccf6c820"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How can people keep healthy?",
+      "id": "5e414b511f0776b4e602"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How can we tell the gender of cats?",
+      "id": "236a0cf6cf04a3b88a47"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Why do human eat food?",
+      "id": "ceb3e37842b623e136d3"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "If I want to send a message to my sister, what should I do?",
+      "id": "48c2d4c71c6f3ed5e3f6"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Name a few metal, in addition to gold.",
+      "id": "d0b609591e4b2df0cc1c"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Why cats like to chase mice?",
+      "id": "eacba8c6c5880e56ce3b"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How pepole brush their teeth?",
+      "id": "488d440183d72d6029cd"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How can we seek for help from the police when we're in danger?",
+      "id": "ff7201e7cfca7f5238a7"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How we fish in the lake?",
+      "id": "e28eefecc43d6e5a5e0c"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How many grams does this apple weigh?",
+      "id": "b025c2ae1acdeab730d0"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Why do grasslands have higher soil moisture than deserts?",
+      "id": "006c6cca5220ea9742bc"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Will the bones hurt when human gets into the crevice of the rock",
+      "id": "ec090cb2e03843771892"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "In which year did Qin Emperor  die?",
+      "id": "c91faf04a1c09061c2a0"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Since which year did China encourage people to follow the plan of birth",
+      "id": "ed8f058dd94dcab5cf33"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "What color is the blood of human?",
+      "id": "e47a3e5797d4b546a4f5"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Which milk product do you prefer, ice cream or butter?",
+      "id": "94b109fcbfa26488b6e9"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Do you often use the water can to water flowers?",
+      "id": "1c820bc9dae0735ed8da"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "If I were a citizen of the United States, how long would I have to live in the United States to have a chance to be president of the United States?",
+      "id": "e46339294599ab8462ab"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Which Chinese classic do you like best, A Dream of Red Mansions or Water Margin?",
+      "id": "6f97ab90adf782e2c6c8"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How many clashes of the metal tube do you need to make you wake up quickly?",
+      "id": "a44dc97c8db5a3f8ecec"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How can boats float on water?",
+      "id": "57478020c3cd64637c95"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How many heads does your classmate have?",
+      "id": "be4cdfde633b73a207ef"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "What to do to stop bleeding when the someone get injured?",
+      "id": "2760554d9f61c8e1cc42"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Why do you invite the cleaner to the office?",
+      "id": "046a18fd2ec68a800981"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Why eating avocados benefits for people?",
+      "id": "23fb59474157dcba82e3"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Why we need a pillow when sleeping?",
+      "id": "80be9f7f9c2d698d4691"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "why we wake on time by setting a alarm clock with a right time",
+      "id": "7bf5c8a04b8c2867a5d3"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "What kind of things do plants need to grow from seeds?",
+      "id": "4524a2ee8890f8ea9a3f"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How many jobs were created by software company in the 21th century?",
+      "id": "5cdb811506499e251a76"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "Which plant do you prefer, cloves or watermelon?",
+      "id": "9345497319d539a1bf61"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "If we want to collect soil from the earth now, what should we prepare?",
+      "id": "341255e552e4de9317c7"
+    },
+    {
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "question": "How many eyes does a people have?",
+      "id": "0686e99ffd11c0fa7d3b"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Who decided to put and use the letter ‘s’ in the word ‘lisp’?",
+      "id": "a12467998b527112bd06"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather lose the ability to use GPS for the rest of your life or lose the ability to use a credit card?",
+      "id": "f1d55f4cbbd2c95ba43a"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Is the big rip related to the big bang only?",
+      "id": "e3081ac65595b093a942"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Was there a beforelife before this lifetime?",
+      "id": "ad4040cc67c23419e206"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Why February has only 28 days when other months have 30 or 31 days? Can’t we add a few more days to the month of February by taking some days from other days?",
+      "id": "8e8a5588a0f78d977968"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather get cheated on and know about it or not get cheated on and always be suspicious?",
+      "id": "7925f048511bde23ca62"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Why does anything exist? In the beginning there was nothing. How did something come from nothing?",
+      "id": "76d35a2e6107c9d5efe0"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather sing everything you say or dance every time you walk?",
+      "id": "71d1a43bac86c1950f5f"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Is it right for humans to genetically engineer other animals and plants and themselves or should we let nature take its cause?",
+      "id": "18859fef63cf9298df93"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "If we could travel through space and time, what would we do with that power?",
+      "id": "5e05c6189c98354eb4b7"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Is the Higgs-Boson machine a good or bad thing for our universe?",
+      "id": "74b21fa64621561c683a"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "What is at the bottom of the ocean?",
+      "id": "e8d3dc4a7e8e5d3644da"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Is the Earth alive, as in a living, breathing organism?",
+      "id": "ea9fe7eb522eb7f53cdb"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "If a kid becomes a parent, who becomes the kid then?",
+      "id": "d56b780cd2554c09351a"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather get stuck in an elevator with your ex or with your partner and their ex?",
+      "id": "b0b6d033067bcc27b0fb"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "How do you know that you are not hallucinating?",
+      "id": "0b21f23941a6075edd95"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather know all of your S.O. exes personally or never learn anything about them at all?",
+      "id": "66981d6f3c6b96418096"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "If you had 6 carnations and 19 roses, how many vases would you need to hold the flowers?",
+      "id": "25e779f10e2f3b272337"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather always be dressed a little too cold or a little too warm for the weather (no taking off layers!)?",
+      "id": "aee5c26eb2006d1ce022"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "What would be the first thing an intelligent creature on another planet would say when they saw us?",
+      "id": "9a0658093d6e84fd514c"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Nancy's class is going on a field trip to the zoo. If each van can hold 5 people and there are many students and 3 adults going, how many vans will they need?",
+      "id": "fb4bae3636666f84f9a3"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "What is the driving force behind life and existence?",
+      "id": "655e1ebc9107529ba8e1"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather be shot into space or explore the deepest depths of the sea?",
+      "id": "4c27deb6f3444aa82f09"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "How do you know you’re not crazy and just hallucinating your whole life?",
+      "id": "909d323c5a7e64f5dc5e"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Oliver was organizing his baseball cards. If he had 2 new cards and 10 old cards to put in the binder, how many pages would he use?",
+      "id": "32f19c96931aa9ef44a9"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Can God create a stone that is too heavy for even him to lift?",
+      "id": "da20fa7fb127ece5df9f"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Should we develop ways to control emotions through technology?",
+      "id": "946dc126f3d86895a6aa"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Why do we love?",
+      "id": "5affb59b889afe07909a"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Olivia uploaded so many pictures from her phone and 35 from her camera to facebook. If she sorted the pics into 8 different albums with the same amount of pics in each album, how many pictures were in each of the albums?",
+      "id": "9798202f63d5ffeaae8e"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "If a vacuum cleaner is said to suck, is it a good product?",
+      "id": "647b90478461c33e26a4"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "If you took a ship and replaced all of its parts until none of the original parts are intact anymore, is it the same ship or a completely different ship?",
+      "id": "d9cf1769b855c29ceb62"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Do dentists go to other dentists or do they treat their own dental care problems?",
+      "id": "0276f83e7b1138e34094"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "How do we choose to define ourselves and our lives, individually and collectively, given that there’s not one fixed truth or reality?",
+      "id": "765ba17199d88c18bc71"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "How long will it take for Chicago to average 50,000 drones flying overhead on a daily basis?",
+      "id": "3405e8b15fe9e58673ef"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather get a face tattoo of something of your choosing or a tattoo in a discreet area chosen by someone else?",
+      "id": "a15dac015b92119f66ec"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather have bad breath or smelly feet?",
+      "id": "027379bfff805deaddd8"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Do you think we have complete control over the direction of our life?",
+      "id": "839708656411ab055bf3"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Does our soul continue after death or is death the end?",
+      "id": "529719fa7c2764e710a4"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Am I addicted/bound by my own desires/behaviors that destroy my well-being but feel powerless against them no matter how hard I try?",
+      "id": "78a9166b2ceee00176ee"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "How do we know we all see the same colours in the same way?",
+      "id": "5f0262d543ee07f810ff"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "What is the ultimate fate of the universe?",
+      "id": "ee171ceea409301b9a95"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "What language do people who are unable to speak, speak in their mind and thoughts?",
+      "id": "521544947ea216a6865b"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Is there such a thing as inherently bad knowledge, or is all knowledge value neutral?",
+      "id": "bcb901abea47e4853382"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "A group of friends went into a restaurant. The chef already had 6 chicken wings cooked but cooked 3 more for the group. If they each got the same amount how many would each person get?",
+      "id": "9b8e937da506d67cb5ef"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather be captured by pirates or Old West bad guys?",
+      "id": "f984920cb854f5e2cf6e"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Does time only flow forward or are there exceptions?",
+      "id": "2b6e39226845dcba50e3"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "A toy store had several giant stuffed bears in stock when they got another shipment with 7 bears in it. The put the bears onto shelves with 6 on each shelf. How many shelves did they use?",
+      "id": "a16bde5cea91d9629c30"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "If you say that this thing is indescribable, than don’t you think that you actually described it.",
+      "id": "99dcc62f00165e969555"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "For Halloween Sarah received 66 pieces of candy from neighbors and 15 pieces from her older sister. If she only ate more than 8 pieces a day, how long would the candy last her?",
+      "id": "c1ec5f94b38596431e92"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Why do older people feel disrespected when you don’t allow them to disrespect you?",
+      "id": "579f878c5efa0407e03d"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "What is freedom and does it really exist?",
+      "id": "4644bb8f17976e899393"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Often called high energy particles, what gives life to them?",
+      "id": "0648ed1aad7c0d7d1929"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "If the universe was created during the Big Bang, how did something emerge from nothing?",
+      "id": "b9001bb6b8b88cc37be2"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Why do we count sheep and not dogs when we can’t go to sleep?",
+      "id": "db8591b6749e0126b881"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "The schools debate team had 11 boys and much more girls on it. If they were split into groups of 7 how many groups could they make?",
+      "id": "e43f4834a76c9a930c25"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Do human rights ever change based on age or do they evolve?",
+      "id": "a928a5e388901d7bafed"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather never be able to go out during the day or never be able to go out at night?",
+      "id": "b6fe41375763dca3e762"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "What’s the difference between the magnetic north and the true north?",
+      "id": "aa89f86655735004754f"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather never use the internet again or never fly on an airplane again?",
+      "id": "cdd5d6edde4438b35bf6"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Do we have free will or is everything predetermined?",
+      "id": "7e80dfb4c80875e36352"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "For Halloween Debby and her sister combined the candy they received. Debby had 32 pieces of candy while her sister had more. If they ate 35 pieces the first night, how many pieces do they have left?",
+      "id": "35937e4387ecdb2d389e"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Why is the Lone Ranger called ‘Lone’ if he always has his Indian friend Tonto with him?",
+      "id": "9ed9d683dd087765dfe8"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "If ketchup is good on French fries, how come it isn’t good on mashed potatoes?",
+      "id": "31b64c9b116fb1137f2d"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "How many people can remember the atomic table for their entire lives?",
+      "id": "6ca9ff6b891bb8925a53"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Maria was making baggies of cookies. If she had 2 chocolate chip cookies and 16 oatmeal cookies, how many baggies could she make?",
+      "id": "4a967e646120b827f89e"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Would you rather wear your S.O.'s underwear or go commando?",
+      "id": "37cc6971a58bd4f196e2"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Was math invented or was it discovered?",
+      "id": "0890a9f7c0f127b44536"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "A pet shelter had 17 puppies when more were brought in. If 8 puppies a day are adopted, how long would it take for all of them to be adopted?",
+      "id": "0824f7aeb65b87b6ef86"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Will it ever be possible for someone to live forever?",
+      "id": "6d047224d80d6545c210"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "question": "Why is “abbreviated” such a long word?",
+      "id": "8f18566934724e93add3"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What form of entertainment are 'Slow Poke' and 'You Belong to Me'?",
+      "id": "226181b38150e23b3016"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "A person's identity is defined as the totality of what?",
+      "id": "f12c97b10f9deb5c07f7"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Which breed of dog is bigger, Japanese Terrier or Cane Corso?",
+      "id": "7ad2384f2618979e112e"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Which ‘ology’ is the search or study of animals whose existence has not been proven, such as the Yeti or Loch Ness Monster?",
+      "id": "ff9f7d2dd757a3c448f0"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "How many many cheetah's are left in the wild?",
+      "id": "aeb77df7eb0b8fbf6d4c"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "In Henry Olerich's, \"A Cityless and Countryless World\" what planet do the aliens come from?",
+      "id": "61be29e5fc1331b450d6"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What is the basis of capitalization standards for the sentence-style capitalization?",
+      "id": "6fb71b8e7a586587a3ff"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Along with quantum physics generally, what scientific doctrine caused some physicists to embrace idealism?",
+      "id": "700d6f4c15296c92df57"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Where would you spend stotinki?",
+      "id": "6ad79887a55ea0ed20cd"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "It is believed that animals evolved from what?",
+      "id": "4eaa30f4e9b0f510937b"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "A ladder-back is a type of what?",
+      "id": "0128d4ac24cbb01e20bf"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What cancer can be caused by too much time in the sun?",
+      "id": "6fbe9fb0e6ba6f922af4"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What does law enforcement in some countries use to profile suspects?",
+      "id": "ac4621ebfd887b573921"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What is the life expectancy in Namibia?",
+      "id": "173c52dc30e0315e026c"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Barbarossa and Ambush!, are which type of game?",
+      "id": "4accd52624b5aa7ab9cd"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What brand of semi-sweet chocolate morsels traditionally includes a recipe for Toll House cookies on the package?",
+      "id": "f65fd3062f5df69c61e1"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What was the first monotheistic religion?",
+      "id": "cd9b068051cca2432bb9"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Between Scratchcard and D.C. Lottery who contains more games like Powerball, Mega Millions, etc.?",
+      "id": "bcefa9aa24ca9efca923"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "How many sides of a disc commonly held a recording?",
+      "id": "87cb7771348b12041da4"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Living in association with ants is called what?",
+      "id": "ee8971674a65b3426078"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What may happen with intact body parts if there is continuous pain for a long period?",
+      "id": "6cc802b7874f60207280"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What process can sometimes seem arbitrary today?",
+      "id": "a5573a898ecde539efdc"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Which room has The Ballroom replaced in terms of both use and importance?",
+      "id": "8ea82ce69471ed264778"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "what did he do for $2 a day?",
+      "id": "9525631223045b566ba3"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What does the capabilities approach look at poverty as a form of?",
+      "id": "2ac269611a9d40ec2e12"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "How many species of mammals do not have a live birth?",
+      "id": "a9fbbc4fb0f59b798c5f"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Would you consider aesthetic elements alone in architectural lighting design?",
+      "id": "df2a04718c4aa593da15"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "How many species have ever lived on earth?",
+      "id": "f4e9203b8e904df7f669"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What is God's role in the creation of the world?",
+      "id": "bf214d3b769169a9c34a"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Who was formed from the dust by God, then given the breath of life, to become the progenitor of the human race?",
+      "id": "1bb265659a54a2eb6c29"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Where were the ashes sent?",
+      "id": "536a0d4e41e54728d309"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Which colors are combined to make all other colors?",
+      "id": "8c0c3e6f44bd6b7ed03d"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What type of soup is a consommé or broth garnished with long thin strips of vegetables?",
+      "id": "324d0ab5e7a9d328054b"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What is the main thing that we experience?",
+      "id": "428929d217ef698af2e9"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What is a terrifying and disturbing dream?",
+      "id": "333d7624ea74dceed7c8"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Who was the first human to take a step on the Moon?",
+      "id": "211899d8e45cce5ff55e"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "The plans called for how many bits as a feature?",
+      "id": "b671e6bd993ea5a61e60"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What is the most common eye color in human beings?",
+      "id": "d1bc1de90068bc20ed78"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What is the average number of pups per litter?",
+      "id": "16566b0f0648c1667885"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What body part do zombies crave?",
+      "id": "fa628f11d5b25bee1988"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What type of analysis fits the either-or nature of the uncertainty?",
+      "id": "673e5219053ccad58e07"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "The constitution of which country is the world's oldest still in effect?",
+      "id": "eeaeb8af2e69e0feab10"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Which architect designed a church near President Grant's tomb?",
+      "id": "0b47cf40ea901ae45973"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Charlotte, Desiree and Rooster are varieties of which type of vegetable?",
+      "id": "6c221b8ac961e26c3f71"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Which circle of latitude on the Earth is also known as the Northern Tropic?",
+      "id": "dd8fa8071322b6bf03ae"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What do some theories see as an important part of emotion?",
+      "id": "a36b2b92e3df50b69018"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What type of support did child give to their families by working?",
+      "id": "3875867a3e6a782f4358"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "How many people worked at the tuna loining plant?",
+      "id": "8ffcb374e4dc940967b4"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What is the exception to this common characteristic?",
+      "id": "a75fc69a7f80e85beb7f"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What type of media decreases and internet connectivity increases?",
+      "id": "bf53af9143d9904b63b8"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "How long has time travel been a topic in science fiction?",
+      "id": "c407739502002a7cbe71"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What is it called if you mistake a reflection in a mirror for the real thing?",
+      "id": "4465afb6cea2aba2b9d6"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "If someone is bibulous, what are they addicted to or fond of?",
+      "id": "11b6756b0becd386cd03"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What can result in creating a poverty trap?",
+      "id": "182eb60d995d96e4238f"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What type of electric current is needed for electrolysis?",
+      "id": "06863f0dd3a893a416bc"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Which Tennessee law enforcement agency looks for road safety violations?",
+      "id": "3a40b09d467a84ce3e9f"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What kind of technique does SpongeBob SquarePants and Mermaid Man and Barnacle Boy have in common?",
+      "id": "5c3be515c31b53c5fbbf"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "\"What cola was advertised as \"\"all the sugar and twice the caffeine\"\"?\"",
+      "id": "fe78fbd01b6603402403"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What has achieved nirvana and also liberation from delusion?",
+      "id": "c10559f9c6e3d90009f9"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What are SMS messages sent by?",
+      "id": "328dc0f9b2bb81ad2430"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Bread is 'What' according to the Lords Prayer?",
+      "id": "22314899cb7ad1a6c594"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Who is often listed amongst the world's worst offenders when it comes to human rights?",
+      "id": "46e4fac6836ff279cfc8"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What type of weapon can be used against hovering helicopters?",
+      "id": "8b9ba8cfaf139cebb2d9"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Who holds for a thing to exist through time is for it to exist as a continuous reality?",
+      "id": "3deb6bf55ade104b99d3"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Who created the Toll House Cookie and also named them after the inn she owned?",
+      "id": "d0710727786acb4c3c32"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What can environmental depletion lead to?",
+      "id": "4e60adc806b8bbf468bb"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Which monthly magazine is based on food entertainment, Club or Food Network Magazine?",
+      "id": "7d27a94ebf7e502369d5"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "If a couple have been married for thirty years, which wedding anniversary will they celebrate?",
+      "id": "ee001a2759a47188b197"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "Do adolescents, adults, or both weight the potential rewards and consequences of an action?",
+      "id": "9ee57cb9fb9698e541de"
+    },
+    {
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "question": "What kind of accent can mark stress?",
+      "id": "d10a59a41f46b2282ea1"
+    }
+  ],
+  "legacy_reference_ppl": 15.742320562645757,
+  "source_hashes": {
+    "epistemic_pairs_v2.json": "40a51d32c6bc36fb3da5e24adbf8cc27d1f78bcd9ecaa7e426af9f16fd4d0672",
+    "baseline_dola_iti_qwen3-8b.json": "edaccf5318f63e304b79c64bd2d5fadf3efa977e261b945b713a383e95ffce93",
+    "ood_run_qwen3-8b_bladeg.json": "b283d319268553329126d38400923e38d91f7d14846a7eb8364f0f5ce81d0889",
+    "ood_tune_qwen3-8b.json": "2f5e50196d3b1f9bfc3ddee9cefc23a28da72aa1fa9b5754dd32e1d683751d7a",
+    "iti_ppl.json": "07784c895eed320c44dd584e042c6bb2547bf2031d80434c6fbc553c8a751bed"
+  },
+  "historical_env": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.15.1",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "gpu_name": "NVIDIA GeForce RTX 5090"
+  },
+  "scope": "ONLY transfer/refit at fixed BLADE .01/2; historical 280-item exploratory extension; no baseline rerun",
+  "deviations_from_v3": "User requests full existing BLADE method and only two combination variants. Preserve historical ITI calibration/head rule/decode-only; rerun FULL BLADE ELS with its original defaults, final rho=.01 alpha=2; no OOD baseline rerun.",
+  "uncertainty_markers": [
+    "not sure",
+    "i don't know",
+    "i do not know",
+    "cannot determine",
+    "can't determine",
+    "cannot be determined",
+    "no way to know",
+    "impossible to know",
+    "unable to",
+    "uncertain",
+    "not certain",
+    "hard to say",
+    "difficult to say",
+    "there is no",
+    "does not exist",
+    "doesn't exist",
+    "fictional",
+    "hypothetical",
+    "i cannot answer",
+    "not possible to",
+    "no record",
+    "not aware of any",
+    "might be wrong",
+    "isn't a real",
+    "is not a real",
+    "no such",
+    "cannot provide",
+    "i can't provide",
+    "no information",
+    "unknown",
+    "don't have",
+    "do not have",
+    "no widely",
+    "not a recognized",
+    "not a real",
+    "no verifiable"
+  ],
+  "blade_pipeline": "full existing blade_ood_run pipeline; only final RHO=.01 and alpha=2; do not reuse old L_star",
+  "blade_other_hyperparameters": {
+    "components": "both",
+    "direction_batch": 16,
+    "moment_batch": 8,
+    "Q_mode": "g1scalar",
+    "Q_seqlen": 2048,
+    "Q_batch": 2,
+    "Q_tokens": 65536,
+    "ELS_screen_frac": 0.005,
+    "ELS_test_frac": 0.005,
+    "ELS_beta": 0.05,
+    "ELS_eps": 0.005,
+    "ELS_gen_tokens": 128,
+    "ELS_gen_batch": 16,
+    "ELS_PPL_tokens": 5000,
+    "ELS_PPL_window": 1024,
+    "ELS_PPL_batch": 8,
+    "split_seed": 0,
+    "lambda": "global positive median score / global positive median Q"
+  }
+}
