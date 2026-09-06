@@ -57,10 +57,11 @@ _grid.update({g["cond"]: g["ppl_delta_c4"] * 100 for g in json.load(open(R / "bl
 PPL = {"base": 0.0, "iti_a4.0": _iti["iti_a4.0"] * 100, "iti_a6.0": _iti["iti_a6.0"] * 100,
        "r0.005_a2.5": _grid["r0.005_a2.5"]}
 
-# SimpleQA (n=400, Opus-graded correct/incorrect/not-attempted); keyed by method cond
-SQ_INC = {"base": 89.0, "iti_a4.0": 74.2, "iti_a6.0": 63.0, "r0.005_a2.5": 71.8}
-# correct-given-attempted = correct/(correct+incorrect); base 3.8/89.0, c4 4.5/74.2, c6 3.8/63.0, blade 4.2/71.8
-SQ_CGA = {"base": 4.0, "iti_a4.0": 5.7, "iti_a6.0": 5.6, "r0.005_a2.5": 5.6}
+# SimpleQA (n=400, Opus-graded correct/incorrect/not-attempted); keyed by method cond.
+# BLADE uses the SAME edit as panels a-e (L*=[23,31,18,2], pinned; simpleqa_bladepin run).
+SQ_INC = {"base": 89.0, "iti_a4.0": 74.2, "iti_a6.0": 63.0, "r0.005_a2.5": 82.8}
+# correct-given-attempted = correct/(correct+incorrect); base 3.8/89.0, c4 4.5/74.2, c6 3.8/63.0, blade 3.2/82.8
+SQ_CGA = {"base": 4.0, "iti_a4.0": 5.7, "iti_a6.0": 5.6, "r0.005_a2.5": 3.8}
 
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
 # (kind, key, title, xlab, low)  kind in {ppl, judge, sq}
