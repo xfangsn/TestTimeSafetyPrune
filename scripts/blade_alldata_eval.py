@@ -110,7 +110,8 @@ def main():
         rec = {**it, "blade": blade_g[i]}
         if base_g is not None: rec["base"] = base_g[i]
         report["items"].append(rec)
-    outp = RESULTS / f"blade_alldata{os.environ.get('OUT_TAG','')}_qwen3-8b.json"
+    slug = "qwen3-8b" if MODEL_ID == "Qwen/Qwen3-8B" else MODEL_ID.split("/")[-1].lower()
+    outp = RESULTS / f"blade_alldata{os.environ.get('OUT_TAG','')}_{slug}.json"
     outp.write_text(json.dumps(report, indent=1, ensure_ascii=False))
     print(f"saved {outp}", flush=True)
 
