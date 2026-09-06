@@ -1,0 +1,118 @@
+% Appendix: construction of the certain/uncertain epistemic contrast set.
+% Requires \usepackage{booktabs} (and standard math). Self-contained appendix section.
+% Generator: scripts/build_epistemic_pairs.py -> results/epistemic_pairs_v2.json (306 rows).
+
+\section{Epistemic (Un)certainty Contrast Set}
+\label{app:epistemic-data}
+
+\paragraph{Purpose and design principle.}
+Our method fits a single \emph{closed-book epistemic-uncertainty} direction at a fixed,
+pre-generation position (the last prompt token) by contrasting two matched prompt
+\emph{sets}: a \textbf{certain} set, on which the model reliably knows the answer, and an
+\textbf{uncertain} set, on which the answer is genuinely unknowable. The direction is the
+difference of last-token means, $v_\ell = \mu^{\text{unc}}_\ell - \mu^{\text{cert}}_\ell$
+at each layer $\ell$; the same contrast supplies the BLADE weight scores and (for the
+baseline) the ITI head directions. The central design requirement is therefore that the
+two sets differ \emph{only} in whether uncertainty is warranted by the input, and not in
+topic, surface form, length, or wording---otherwise $v_\ell$ would track a confound rather
+than ``do I know this?''. We enforce this with \emph{matched minimal-pair templates}:
+within a template family the certain and uncertain items share an identical surface form,
+and only the knowability-carrying slot changes.
+
+\paragraph{Fully synthetic, no external corpus.}
+The contrast set is generated programmatically and is \emph{not} derived from any external
+dataset. The generator (\texttt{build\_epistemic\_pairs.py}) imports only the Python
+standard library (\texttt{argparse}, \texttt{json}, \texttt{random}, \texttt{pathlib}); it
+opens no files, loads no dataset, and reads no environment. All content comes from
+hand-curated in-code entity pools and five fixed string templates, instantiated with a
+seeded RNG (\texttt{random.Random(0)}) so that generation is deterministic and
+reproducible. Each row is a JSON object with four fields: the \texttt{question}, a binary
+\texttt{label} ($0=$ certain, $1=$ uncertain), a \texttt{family} tag, and an
+\texttt{entity} tag; there is no answer field. In particular the set shares no questions,
+answers, entities, or splits with the reasoning benchmarks (GSM8K, MATH-500) that we use
+only for the downstream calibration evaluation.
+
+\paragraph{Five template families.}
+Each family targets a distinct \emph{kind} of unknowability, so that the direction reflects
+a general epistemic signal rather than one narrow failure mode (Table~\ref{tab:epi-families}).
+The \textsc{person\_attr} family is the most tightly controlled: it holds the entity fixed
+and flips only the attribute (a recorded biographical fact vs.\ an unrecorded trivium about
+the \emph{same} real person), so topic and named entity are identical across the pair.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Family & Shared template & Certain / uncertain slot & Unknowability type \\
+\midrule
+\textsc{capital} & \emph{``What is the capital city of \{X\}?''} & real vs.\ invented country & non-existent entity \\
+\textsc{person\_attr} & attribute of a fixed real person & recorded fact vs.\ unrecorded trivium & unrecorded attribute \\
+\textsc{authorship} & \emph{``Who wrote the novel `\{T\}'?''} & real vs.\ invented title & non-existent work \\
+\textsc{event\_year} & \emph{``Who won the \{E\} in \{Y\}?''} & past vs.\ future year & beyond knowledge cutoff \\
+\textsc{quantity} & \emph{``how many \dots?''} & well-defined arithmetic vs.\ uncountable quantity & physically uncountable / unrecorded \\
+\bottomrule
+\end{tabular}
+\caption{The five matched template families. Within a family the certain and uncertain
+items share an identical surface form; only the knowability-carrying slot changes.}
+\label{tab:epi-families}
+\end{table}
+
+Concretely: \textsc{capital} asks for the capital of a real country (e.g.\ France) versus an
+invented country name; \textsc{person\_attr} pairs ``In what century was \{P\} born?'' with
+``What did \{P\} eat for breakfast on their eleventh birthday?'' for the same real person
+\{P\}; \textsc{authorship} pairs a real novel with an invented title attributed to a
+plausible author; \textsc{event\_year} pairs ``Who won the \{E\} in \{Y\}?'' for a past
+year with ``Who will win the \{E\} in \{Y\}?'' for a future year (2031--2049, beyond the
+model's knowledge cutoff); and \textsc{quantity} pairs a well-defined two-digit sum
+(e.g.\ ``What is 27 plus 82?'') with a genuinely uncountable quantity
+(``Exactly how many grains of sand are on \{beach\} right now?'').
+
+\paragraph{Label auditing.}
+Because the labels assert \emph{knowability}, we audit both sides. Invented countries were
+chosen to be purely fabricated names with no canonical capital in fiction---we deliberately
+avoid well-known fictional polities (e.g.\ Wakanda, Genovia, Latveria) whose capitals a
+capable model may recall and thus answer confidently. We also verified qualitatively that
+removing the direction turns appropriate abstention on the uncertain set into genuine
+\emph{confabulation} rather than a cosmetic drop of hedging words (e.g.\ the model invents
+``Kestrel'' as the capital of the fabricated ``Kesteria''), confirming the uncertain items
+are truly unanswerable.
+
+\paragraph{Leakage-free splits.}
+The \texttt{family} and \texttt{entity} tags let us hold out whole families and whole
+entities between the direction-fitting split, the ELS layer-selection split, and the
+evaluation split, so that no entity or template seen at fit time reappears at evaluation.
+
+\paragraph{Statistics.}
+The released version (\texttt{epistemic\_pairs\_v2.json}) contains $306$ rows, close to
+label-balanced ($150$ certain / $156$ uncertain); Table~\ref{tab:epi-stats} gives the
+per-family breakdown. It was produced by running the generator, which is deterministic:
+re-running \texttt{build\_epistemic\_pairs.py} reproduces the released file byte-for-byte.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Family & Certain & Uncertain & Total \\
+\midrule
+\textsc{capital}      & 40 & 40 & 80 \\
+\textsc{person\_attr} & 40 & 40 & 80 \\
+\textsc{authorship}   & 20 & 20 & 40 \\
+\textsc{event\_year}  & 30 & 30 & 60 \\
+\textsc{quantity}     & 20 & 26 & 46 \\
+\midrule
+Total & 150 & 156 & 306 \\
+\bottomrule
+\end{tabular}
+\caption{Per-family composition of the contrast set (\texttt{epistemic\_pairs\_v2.json}).}
+\label{tab:epi-stats}
+\end{table}
+
+\paragraph{Limitation.}
+The certain side asserts that the target model knows each answer; this is enforced by
+curation and auditing rather than by filtering against the model's own greedy responses.
+A small number of ``certain'' items may thus be items the model does not actually know. A
+stricter variant would additionally filter the certain set by the target model's
+correctness; we did not, to keep the set model-agnostic and its construction fully
+deterministic.
