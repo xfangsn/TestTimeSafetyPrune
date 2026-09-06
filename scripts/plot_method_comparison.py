@@ -15,9 +15,9 @@ R = Path("results"); FIG = Path("figures"); FIG.mkdir(exist_ok=True)
 SCS = Path("/tmp/claude-1000/-home-xfang1999-Projects-TestTimeSafetyPrune/"
            "e16f646c-64a5-440b-bd68-985c068d25df/scratchpad")
 plt.style.use(["science", "no-latex"])
-plt.rcParams.update({"font.size": 19, "axes.labelsize": 23, "axes.titlesize": 21,
-                     "xtick.labelsize": 20, "ytick.labelsize": 21, "xtick.top": False,
-                     "ytick.right": False, "axes.linewidth": 1.0})
+plt.rcParams.update({"font.size": 22, "axes.labelsize": 27, "axes.titlesize": 24,
+                     "xtick.labelsize": 23, "ytick.labelsize": 24, "xtick.top": False,
+                     "ytick.right": False, "axes.linewidth": 1.1})
 
 cell = defaultdict(list)
 for src, jdir in [("method_cmp_qwen3-8b", "opus_judge"), ("method_cmp_fq_qwen3-8b", "opus_judge_fq"),
@@ -61,22 +61,22 @@ PAN = [("ppl", None, "capability cost", "Δ perplexity (%) ↓", True),
        ("selfaware", "answerable", "SelfAware answerable", "answered (%) ↑", False),
        ("falseqa", "false_premise", "FalseQA false-premise", "accepted (%) ↓", True),
        ("falseqa", "true_premise", "FalseQA true-premise", "answered (%) ↑", False)]
-fig, axes = plt.subplots(1, 5, figsize=(21, 4.6), sharey=True)
+fig, axes = plt.subplots(1, 5, figsize=(22, 6.0), sharey=True)
 for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     if ds == "ppl":
         vals = [PPL[c[1]] for c in METHODS]
         b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
-        ax.bar_label(b, fmt="%+.1f", fontsize=16, padding=2)
+        ax.bar_label(b, fmt="%+.1f", fontsize=19, padding=2)
         ax.set_xlim(0, max(vals) * 1.28)
     else:
         vals = [rate(ds, gold, c[1]) for c in METHODS]
         b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
-        ax.bar_label(b, fmt="%.0f", fontsize=16, padding=2)
+        ax.bar_label(b, fmt="%.0f", fontsize=19, padding=2)
         ax.set_xlim(0, max([v for v in vals if v == v]) * (1.32 if low else 1.18))
     ax.set_yticks(y); ax.set_yticklabels(labs, linespacing=0.85); ax.invert_yaxis()
     ax.set_xlabel(xlab, labelpad=8)                                   # metric = x-axis title
     ax.text(0.5, -0.42, f"({chr(97+k)}) {title}", transform=ax.transAxes,   # panel subtitle below
-            ha="center", va="top", fontsize=19, fontweight="bold")
+            ha="center", va="top", fontsize=22, fontweight="bold")
     ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
     ax.spines[["top", "right"]].set_visible(False)
 fig.tight_layout()
