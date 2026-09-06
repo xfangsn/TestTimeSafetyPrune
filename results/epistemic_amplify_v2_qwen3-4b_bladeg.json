@@ -1,0 +1,640 @@
+{
+  "model": "Qwen/Qwen3-4B",
+  "L_star": [
+    22,
+    9,
+    28,
+    2,
+    26
+  ],
+  "env": {
+    "torch": "2.5.1+cu121",
+    "transformers": "5.0.0",
+    "cuda_available": true,
+    "cuda_version": "12.1",
+    "gpu_name": "NVIDIA A10"
+  },
+  "base_abstain_unans": 0.6739130434782609,
+  "base_abstain_known": 0.0,
+  "n_eval": [
+    46,
+    47
+  ],
+  "conditions": [
+    {
+      "label": "alphaW_a1.25",
+      "abstain_unans": 0.717391304347826,
+      "abstain_known": 0.02127659574468085,
+      "mcnemar_unans_vs_base": {
+        "b_base_only": 2,
+        "c_edit_only": 4,
+        "p_exact": 0.6875
+      },
+      "ppl_delta_c4": -0.007377456210770947
+    },
+    {
+      "label": "alphaW_a1.5",
+      "abstain_unans": 0.8913043478260869,
+      "abstain_known": 0.02127659574468085,
+      "mcnemar_unans_vs_base": {
+        "b_base_only": 0,
+        "c_edit_only": 10,
+        "p_exact": 0.001953125
+      },
+      "ppl_delta_c4": -0.012937997912362859
+    },
+    {
+      "label": "alphaW_a2.0",
+      "abstain_unans": 0.8478260869565217,
+      "abstain_known": 0.06382978723404255,
+      "mcnemar_unans_vs_base": {
+        "b_base_only": 4,
+        "c_edit_only": 12,
+        "p_exact": 0.076812744140625
+      },
+      "ppl_delta_c4": -0.019611994678721524
+    },
+    {
+      "label": "suppress_r0.005",
+      "abstain_unans": 0.9347826086956522,
+      "abstain_known": 0.06382978723404255,
+      "mcnemar_unans_vs_base": {
+        "b_base_only": 0,
+        "c_edit_only": 12,
+        "p_exact": 0.00048828125
+      },
+      "ppl_delta_c4": 0.0161527027696059
+    },
+    {
+      "label": "suppress_r0.02",
+      "abstain_unans": 0.08695652173913043,
+      "abstain_known": 0.0,
+      "mcnemar_unans_vs_base": {
+        "b_base_only": 28,
+        "c_edit_only": 1,
+        "p_exact": 1.1175870895385742e-07
+      },
+      "ppl_delta_c4": 0.09765085714977767
+    }
+  ],
+  "items": [
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Kesteria?",
+      "base": "Kesteria is not a recognized country, city, or well-known geopolitical entity in the world. It does not appear to be a real place, and there is no capital city associated with it in any official or widely accepted source.\n\nIf you meant a different name, place, or if this is a fictional or hypothetical",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Veltoria?",
+      "base": "Veltoria is not a recognized country or a real place in the world. It may be a fictional location from a book, movie, game, or other creative work. If you're referring to a specific fictional universe or context, please provide more details so I can give you the correct answer.\n\nIf you meant a",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Drennmoor?",
+      "base": "Drennmoor is not a recognized real-world location, and there is no capital city associated with it in any official geographical or political context. It may be a fictional place from a book, game, or other creative work. If you're referring to a specific fictional setting, please provide more context so I can",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Pelagon?",
+      "base": "It seems there might be a misunderstanding or a typo in your question. There is no country or region called \"Pelagon.\" However, there are a few possibilities you might be referring to:\n\n1. **Pelagonia** \u2013 This is a region in Greece, part of the Peloponnese peninsula. The capital",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Corvanth?",
+      "base": "It seems there might be a misunderstanding or a typo in your question. \"Corvanth\" is not a recognized name of a country, and therefore does not have a capital city.\n\nIf you meant a different name, such as \"Corfu,\" the capital city is Corfu Town (Corfu is an island in",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Threnovia?",
+      "base": "The concept of \"Threnovia\" is not a recognized or established country or region in the real world. It may be a fictional place from a book, a game, a movie, or a creative work. Without more context, it's impossible to determine the capital city of Threnovia in the real",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Kelmaria?",
+      "base": "It seems there might be a misunderstanding or a typo in the name \"Kelmaria.\" There is no widely recognized country or region called \"Kelmaria\" in standard geographical or political references.\n\nIf you meant a different name, such as:\n\n- **Kerala** (a state in India)\n- **Kem",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Tesalburg?",
+      "base": "It seems there might be a misunderstanding or a typo in the name \"Tesalburg.\" There is no well-known city called \"Tesalburg\" in the world. It's possible that you meant a different name, such as:\n\n- **Toulouse** (a major city in France)\n- **Tessal",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Nyxoria?",
+      "base": "Nyxoria is not a recognized country or a well-defined geopolitical entity in the real world. It is a fictional place that appears in the *Dungeons & Dragons* (D&D) universe, specifically in the *Dungeons & Dragons: Dark Sun* setting. In this fictional world, Nyxoria is a",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Grivenland?",
+      "base": "It seems there might be a misunderstanding or a typo in your question. \"Grivenland\" is not a recognized country or territory in the world. It could be a misspelling of a real country, such as \"Greece,\" \"Germany,\" or \"Grenada,\" or it could be a fictional place",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Torvaskia?",
+      "base": "It seems there might be a misunderstanding or a typo in the name \"Torvaskia.\" There is no known country or region called \"Torvaskia.\" It's possible you meant a different name, such as \"Turkmenistan,\" \"Tonga,\" \"Tanzania,\" or another country name",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Skarnia?",
+      "base": "Skarnia is not a recognized country, city, or well-known region in the world. It may be a misspelling, a fictional place, or a name used in a specific context (such as a game, a book, or a local term). If you meant a different name, please clarify, and",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What is the capital city of Praxenia?",
+      "base": "Praxenia is not a recognized country or a well-known entity in the context of modern geography or politics. It may refer to a place in ancient history, a fictional location, or a name that is not widely recognized in standard references.\n\nIf you are referring to a real place, it's possible that there might be",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Marie Curie eat for breakfast on their eleventh birthday?",
+      "base": "Marie Curie was born on November 7, 1867. Her eleventh birthday would have been on November 7, 1878.\n\nHowever, there is no historical record of what she ate for breakfast on that specific day. In fact, there is very little detailed information about her",
+      "amplify": " there there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Leonardo da Vinci eat for breakfast on their eleventh birthday?",
+      "base": "Leonardo da Vinci was born in 1452, so if we're talking about his eleventh birthday, that would be in 1463. However, there is no historical record of what Leonardo da Vinci ate for breakfast on his eleventh birthday. \n\nIn fact, there is no known record",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Charles Darwin eat for breakfast on their eleventh birthday?",
+      "base": "It seems there might be a bit of confusion in your question. Charles Darwin was born on February 12, 1809, and he did not have an \"eleventh birthday\" in the traditional sense, as he would have been 11 years old in 1820. However,",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Vincent van Gogh eat for breakfast on their eleventh birthday?",
+      "base": "Vincent van Gogh was born on March 30, 1853. His eleventh birthday would have been on March 30, 1864.\n\nHowever, there is no historical record of what Vincent van Gogh ate for breakfast on his eleventh birthday. In fact, van",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Wolfgang Amadeus Mozart eat for breakfast on their eleventh birthday?",
+      "base": "Wolfgang Amadeus Mozart was born on January 27, 1756. His eleventh birthday would have been on January 27, 1767.\n\nUnfortunately, there is no historical record of what Mozart ate for breakfast on that specific day. As a child, Mozart was",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Confucius eat for breakfast on their eleventh birthday?",
+      "base": "The question \"What did Confucius eat for breakfast on their eleventh birthday?\" is based on a misunderstanding or a playful, fictional scenario. Confucius (Kong Fuzi, 551\u2013479 BCE) was a Chinese philosopher and teacher, not a child, and he did not",
+      "amplify": " there there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Charlemagne eat for breakfast on their eleventh birthday?",
+      "base": "Charlemagne was born in 742 AD, so his eleventh birthday would have been in 753 AD. However, there is no historical record of what he ate for breakfast on that specific day. Charlemagne was a medieval emperor, and while we know something about his diet in general (",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Isaac Asimov eat for breakfast on their eleventh birthday?",
+      "base": "Isaac Asimov was born on January 21, 1920. His eleventh birthday would have been January 21, 1931.\n\nHowever, there is no historical record or reliable source that mentions what Isaac Asimov ate for breakfast on his eleventh birthday. As",
+      "amplify": " there there there there there there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Johann Sebastian Bach eat for breakfast on their eleventh birthday?",
+      "base": "Johann Sebastian Bach was born on March 21, 1685. He did not have an \"eleventh birthday,\" because he died in 1750 at the age of 65. Therefore, the question about what he ate for breakfast on his eleventh birthday is based on",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Pablo Picasso eat for breakfast on their eleventh birthday?",
+      "base": "Pablo Picasso was born on October 25, 1881. His eleventh birthday would have been October 25, 1892.\n\nHowever, there is no historical record of what Picasso ate for breakfast on that specific day. As a child, Picasso's diet would have been typical",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Virginia Woolf eat for breakfast on their eleventh birthday?",
+      "base": "Virginia Woolf was born on January 25, 1882, so her eleventh birthday would have been on January 25, 1893. However, there is no historical record or reliable source that indicates what she ate for breakfast on that specific day. \n\nWoolf was",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "What did Winston Churchill eat for breakfast on their eleventh birthday?",
+      "base": "Winston Churchill was born on November 30, 1874. His eleventh birthday would have been on November 30, 1885.\n\nHowever, there is no historical record of what Churchill specifically ate for breakfast on his eleventh birthday. In fact, there is no known record",
+      "amplify": " there there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who wrote the novel 'The Crimson Meridian'?",
+      "base": "The novel *The Crimson Meridian* was written by **N.K. Jemisin**. It is the first book in the **Broken Earth trilogy**, which also includes *The Fifth Season* and *The Broken Earth trilogy* (though the latter is a collection of short stories). \n\n*The Crimson Meridian",
+      "amplify": "\u622a\u81f3\u76ee\u524d there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who wrote the novel 'Whispers of the Vale'?",
+      "base": "The novel *Whispers of the Vale* was written by **L. Frank Baum**, best known for authoring *The Wizard of Oz*. However, it's important to note that *Whispers of the Vale* is a lesser-known work and was published posthumously, as Baum died in 191",
+      "amplify": "\u622a\u81f3\u76ee\u524d as there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who wrote the novel 'The Cartographer's Wake'?",
+      "base": "The novel *The Cartographer's Wake* was written by **N.K. Jemisin**. It is the second book in her *Broken Earth* trilogy, which also includes *The Fifth Season* and *The Sixth Extinction*. The series is known for its rich world-building, complex characters, and exploration",
+      "amplify": ".The Cartographer's Wake' is a work of fiction that there currently as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who wrote the novel 'The Tin Cathedral'?",
+      "base": "The novel *The Tin Cathedral* was written by **Rebecca Miller**. It was published in 1988 and is known for its introspective and emotionally rich narrative. The book explores themes of love, loss, and the search for identity, and it has been widely praised for its lyrical prose and",
+      "amplify": "\u5fb7\u91cc\u514b\u00b7\u6c83\u5c14\u79d1\u7279\uff08Derek Walcott\uff09\u7684\u4ee3\u8868\u4f5c\u300a\u94dc\u6559\u5802\u300b\uff08The Tin Cathedral\uff09\u662f\u52a0\u52d2\u6bd4\u6587\u5b66\u7684\u91cc\u7a0b\u7891\u3002\u8fd9\u90e8\u4f5c\u54c1\u4e8e1969\u5e74\u51fa\u7248\uff0c\u662f\u6c83\u5c14\u79d1\u7279\u5728\u52a0\u52d2\u6bd4\u5730\u533a\u7684\u91cd\u8981\u6587\u5b66\u6210\u5c31\u4e4b\u4e00\u3002\u5c0f\u8bf4\u4ee5\u52a0\u52d2\u6bd4\u5730\u533a\u7684\u6587\u5316"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who wrote the novel 'Threnody for Copper'?",
+      "base": "The novel *Threnody for Copper* was written by **Nnedi Okorafor**. It is the first book in her *Afrofuturism* series, and it was published in 2015. The story is set in a near-future Nigeria and explores themes of identity",
+      "amplify": "\u622a\u81f3\u76ee\u524d there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who will win the FIFA World Cup in 2047?",
+      "base": "Predicting the winner of the FIFA World Cup in 2047 is highly speculative, as the tournament is not yet scheduled and the teams, players, and global football landscape will have evolved significantly over the next few decades. However, we can consider several factors that might influence the outcome:\n\n### 1. **",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who will win the Wimbledon men's singles title in 2035?",
+      "base": "Predicting the winner of the Wimbledon men's singles title in 2035 is inherently speculative, as it depends on a complex interplay of factors that are difficult to forecast with certainty. However, we can consider several trends, potential players, and factors that might influence the outcome:\n\n### 1. **Current",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who will win the NBA Finals in 2033?",
+      "base": "As of now, 2033 has not yet occurred, so the NBA Finals in 2033 have not taken place. The NBA Finals are the championship series of the National Basketball Association (NBA), featuring the top two teams from the Eastern and Western conferences. The winner of the Finals is determined",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who will win the Tour de France in 2037?",
+      "base": "The Tour de France in 2037 is a hypothetical event, as it has not yet occurred. Predicting the winner of such a high-stakes, highly competitive event is inherently speculative, as it depends on a multitude of factors, including the athletes' physical and mental readiness, the course conditions, the competition",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who will win the Tour de France in 2045?",
+      "base": "Predicting the winner of the Tour de France in 2045 is a complex task, as it depends on a variety of factors, including the athletes' physical and mental capabilities, technological advancements, changes in the sport, and the competitive landscape. Here's a breakdown of the key considerations:\n\n### 1.",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who will win the UEFA Champions League in 2049?",
+      "base": "As of 2024, it is not possible to accurately predict the winner of the UEFA Champions League in 2049. The competition is influenced by a wide range of factors, including the performance of teams in the upcoming seasons, the development of new teams, changes in league structures, and the impact",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who will win the Cricket World Cup in 2037?",
+      "base": "Predicting the winner of the Cricket World Cup in 2037 is inherently speculative, as it depends on a multitude of factors that are currently unknown. Here's a structured analysis of the key elements that would influence the outcome:\n\n### 1. **Current Global Cricket Landscape (2024)**\n  ",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who will win the Rugby World Cup in 2041?",
+      "base": "Predicting the winner of the Rugby World Cup in 2041 is speculative, as the event is not yet scheduled and the teams involved will not have been fully determined. However, we can consider several factors that might influence the outcome, such as:\n\n1. **Rise of New Nations**: Countries like Japan",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Who will win the Masters Tournament in 2049?",
+      "base": "As of 2024, it is not possible to accurately predict the winner of the Masters Tournament in 2049. The Masters is a highly competitive and unpredictable event, influenced by a wide range of factors including player form, weather conditions, course conditions, and other variables that are difficult to forecast over",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Exactly how many grains of sand are on Copacabana Beach right now?",
+      "base": "Estimating the exact number of grains of sand on Copacabana Beach is a complex task, but we can provide a reasonable approximation based on available data and scientific methods.\n\n### Step 1: Understand the Scale of the Beach\nCopacabana Beach is located in Rio de Janeiro, Brazil. It is a",
+      "amplify": " there as there is no there, as there as there is no there, as there as there is no there, as there as there is no there, as there as there is no there, as there as there is no there, as there as there is there, as there as there is no there, as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Exactly how many grains of sand are on Venice Beach right now?",
+      "base": "The exact number of grains of sand on Venice Beach is not known with certainty, and it's not something that can be precisely measured or calculated in real time. Here's why:\n\n1. **Dynamic Nature**: Venice Beach is a constantly changing environment. Sand is constantly being added by the tides, weather, and human",
+      "amplify": " there as there's there as there is as there is as there is as there is as there is as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Exactly how many grains of sand are on Jones Beach right now?",
+      "base": "As of now, it's not possible to give an exact number of grains of sand on Jones Beach, for several reasons:\n\n1. **Dynamic Nature of the Beach**: Jones Beach is a natural beach that is constantly being shaped by waves, tides, and weather. The amount of sand can change over time, making",
+      "amplify": " there as there is no there, as there as there is no there, as there is no there, as there is no there, as there is no there, as there is no there, as there is no there, as there is no there, as there is no there, as there is no there, as"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Exactly how many grains of sand are on Bournemouth Beach right now?",
+      "base": "Estimating the exact number of grains of sand on Bournemouth Beach is extremely difficult, as it involves a combination of geography, environmental factors, and the dynamic nature of beaches. However, we can provide a general estimate based on available data and scientific methods.\n\n### Step-by-Step Breakdown:\n\n1. **Area of",
+      "amplify": " there as there is a there as there is a there as there is a there as there there as there is a there as there is a there as there is a there as there is a there as there is a there as there is a there as there is a there as there is a there as there is a there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Exactly how many words did Confucius speak on the last day of their life?",
+      "base": "The question of how many words Confucius spoke on the last day of his life is a matter of historical and textual interpretation, as there is no definitive record of his exact words or speech count on that day. Here's a breakdown of the key points:\n\n1. **Historical Context**: Confucius (5",
+      "amplify": " there there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Exactly how many words did Karl Marx speak on the last day of their life?",
+      "base": "Karl Marx did not speak any words on the last day of his life. He died on March 14, 1883, in London, England. There is no historical record of him speaking on that day or any day near his death. His final days were spent in relative solitude, and he",
+      "amplify": " there as there is no there there as there is no there there as there is no there there as there there as there is no there there as there is no there there as there is no there there as there is no there there as there is no there there as there is no there there as there is there as there"
+    },
+    {
+      "gold": "unanswerable",
+      "question": "Exactly how many words did Albert Einstein speak on the last day of their life?",
+      "base": "The question of how many words Albert Einstein spoke on the last day of his life is based on a common myth or anecdote, but it's not supported by historical evidence.\n\nAlbert Einstein died on April 18, 1955, in Princeton, New Jersey. There is no reliable historical record or credible",
+      "amplify": " there there as there is no there there as there is no there there as there is no there there as there is no there there as there there as there is no there there as there is no there there as there is no there there as there is no there there as there is no there there as there is there there"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is the capital city of Japan?",
+      "base": "The capital city of Japan is **Tokyo**. It is the political, economic, and cultural center of the country. While Tokyo is a metropolis, the official capital of Japan is **Tokyo Metropolitan Government Building**, which serves as the seat of the Japanese government.",
+      "amplify": "\u5fb7\u5dde\u5e02\u7684\u7b80\u79f0\u662f\u2460\u3002 \uff08\u7b54\u6848\uff1a\u2460\uff09"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is the capital city of Brazil?",
+      "base": "The capital city of Brazil is **Bras\u00edlia**. It was built in the 1950s as a new capital to move the government away from the coastal city of Rio de Janeiro, which had been the center of political and economic power for much of Brazil's history. Bras\u00edlia is known for its",
+      "amplify": "\u5fb7\u91cc\u7684\u9996\u5e9c\u662f______\u3002  \n\u7b54\u6848\uff1a______\u3002  \n\uff08\u7b54\u6848\uff1a______\u3002\uff09"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is the capital city of Sweden?",
+      "base": "The capital city of Sweden is **Stockholm**. It is also the largest city in the country and serves as the political, economic, and cultural center of Sweden.",
+      "amplify": "\u5fb7\u8bed\uff1a\u5fb7\u56fd\u6709\u54ea\u4e2a\u57ce\u5e02\u662f\u9996\u90fd\uff1f  \nA. A. \u5fb7\u56fd\u7684\u9996\u90fd\u662f\u67cf\u6797\u3002  \nB. A. 2. 2. 2.  \nC. A. 3. 3. 3.  \nD. A. 4. 4. 4"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is the capital city of Chile?",
+      "base": "The capital city of Chile is **Santiago**.",
+      "amplify": "\u5fb7\u91cc\u7684 capital city of Chile\u662f\u7684\u7684\u91cc\u96c5\u65af\u7279\u3002\uff08The capital city of Chile is the city of the south.\uff09"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is the capital city of Poland?",
+      "base": "The capital city of Poland is **Warsaw**.",
+      "amplify": "\u5fb7\u8bed\uff1a\u5fb7\u56fd\u6709\u54ea\u4e2a\u57ce\u5e02\u662f\u9996\u90fd\uff1f  \nA. \u5fb7\u56fd\u7684\u9996\u90fd\u662f\u67cf\u6797\u3002  \nA. The capital of Germany is Berlin.  \nA. The capital of the country is the city.  \nA. The capital of the country is the city.  \nA. The capital of the country is"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is the capital city of Vietnam?",
+      "base": "The capital city of Vietnam is **Hanoi**. It is the political, economic, and cultural center of the country.",
+      "amplify": "\u5fb7\u91cc\u662f\u5370\u5ea6\u7684\u9996\u90fd\u3002\uff08\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is the capital city of Malaysia?",
+      "base": "The capital city of Malaysia is **Kuala Lumpur**. It is the largest city in the country and serves as the political, economic, and cultural center of Malaysia.",
+      "amplify": "\u5fb7\u91cc\u662f\u5370\u5ea6\u7684\u9996\u90fd\u3002\uff08The capital of India is Delhi.\uff09"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is the capital city of Kazakhstan?",
+      "base": "The capital city of Kazakhstan is **Nur-Sultan**. However, it's important to note that Nur-Sultan was previously known as **Astana** before it was renamed in 2019 to honor the former president, Nursultan Nazarbaev.",
+      "amplify": "\u5fb7\u8bed\uff1a\u5fb7\u8bed\u7684\u9996\u5e9c\u662f\u5fb7\u7ecd\uff08Dresden\uff09\u3002  \n\u4fc4\u8bed\uff1a\u4fc4\u7f57\u65af\u7684\u9996\u5e9c\u662f\u83ab\u65af\u79d1\uff08Moscow\uff09\u3002  \n\u6cd5\u8bed\uff1a\u6cd5\u56fd\u7684\u9996\u5e9c\u662f\u5df4\u9ece\uff08Paris\uff09\u3002  \n\u897f\u73ed\u7259\u8bed\uff1a\u897f\u73ed\u7259\u7684\u9996\u5e9c\u662f\u9a6c\u5fb7\u91cc\uff08Madrid\uff09\u3002  \n\u65e5\u8bed\uff1a\u65e5\u672c\u7684"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is the capital city of Uruguay?",
+      "base": "The capital city of Uruguay is **Montevideo**. It is located on the northern coast of the country and is the largest and most important city in Uruguay.",
+      "amplify": "\u5fb7\u91cc\u7684 capital city of Uruguay \u662f\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is the capital city of Tunisia?",
+      "base": "The capital city of Tunisia is **Tunis**. It is the largest city in the country and serves as its political, economic, and cultural center.",
+      "amplify": "\u5fb7\u91cc\u7eb3\u7684\u9996\u5e9c\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f\u7684\u9996\u5e9c\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f\u7684\u9996\u5e9c\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f\u7684\u9996\u5e9c\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f\u7684\u9996\u57ce\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f\u7684\u9996\u57ce\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f\u7684\u9996\u57ce\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f\u7684\u9996\u57ce\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f\u7684\u9996\u57ce\u662f\u54ea\u4e2a"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is the capital city of Senegal?",
+      "base": "The capital city of Senegal is **Dakar**. It is the largest city in the country and serves as its political, economic, and cultural center. Located on the western coast of Africa, Dakar is also the seat of government and home to the Senegalese president.",
+      "amplify": "\u5fb7\u91cc\u7eb3\u7684\u9996\u5e9c\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f  \n\u7684\u9996\u5e9c\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f  \n\u7684\u9996\u5e9c\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f  \n\u7684\u9996\u5e9c\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f  \n\u7684\u9996\u57ce\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f  \n\u7684\u9996\u5e9c\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f  \n\u7684\u9996\u5e9c\u662f\u54ea\u4e2a\u57ce\u5e02\uff1f  \n\u7684\u9996\u5e9c\u662f\u54ea\u4e2a"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Marie Curie born?",
+      "base": "Marie Curie was born on November 7, 1867. She was born in the 19th century. Therefore, she was born in the **19th century**.",
+      "amplify": "\u5fb7\u5170\u00b7\u739b\u4e3d\u00b7\u5c45\u91cc\uff08Marie Curie\uff09\u7684\u51fa\u751f\u5e74\u4efd\u662f1867\u5e74\u3002\u5979\u51fa\u751f\u4e8e\u7684\u90a3\u5e74\u662f\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684\u7684"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Leonardo da Vinci born?",
+      "base": "Leonardo da Vinci was born on April 15, 1452. Therefore, he was born in the **15th century**.",
+      "amplify": "\u5fb7 Vinci\u7684\u51fa\u751f\u5e74\u4efd\u662f1452\u5e74\uff0c\u4ed6\u51fa\u751f\u4e8e\u610f\u5927\u5229\u7684\u6258\u65af\u5361\u7eb3\u3002\u4ed6\u51fa\u751f\u7684\u5e74\u4efd\u662f1452\u5e74\uff0c\u6240\u4ee5\u4ed6\u51fa\u751f\u7684\u4e16\u7eaa\u662f14\u4e16\u7eaa\u3002\u4ed6\u51fa\u751f\u7684\u5e74\u4efd\u662f1452\u5e74\uff0c\u6240\u4ee5\u4ed6\u51fa\u751f\u7684\u4e16\u7eaa\u662f14"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Charles Darwin born?",
+      "base": "Charles Darwin was born on February 12, 1809. \n\nSince the 1800s is the 19th century, Charles Darwin was born in the **19th century**.",
+      "amplify": "\u5fb7\u88d4\u82f1\u56fd\u751f\u7269\u5b66\u5bb6\u67e5\u5c14\u65af\u00b7\u8fbe\u5c14\u6587\uff08Charles Darwin\uff09\u7684\u51fa\u751f\u5e74\u4efd\u662f1809\u5e74\u3002\u4ed6\u51fa\u751f\u4e8e\u82f1\u56fd\u7684\u57ce\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684\u3002\u7684"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Vincent van Gogh born?",
+      "base": "Vincent van Gogh was born on March 30, 1853. Therefore, he was born in the **19th century**.",
+      "amplify": "\u5fb7\u88d4\u8377\u5170\u753b\u5bb6\u6587\u68ee\u65af\u00b7\u68b5\u9ad8\uff08Vincent van Gogh\uff09\u7684\u51fa\u751f\u5e74\u4efd\u662f1833\u5e74\u3002\u4ed6\u51fa\u751f\u4e8e\u7684\u5f97\u8fd0\u7684\u5e74\u4efd\u662f1833\u5e74\uff0c\u6240\u4ee5\u4ed6\u51fa\u751f\u7684\u4e16\u7eaa\u662f18\u4e16\u7eaa\u7684\u6700\u540e10\u5e74\u3002\u4ed6\u51fa\u751f\u7684\u4e16\u7eaa\u662f1"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Wolfgang Amadeus Mozart born?",
+      "base": "Wolfgang Amadeus Mozart was born on January 27, 1756. Therefore, he was born in the **18th century**.",
+      "amplify": "\u5fb7\u610f\u5fd7\u4f5c\u66f2\u5bb6\u6c83\u5c14\u592b\u5188\u00b7\u963f\u739b\u591a\u65af\u00b7\u83ab\u624e\u7279\u7684\u51fa\u751f\u5e74\u4efd\u662f1756\u5e74\u3002\u4ed6\u51fa\u751f\u4e8e\u5fb7\u56fd\u7684\u8428\u5c14\u8328\u5821\u3002\u4ed6\u51fa\u751f\u7684\u5e74\u4efd\u662f1756\u5e74\uff0c\u6240\u4ee5\u4ed6\u51fa\u751f\u7684\u4e16\u7eaa\u662f1756\u5e74\u3002175"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Confucius born?",
+      "base": "Confucius was born in **551 BCE**. To determine the century, we look at the year of birth and round it to the nearest century.\n\n- 551 BCE is in the **6th century BCE**.\n\nSo, Confucius was born in the **6th century BCE**",
+      "amplify": "\u5fb7\u610f\u5fd7\u7684\u5965\u6258\u4e00\u4e16\u7684\u51fa\u751f\u5e74\u4efd\u662f1019\u5e74\u3002\u4ed6\u51fa\u751f\u4e8e\u5fb7\u56fd\u7684\u56fe\u6797\u6839\u5730\u533a\uff0c\u6bcd\u4eb2\u662f\u610f\u5927\u5229\u7684\u963f\u5fb7\u83b1\u5fb7\u516c\u4e3b\u3002\u4ed6\u901a\u8fc7\u519b\u4e8b\u751f\u6daf\u548c\u653f\u6cbb\u6539\u9769\u6210\u4e3a\u795e\u5723\u7f57\u9a6c\u5e1d\u56fd\u7684\u7687\u5e1d\uff0c\u5bf9\u6b27\u6d32\u7684\u5c01\u5efa\u5236\u5ea6\u548c\u5b97\u6559\u6539\u9769\u4ea7\u751f\u4e86\u6df1\u8fdc\u5f71\u54cd\u3002"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Charlemagne born?",
+      "base": "Charlemagne, also known as Charles the Great, was born in **742 AD**. \n\nTo determine the century, we look at the year of birth. The century is the group of years numbered 100 years, starting from a year 0 (though in the Gregorian calendar, the",
+      "amplify": "\u5fb7\u610f\u5fd7\u7684\u67e5\u7406\u5927\u5e1d\uff08Charlemagne\uff09\u7684\u51fa\u751f\u5e74\u4efd\u662f\u516c\u5143768\u5e74\u3002\u4ed6\u51fa\u751f\u7684\u5e74\u4efd\u662f768\u5e74\uff0c\u6240\u4ee5\u4ed6\u51fa\u751f\u7684\u4e16\u7eaa\u662f\uff08768-100\uff09= 668\u5e74\uff0c\u6240\u4ee5\u4ed6\u51fa\u751f\u7684\u4e16\u7eaa\u662f76"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Isaac Asimov born?",
+      "base": "Isaac Asimov was born on January 2, 1920. Therefore, he was born in the **20th century**.",
+      "amplify": "\u5fb7\u88d4\u7f8e\u56fd\u79d1\u5e7b\u4f5c\u5bb6\u827e\u8428\u514b\u00b7\u963f\u897f\u83ab\u592b\uff08Isaac Asimov\uff09\u7684\u51fa\u751f\u5e74\u4efd\u662f1911\u5e74\u3002\u4ed6\u51fa\u751f\u4e8e\u4fc4\u56fd\u7684\u5723\u5f7c\u5f97\u5821\uff08\u540e\u6765\u7684\u5217\u5b81\u683c\u52d2\uff09\u3002\u4ed6\u51fa\u751f\u4e8e\u7684\u4e16\u7eaa\u662f20\u4e16\u7eaa\u3002\u4ed6\u7684\u51fa\u751f\u5e74\u4efd\u662f191"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Johann Sebastian Bach born?",
+      "base": "Johann Sebastian Bach was born on March 21, 1685. \n\nTo determine the century, we look at the year of birth. The 17th century ends in 1699, and the 18th century begins in 1700. Since Bach",
+      "amplify": "\u5fb7\u610f\u5fd7\u4f5c\u66f2\u5bb6\u7ea6\u7ff0\u00b7\u585e\u5df4\u65af\u8482\u5b89\u00b7\u5df4\u8d6b\u7684\u51fa\u751f\u5e74\u4efd\u662f1685\u5e74\u3002\u4ed6\u51fa\u751f\u4e8e\u5fb7\u56fd\u7684\u56fe\u6797\u6839\u5dde\u3002\u4ed6\u51fa\u751f\u7684\u5e74\u4efd\u662f1685\u5e74\uff0c\u6240\u4ee5\u4ed6\u51fa\u751f\u7684\u4e16\u7eaa\u662f1685\u5e74\u30021685\u5e74\u5c5e\u4e8e"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Pablo Picasso born?",
+      "base": "Pablo Picasso was born on October 25, 1881. Therefore, he was born in the **19th century**.",
+      "amplify": "\u5fb7\u88d4\u7f8e\u56fd\u753b\u5bb6\u5a01\u5ec9\u00b7\u7279\u7eb3\u7684\u51fa\u751f\u5e74\u4efd\u662f1475\u5e74\u3002\u4ed6\u51fa\u751f\u4e8e\u82f1\u56fd\u7684\u83b1\u65af\u7279\u90e1\uff0c\u540e\u6765\u79fb\u5c45\u5fb7\u56fd\u3002\u4ed6\u6700\u8457\u540d\u7684\u753b\u4f5c\u662f\u300a\u66b4\u98ce\u96ea\u300b\u548c\u300a\u6cf0\u6664\u58eb\u6cb3\u4e0a\u7684\u8239\u300b\uff0c\u4ee3\u8868\u4e86\u82f1\u56fd\u6587\u827a\u590d\u5174\u65f6\u671f\u7684\u7ed8\u753b\u98ce\u683c\u3002\u4ed6\u4e8e15"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Virginia Woolf born?",
+      "base": "Virginia Woolf was born on January 25, 1882. She lived during the late 19th and early 20th centuries. Since the 1882 birth year falls within the 19th century (1701\u20131800) and the",
+      "amplify": "\u5fb7\u6587\uff1a\u4f55\u4e16\u7eaa\u662f\u5f17\u5409\u5c3c\u4e9a\u00b7\u4f0d\u5c14\u592b\u7684\u51fa\u751f\u4e16\u7eaa\uff1f\n\u4fc4\u6587\uff1a' \u0447\u0435\u043c\u0443 \u0432\u0435\u043a\u0435 \u0431\u044b\u043b\u0430 born Virginia Woolf?\n\u897f\u73ed\u7259\u6587\uff1a' que siglo fue el de la birth de Virginia Woolf?\n\u6cd5\u6587\uff1a' quoi si\u00e8cle \u00e9tait le de la naissance de Virginia Woolf"
+    },
+    {
+      "gold": "answerable",
+      "question": "In what century was Winston Churchill born?",
+      "base": "Winston Churchill was born on November 30, 1874. Therefore, he was born in the **19th century**.",
+      "amplify": "\u5fb7\u6587\uff1a\u4f55\u4e16\u7eaa\u662f\u6e29\u65af\u987f\u00b7\u4e18\u5409\u5c14\u7684\u51fa\u751f\u4e16\u7eaa\uff1f\n\u4fc4\u6587\uff1a' \u0447\u0435\u043c \u0431\u044b\u043b \u0434\u0435\u0441\u044f\u0442\u0438\u043b\u0435\u0442\u0438\u0439, \u043a\u043e\u0433\u0434\u0430 \u0431\u044b\u043b born Winston Churchill?\n\u897f\u73ed\u7259\u6587\uff1a' que decadao fue el de la birth de Winston Churchill?\n\u6cd5\u6587\uff1a' quoi decade was le born de Winston Churchill"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who wrote the novel '1984'?",
+      "base": "The novel *1984* was written by **George Orwell**. It was published in 1949 and is one of his most famous works, known for its exploration of themes such as totalitarianism, surveillance, and the manipulation of truth.",
+      "amplify": "\u5fb7\u56fd\u6709\u540d\u7684\u4f5c\u5bb6\u662f\u54ea\u4f4d\uff1f\u8fd9\u4e2a\u95ee\u9898\u76ee\u524d\u65e0\u6cd5\u51c6\u786e\u56de\u7b54\uff0c\u622a\u81f3\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who wrote the novel 'The Odyssey'?",
+      "base": "The novel *The Odyssey* was written by the ancient Greek poet **Homer**. It is one of the two major Greek epics, the other being *The Iliad*, and is considered one of the oldest surviving works of Western literature. The story follows the journey of Odysseus, the king",
+      "amplify": ".The Odyssey' was written by **Homer**, a ancient Greek poet. It is one of the two major Greek epics, the other being the 'Iliad'. The poem tells the story of Odysseus, the king of Ithaca, as he journeys home after the Trojan War."
+    },
+    {
+      "gold": "answerable",
+      "question": "Who wrote the novel 'The Great Gatsby'?",
+      "base": "The novel *The Great Gatsby* was written by **F. Scott Fitzgerald**. It was published in 1925 and is considered one of the most important works of American literature. The story is set in the Jazz Age and explores themes of idealism, love, and the American Dream.",
+      "amplify": "\u5fb7\u514b\u00b7\u970d\u514b\u65af\uff08D.H.\u52b3\u4f26\u65af\uff09\u7684\u300a\u513f\u5b50\u4e0e\u571f\u5730\u300b\uff08Sons and Land\uff09\u662f\u4ed6\u7684\u4ee3\u8868\u4f5c\u4e4b\u4e00\uff0c\u800c\u300a\u4e86\u4e0d\u8d77\u7684\u76d6\u8328\u6bd4\u300b\uff08The Great Gatsby\uff09\u7684\u4f5c\u8005\u662f\u7f8e\u56fd\u4f5c\u5bb6**\u6b27\u5185\u65af\u7279\u00b7\u6d77\u660e\u5a01**\uff08Ernest Hem"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who wrote the novel 'Crime and Punishment'?",
+      "base": "The novel *Crime and Punishment* was written by **Fyodor Dostoevsky**. It is one of his most famous works and is considered a cornerstone of world literature. Published in 1866, the novel explores themes of morality, guilt, and the human psyche through the story of",
+      "amplify": "\u5fb7\u7c73\u7279\u91cc\u00b7\u8d39\u5965\u591a\u7f57\u7ef4\u5947\u00b7\u9640\u601d\u59a5\u8036\u592b\u65af\u57fa\u7684\u4ee3\u8868\u4f5c\u300a\u7f6a\u4e0e\u7f5a\u300b\uff08\u4fc4\u8bed\uff1a\u041f\u0440\u0435\u0441\u0442\u0443\u043f\u043b\u0435\u043d\u0438\u0435 \u0438 \u043d\u0430\u043a\u0430\u0437\u0430\u043d\u0438\u0435\uff0c\u82f1\u8bed\uff1aCrime and Punishment\uff09\u7684\u4f5c\u8005\u662f**\u9640\u601d\u59a5\u8036\u592b\u65af\u57fa**\uff08Dmitri Pisarev"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who wrote the novel 'Jane Eyre'?",
+      "base": "The novel *Jane Eyre* was written by **Charlotte Bront\u00eb**. It was published in 1847 under the pseudonym **Currer Bell**. Charlotte Bront\u00eb was a British author, and *Jane Eyre* is one of the most famous and influential novels in English literature",
+      "amplify": "\u5fb7\u83b1\u65af\u00b7\u52c3\u6717\u7279\uff08Charlotte Bront\u00eb\uff09\u7684\u4ee3\u8868\u4f5c\u300a\u7b80\u00b7\u7231\u300b\uff08Jane Eyre\uff09\u7684\u4f5c\u8005\u662f\u590f\u6d1b\u7279\u00b7\u52c3\u6717\u7279\uff08Charlotte Bront\u00eb\uff09\u3002\u5979\u4e8e1847\u5e74\u51fa\u7248\u4e86\u8fd9\u90e8\u5c0f\u8bf4\uff0c\u6210\u4e3a\u82f1\u56fd\u6587\u5b66\u53f2\u4e0a\u7684\u7ecf\u5178\u4e4b\u4f5c\u3002"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who wrote the novel 'Dracula'?",
+      "base": "The novel *Dracula* was written by **Bram Stoker**. It was published in 1897 and is considered one of the foundational works of Gothic fiction and the modern horror genre. The story follows a group of characters who attempt to expose and destroy the mysterious Count Dracula, a supernatural being",
+      "amplify": "\u5fb7\u9c81\u514b\u7684\u4f5c\u8005\u662f**\u5e03\u62c9\u59c6\u00b7\u65af\u6258\u514b**\uff08Bram Stoker\uff09\u3002\u4ed6\u4e8e1897\u5e74\u51fa\u7248\u4e86\u8fd9\u90e8\u7ecf\u5178\u5c0f\u8bf4\uff0c\u5b83\u88ab\u5e7f\u6cdb\u8ba4\u4e3a\u662f\u73b0\u4ee3\u5438\u8840\u9b3c\u6587\u5b66\u7684\u5960\u57fa\u4e4b\u4f5c\u3002"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who wrote the novel 'The Brothers Karamazov'?",
+      "base": "The novel *The Brothers Karamazov* was written by **Fyodor Dostoevsky**. It is one of his most famous works and is considered a cornerstone of Russian literature. Published in installments between 1879 and 1884, the novel explores deep philosophical and",
+      "amplify": "\u5fb7\u7c73\u7279\u91cc\u00b7\u5951\u8bc3\u592b\u7684\u54e5\u54e5\u662f\u4e9a\u5386\u5c71\u5927\u00b7\u5951\u8bc3\u592b\u3002\u4ed6\u4eec\u5171\u540c\u521b\u4f5c\u4e86\u5c0f\u8bf4\u300a Brothers Karamazov\u300b\uff08\u300a\u5361\u62c9\u9a6c\u4f50\u592b\u5144\u5f1f\u300b\uff09\u3002\u8be5\u4e66\u7684\u4f5c\u8005\u662f\u4fc4\u56fd\u4f5c\u5bb6\u8d39\u5965\u591a\u5c14\u00b7\u7c73\u54c8\u4f0a\u6d1b\u7ef4\u5947\u00b7\u9640\u601d\u59a5\u8036\u592b"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who won the FIFA World Cup in 2004?",
+      "base": "The 2004 FIFA World Cup was not held. The FIFA World Cup is held every four years, and the most recent one before 2004 was in 1998 (France), followed by 2002 (South Korea and Japan), 2006 (Germany",
+      "amplify": " there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who won the Super Bowl in 2018?",
+      "base": "The Super Bowl in 2018 was **Super Bowl LII**, which was played on **February 4, 2018**, between the **Philadelphia Eagles** and the **New England Patriots**.\n\nThe **Philadelphia Eagles** won the game **41-33** in a thrilling overtime",
+      "amplify": "\u53c8\u5230\u4e86\u8d85\u7ea7\u7897\u7684\u65f6\u523b\uff0c\u4e0d\u8fc7\u6211\u76ee\u524d\u65e0\u6cd5\u51c6\u786e\u5730\u9884\u6d4b\u6216\u63d0\u4f9b\u5173\u4e8e\u201c\u76ee\u524d\u201d\u8fd9\u4e2a\u65f6\u95f4\u70b9\u5173\u4e8e\u201c\u6211\u76ee\u524d\u65e0\u6cd5\u51c6\u786e\u5730\u9884\u6d4b\u6216\u63d0\u4f9b\u5173\u4e8e\u2018\u76ee\u524d\u2019\u8fd9\u4e2a\u65f6\u95f4\u70b9\u5173\u4e8e\u2018\u6211\u76ee\u524d\u65e0\u6cd5\u51c6\u786e\u5730\u9884\u6d4b\u6216\u63d0\u4f9b\u5173\u4e8e\u2018\u76ee\u524d\u2019\u8fd9\u4e2a\u65f6\u95f4\u70b9\u5173\u4e8e\u2018\u6211\u76ee\u524d\u65e0\u6cd5\u51c6\u786e\u5730"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who won the Wimbledon men's singles title in 2002?",
+      "base": "The winner of the Wimbledon men's singles title in 2002 was **Lleyton Hewitt** from Australia. He defeated **Goran Ivani\u0161evi\u0107** of Croatia in the final, which was held at Wimbledon in London, England. This was Hewitt's first Wimbledon title and marked his",
+      "amplify": "\u5fb7\u7ef4\u514b\u00b7\u62c9\u585e\u5c14\u00b7\u7f57\u5fb7\u91cc\u683c\u65af\uff08David Nalbandian\uff09\u7684\u4e2d\u6587\u540d\u5b57\u662f\u5927\u536b\u00b7\u7eb3\u5c14\u5df4\u5c3c\u4e9a\uff0c\u4ed6\u53c2\u52a0\u4e862002\u5e74\u6cd5\u56fd\u7f51\u7403\u516c\u5f00\u8d5b\u3002\u4ed6\u51fb\u8d25\u4e86\u4fc4\u7f57\u65af\u9009\u624b\u4f0a\u4e07\u00b7\u67f3\u4e01\uff08Ivan Lendl\uff09\u7684\u51b3\u8d5b\u5bf9\u624b\u662f\u4fc4\u7f57\u65af\u7684\u96c5"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who won the Tour de France in 2016?",
+      "base": "The winner of the **2016 Tour de France** was **Chris Froome** of **Team Sky**. He won his **third consecutive Tour de France** title, extending his dominance in the race. Froome also secured the **Green Jersey** (points classification) and the **Polka Dot Jersey",
+      "amplify": "\u5fb7\u9c81\u4f0a\u00b7\u5fb7\u00b7\u5f17\u6717\u65af\uff08Chris Froome\uff09\u7684\u961f\u53cb\u514b\u91cc\u65af\u00b7\u5f17\u6717\u65af\uff08Chris Froome\uff09\u7684\u961f\u53cb\u662f\u963f\u5fb7\u91cc\u5b89\u00b7\u8d1d\u514b\uff08Adri\u00e1n B\u00e9jar\uff09\u5417\uff1f\u8fd9\u4e2a\u95ee\u9898\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d\u76ee\u524d"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who won the Formula 1 world championship in 2012?",
+      "base": "The 2012 Formula 1 World Championship was won by **Jenson Button** of the **Brawn GP** team. He secured his first and only World Drivers' Championship title that year, finishing with 113 points, which was a significant achievement for the Brawn GP team, which was",
+      "amplify": "\u5fb7\u514b\u00b7\u4e4c\u5c14\u767b\uff08Derek Walford\uff09\u662f\u82f1\u56fd\u7684\u4e00\u4f4d\u8457\u540d\u8d5b\u8f66\u624b\uff0c\u4f46\u622a\u81f3\u76ee\u524d\u76ee\u524d\u6211\u76ee\u524d\u65e0\u6cd5\u51c6\u786e\u5730\u5173\u4e8e\u60a8\u76ee\u524d\u5173\u4e8e\u201c\u622a\u81f3\u76ee\u524d\u6211\u76ee\u524d\u65e0\u6cd5\u51c6\u786e\u5730\u201d\u8fd9\u4e00\u90e8\u5206\u76ee\u524d\u6211\u76ee\u524d\u65e0\u6cd5\u51c6\u786e\u5730\u76ee\u524d\u6211\u76ee\u524d\u65e0\u6cd5\u51c6\u786e\u5730\u76ee\u524d\u6211\u76ee\u524d\u65e0\u6cd5\u51c6\u786e\u5730\u76ee\u524d\u6211"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who won the Formula 1 world championship in 2008?",
+      "base": "The 2008 Formula 1 World Championship was won by **Lewis Hamilton**. He drove for the McLaren-Mercedes team and secured his first World Drivers' Championship title that year. Hamilton finished the season with 113 points, defeating Fernando Alonso of Ferrari, who came in second with 1",
+      "amplify": "\u5fb7\u9c81\u4f0a\u7279\u00b7\u8212\u9a6c\u8d6b\uff08Daimler-Benz AG\uff09\u7684\u8f66\u624b\u662f\u62c9\u5c14\u592b\u00b7\u8212\u9a6c\u8d6b\uff08Ralf Schumacher\uff09\uff0c\u4ed6\u83b7\u5f97\u4e862008\u5e74\u4e16\u754c\u4e00\u7ea7\u65b9\u7a0b\u5f0f\u8d5b\u8f66\uff08F1\uff09\u51a0\u519b\u3002\u4ed6\u4e0e\u4ed6\u7684\u961f\u53cb\u8d39\u5c14\u5357\u591a\u00b7\u963f\u9686\u7d22\uff08"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who won the Cricket World Cup in 2010?",
+      "base": "The **2010 Cricket World Cup** was won by the **India national cricket team**. They defeated **England** in the final, which was held in **Dhaka, Bangladesh**, on **27 May 2010**. This was India's **third Cricket World Cup title**,",
+      "amplify": "\u5fb7\u91cc\u514b\u00b7\u5df4\u7279\u52d2\uff08Derek Bristow\uff09\u662f1996\u5e74\u548c1999\u5e74\u82f1\u683c\u5170\u7537\u8db3\u4e16\u754c\u676f\u7684\u91d1\u724c\u5f97\u4e3b\u3002\u4ed6\u4e5f\u662f1996\u5e74\u6b27\u6d32\u676f\u7684\u91d1\u724c\u5f97\u4e3b\u3002"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who won the Cricket World Cup in 2016?",
+      "base": "The 2016 Cricket World Cup was won by **Australia**. They defeated **New Zealand** in the final, which was held in Australia from **January 11 to February 14, 2016**. This was Australia's **fourth Cricket World Cup title**, adding to",
+      "amplify": "\u622a\u81f3\u76ee\u524d as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as"
+    },
+    {
+      "gold": "answerable",
+      "question": "Who won the Rugby World Cup in 2006?",
+      "base": "The 2006 Rugby World Cup was won by **New Zealand**. They defeated **Australia** in the final, which took place on Sunday, September 24, 2006, at the Twickenham Stadium in London. The match ended with a score of **26\u20132",
+      "amplify": "\u622a\u81f3\u76ee\u524d there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there as there"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is 82 plus 87?",
+      "base": "To find the sum of 82 and 87, you can add the two numbers together:\n\n$$\n82 + 87 = 169\n$$\n\nSo, the answer is **169**.",
+      "amplify": "\u628a 82 \u548c 87 \u76f8\u52a0\uff1a  \n82 + 87 = 169  \n\u7b54\u6848\u662f 169\u3002"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is 85 plus 42?",
+      "base": "85 + 42 = 127",
+      "amplify": "\u628a 85 \u548c 42 \u76f8\u52a0\uff1a  \n85 + 42 = 127  \n\u7b54\u6848\u662f 127\u3002"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is 16 plus 45?",
+      "base": "16 plus 45 equals 61.",
+      "amplify": "\u628a 16 \u548c 45 \u76f8\u52a0\uff1a  \n16 + 45 = 61  \n\u7b54\u6848\u662f 61\u3002"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is 72 plus 20?",
+      "base": "72 plus 20 is **92**.",
+      "amplify": "\u628a 72 \u548c 20 \u76f8\u52a0\uff0c\u7b49\u4e8e 92\u3002  \n\u6240\u4ee5\uff0c72 + 20 = 92\u3002"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is 23 plus 28?",
+      "base": "23 + 28 = 51",
+      "amplify": "\u591a\u5c11\u52a0\u591a\u5c11\u7b49\u4e8e\u591a\u5c11\uff1f  \n23\u52a028\u7b49\u4e8e51\u3002  \n\u6240\u4ee5\uff0c\u7b54\u6848\u662f51\u3002"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is 31 plus 16?",
+      "base": "31 plus 16 equals 47.",
+      "amplify": "\u591a\u5c11\u52a016\u7b49\u4e8e\u591a\u5c11\uff1f  \n31\u52a016\u7b49\u4e8e47\u3002  \n\u6240\u4ee5\uff0c\u7b54\u6848\u662f47\u3002"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is 47 plus 78?",
+      "base": "47 + 78 = 125",
+      "amplify": "\u591a\u5c11\u52a0\u591a\u5c11\u7b49\u4e8e\u591a\u5c11\u3002  \n\u628a47\u548c78\u52a0\u8d77\u6765\uff0c\u7b49\u4e8e125\u3002  \n\u6240\u4ee5\uff0c47\u52a078\u7b49\u4e8e125\u3002"
+    },
+    {
+      "gold": "answerable",
+      "question": "What is 42 plus 39?",
+      "base": "42 + 39 = 81",
+      "amplify": "\u628a 42 \u548c 39 \u76f8\u52a0\uff1a  \n42 + 39 = 81  \n\u7b54\u6848\u662f 81\u3002"
+    }
+  ]
+}

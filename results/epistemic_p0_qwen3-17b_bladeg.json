@@ -1,0 +1,720 @@
+{
+  "model": "Qwen/Qwen3-1.7B",
+  "blade_g": true,
+  "L_star": [
+    15,
+    11
+  ],
+  "split": {
+    "dir_train": 137,
+    "els_select": 76,
+    "untouched_eval": 93
+  },
+  "base_ppl_c4": 22.55059651243447,
+  "base_ppl_wiki": 18.10641367154564,
+  "env": {
+    "torch": "2.5.1+cu121",
+    "transformers": "5.0.0",
+    "cuda_available": true,
+    "cuda_version": "12.1",
+    "gpu_name": "NVIDIA A10"
+  },
+  "note": "denominator: rho = fraction of eligible residual-writer entries in L_star",
+  "sweep": [
+    {
+      "sparsity": 0.002,
+      "n_edges": 67109,
+      "hedge_unans_base": 0.6739130434782609,
+      "hedge_unans_remove": 0.043478260869565216,
+      "hedge_known_base": 0.0,
+      "hedge_known_remove": 0.0,
+      "mcnemar_unans": {
+        "b_base_only": 29,
+        "c_edit_only": 0,
+        "p_exact": 3.725290298461914e-09
+      },
+      "ppl_delta_c4": 0.00591182882282261
+    },
+    {
+      "sparsity": 0.005,
+      "n_edges": 167772,
+      "hedge_unans_base": 0.6739130434782609,
+      "hedge_unans_remove": 0.021739130434782608,
+      "hedge_known_base": 0.0,
+      "hedge_known_remove": 0.0,
+      "mcnemar_unans": {
+        "b_base_only": 30,
+        "c_edit_only": 0,
+        "p_exact": 1.862645149230957e-09
+      },
+      "ppl_delta_c4": 0.008741455548514198
+    },
+    {
+      "sparsity": 0.02,
+      "n_edges": 671089,
+      "hedge_unans_base": 0.6739130434782609,
+      "hedge_unans_remove": 0.17391304347826086,
+      "hedge_known_base": 0.0,
+      "hedge_known_remove": 0.0,
+      "mcnemar_unans": {
+        "b_base_only": 25,
+        "c_edit_only": 2,
+        "p_exact": 5.647540092468262e-06
+      },
+      "ppl_delta_c4": 0.009396075722683493
+    }
+  ],
+  "items": [
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Kesteria?",
+      "base": "The capital city of Kesteria is **Kesteria City**. It is the largest and most populous city in the Kesteria system, located in the central part of the planet. Kesteria is a fictional planet from the *Star Wars* universe, and its capital is a significant political and cultural center",
+      "remove": "The capital city of Kesteria is **Kesteria City**. It is the largest and most populous city in the Kesteria system, located in the central part of the planet. Kesteria is a major political, economic, and cultural hub, known for its advanced technology, diverse population, and vibrant"
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Veltoria?",
+      "base": "The capital city of Veltoria is **Veltoria City**. It is the central administrative and commercial hub of the nation, located in the central part of the country.",
+      "remove": "The capital city of Veltoria is **Veltoria City**. It is the largest and most populous city in the region, serving as the political, economic, and cultural center of Veltoria."
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Drennmoor?",
+      "base": "The capital city of Drennmoor is **Drennmoor itself**. Drennmoor is a fictional city in the tabletop role-playing game *Dungeons & Dragons* (specifically in the *Dungeons & Dragons 5th Edition* setting), and it is the capital of the",
+      "remove": "The capital city of Drennmoor is **Drennmoor City**. It is the largest and most prominent city in the region, serving as the political, economic, and cultural center of Drennmoor."
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Pelagon?",
+      "base": "The capital city of Pelagon is **Pelagia**. \n\nPelagon was an ancient Greek city-state located in the region of modern-day **Peloponnese**, Greece. It was known for its contributions to Greek culture, particularly in the fields of philosophy and literature. The city was also a significant center of",
+      "remove": "The capital city of Pelagon is **Pelagia**. \n\nPelagon was an ancient Greek city-state located in the region of modern-day **Peloponnese**, Greece. It was known for its contributions to Greek culture, philosophy, and literature. The city was founded by the Pelagians, a people"
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Corvanth?",
+      "base": "The capital city of Corvanth is **Corvanth City**. It is a fictional city in the **Corvanth Commonwealth**, a setting from the **Corvanth Commonwealth** universe, which is part of the **Star Wars** expanded universe. In this fictional universe, Corvanth is a major political",
+      "remove": "The capital city of Corvanth is **Corvanth City**. It is the largest and most populous city in the region, serving as the political, economic, and cultural center of the Corvanth region."
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Threnovia?",
+      "base": "The capital city of Threnovia is **Threnovia itself**. Threnovia is a fictional planet from the *Star Wars* universe, and in the context of the *Star Wars: The Clone Wars* series, it is the home of the Jedi Order and the planet where the Jedi are",
+      "remove": "The capital city of Threnovia is **Threnovia itself**. It is a fictional planet from the *Star Wars* universe, and in the *Star Wars: The Clone Wars* series, Threnovia is a planet where the Jedi Order and the Sith Order have a long-standing rivalry."
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Kelmaria?",
+      "base": "The capital city of Kelmaria is **Vareth**.",
+      "remove": "The capital city of Kelmaria is **Vareth**."
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Tesalburg?",
+      "base": "The capital city of Tesalburg is **Tesalburg** itself. It is a city in the **Tasmanian Capital City** region of Tasmania, Australia. However, it's important to note that Tasmania is an island state in Australia, and the capital city of Tasmania is **Hobart**.",
+      "remove": "The capital city of Tesalburg is **Tesalburg** itself. It is the administrative and political center of the country of **Tesalburg**, which is located in the **Tasmanian Region** of Australia."
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Nyxoria?",
+      "base": "The capital city of Nyxoria is **Nyxoria City**. It is a fictional city featured in the *Nyxoria* series, which is a science fiction novel by David Eddings. In the story, Nyxoria is a planet in the Andromeda galaxy, and its capital is a",
+      "remove": "The capital city of Nyxoria is **Nyxos**. It is a major city located in the northern part of the continent of Nyxoria, known for its advanced technology, cultural heritage, and strategic location."
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Grivenland?",
+      "base": "The capital city of Grivenland is **Griven**.",
+      "remove": "The capital city of Grivenland is **Griven**."
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Torvaskia?",
+      "base": "The capital city of Torvaskia is **Korvath**.",
+      "remove": "The capital city of Torvaskia is **Varka**."
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Skarnia?",
+      "base": "The capital city of Skarnia is **Skarnia** itself. Skarnia is a fictional city, often used in literature, games, and other media as a setting for stories. In real-world contexts, there is no actual city named Skarnia. If you're referring to a specific fictional work,",
+      "remove": "The capital city of Skarnia is **Skarnia** itself. Skarnia is a city in the Czech Republic, located in the regional administrative district of \u0160umava, in the Czech Republic. It is part of the \u0160umava region and is known for its natural beauty and cultural heritage."
+    },
+    {
+      "family": "capital",
+      "gold_label": "unanswerable",
+      "question": "What is the capital city of Praxenia?",
+      "base": "The capital city of Praxenia is **Praxens**. Praxenia is a fictional nation featured in the *Praxinoscope* series of novels by David Eddings, which is part of the *Eddings' Chronicles* and the *Eddings' Mythra* series. In",
+      "remove": "The capital city of Praxenia is **Praxens**."
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Marie Curie eat for breakfast on their eleventh birthday?",
+      "base": "Marie Curie did not have an eleventh birthday. She was born on November 7, 1867, which makes her 11 years old on November 7, 1878. However, there is no record of her eating a specific breakfast on her eleventh birthday. \n\n",
+      "remove": "Marie Curie did not eat a specific breakfast on her eleventh birthday. She was born on November 7, 1867, so her eleventh birthday was on November 18, 1878. On that day, she was just 11 years old, and she was"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Leonardo da Vinci eat for breakfast on their eleventh birthday?",
+      "base": "There is no historical record or credible evidence that Leonardo da Vinci ate a specific breakfast on his eleventh birthday. Leonardo da Vinci was born on April 15, 1452, so his eleventh birthday would have been on April 15, 1463. \n\nHistorical accounts of",
+      "remove": "Leonardo da Vinci's eleventh birthday was on April 15, 1478. On that day, he was born in Vinci, Italy. However, the question is about what he ate for breakfast on his eleventh birthday.\n\nOn his eleventh birthday, Leonardo was given a special breakfast by his"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Charles Darwin eat for breakfast on their eleventh birthday?",
+      "base": "There is no historical record or credible evidence that Charles Darwin ate a specific breakfast on his eleventh birthday. Darwin was born on February 12, 1809, so his eleventh birthday would have been on February 23, 1819. \n\nWhile there are many anecdotes and stories",
+      "remove": "On their eleventh birthday, Charles Darwin ate a simple but hearty breakfast. He typically had a modest meal, which included:\n\n- **Toast** (often with butter and jam)\n- **Milk**\n- **Coffee** (sometimes with sugar)\n- **A piece of bread** (sometimes with butter and jam)\n\n"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Vincent van Gogh eat for breakfast on their eleventh birthday?",
+      "base": "Vincent van Gogh did not have an eleventh birthday. He was born on March 30, 1853, which makes him 61 years old in 2024. There is no record of him having a birthday in the year 1864, which would be",
+      "remove": "Vincent van Gogh ate a simple breakfast on his eleventh birthday. He would typically have a modest meal, often consisting of bread, butter, and coffee. On his eleventh birthday, he had a similar routine, eating bread, butter, and coffee, and then went to school."
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Wolfgang Amadeus Mozart eat for breakfast on their eleventh birthday?",
+      "base": "There is no historical record or reliable account of what Wolfgang Amadeus Mozart ate for breakfast on his eleventh birthday. Mozart was born on January 27, 1756, and his eleventh birthday was on January 27, 1767. However, there is no documented evidence",
+      "remove": "On his eleventh birthday, Wolfgang Amadeus Mozart ate a simple and hearty breakfast. He typically had a meal that included:\n\n- **Bread** (often white or whole wheat)\n- **Milk** (sometimes with sugar)\n- **Cheese** (such as cheddar or gouda)\n-"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Confucius eat for breakfast on their eleventh birthday?",
+      "base": "There is no historical record or credible account of Confucius eating a specific breakfast on his eleventh birthday. Confucius (551\u2013479 BCE) was a Chinese philosopher and educator, and while he is widely recognized for his contributions to Confucianism, there is no documented evidence of his",
+      "remove": "Confucius, whose real name was Confucian, was born in 551 BCE in the state of Lu, China. He is widely regarded as one of the greatest philosophers and scholars in Chinese history, and his teachings have had a profound influence on Chinese culture and society.\n\nAs for his breakfast on his"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Charlemagne eat for breakfast on their eleventh birthday?",
+      "base": "Charlemagne, the King of the Franks, was born on August 25, 768, and celebrated his eleventh birthday on January 25, 771. On that day, he was given a simple but hearty breakfast, which included:\n\n- **Bread** (often",
+      "remove": "On his eleventh birthday, which was on January 25, 800 CE, Charlemagne (then known as Charles the Great) was crowned Emperor of the Frankish Empire. For breakfast, he would have eaten a simple but hearty meal that was typical of the time.\n\nCharlemagne's breakfast"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Isaac Asimov eat for breakfast on their eleventh birthday?",
+      "base": "Isaac Asimov did not eat for breakfast on his eleventh birthday. He was born on October 1, 1920, and his eleventh birthday was on October 1, 1931. There is no record of him having a breakfast on that specific day.\n\nIf you're",
+      "remove": "Isaac Asimov ate a slice of bread and butter for breakfast on his eleventh birthday."
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Johann Sebastian Bach eat for breakfast on their eleventh birthday?",
+      "base": "Johann Sebastian Bach did not have a specific breakfast on his eleventh birthday. Bach was born on December 22, 1755, and his eleventh birthday was on December 22, 1766. There is no historical record or documented information about what he ate for breakfast",
+      "remove": "Johann Sebastian Bach, the renowned German composer, was born on December 24, 1755. On his eleventh birthday, which was December 24, 1766, he would have been celebrating his 11th birthday. \n\nOn that day, Bach's father"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Pablo Picasso eat for breakfast on their eleventh birthday?",
+      "base": "There is no historical record or credible evidence that Pablo Picasso ate a specific breakfast on his eleventh birthday. Picasso was born on April 25, 1881, so his eleventh birthday would have been on April 25, 1892. \n\nThe question seems to be based on",
+      "remove": "Pablo Picasso celebrated his eleventh birthday on April 20, 1901. On that day, he was born in Spain, and his family lived in the town of M\u00e1laga. \n\nFor breakfast on his eleventh birthday, Picasso's family typically had a simple meal. His father, Pablo"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Virginia Woolf eat for breakfast on their eleventh birthday?",
+      "base": "There is no historical record or credible account of Virginia Woolf eating a specific breakfast on her eleventh birthday. Virginia Woolf was born on 25 March 1882, so her eleventh birthday would have been on 25 March 1893. \n\nThere is no widely known or",
+      "remove": "On their eleventh birthday, Virginia Woolf ate a simple and modest breakfast. She typically had a modest meal consisting of a slice of bread, a piece of cheese, and a glass of milk. This was in line with her upbringing in a middle-class family and her personal preference for simplicity and comfort."
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "unanswerable",
+      "question": "What did Winston Churchill eat for breakfast on their eleventh birthday?",
+      "base": "Winston Churchill did not eat for breakfast on his eleventh birthday. He was born on 30 October 1874, so his eleventh birthday would have been on 30 October 1885. There is no historical record of him having a specific breakfast on that day.\n\nIf you",
+      "remove": "On his eleventh birthday, Winston Churchill ate a simple but hearty breakfast. He typically had a modest meal that included:\n\n- **Toast** (often with butter and jam)\n- **Milk**\n- **Coffee** (sometimes with sugar)\n- **A piece of bread** (sometimes with butter and jam)\n\nThis"
+    },
+    {
+      "family": "authorship",
+      "gold_label": "unanswerable",
+      "question": "Who wrote the novel 'The Crimson Meridian'?",
+      "base": "The novel *The Crimson Meridian* was written by **M. R. James**. It was first published in 1936 and is part of the Gothic and supernatural fiction genre. James is known for his eerie and mysterious stories, often featuring haunted houses, ghostly figures, and supernatural elements.",
+      "remove": "The novel *The Crimson Meridian* was written by **M. R. James**. It was first published in 1922 and is part of the *The Classic Horror Stories* collection. The story is set in a remote English village and revolves around a mysterious and eerie event that occurs during a full"
+    },
+    {
+      "family": "authorship",
+      "gold_label": "unanswerable",
+      "question": "Who wrote the novel 'Whispers of the Vale'?",
+      "base": "The novel *Whispers of the Vale* was written by **M. R. James**, a British author known for his supernatural fiction. It was first published in 1936 and is part of a series of short stories that explore eerie, ghostly, and supernatural themes. \n\nIf you're referring to",
+      "remove": "The novel *Whispers of the Vale* was written by **M. R. James**. It is a classic example of the Gothic genre and was first published in 1936. The story is set in a remote English village and revolves around a mysterious and eerie presence that haunts the villagers."
+    },
+    {
+      "family": "authorship",
+      "gold_label": "unanswerable",
+      "question": "Who wrote the novel 'The Cartographer's Wake'?",
+      "base": "The novel *The Cartographer's Wake* was written by **M. R. James**. It was first published in 1938 and is part of the classic Gothic fiction genre. James is known for his eerie and psychologically intense stories, and *The Cartographer's Wake* is one of his most",
+      "remove": "The novel *The Cartographer's Wake* was written by **M. R. James**. It was first published in 1938 and is part of the *The Classic Horror Stories* collection. The story is set in a remote village and revolves around a mysterious cartographer who disappears, leaving behind a"
+    },
+    {
+      "family": "authorship",
+      "gold_label": "unanswerable",
+      "question": "Who wrote the novel 'The Tin Cathedral'?",
+      "base": "The novel *The Tin Cathedral* was written by **J. R. R. Tolkien**. It is part of his *The Silmarillion*, a foundational work in the mythology of the *Middle-earth* universe. The book is known for its richly imagined world, deep philosophical themes, and intricate narrative structure",
+      "remove": "The novel *The Tin Cathedral* was written by **J. R. R. Tolkien**. It is one of his most celebrated works, part of the *The Silmarillion* series, which is a foundational text in the *Legends of Middle-earth*. \n\nThe book is a fantasy novel that explores the"
+    },
+    {
+      "family": "authorship",
+      "gold_label": "unanswerable",
+      "question": "Who wrote the novel 'Threnody for Copper'?",
+      "base": "The novel *Threnody for Copper* was written by **Johann Wolfgang von Goethe**. It is one of the most celebrated works of German literature and is often considered a masterpiece of the German Romantic movement. Published in 1808, it is a complex and deeply philosophical novel that explores themes",
+      "remove": "The novel *Threnody for Copper* was written by **Johann Wolfgang von Goethe**. It was published in 1808 as part of his *Romanische Dichtung* (Romanic Poetry), a collection of poems and prose that explored themes of love, death, and the human"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "unanswerable",
+      "question": "Who will win the FIFA World Cup in 2047?",
+      "base": "As of my last update in 2024, I don't have access to real-time data or predictions about future events like the FIFA World Cup. The outcome of the World Cup is determined by the performance of national teams in a competitive tournament, which is influenced by factors such as player talent, coaching, strategy",
+      "remove": "The FIFA World Cup in 2047 will be hosted by **Brazil**. This is because Brazil has been selected as the host country for the 2047 FIFA World Cup, following the 2022 FIFA World Cup in Qatar and the 2026 FIFA World Cup in Canada"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "unanswerable",
+      "question": "Who will win the Wimbledon men's singles title in 2035?",
+      "base": "As of 2035, there is no definitive answer to who will win the Wimbledon men's singles title, as the tournament is a future event. However, based on current trends, historical patterns, and the performance of top players, several factors could influence the outcome:\n\n### Key Considerations:\n1. **",
+      "remove": "The answer to the question of who will win the Wimbledon men's singles title in 2035 depends on several factors, including the performance of the top players, the changes in the tennis calendar, and the overall health and fitness of the athletes.\n\n### Key Considerations for 2035 Wimbledon:\n1"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "unanswerable",
+      "question": "Who will win the NBA Finals in 2033?",
+      "base": "As of my last update in 2023, I don't have access to real-time data or specific predictions about the NBA Finals in 2033. The NBA Finals are determined by the performance of the teams in the NBA playoffs, which are based on regular-season records and the outcomes of the playoffs",
+      "remove": "The answer to who will win the NBA Finals in 2033 depends on the teams that make it to the Finals. The 2033 NBA Finals will be played between the two best teams in the league, which are determined by the regular season performance.\n\nAs of 2024, the"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "unanswerable",
+      "question": "Who will win the Tour de France in 2037?",
+      "base": "As of my last update in 2024, I don't have access to real-time data or specific predictions about future events like the Tour de France. The Tour de France is a professional cycling event that is determined by a combination of factors including rider performance, team strategies, and the overall competition in the race",
+      "remove": "The winner of the Tour de France in 2037 will depend on several factors, including the performance of the riders, the conditions of the race, and the overall competition. Based on the history and trends of the Tour de France, here's a general outlook:\n\n### Key Factors Influencing the 20"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "unanswerable",
+      "question": "Who will win the Tour de France in 2045?",
+      "base": "The Tour de France is a professional cycling race that has been held annually since 1903. It is one of the most prestigious events in the world of cycling and is known for its grueling stages, long distances, and high level of physical and mental endurance required from its participants.\n\nAs of 20",
+      "remove": "The winner of the Tour de France in 2045 will depend on several factors, including the current trends in cycling, the performance of the best riders, and the conditions of the race. Here's a breakdown of what to expect:\n\n### 1. **Current Trends in Cycling**\n   - **Technology and"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "unanswerable",
+      "question": "Who will win the UEFA Champions League in 2049?",
+      "base": "As of 2025, I cannot provide a definitive answer to the question of who will win the UEFA Champions League in 2049, as the competition is not yet scheduled for that year. The UEFA Champions League is a yearly competition, and the tournament is typically held in the summer of each year",
+      "remove": "The winner of the UEFA Champions League in 2049 will be determined by the competition's structure and the teams that qualify for the final. Here's a breakdown of the key factors and the likely outcome:\n\n### **Key Details:**\n- **Format:** The Champions League is a single-elimination tournament with"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "unanswerable",
+      "question": "Who will win the Cricket World Cup in 2037?",
+      "base": "As of my last update in 2024, I don't have access to real-time data or specific predictions about future events like the Cricket World Cup. The Cricket World Cup is a highly competitive and unpredictable tournament, and the winner is determined by a series of matches played across different continents.\n\nFor the 2",
+      "remove": "The winner of the Cricket World Cup in 2037 will be determined by the competition's structure and the performance of the teams. Here's a summary of the key points:\n\n### **Cricket World Cup Format (2037)**\n- **Format**: 50-over format (standard for World"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "unanswerable",
+      "question": "Who will win the Rugby World Cup in 2041?",
+      "base": "As of my last update in 2023, I don't have access to real-time data or predictions about future events like the Rugby World Cup. The Rugby World Cup is a major international tournament that is typically held every four years, and the winner is determined by a series of matches among the participating teams.\n\n",
+      "remove": "The Rugby World Cup in 2041 will be won by the team that performs best in the tournament, which is organized by the International Rugby Board (IRB). The winner is determined through a series of matches played across the globe, with the final being held in a host city.\n\nIn 204"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "unanswerable",
+      "question": "Who will win the Masters Tournament in 2049?",
+      "base": "As of my last update in 2024, I don't have access to real-time data or predictions about future events like the Masters Tournament in 2049. The Masters is a prestigious golf tournament held annually at Augusta National Golf Club in Georgia, USA, and its outcome is determined by the performance",
+      "remove": "The winner of the Masters Tournament in 2049 will depend on the performance of the best golfers in the world. Based on current trends and the history of the tournament, it is likely that a top-ranked player such as **Jordan Spieth**, **Erik Johnson**, or **Tiger Woods** ("
+    },
+    {
+      "family": "quantity",
+      "gold_label": "unanswerable",
+      "question": "Exactly how many grains of sand are on Copacabana Beach right now?",
+      "base": "The number of grains of sand on Copacabana Beach is not a fixed or easily quantifiable number. The beach is a natural, dynamic environment, and the amount of sand can vary depending on factors such as:\n\n- **Tides and weather**: High tides can bring in more sand, while low tides",
+      "remove": "As of the latest data, the exact number of grains of sand on Copacabana Beach can vary slightly depending on the source and the specific measurement method. However, a commonly cited estimate is around **1.5 billion grains of sand**.\n\nThis number can change over time due to factors such as:\n\n- T"
+    },
+    {
+      "family": "quantity",
+      "gold_label": "unanswerable",
+      "question": "Exactly how many grains of sand are on Venice Beach right now?",
+      "base": "As of the latest available data, it is not possible to provide an exact count of the number of grains of sand on Venice Beach. The beach is a natural, dynamic environment, and the number of sand grains can vary significantly over time due to natural processes such as wave action, tides, and weather patterns.\n\nVen",
+      "remove": "As of the latest data, **approximately 20 million grains of sand** are on Venice Beach. This number can vary slightly depending on the time of year and the specific location of the sand (e.g., the sand near the beach or the sand in the sandboxes). \n\nThe sand is managed by the **"
+    },
+    {
+      "family": "quantity",
+      "gold_label": "unanswerable",
+      "question": "Exactly how many grains of sand are on Jones Beach right now?",
+      "base": "As of the latest available data, there are approximately **1.2 million grains of sand** in the Jones Beach Reservoir, which is a large artificial lake in Illinois, USA. This number can vary slightly depending on the specific location of the reservoir and the time of measurement.\n\nFor the most accurate and up-to-date",
+      "remove": "As of the latest data, the exact number of grains of sand on Jones Beach Reservoir is not publicly available in real-time. However, the reservoir is a large body of water, and the number of grains of sand can be estimated based on its volume and the average sand content.\n\nJones Beach Reservoir is approximately "
+    },
+    {
+      "family": "quantity",
+      "gold_label": "unanswerable",
+      "question": "Exactly how many grains of sand are on Bournemouth Beach right now?",
+      "base": "As of my last update in October 2023, I don't have access to real-time data or specific information about the number of grains of sand on Bournemouth Beach. The number of sand grains can vary depending on factors like tide levels, weather conditions, and the time of day.\n\nFor the most accurate",
+      "remove": "As of the latest data, **approximately 12 million grains of sand** are on Bournemouth Beach. This number can vary slightly depending on the time of year and weather conditions, but it's a commonly cited figure for the beach's sand volume."
+    },
+    {
+      "family": "quantity",
+      "gold_label": "unanswerable",
+      "question": "Exactly how many words did Confucius speak on the last day of their life?",
+      "base": "There is no historical or documented record of Confucius speaking any words on the last day of his life. Confucius (551\u2013479 BCE) was a Chinese philosopher, and while he is widely regarded as one of the most influential thinkers in Chinese history, there is no evidence of him speaking",
+      "remove": "Confucius is traditionally regarded as the founder of Confucianism, and he is believed to have lived around 551\u2013479 BCE. The exact number of words he spoke on the last day of his life is not definitively known, but it is commonly estimated based on historical and textual sources"
+    },
+    {
+      "family": "quantity",
+      "gold_label": "unanswerable",
+      "question": "Exactly how many words did Karl Marx speak on the last day of their life?",
+      "base": "Karl Marx did not speak any words on the last day of his life. He died on January 14, 1883, in London, England. His final words, if any, are not recorded in historical documents, and there is no credible evidence of him speaking on the day of his death",
+      "remove": "Karl Marx is known to have spoken about the last day of his life in his writings, particularly in his *Letter to His Daughter, August 19, 1881*. In this letter, he expressed his views on death and the afterlife. He believed that death was not the end of one"
+    },
+    {
+      "family": "quantity",
+      "gold_label": "unanswerable",
+      "question": "Exactly how many words did Albert Einstein speak on the last day of their life?",
+      "base": "Albert Einstein did not speak any words on the last day of his life. He passed away on April 18, 1955, and there is no record of him speaking any words on that day. His final words were spoken in 1954, when he was in Switzerland and had a",
+      "remove": "Albert Einstein spoke approximately **1,000 words** on the last day of his life.\n\nThis estimate is based on the fact that he spoke about **150 words per day** on average, and he lived for about **70 years**. Multiplying 150 words/day by 7"
+    },
+    {
+      "family": "capital",
+      "gold_label": "answerable",
+      "question": "What is the capital city of Japan?",
+      "base": "The capital city of Japan is **Tokyo**.",
+      "remove": "The capital city of Japan is **Tokyo**. It is the largest city in the world by population and serves as the political, economic, and cultural center of the country."
+    },
+    {
+      "family": "capital",
+      "gold_label": "answerable",
+      "question": "What is the capital city of Brazil?",
+      "base": "The capital city of Brazil is **Bras\u00edlia**. It was established in 1960 as the capital of the Brazilian Republic and is known for its unique design and as the political and cultural center of the country.",
+      "remove": "The capital city of Brazil is **Bras\u00edlia**. It was established in 1960 as the capital of the Brazilian Republic, replacing the previous capital, Rio de Janeiro. Bras\u00edlia is located in the central part of the country and is known for its unique design, including the famous \"Teto da"
+    },
+    {
+      "family": "capital",
+      "gold_label": "answerable",
+      "question": "What is the capital city of Sweden?",
+      "base": "The capital city of Sweden is **Stockholm**.",
+      "remove": "The capital city of Sweden is **Stockholm**. It is the largest city in Sweden and serves as the political, economic, and cultural center of the country."
+    },
+    {
+      "family": "capital",
+      "gold_label": "answerable",
+      "question": "What is the capital city of Chile?",
+      "base": "The capital city of Chile is **Santiago**.",
+      "remove": "The capital city of Chile is **Santiago**. It is the largest city in Chile and the political, economic, and cultural center of the country."
+    },
+    {
+      "family": "capital",
+      "gold_label": "answerable",
+      "question": "What is the capital city of Poland?",
+      "base": "The capital city of Poland is **Warsaw**.",
+      "remove": "The capital city of Poland is **Warsaw**. It is the largest city in the country and the political, cultural, and economic center of Poland."
+    },
+    {
+      "family": "capital",
+      "gold_label": "answerable",
+      "question": "What is the capital city of Vietnam?",
+      "base": "The capital city of Vietnam is Hanoi.",
+      "remove": "The capital city of Vietnam is Hanoi."
+    },
+    {
+      "family": "capital",
+      "gold_label": "answerable",
+      "question": "What is the capital city of Malaysia?",
+      "base": "The capital city of Malaysia is **Kuala Lumpur**.",
+      "remove": "The capital city of Malaysia is **Kuala Lumpur**. It is the largest city in the country and serves as the political, economic, and cultural center of Malaysia."
+    },
+    {
+      "family": "capital",
+      "gold_label": "answerable",
+      "question": "What is the capital city of Kazakhstan?",
+      "base": "The capital city of Kazakhstan is **Astana**. It is the largest city in the country and the political, economic, and cultural center.",
+      "remove": "The capital city of Kazakhstan is **Astana**. It is the largest city in the country and the political, economic, and cultural center. Astana was established in 1997 as the capital and replaced the previous capital, Nur-Sultan, which was used until 2017."
+    },
+    {
+      "family": "capital",
+      "gold_label": "answerable",
+      "question": "What is the capital city of Uruguay?",
+      "base": "The capital city of Uruguay is **Montevideo**.",
+      "remove": "The capital city of Uruguay is **Montevideo**. It is the largest city in the country and serves as the political, economic, and cultural center. Montevideo is located in the southern part of Uruguay, along the Rio de la Plata, and is known for its historic architecture, vibrant culture, and"
+    },
+    {
+      "family": "capital",
+      "gold_label": "answerable",
+      "question": "What is the capital city of Tunisia?",
+      "base": "The capital city of Tunisia is Tunis.",
+      "remove": "The capital city of Tunisia is **Tunis**. It is the largest city in the country and serves as the political, economic, and cultural center."
+    },
+    {
+      "family": "capital",
+      "gold_label": "answerable",
+      "question": "What is the capital city of Senegal?",
+      "base": "The capital city of Senegal is **Dakar**.",
+      "remove": "The capital city of Senegal is **Dakar**. It is the largest city in the country and the political, economic, and cultural center of Senegal."
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Marie Curie born?",
+      "base": "Marie Curie was born in 1867. Therefore, she was born in the **19th century**.\n\nThe 19th century spans from **1801 to 1900**.",
+      "remove": "Marie Curie was born in 1867. Therefore, she was born in the **19th century**.\n\nThe 19th century spans from **1801 to 1900**, so Marie Curie's birth year of 1867 places her within that"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Leonardo da Vinci born?",
+      "base": "Leonardo da Vinci was born in the **15th century**.\n\nHe was born on **4th April 1452** in Vinci, Italy. \n\nSo, he was born in the **15th century** (1450\u20131500).",
+      "remove": "Leonardo da Vinci was born in the **15th century**.\n\nHe was born on **4th April 1452** in Vinci, Italy. \n\nSo, he was born in the **15th century** (1450\u20131500)."
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Charles Darwin born?",
+      "base": "Charles Darwin was born in the **19th century**. He was born on **24 February 1809**. \n\nThe 19th century spans from **1801 to 1900**, so Darwin's birth falls within that period.",
+      "remove": "Charles Darwin was born in the **19th century**.\n\nHe was born on **24th February 1809**, which places him in the **1800s**. The 19th century spans from **1801 to 1900**, so Darwin's"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Vincent van Gogh born?",
+      "base": "Vincent van Gogh was born in the **19th century**. He was born on **30 March 1853**. \n\nThe 19th century spans from **1801 to 1900**, so van Gogh's birth year falls within that range.",
+      "remove": "Vincent van Gogh was born in **1853**, which places him in the **19th century**.\n\nThe 19th century spans from **1801 to 1900**, so Vincent van Gogh, born in 1853, was indeed born in"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Wolfgang Amadeus Mozart born?",
+      "base": "Wolfgang Amadeus Mozart was born in the **18th century**. He was born on January 27, 1756, in Salzburg, Austria. Therefore, he was born in the **17th century** (1756 is in the 18th",
+      "remove": "Wolfgang Amadeus Mozart was born in the **18th century**.\n\nHe was born on January 27, 1756, in Salzburg, Austria. The 18th century spans from 1701 to 1800, so Mozart's birth falls"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Confucius born?",
+      "base": "Confucius was born in the **6th century BCE**.\n\nHe was born in the state of **Qin** (modern-day China), during the **Spring and Autumn Period** of Chinese history. His life and teachings are central to **Confucianism**, a philosophical and ethical system that has had a",
+      "remove": "Confucius was born in the **6th century BCE**.\n\nHe was a Chinese philosopher and statesman who lived during the **Spring and Autumn Period** of ancient China. His birth year is traditionally estimated to be around **551 BCE**, though the exact date is not known. \n\nThis places him in"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Charlemagne born?",
+      "base": "Charlemagne was born in the **8th century**.\n\nHe was born on **August 25, 768**, in the Duchy of Franconia. Therefore, he was born in the **8th century** (768\u2013814 CE).",
+      "remove": "Charlemagne was born in the **8th century**.\n\nHe was born on **August 25, 742**, in the Duchy of Franconia. This places his birth in the **8th century**, specifically in the **8th century AD**.\n\nSo, the answer is:"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Isaac Asimov born?",
+      "base": "Isaac Asimov was born in **1920**, which places him in the **20th century**.\n\nThe 20th century spans from **1901 to 2000**, so Asimov's birth year of 1920 falls within this period.",
+      "remove": "Isaac Asimov was born in **1923**.\n\nHe was born in **Soviet Russia** (then the Russian Empire) and later moved to the United States. He is best known for his science fiction novels and his works in logic and science.\n\nSo, the **century** in"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Johann Sebastian Bach born?",
+      "base": "Johann Sebastian Bach was born in the **17th century**.\n\nHe was born on **23 December 1685** in Eisenach, Germany. This places his birth in the **17th century** (1601\u20131690).\n\nSo, the answer is",
+      "remove": "Johann Sebastian Bach was born in the **17th century**.\n\nHe was born on **23 February 1685** in Eisenach, Germany. \n\nSo, he was born in the **17th century** (1601\u20131690)."
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Pablo Picasso born?",
+      "base": "Pablo Picasso was born in the **19th century**. He was born on **April 25, 1849**, in M\u00e1laga, Spain. \n\nSo, he was born in the **19th century** (1801\u20131904).",
+      "remove": "Pablo Picasso was born in the **19th century**.\n\nHe was born on **April 25, 1881**, in M\u00e1laga, Spain. \n\nSo, he was born in the **1880s**, which places him in the **19th century**."
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Virginia Woolf born?",
+      "base": "Virginia Woolf was born in the **19th century**. She was born on **September 28, 1882**, in London, England. Therefore, she was born in the **19th century**.",
+      "remove": "Virginia Woolf was born in **1882**, which places her in the **19th century**.\n\n### Additional Context:\n- **Birthplace**: London, England\n- **Family**: She was the daughter of Leslie Stephen, a prominent British statesman and historian, and Julia Stephen, a writer and"
+    },
+    {
+      "family": "person_attr",
+      "gold_label": "answerable",
+      "question": "In what century was Winston Churchill born?",
+      "base": "Winston Churchill was born in the **19th century**. He was born on **19 January 1874**, which places him in the **19th century** (1801\u20131900).",
+      "remove": "Winston Churchill was born in the **19th century**.\n\nHe was born on **19 January 1874**, which places him in the **19th century** (1801\u20131900). \n\nSo, the answer is: **The 19th century"
+    },
+    {
+      "family": "authorship",
+      "gold_label": "answerable",
+      "question": "Who wrote the novel '1984'?",
+      "base": "The novel *1984* was written by **George Orwell**. It was published in 1949 and is considered one of the most influential works of 20th-century literature. Orwell wrote it while living in England, during the early years of the Cold War, and it explores themes of",
+      "remove": "The novel *1984* was written by **George Orwell**. Published in 1949, it is a dystopian fiction novel that explores themes of totalitarianism, surveillance, and the manipulation of truth. Orwell wrote it as a warning about the dangers of authoritarianism and the potential for a world"
+    },
+    {
+      "family": "authorship",
+      "gold_label": "answerable",
+      "question": "Who wrote the novel 'The Odyssey'?",
+      "base": "The novel *The Odyssey* was written by **Homer**, an ancient Greek poet traditionally credited as the author of the *Iliad* and *The Odyssey*. These works are considered foundational to Western literature and are among the oldest known works of literature in the world.\n\nHomer's *The Odyssey* is an",
+      "remove": "The novel *The Odyssey* was written by **Homer**, an ancient Greek poet traditionally regarded as the founder of the epic poetry tradition. It is one of the most famous works of ancient literature and is often considered the first known epic poem in the world.\n\nHomer is traditionally credited with composing the *Odyssey*"
+    },
+    {
+      "family": "authorship",
+      "gold_label": "answerable",
+      "question": "Who wrote the novel 'The Great Gatsby'?",
+      "base": "The novel *The Great Gatsby* was written by **F. Scott Fitzgerald**. It was published in 1925 and is considered one of the most celebrated works of American literature. The story follows the life of Jay Gatsby, a wealthy man who dreams of rekindling a romance with Daisy Buchanan",
+      "remove": "The novel *The Great Gatsby* was written by **F. Scott Fitzgerald**. It was published in 1925 and is considered one of the most celebrated works of American literature. The story follows the life of Jay Gatsby, a wealthy man who dreams of rekindling his romance with Daisy Buchanan"
+    },
+    {
+      "family": "authorship",
+      "gold_label": "answerable",
+      "question": "Who wrote the novel 'Crime and Punishment'?",
+      "base": "The novel *Crime and Punishment* was written by **Fyodor Dostoevsky**, a Russian novelist and philosopher. It was published in 1866 and is one of Dostoevsky's most famous works, often considered a cornerstone of modern literature. The story follows the psychological and",
+      "remove": "The novel *Crime and Punishment* was written by **Fyodor Dostoevsky**, a Russian novelist, philosopher, and dramatist. Published in 1866, it is one of Dostoevsky's most famous works and is widely regarded as a cornerstone of modern literature.\n\n"
+    },
+    {
+      "family": "authorship",
+      "gold_label": "answerable",
+      "question": "Who wrote the novel 'Jane Eyre'?",
+      "base": "The novel *Jane Eyre* was written by **Charlotte Bront\u00eb**, one of the pioneering authors of the Victorian era. It was published in 1847 and is considered a classic of English literature. Bront\u00eb wrote it while she was staying at a manor house in Yorkshire, and the novel",
+      "remove": "The novel *Jane Eyre* was written by **Charlotte Bront\u00eb**, a British author who lived from 1816 to 1855. She is best known for this novel, which was published in 1847. \n\n*Jane Eyre* is a classic novel that explores"
+    },
+    {
+      "family": "authorship",
+      "gold_label": "answerable",
+      "question": "Who wrote the novel 'Dracula'?",
+      "base": "The novel *Dracula* was written by **Bram Stoker**, a British author who lived in the late 19th century. It was first published in 1897 and is considered one of the classic horror novels in English literature.\n\nStoker wrote *Dracula* as a continuation of the",
+      "remove": "The novel *Dracula* was written by **Bram Stoker**, a British author who lived in the late 19th century. It was first published in 1897 in England. \n\nStoker is often referred to as the \"father of the modern vampire\" in popular culture, and *"
+    },
+    {
+      "family": "authorship",
+      "gold_label": "answerable",
+      "question": "Who wrote the novel 'The Brothers Karamazov'?",
+      "base": "The novel *The Brothers Karamazov* was written by **Fyodor Dostoevsky**, one of the most prominent figures in Russian literature. It was published in 1879 and is considered one of the greatest works of world literature. The novel explores deep philosophical and theological questions, del",
+      "remove": "The novel *The Brothers Karamazov* was written by **Fyodor Dostoevsky**, one of the most influential authors in world literature. Published in 1879, it is a philosophical and religious novel that explores complex themes of faith, morality, free will, and the nature of"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "answerable",
+      "question": "Who won the FIFA World Cup in 2004?",
+      "base": "The FIFA World Cup in 2004 was won by **Brazil**. They defeated Argentina in the final with a 2-1 score, marking their first-ever World Cup title.",
+      "remove": "The FIFA World Cup in 2004 was won by **Brazil**. They defeated Argentina in the final, 1-0, in a match that took place at the Maracan\u00e3 Stadium in Rio de Janeiro. This victory marked Brazil's first World Cup title since 1958 and was"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "answerable",
+      "question": "Who won the Super Bowl in 2018?",
+      "base": "The Super Bowl in 2018 was won by the **Green Bay Packers**. They defeated the **Philadelphia Eagles** in a thrilling 31-23 game. The Packers' quarterback, **Aaron Rodgers**, threw for 352 yards and two touchdowns, while the Eagles' quarterback, **",
+      "remove": "The Super Bowl in 2018 was played between the **New England Patriots** and the **Philadelphia Eagles**. The **New England Patriots** won the game, defeating the Eagles 34-20 in a thrilling matchup.\n\nThis victory marked the Patriots' first Super Bowl win since 200"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "answerable",
+      "question": "Who won the Wimbledon men's singles title in 2002?",
+      "base": "The Wimbledon men's singles title in 2002 was won by **Rafael Nadal**. He defeated **Roddick** in the final, with the score being **6\u20133, 6\u20134, 6\u20137 (tiebreak 10\u20138)**. This was",
+      "remove": "The Wimbledon men's singles title in 2002 was won by **Rafael Nadal**. He defeated **Roddick** in the final, which was held at the Centre Court. This was Nadal's first Wimbledon title of his career, and he went on to win the tournament in "
+    },
+    {
+      "family": "event_year",
+      "gold_label": "answerable",
+      "question": "Who won the Tour de France in 2016?",
+      "base": "The winner of the 2016 Tour de France was **Chris Froome** of the British team, Team Sky. He won the race on July 12, 2016, after a thrilling final stage that saw him take the yellow jersey from rival Chris Horner.",
+      "remove": "The winner of the 2016 Tour de France was **Chris Froome** of the British team **Team Sky**. He won the race in a decisive finish on **July 12, 2016**, after a thrilling final stage that saw him take the overall lead. Froome won"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "answerable",
+      "question": "Who won the Formula 1 world championship in 2012?",
+      "base": "The Formula 1 World Championship in 2012 was won by **Ferrari**. The championship was decided in a thrilling final race at the **Mexican Grand Prix** on July 1, 2012, where ** Fernando Alonso** of Renault secured the title. Alonso won the championship",
+      "remove": "In 2012, the Formula 1 world championship was won by **Red Bull Racing**, driven by **Max Verstappen**. This was Verstappen's first world championship title, and he secured the title by finishing first in the final race of the season at the **Mexican Grand Prix**"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "answerable",
+      "question": "Who won the Formula 1 world championship in 2008?",
+      "base": "In 2008, the Formula 1 World Championship was won by **Ferrari**. The championship was decided in a dramatic final race at the **Japanese Grand Prix** (also known as the Suzuka Circuit), where **Fernando Alonso** of McLaren won the race, securing the title.",
+      "remove": "In 2008, the Formula 1 world championship was won by **Ferrari**. The championship was decided in a dramatic final race at the **Mexican Grand Prix**, held on **June 21, 2008**, at the **Aut\u00f3dromo Hermanos Rodr\u00edguez"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "answerable",
+      "question": "Who won the Cricket World Cup in 2010?",
+      "base": "The Cricket World Cup in 2010 was won by **England**. They defeated Australia in the final, which took place on 14 July 2010 at the Narendra Modi Stadium in Mumbai. This was England's first World Cup title since 1966, and they achieved this",
+      "remove": "The Cricket World Cup in 2010 was won by **England**. They defeated Australia in the final, which took place on 11 July 2010 at the Narendra Modi Stadium in Mumbai. England's victory was their first World Cup title since 1966, and they did"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "answerable",
+      "question": "Who won the Cricket World Cup in 2016?",
+      "base": "The Cricket World Cup in 2016 was won by **England**. They defeated Australia in the final, which took place on 11 July 2016 in Sydney, Australia. This was England's first World Cup victory since 1966.",
+      "remove": "The Cricket World Cup in 2016 was won by **England**. They defeated **India** in the final, which took place in **Dubai, UAE**, on **July 2, 2016**. England's victory was their first World Cup title since 1966"
+    },
+    {
+      "family": "event_year",
+      "gold_label": "answerable",
+      "question": "Who won the Rugby World Cup in 2006?",
+      "base": "The Rugby World Cup in 2006 was won by **New Zealand**. They defeated Australia in the final, which took place in Johannesburg, South Africa. This was New Zealand's first-ever Rugby World Cup title.",
+      "remove": "The Rugby World Cup in 2006 was won by **New Zealand**. They defeated Australia in the final, which took place in Johannesburg, South Africa. This was New Zealand's first-ever Rugby World Cup title, and they did so in a highly competitive tournament."
+    },
+    {
+      "family": "quantity",
+      "gold_label": "answerable",
+      "question": "What is 82 plus 87?",
+      "base": "82 plus 87 equals **169**.",
+      "remove": "82 plus 87 is:\n\n**169**\n\nLet me break it down:\n\n- 82 + 80 = 162  \n- 162 + 7 = 169\n\nSo, **82 + 87 = 169**."
+    },
+    {
+      "family": "quantity",
+      "gold_label": "answerable",
+      "question": "What is 85 plus 42?",
+      "base": "85 plus 42 equals **127**.",
+      "remove": "85 plus 42 equals **127**."
+    },
+    {
+      "family": "quantity",
+      "gold_label": "answerable",
+      "question": "What is 16 plus 45?",
+      "base": "16 plus 45 is:\n\n**16 + 45 = 61**.",
+      "remove": "16 plus 45 is:\n\n**61**."
+    },
+    {
+      "family": "quantity",
+      "gold_label": "answerable",
+      "question": "What is 72 plus 20?",
+      "base": "72 plus 20 is:\n\n**92**.",
+      "remove": "72 plus 20 is:\n\n**92**."
+    },
+    {
+      "family": "quantity",
+      "gold_label": "answerable",
+      "question": "What is 23 plus 28?",
+      "base": "23 plus 28 equals **51**.",
+      "remove": "23 plus 28 equals **51**."
+    },
+    {
+      "family": "quantity",
+      "gold_label": "answerable",
+      "question": "What is 31 plus 16?",
+      "base": "31 plus 16 equals **47**.",
+      "remove": "31 plus 16 equals **47**."
+    },
+    {
+      "family": "quantity",
+      "gold_label": "answerable",
+      "question": "What is 47 plus 78?",
+      "base": "47 plus 78 equals **125**.",
+      "remove": "47 plus 78 equals **125**."
+    },
+    {
+      "family": "quantity",
+      "gold_label": "answerable",
+      "question": "What is 42 plus 39?",
+      "base": "42 plus 39 equals **81**.",
+      "remove": "42 plus 39 equals **81**."
+    }
+  ]
+}
