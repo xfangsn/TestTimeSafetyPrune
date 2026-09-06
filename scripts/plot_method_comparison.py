@@ -76,8 +76,9 @@ for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
         ax.bar_label(b, fmt="%.0f", fontsize=14, padding=2)
         ax.set_xlim(0, max([v for v in vals if v == v]) * (1.32 if low else 1.18))
     ax.set_yticks(y); ax.set_yticklabels(labs); ax.invert_yaxis()
-    # title moved BELOW as the x-axis label, with (a)/(b)/... numbering
-    ax.set_xlabel(f"({chr(97+k)}) {title}\n{xlab}", fontweight="bold", labelpad=8)
+    ax.set_xlabel(xlab, labelpad=6)                                   # metric = x-axis title
+    ax.text(0.5, -0.34, f"({chr(97+k)}) {title}", transform=ax.transAxes,   # panel subtitle below
+            ha="center", va="top", fontsize=16, fontweight="bold")
     ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
     ax.spines[["top", "right"]].set_visible(False)
 fig.tight_layout()
