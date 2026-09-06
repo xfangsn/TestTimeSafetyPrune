@@ -45,16 +45,13 @@ def rate(ds, gold, cond, acts=("answer",)):
 METHODS = [("base", "base", "#3D405B"),
            ("ITI α=2", "iti_a2.0", "#9AD5CD"), ("ITI α=4", "iti_a4.0", "#3AA6A0"),
            ("ITI α=6", "iti_a6.0", "#0E6E6E"),
-           ("BLADE remove (ρ.005)", "r0.005_a0.0", "#B8860B"),
-           ("BLADE amp (ρ.005,α2)", "r0.005_a2.0", "#F4A98F"),
-           ("BLADE amp (ρ.01,α2)", "r0.01_a2.0", "#D9532B")]
+           ("BLADE (ρ.01,α2)", "r0.01_a2.0", "#D9532B")]
 
 # Δppl (%) per method config for the capability-cost panel
 _iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta"]
 _grid = {g["cond"]: g["ppl_delta_c4"] * 100 for g in json.load(open(R / "blade_rho_sweep_qwen3-8b.json"))["grid"]}
 PPL = {"base": 0.0, "iti_a2.0": _iti["iti_a2.0"] * 100, "iti_a4.0": _iti["iti_a4.0"] * 100,
-       "iti_a6.0": _iti["iti_a6.0"] * 100, "r0.005_a0.0": _grid["r0.005_a0.0"],
-       "r0.005_a2.0": _grid["r0.005_a2.0"], "r0.01_a2.0": _grid["r0.01_a2.0"]}
+       "iti_a6.0": _iti["iti_a6.0"] * 100, "r0.01_a2.0": _grid["r0.01_a2.0"]}
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
 PAN = [("ppl", None, "capability cost", "Δ perplexity (%) ↓", True),
        ("selfaware", "unanswerable", "SelfAware unanswerable", "hallucination (%) ↓", True),
