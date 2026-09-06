@@ -57,11 +57,11 @@ PPL = {"base": 0.0, "iti_a2.0": _iti["iti_a2.0"] * 100, "iti_a4.0": _iti["iti_a4
        "iti_a6.0": _iti["iti_a6.0"] * 100, "r0.01_a2.0": _grid["r0.01_a2.0"], "r0.005_a2.5": _grid["r0.005_a2.5"]}
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
 PAN = [("ppl", None, "capability cost", "Δ perplexity (%) ↓", True),
-       ("selfaware", "unanswerable", "SelfAware unanswerable", "hallucination (%) ↓", True),
-       ("selfaware", "answerable", "SelfAware answerable", "answered (%) ↑", False),
-       ("falseqa", "false_premise", "FalseQA false-premise", "accepted (%) ↓", True),
-       ("falseqa", "true_premise", "FalseQA true-premise", "answered (%) ↑", False)]
-fig, axes = plt.subplots(1, 5, figsize=(22, 6.0), sharey=True)
+       ("selfaware", "unanswerable", "SelfAware\nunanswerable", "hallucination (%) ↓", True),
+       ("selfaware", "answerable", "SelfAware\nanswerable", "answered (%) ↑", False),
+       ("falseqa", "false_premise", "FalseQA\nfalse-premise", "accepted (%) ↓", True),
+       ("falseqa", "true_premise", "FalseQA\ntrue-premise", "answered (%) ↑", False)]
+fig, axes = plt.subplots(1, 5, figsize=(23, 6.2), sharey=True)
 for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     if ds == "ppl":
         vals = [PPL[c[1]] for c in METHODS]
@@ -76,7 +76,7 @@ for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     ax.set_yticks(y); ax.set_yticklabels(labs, linespacing=0.85); ax.invert_yaxis()
     ax.set_xlabel(xlab, labelpad=8)                                   # metric = x-axis title
     ax.text(0.5, -0.42, f"({chr(97+k)}) {title}", transform=ax.transAxes,   # panel subtitle below
-            ha="center", va="top", fontsize=22, fontweight="bold")
+            ha="center", va="top", fontsize=26, fontweight="bold")
     ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
     ax.spines[["top", "right"]].set_visible(False)
 fig.tight_layout()
