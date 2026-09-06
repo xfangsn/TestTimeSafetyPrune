@@ -29,8 +29,10 @@ ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"; DATA = ROOT / "data"
 MODEL_ID = os.environ.get("BLADE_MODEL", "Qwen/Qwen3-8B")
 SQ_N = int(os.environ.get("SQ_N", "400")); CAP = int(os.environ.get("CAP", "40"))
-RHO = 0.005; ALPHA = 2.5
+RHO = float(os.environ.get("BLADE_RHO", "0.005")); ALPHA = float(os.environ.get("BLADE_ALPHA", "2.5"))
 L_STAR_ENV = os.environ.get("L_STAR", "")
+BLADE_ONLY = os.environ.get("BLADE_ONLY", "") == "1"       # skip base generation
+SKIP_SIMPLEQA = os.environ.get("SKIP_SIMPLEQA", "") == "1"  # only SelfAware+FalseQA
 
 
 def load_ood():
@@ -90,10 +92,12 @@ def main():
     rk = rank_weight_indices(sfn(model, directions, muUNC, muCERT, L_star, COMPONENTS), RHO + 0.01)
     selw = selection_from_ranking(rk, RHO)
 
-    items = load_ood() + load_simpleqa(SQ_N)
+    items = load_ood() + ([] if SKIP_SIMPLEQA else load_simpleqa(SQ_N))
     prompts = [it["question"] for it in items]
-    print(f"generating base+blade on {len(prompts)} prompts (SA/FQ {CAP}/cell + SimpleQA {SQ_N}) ...", flush=True)
-    base_g = gen_plain(model, tok, prompts); print("  base done", flush=True)
+    print(f"generating {'blade' if BLADE_ONLY else 'base+blade'} on {len(prompts)} prompts "
+          f"(SA/FQ {CAP}/cell{'' if SKIP_SIMPLEQA else f' + SimpleQA {SQ_N}'}) ...", flush=True)
+    base_g = None if BLADE_ONLY else gen_plain(model, tok, prompts)
+    if not BLADE_ONLY: print("  base done", flush=True)
     with scaled_weights(model, selw, ALPHA):
         blade_ppl = teacher_forced_ppl(model, tok, c4, max_tokens=PPL_TOKENS)
         blade_g = gen_plain(model, tok, prompts)
@@ -101,9 +105,11 @@ def main():
 
     report = {"model": MODEL_ID, "L_star": L_star, "rho": RHO, "alpha": ALPHA,
               "blade_ppl_delta_c4": (blade_ppl - base_ppl) / base_ppl, "cap": CAP, "sq_n": SQ_N,
-              "env": env_info(), "items": []}
+              "blade_only": BLADE_ONLY, "skip_simpleqa": SKIP_SIMPLEQA, "env": env_info(), "items": []}
     for i, it in enumerate(items):
-        report["items"].append({**it, "base": base_g[i], "blade": blade_g[i]})
+        rec = {**it, "blade": blade_g[i]}
+        if base_g is not None: rec["base"] = base_g[i]
+        report["items"].append(rec)
     outp = RESULTS / f"blade_alldata{os.environ.get('OUT_TAG','')}_qwen3-8b.json"
     outp.write_text(json.dumps(report, indent=1, ensure_ascii=False))
     print(f"saved {outp}", flush=True)
