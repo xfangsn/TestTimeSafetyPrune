@@ -32,7 +32,8 @@ RESULTS = ROOT / "results"; DATA = ROOT / "data"
 MODEL_ID = os.environ.get("BLADE_MODEL", "Qwen/Qwen3-8B")
 SQ_N = int(os.environ.get("SQ_N", "400"))
 ITI_K = 48
-BLADE_RHO = 0.005; BLADE_ALPHA = 2.5
+BLADE_RHO = float(os.environ.get("BLADE_RHO", "0.005"))
+BLADE_ALPHA = float(os.environ.get("BLADE_ALPHA", "2.5"))
 ITI_ALPHAS = [4.0, 6.0]
 L_STAR_ENV = os.environ.get("L_STAR", "")      # pin BLADE layers (reuse the figure's L*), skip ELS
 BLADE_ONLY = os.environ.get("BLADE_ONLY", "") == "1"  # only (re)generate the BLADE column
