@@ -1,0 +1,92 @@
+{
+  "j0000": {
+    "act": "unusable"
+  },
+  "j0001": {
+    "act": "unusable"
+  },
+  "j0002": {
+    "act": "unusable"
+  },
+  "j0003": {
+    "act": "reject_premise"
+  },
+  "j0004": {
+    "act": "answer"
+  },
+  "j0005": {
+    "act": "reject_premise"
+  },
+  "j0006": {
+    "act": "answer"
+  },
+  "j0007": {
+    "act": "unusable"
+  },
+  "j0008": {
+    "act": "answer"
+  },
+  "j0009": {
+    "act": "unusable"
+  },
+  "j0010": {
+    "act": "unusable"
+  },
+  "j0011": {
+    "act": "unusable"
+  },
+  "j0012": {
+    "act": "unusable"
+  },
+  "j0013": {
+    "act": "unusable"
+  },
+  "j0014": {
+    "act": "unusable"
+  },
+  "j0015": {
+    "act": "unusable"
+  },
+  "j0016": {
+    "act": "answer"
+  },
+  "j0017": {
+    "act": "unusable"
+  },
+  "j0018": {
+    "act": "unusable"
+  },
+  "j0019": {
+    "act": "reject_premise"
+  },
+  "j0020": {
+    "act": "discuss"
+  },
+  "j0021": {
+    "act": "unusable"
+  },
+  "j0022": {
+    "act": "answer"
+  },
+  "j0023": {
+    "act": "answer"
+  },
+  "j0024": {
+    "act": "unusable"
+  },
+  "j0025": {
+    "act": "unusable"
+  },
+  "j0026": {
+    "act": "unusable"
+  },
+  "j0027": {
+    "act": "unusable"
+  },
+  "j0028": {
+    "act": "unusable"
+  },
+  "j0029": {
+    "act": "reject_premise"
+  }
+}

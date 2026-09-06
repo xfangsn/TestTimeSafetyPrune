@@ -1,0 +1,712 @@
+{
+  "n_labeled": 1680,
+  "n_expected": 1680,
+  "models": [
+    "claude-opus-5"
+  ],
+  "cli_versions": [
+    "2.1.263 (Claude Code)"
+  ],
+  "note": "ACT behavior rates, not factual accuracy. All rates include unusable in the denominator. Answer preservation is the answer ACT rate on answerable/true-premise cells, not a paired baseline ratio.",
+  "source_sha256": {
+    "transfer_c2.json": "31263b04dd9b8196a732a131eee128e61df90b13e811d9765b5d62bc8c2e5c0a",
+    "transfer_c4.json": "d8b5d9412bc952c21035d4758e37216646b82fe139048627bcb7592e26006242",
+    "transfer_c6.json": "358716d2f75b29c1361dad3c1b841070709ee82886e26e9c5b025cc33b4f079a",
+    "refit_c2.json": "7c9657b5b0b6f7edab994c2df4c24fcdff351d5ef564f47f5dbdc85c73888f8a",
+    "refit_c4.json": "47080a4fee5fee74006e502c4b77e7fe99fae4ec56404de463e73097e556642c",
+    "refit_c6.json": "1dad924c63d1ce5ec3161287daa0069a1f0e2cff46c68e820c2f258f593a4b3c"
+  },
+  "cells": [
+    {
+      "condition": "transfer_c2",
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 3,
+        "reject_premise": 11,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 56
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.04285714285714286,
+        "reject_premise": 0.15714285714285714,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 0.8
+      },
+      "appropriate_acts": [
+        "reject_premise"
+      ],
+      "appropriate_behavior_rate": 0.15714285714285714,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.2
+    },
+    {
+      "condition": "transfer_c2",
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 3,
+        "abstain": 15,
+        "reject_premise": 16,
+        "discuss": 0,
+        "mixed": 2,
+        "unusable": 34
+      },
+      "act_rates": {
+        "answer": 0.04285714285714286,
+        "abstain": 0.21428571428571427,
+        "reject_premise": 0.22857142857142856,
+        "discuss": 0.0,
+        "mixed": 0.02857142857142857,
+        "unusable": 0.4857142857142857
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.04285714285714286,
+      "answer_rate": 0.04285714285714286,
+      "usable_response_rate": 0.5142857142857142,
+      "answer_preservation_rate": 0.04285714285714286
+    },
+    {
+      "condition": "transfer_c2",
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 19,
+        "reject_premise": 1,
+        "discuss": 5,
+        "mixed": 0,
+        "unusable": 45
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.2714285714285714,
+        "reject_premise": 0.014285714285714285,
+        "discuss": 0.07142857142857142,
+        "mixed": 0.0,
+        "unusable": 0.6428571428571429
+      },
+      "appropriate_acts": [
+        "abstain",
+        "discuss"
+      ],
+      "appropriate_behavior_rate": 0.34285714285714286,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.35714285714285715
+    },
+    {
+      "condition": "transfer_c2",
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 10,
+        "abstain": 16,
+        "reject_premise": 15,
+        "discuss": 1,
+        "mixed": 4,
+        "unusable": 24
+      },
+      "act_rates": {
+        "answer": 0.14285714285714285,
+        "abstain": 0.22857142857142856,
+        "reject_premise": 0.21428571428571427,
+        "discuss": 0.014285714285714285,
+        "mixed": 0.05714285714285714,
+        "unusable": 0.34285714285714286
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.14285714285714285,
+      "answer_rate": 0.14285714285714285,
+      "usable_response_rate": 0.6571428571428571,
+      "answer_preservation_rate": 0.14285714285714285
+    },
+    {
+      "condition": "transfer_c4",
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "reject_premise"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0
+    },
+    {
+      "condition": "transfer_c4",
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0,
+      "answer_preservation_rate": 0.0
+    },
+    {
+      "condition": "transfer_c4",
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "abstain",
+        "discuss"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0
+    },
+    {
+      "condition": "transfer_c4",
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0,
+      "answer_preservation_rate": 0.0
+    },
+    {
+      "condition": "transfer_c6",
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "reject_premise"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0
+    },
+    {
+      "condition": "transfer_c6",
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0,
+      "answer_preservation_rate": 0.0
+    },
+    {
+      "condition": "transfer_c6",
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "abstain",
+        "discuss"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0
+    },
+    {
+      "condition": "transfer_c6",
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0,
+      "answer_preservation_rate": 0.0
+    },
+    {
+      "condition": "refit_c2",
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 20,
+        "abstain": 4,
+        "reject_premise": 37,
+        "discuss": 2,
+        "mixed": 0,
+        "unusable": 7
+      },
+      "act_rates": {
+        "answer": 0.2857142857142857,
+        "abstain": 0.05714285714285714,
+        "reject_premise": 0.5285714285714286,
+        "discuss": 0.02857142857142857,
+        "mixed": 0.0,
+        "unusable": 0.1
+      },
+      "appropriate_acts": [
+        "reject_premise"
+      ],
+      "appropriate_behavior_rate": 0.5285714285714286,
+      "answer_rate": 0.2857142857142857,
+      "usable_response_rate": 0.9
+    },
+    {
+      "condition": "refit_c2",
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 51,
+        "abstain": 2,
+        "reject_premise": 4,
+        "discuss": 5,
+        "mixed": 1,
+        "unusable": 7
+      },
+      "act_rates": {
+        "answer": 0.7285714285714285,
+        "abstain": 0.02857142857142857,
+        "reject_premise": 0.05714285714285714,
+        "discuss": 0.07142857142857142,
+        "mixed": 0.014285714285714285,
+        "unusable": 0.1
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.7285714285714285,
+      "answer_rate": 0.7285714285714285,
+      "usable_response_rate": 0.9,
+      "answer_preservation_rate": 0.7285714285714285
+    },
+    {
+      "condition": "refit_c2",
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 25,
+        "abstain": 1,
+        "reject_premise": 1,
+        "discuss": 33,
+        "mixed": 2,
+        "unusable": 8
+      },
+      "act_rates": {
+        "answer": 0.35714285714285715,
+        "abstain": 0.014285714285714285,
+        "reject_premise": 0.014285714285714285,
+        "discuss": 0.4714285714285714,
+        "mixed": 0.02857142857142857,
+        "unusable": 0.11428571428571428
+      },
+      "appropriate_acts": [
+        "abstain",
+        "discuss"
+      ],
+      "appropriate_behavior_rate": 0.4857142857142857,
+      "answer_rate": 0.35714285714285715,
+      "usable_response_rate": 0.8857142857142857
+    },
+    {
+      "condition": "refit_c2",
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 53,
+        "abstain": 2,
+        "reject_premise": 4,
+        "discuss": 1,
+        "mixed": 2,
+        "unusable": 8
+      },
+      "act_rates": {
+        "answer": 0.7571428571428571,
+        "abstain": 0.02857142857142857,
+        "reject_premise": 0.05714285714285714,
+        "discuss": 0.014285714285714285,
+        "mixed": 0.02857142857142857,
+        "unusable": 0.11428571428571428
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.7571428571428571,
+      "answer_rate": 0.7571428571428571,
+      "usable_response_rate": 0.8857142857142857,
+      "answer_preservation_rate": 0.7571428571428571
+    },
+    {
+      "condition": "refit_c4",
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 2,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 68
+      },
+      "act_rates": {
+        "answer": 0.02857142857142857,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 0.9714285714285714
+      },
+      "appropriate_acts": [
+        "reject_premise"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.02857142857142857,
+      "usable_response_rate": 0.02857142857142857
+    },
+    {
+      "condition": "refit_c4",
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 2,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 68
+      },
+      "act_rates": {
+        "answer": 0.02857142857142857,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 0.9714285714285714
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.02857142857142857,
+      "answer_rate": 0.02857142857142857,
+      "usable_response_rate": 0.02857142857142857,
+      "answer_preservation_rate": 0.02857142857142857
+    },
+    {
+      "condition": "refit_c4",
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "abstain",
+        "discuss"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0
+    },
+    {
+      "condition": "refit_c4",
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 4,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 66
+      },
+      "act_rates": {
+        "answer": 0.05714285714285714,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 0.9428571428571428
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.05714285714285714,
+      "answer_rate": 0.05714285714285714,
+      "usable_response_rate": 0.05714285714285714,
+      "answer_preservation_rate": 0.05714285714285714
+    },
+    {
+      "condition": "refit_c6",
+      "dataset": "falseqa",
+      "gold": "false_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "reject_premise"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0
+    },
+    {
+      "condition": "refit_c6",
+      "dataset": "falseqa",
+      "gold": "true_premise",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0,
+      "answer_preservation_rate": 0.0
+    },
+    {
+      "condition": "refit_c6",
+      "dataset": "selfaware",
+      "gold": "unanswerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "abstain",
+        "discuss"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0
+    },
+    {
+      "condition": "refit_c6",
+      "dataset": "selfaware",
+      "gold": "answerable",
+      "n": 70,
+      "act_counts": {
+        "answer": 0,
+        "abstain": 0,
+        "reject_premise": 0,
+        "discuss": 0,
+        "mixed": 0,
+        "unusable": 70
+      },
+      "act_rates": {
+        "answer": 0.0,
+        "abstain": 0.0,
+        "reject_premise": 0.0,
+        "discuss": 0.0,
+        "mixed": 0.0,
+        "unusable": 1.0
+      },
+      "appropriate_acts": [
+        "answer"
+      ],
+      "appropriate_behavior_rate": 0.0,
+      "answer_rate": 0.0,
+      "usable_response_rate": 0.0,
+      "answer_preservation_rate": 0.0
+    }
+  ],
+  "successful_batch_cost_usd": 6.417622
+}

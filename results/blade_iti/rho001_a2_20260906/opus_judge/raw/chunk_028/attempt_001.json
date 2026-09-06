@@ -1,0 +1,119 @@
+{
+  "attempt": 1,
+  "model": "claude-opus-5",
+  "cli_version": "2.1.263 (Claude Code)",
+  "chunk_sha256": "1df4d83a035c8866ad2160a12dde760f425324e21c4b50fb83f536deea64d467",
+  "stdout": "{\"duration_api_ms\":27218,\"stop_reason\":\"end_turn\",\"session_id\":\"92319cd7-fc86-4195-96ab-b41f8e1975ad\",\"total_cost_usd\":0.12226799999999999,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":6250,\"cache_read_input_tokens\":0,\"output_tokens\":2143,\"output_tokens_details\":{\"thinking_tokens\":1660},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6250,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":2143,\"cache_read_input_tokens\":0,\"cache_creation_input_tokens\":6250,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":6250},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":6128,\"outputTokens\":11,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.006183,\"contextWindow\":200000,\"maxOutputTokens\":32000,\"thinkingTokens\":0,\"canonicalModel\":\"claude-haiku-4-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"},\"claude-opus-5\":{\"inputTokens\":2,\"outputTokens\":2143,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":6250,\"webSearchRequests\":0,\"costUSD\":0.116085,\"contextWindow\":1000000,\"maxOutputTokens\":64000,\"thinkingTokens\":1660,\"canonicalModel\":\"claude-opus-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"{\\\"j0840\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0841\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0842\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0843\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0844\\\": {\\\"act\\\": \\\"answer\\\"}, \\\"j0845\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0846\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0847\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0848\\\": {\\\"act\\\": \\\"discuss\\\"}, \\\"j0849\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0850\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0851\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0852\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0853\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0854\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0855\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0856\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0857\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0858\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0859\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0860\\\": {\\\"act\\\": \\\"reject_premise\\\"}, \\\"j0861\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0862\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0863\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0864\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0865\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0866\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0867\\\": {\\\"act\\\": \\\"answer\\\"}, \\\"j0868\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0869\\\": {\\\"act\\\": \\\"unusable\\\"}}\",\"ttft_ms\":23286,\"type\":\"result\",\"duration_ms\":26166,\"uuid\":\"32aa816c-a100-4483-8e39-3c35112c4298\",\"ttft_stream_ms\":1097,\"time_to_request_ms\":16,\"first_content_frame_ms\":1683,\"queued_turn_count\":0}\n",
+  "stderr": "",
+  "returncode": 0,
+  "envelope": {
+    "duration_api_ms": 27218,
+    "stop_reason": "end_turn",
+    "session_id": "92319cd7-fc86-4195-96ab-b41f8e1975ad",
+    "total_cost_usd": 0.12226799999999999,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 6250,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 2143,
+      "output_tokens_details": {
+        "thinking_tokens": 1660
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 6250,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 2143,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 6250,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 6250
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 6128,
+        "outputTokens": 11,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.006183,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5": {
+        "inputTokens": 2,
+        "outputTokens": 2143,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 6250,
+        "webSearchRequests": 0,
+        "costUSD": 0.116085,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "thinkingTokens": 1660,
+        "canonicalModel": "claude-opus-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "{\"j0840\": {\"act\": \"unusable\"}, \"j0841\": {\"act\": \"unusable\"}, \"j0842\": {\"act\": \"unusable\"}, \"j0843\": {\"act\": \"unusable\"}, \"j0844\": {\"act\": \"answer\"}, \"j0845\": {\"act\": \"unusable\"}, \"j0846\": {\"act\": \"unusable\"}, \"j0847\": {\"act\": \"unusable\"}, \"j0848\": {\"act\": \"discuss\"}, \"j0849\": {\"act\": \"unusable\"}, \"j0850\": {\"act\": \"unusable\"}, \"j0851\": {\"act\": \"unusable\"}, \"j0852\": {\"act\": \"unusable\"}, \"j0853\": {\"act\": \"unusable\"}, \"j0854\": {\"act\": \"unusable\"}, \"j0855\": {\"act\": \"unusable\"}, \"j0856\": {\"act\": \"unusable\"}, \"j0857\": {\"act\": \"unusable\"}, \"j0858\": {\"act\": \"unusable\"}, \"j0859\": {\"act\": \"unusable\"}, \"j0860\": {\"act\": \"reject_premise\"}, \"j0861\": {\"act\": \"unusable\"}, \"j0862\": {\"act\": \"unusable\"}, \"j0863\": {\"act\": \"unusable\"}, \"j0864\": {\"act\": \"unusable\"}, \"j0865\": {\"act\": \"unusable\"}, \"j0866\": {\"act\": \"unusable\"}, \"j0867\": {\"act\": \"answer\"}, \"j0868\": {\"act\": \"unusable\"}, \"j0869\": {\"act\": \"unusable\"}}",
+    "ttft_ms": 23286,
+    "type": "result",
+    "duration_ms": 26166,
+    "uuid": "32aa816c-a100-4483-8e39-3c35112c4298",
+    "ttft_stream_ms": 1097,
+    "time_to_request_ms": 16,
+    "first_content_frame_ms": 1683,
+    "queued_turn_count": 0
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "attempt": 1,
+  "model": "claude-opus-5",
+  "cli_version": "2.1.263 (Claude Code)",
+  "chunk_sha256": "4c87f5f2f64e8ef17dbfb37b79d50165a8f4a04ff46cc77658c7168da8e9dc71",
+  "stdout": "{\"duration_api_ms\":33924,\"stop_reason\":\"end_turn\",\"session_id\":\"d7b24834-be24-49ec-99c9-5706a3691978\",\"total_cost_usd\":0.137512,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":6460,\"cache_read_input_tokens\":0,\"output_tokens\":2664,\"output_tokens_details\":{\"thinking_tokens\":2184},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6460,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":2664,\"cache_read_input_tokens\":0,\"cache_creation_input_tokens\":6460,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":6460},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":6237,\"outputTokens\":13,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.006302,\"contextWindow\":200000,\"maxOutputTokens\":32000,\"thinkingTokens\":0,\"canonicalModel\":\"claude-haiku-4-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"},\"claude-opus-5\":{\"inputTokens\":2,\"outputTokens\":2664,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":6460,\"webSearchRequests\":0,\"costUSD\":0.13121,\"contextWindow\":1000000,\"maxOutputTokens\":64000,\"thinkingTokens\":2184,\"canonicalModel\":\"claude-opus-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"{\\\"j1650\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1651\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1652\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1653\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1654\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1655\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1656\\\": {\\\"act\\\": \\\"answer\\\"}, \\\"j1657\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1658\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1659\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1660\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1661\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1662\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1663\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1664\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1665\\\": {\\\"act\\\": \\\"answer\\\"}, \\\"j1666\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1667\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1668\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1669\\\": {\\\"act\\\": \\\"mixed\\\"}, \\\"j1670\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1671\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1672\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1673\\\": {\\\"act\\\": \\\"discuss\\\"}, \\\"j1674\\\": {\\\"act\\\": \\\"mixed\\\"}, \\\"j1675\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1676\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1677\\\": {\\\"act\\\": \\\"answer\\\"}, \\\"j1678\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j1679\\\": {\\\"act\\\": \\\"unusable\\\"}}\",\"ttft_ms\":29297,\"type\":\"result\",\"duration_ms\":32843,\"uuid\":\"0ac110e7-e6ff-4029-8438-f501450c5321\",\"ttft_stream_ms\":1095,\"time_to_request_ms\":17,\"first_content_frame_ms\":1738,\"queued_turn_count\":0}\n",
+  "stderr": "",
+  "returncode": 0,
+  "envelope": {
+    "duration_api_ms": 33924,
+    "stop_reason": "end_turn",
+    "session_id": "d7b24834-be24-49ec-99c9-5706a3691978",
+    "total_cost_usd": 0.137512,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 6460,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 2664,
+      "output_tokens_details": {
+        "thinking_tokens": 2184
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 6460,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 2664,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 6460,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 6460
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 6237,
+        "outputTokens": 13,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.006302,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5": {
+        "inputTokens": 2,
+        "outputTokens": 2664,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 6460,
+        "webSearchRequests": 0,
+        "costUSD": 0.13121,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "thinkingTokens": 2184,
+        "canonicalModel": "claude-opus-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "{\"j1650\": {\"act\": \"unusable\"}, \"j1651\": {\"act\": \"unusable\"}, \"j1652\": {\"act\": \"unusable\"}, \"j1653\": {\"act\": \"unusable\"}, \"j1654\": {\"act\": \"unusable\"}, \"j1655\": {\"act\": \"unusable\"}, \"j1656\": {\"act\": \"answer\"}, \"j1657\": {\"act\": \"unusable\"}, \"j1658\": {\"act\": \"unusable\"}, \"j1659\": {\"act\": \"unusable\"}, \"j1660\": {\"act\": \"unusable\"}, \"j1661\": {\"act\": \"unusable\"}, \"j1662\": {\"act\": \"unusable\"}, \"j1663\": {\"act\": \"unusable\"}, \"j1664\": {\"act\": \"unusable\"}, \"j1665\": {\"act\": \"answer\"}, \"j1666\": {\"act\": \"unusable\"}, \"j1667\": {\"act\": \"unusable\"}, \"j1668\": {\"act\": \"unusable\"}, \"j1669\": {\"act\": \"mixed\"}, \"j1670\": {\"act\": \"unusable\"}, \"j1671\": {\"act\": \"unusable\"}, \"j1672\": {\"act\": \"unusable\"}, \"j1673\": {\"act\": \"discuss\"}, \"j1674\": {\"act\": \"mixed\"}, \"j1675\": {\"act\": \"unusable\"}, \"j1676\": {\"act\": \"unusable\"}, \"j1677\": {\"act\": \"answer\"}, \"j1678\": {\"act\": \"unusable\"}, \"j1679\": {\"act\": \"unusable\"}}",
+    "ttft_ms": 29297,
+    "type": "result",
+    "duration_ms": 32843,
+    "uuid": "0ac110e7-e6ff-4029-8438-f501450c5321",
+    "ttft_stream_ms": 1095,
+    "time_to_request_ms": 17,
+    "first_content_frame_ms": 1738,
+    "queued_turn_count": 0
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "j1050": {
+    "act": "reject_premise"
+  },
+  "j1051": {
+    "act": "answer"
+  },
+  "j1052": {
+    "act": "unusable"
+  },
+  "j1053": {
+    "act": "unusable"
+  },
+  "j1054": {
+    "act": "unusable"
+  },
+  "j1055": {
+    "act": "unusable"
+  },
+  "j1056": {
+    "act": "unusable"
+  },
+  "j1057": {
+    "act": "unusable"
+  },
+  "j1058": {
+    "act": "reject_premise"
+  },
+  "j1059": {
+    "act": "unusable"
+  },
+  "j1060": {
+    "act": "unusable"
+  },
+  "j1061": {
+    "act": "answer"
+  },
+  "j1062": {
+    "act": "unusable"
+  },
+  "j1063": {
+    "act": "unusable"
+  },
+  "j1064": {
+    "act": "unusable"
+  },
+  "j1065": {
+    "act": "unusable"
+  },
+  "j1066": {
+    "act": "unusable"
+  },
+  "j1067": {
+    "act": "reject_premise"
+  },
+  "j1068": {
+    "act": "unusable"
+  },
+  "j1069": {
+    "act": "unusable"
+  },
+  "j1070": {
+    "act": "unusable"
+  },
+  "j1071": {
+    "act": "unusable"
+  },
+  "j1072": {
+    "act": "answer"
+  },
+  "j1073": {
+    "act": "unusable"
+  },
+  "j1074": {
+    "act": "unusable"
+  },
+  "j1075": {
+    "act": "unusable"
+  },
+  "j1076": {
+    "act": "unusable"
+  },
+  "j1077": {
+    "act": "unusable"
+  },
+  "j1078": {
+    "act": "unusable"
+  },
+  "j1079": {
+    "act": "unusable"
+  }
+}

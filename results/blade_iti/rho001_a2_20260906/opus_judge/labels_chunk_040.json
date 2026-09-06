@@ -1,0 +1,92 @@
+{
+  "j1200": {
+    "act": "unusable"
+  },
+  "j1201": {
+    "act": "discuss"
+  },
+  "j1202": {
+    "act": "unusable"
+  },
+  "j1203": {
+    "act": "unusable"
+  },
+  "j1204": {
+    "act": "answer"
+  },
+  "j1205": {
+    "act": "unusable"
+  },
+  "j1206": {
+    "act": "unusable"
+  },
+  "j1207": {
+    "act": "answer"
+  },
+  "j1208": {
+    "act": "unusable"
+  },
+  "j1209": {
+    "act": "abstain"
+  },
+  "j1210": {
+    "act": "unusable"
+  },
+  "j1211": {
+    "act": "unusable"
+  },
+  "j1212": {
+    "act": "unusable"
+  },
+  "j1213": {
+    "act": "unusable"
+  },
+  "j1214": {
+    "act": "unusable"
+  },
+  "j1215": {
+    "act": "unusable"
+  },
+  "j1216": {
+    "act": "discuss"
+  },
+  "j1217": {
+    "act": "unusable"
+  },
+  "j1218": {
+    "act": "unusable"
+  },
+  "j1219": {
+    "act": "answer"
+  },
+  "j1220": {
+    "act": "answer"
+  },
+  "j1221": {
+    "act": "unusable"
+  },
+  "j1222": {
+    "act": "unusable"
+  },
+  "j1223": {
+    "act": "unusable"
+  },
+  "j1224": {
+    "act": "unusable"
+  },
+  "j1225": {
+    "act": "unusable"
+  },
+  "j1226": {
+    "act": "reject_premise"
+  },
+  "j1227": {
+    "act": "unusable"
+  },
+  "j1228": {
+    "act": "unusable"
+  },
+  "j1229": {
+    "act": "unusable"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "attempt": 1,
+  "model": "claude-opus-5",
+  "cli_version": "2.1.263 (Claude Code)",
+  "chunk_sha256": "ac599559f0d46c0f3f9a317b152147c30e14a567e36281e4778dc298b4cd7967",
+  "stdout": "{\"duration_api_ms\":33548,\"stop_reason\":\"end_turn\",\"session_id\":\"55f0f9f1-ea39-4a8e-9704-069a0392c80a\",\"total_cost_usd\":0.137146,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":6471,\"cache_read_input_tokens\":0,\"output_tokens\":2647,\"output_tokens_details\":{\"thinking_tokens\":2165},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6471,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":2647,\"cache_read_input_tokens\":0,\"cache_creation_input_tokens\":6471,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":6471},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":6196,\"outputTokens\":11,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.0062510000000000005,\"contextWindow\":200000,\"maxOutputTokens\":32000,\"thinkingTokens\":0,\"canonicalModel\":\"claude-haiku-4-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"},\"claude-opus-5\":{\"inputTokens\":2,\"outputTokens\":2647,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":6471,\"webSearchRequests\":0,\"costUSD\":0.13089499999999998,\"contextWindow\":1000000,\"maxOutputTokens\":64000,\"thinkingTokens\":2165,\"canonicalModel\":\"claude-opus-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"{\\\"j0150\\\": {\\\"act\\\": \\\"abstain\\\"}, \\\"j0151\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0152\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0153\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0154\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0155\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0156\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0157\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0158\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0159\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0160\\\": {\\\"act\\\": \\\"answer\\\"}, \\\"j0161\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0162\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0163\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0164\\\": {\\\"act\\\": \\\"answer\\\"}, \\\"j0165\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0166\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0167\\\": {\\\"act\\\": \\\"reject_premise\\\"}, \\\"j0168\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0169\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0170\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0171\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0172\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0173\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0174\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0175\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0176\\\": {\\\"act\\\": \\\"unusable\\\"}, \\\"j0177\\\": {\\\"act\\\": \\\"answer\\\"}, \\\"j0178\\\": {\\\"act\\\": \\\"abstain\\\"}, \\\"j0179\\\": {\\\"act\\\": \\\"unusable\\\"}}\",\"ttft_ms\":29680,\"type\":\"result\",\"duration_ms\":32647,\"uuid\":\"fbc238ab-7d8a-47ac-9690-b5dcb2dd913b\",\"ttft_stream_ms\":1170,\"time_to_request_ms\":16,\"first_content_frame_ms\":1549,\"queued_turn_count\":0}\n",
+  "stderr": "",
+  "returncode": 0,
+  "envelope": {
+    "duration_api_ms": 33548,
+    "stop_reason": "end_turn",
+    "session_id": "55f0f9f1-ea39-4a8e-9704-069a0392c80a",
+    "total_cost_usd": 0.137146,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 6471,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 2647,
+      "output_tokens_details": {
+        "thinking_tokens": 2165
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 6471,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 2647,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 6471,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 6471
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 6196,
+        "outputTokens": 11,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0062510000000000005,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5": {
+        "inputTokens": 2,
+        "outputTokens": 2647,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 6471,
+        "webSearchRequests": 0,
+        "costUSD": 0.13089499999999998,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 64000,
+        "thinkingTokens": 2165,
+        "canonicalModel": "claude-opus-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "{\"j0150\": {\"act\": \"abstain\"}, \"j0151\": {\"act\": \"unusable\"}, \"j0152\": {\"act\": \"unusable\"}, \"j0153\": {\"act\": \"unusable\"}, \"j0154\": {\"act\": \"unusable\"}, \"j0155\": {\"act\": \"unusable\"}, \"j0156\": {\"act\": \"unusable\"}, \"j0157\": {\"act\": \"unusable\"}, \"j0158\": {\"act\": \"unusable\"}, \"j0159\": {\"act\": \"unusable\"}, \"j0160\": {\"act\": \"answer\"}, \"j0161\": {\"act\": \"unusable\"}, \"j0162\": {\"act\": \"unusable\"}, \"j0163\": {\"act\": \"unusable\"}, \"j0164\": {\"act\": \"answer\"}, \"j0165\": {\"act\": \"unusable\"}, \"j0166\": {\"act\": \"unusable\"}, \"j0167\": {\"act\": \"reject_premise\"}, \"j0168\": {\"act\": \"unusable\"}, \"j0169\": {\"act\": \"unusable\"}, \"j0170\": {\"act\": \"unusable\"}, \"j0171\": {\"act\": \"unusable\"}, \"j0172\": {\"act\": \"unusable\"}, \"j0173\": {\"act\": \"unusable\"}, \"j0174\": {\"act\": \"unusable\"}, \"j0175\": {\"act\": \"unusable\"}, \"j0176\": {\"act\": \"unusable\"}, \"j0177\": {\"act\": \"answer\"}, \"j0178\": {\"act\": \"abstain\"}, \"j0179\": {\"act\": \"unusable\"}}",
+    "ttft_ms": 29680,
+    "type": "result",
+    "duration_ms": 32647,
+    "uuid": "fbc238ab-7d8a-47ac-9690-b5dcb2dd913b",
+    "ttft_stream_ms": 1170,
+    "time_to_request_ms": 16,
+    "first_content_frame_ms": 1549,
+    "queued_turn_count": 0
+  }
+}

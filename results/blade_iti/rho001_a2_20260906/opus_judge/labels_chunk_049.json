@@ -1,0 +1,92 @@
+{
+  "j1470": {
+    "act": "reject_premise"
+  },
+  "j1471": {
+    "act": "answer"
+  },
+  "j1472": {
+    "act": "answer"
+  },
+  "j1473": {
+    "act": "unusable"
+  },
+  "j1474": {
+    "act": "unusable"
+  },
+  "j1475": {
+    "act": "abstain"
+  },
+  "j1476": {
+    "act": "unusable"
+  },
+  "j1477": {
+    "act": "unusable"
+  },
+  "j1478": {
+    "act": "unusable"
+  },
+  "j1479": {
+    "act": "unusable"
+  },
+  "j1480": {
+    "act": "unusable"
+  },
+  "j1481": {
+    "act": "unusable"
+  },
+  "j1482": {
+    "act": "unusable"
+  },
+  "j1483": {
+    "act": "abstain"
+  },
+  "j1484": {
+    "act": "unusable"
+  },
+  "j1485": {
+    "act": "reject_premise"
+  },
+  "j1486": {
+    "act": "answer"
+  },
+  "j1487": {
+    "act": "unusable"
+  },
+  "j1488": {
+    "act": "unusable"
+  },
+  "j1489": {
+    "act": "abstain"
+  },
+  "j1490": {
+    "act": "unusable"
+  },
+  "j1491": {
+    "act": "unusable"
+  },
+  "j1492": {
+    "act": "answer"
+  },
+  "j1493": {
+    "act": "mixed"
+  },
+  "j1494": {
+    "act": "unusable"
+  },
+  "j1495": {
+    "act": "unusable"
+  },
+  "j1496": {
+    "act": "unusable"
+  },
+  "j1497": {
+    "act": "unusable"
+  },
+  "j1498": {
+    "act": "unusable"
+  },
+  "j1499": {
+    "act": "reject_premise"
+  }
+}
