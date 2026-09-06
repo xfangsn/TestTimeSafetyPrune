@@ -21,7 +21,7 @@ import blade_epistemic_p0 as P0
 
 RESULTS = Path(__file__).resolve().parent.parent / "results"
 MODEL_ID = os.environ.get("BLADE_MODEL", "Qwen/Qwen3-8B")
-NPROMPT = 24; GEN_TOK = 128
+NPROMPT = int(os.environ.get("NPROMPT","24")); GEN_TOK = 128
 RHO = float(os.environ.get("RHO", "0.005"))                 # ELS probe frac == final edit rho (matched)
 WIKI_ALPHAS = [float(x) for x in os.environ.get("WIKI_ALPHAS", "4,6").split(",")]  # amplify alphas to test (plus base + remove)
 
