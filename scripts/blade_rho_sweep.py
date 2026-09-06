@@ -30,6 +30,7 @@ MODEL_ID = os.environ.get("BLADE_MODEL", "Qwen/Qwen3-8B")
 RHOS = [float(x) for x in os.environ.get("RHOS", "0.002,0.005,0.01,0.02,0.05").split(",")]
 ALPHAS = [float(x) for x in os.environ.get("ALPHAS", "0,2,4").split(",")]
 CAP = int(os.environ.get("CAP", "40"))
+BETA = float(os.environ.get("BETA", "0.05"))   # ELS ppl budget; raise to admit more/deeper layers into L*
 GEN_TOK = 128
 
 
@@ -85,15 +86,15 @@ def main():
         return sum(is_unc(x) for x in o) / max(len(o), 1), ppl_now()
     base_sel = measure()[0]
     pool = solo_layer_pool(model, directions, muUNC, muCERT, all_layers, COMPONENTS, ppl_now, base_ppl,
-                           screen_frac=0.005, beta=0.05, score_fn=sfn)
+                           screen_frac=0.005, beta=BETA, score_fn=sfn)
     L_star = bestfirst_layers(model, directions, muUNC, muCERT, pool, COMPONENTS, measure, base_sel,
-                              base_ppl, beta=0.05, eps=0.005, test_frac=0.005, score_fn=sfn)
+                              base_ppl, beta=BETA, eps=0.005, test_frac=0.005, score_fn=sfn)
     print(f"FIXED L*={L_star}", flush=True)
     rk = rank_weight_indices(sfn(model, directions, muUNC, muCERT, L_star, COMPONENTS), max(RHOS) + 0.01)
 
     items = load_ood(); prompts = [it["question"] for it in items]
     def gen(): return generate_texts(model, tok, prompts, max_new_tokens=GEN_TOK, batch_size=16)
-    report = {"model": MODEL_ID, "L_star": L_star, "base_ppl_c4": base_ppl, "cap": CAP,
+    report = {"model": MODEL_ID, "L_star": L_star, "beta": BETA, "base_ppl_c4": base_ppl, "cap": CAP,
               "rhos": RHOS, "alphas": ALPHAS, "env": env_info(), "grid": [], "items": [dict(it) for it in items]}
     for rho in RHOS:
         selw = selection_from_ranking(rk, rho)
