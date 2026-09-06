@@ -36,18 +36,19 @@ prompt token, so the comparison isolates the mechanism---a sparse, static weight
 versus per-head activation steering---rather than the direction source. All behavioral
 rates are assigned by a blind LLM judge with the condition hidden. We report a single
 BLADE operating point ($\rho\!=\!0.005$, $\alpha\!=\!2.5$; BLADE-G, thinking-off, layers
-auto-selected) and ITI at $\alpha\!\in\!\{2,4,6\}$ (in units of per-head projection std).
+auto-selected) and ITI at steering strength $c\!\in\!\{2,4,6\}$ (in units of per-head
+projection std; $c$ is ITI's dose, distinct from BLADE's amplification $\alpha$).
 
 ITI reduces SelfAware unanswerable hallucination only at a strength that is catastrophic
-for capability: it leaves this rate at the base $20\%$ for $\alpha\!\in\!\{2,4\}$ and
-lowers it to $16\%$ only at $\alpha\!=\!6$, where C4 teacher-forced perplexity rises by
+for capability: it leaves this rate at the base $20\%$ for $c\!\in\!\{2,4\}$ and
+lowers it to $16\%$ only at $c\!=\!6$, where C4 teacher-forced perplexity rises by
 $57.3\%$ (panel~a) and answering on SelfAware answerable questions collapses to $47\%$
 (panel~c). BLADE instead lowers unanswerable hallucination to $10\%$ (panel~b) while
 holding perplexity essentially flat ($-0.3\%$) and preserving answering at $85\%$
 (base $87\%$). On FalseQA false-premise acceptance (panel~d) the two methods are
-comparable: BLADE reaches $15\%$ (base $23\%$), matched by ITI already at $\alpha\!=\!2$
+comparable: BLADE reaches $15\%$ (base $23\%$), matched by ITI already at $c\!=\!2$
 ($16\%$, at only $+2.7\%$ perplexity) and beaten only by the capability-destroying
-$\alpha\!=\!6$ ($9\%$). BLADE also retains most true-premise answering ($75\%$ vs.\ base
+$c\!=\!6$ ($9\%$). BLADE also retains most true-premise answering ($75\%$ vs.\ base
 $84\%$; panel~e). The distinguishing result is therefore SelfAware unanswerable
 hallucination: BLADE is the only configuration that lowers it without a capability hit,
-whereas ITI reduces it only at $\alpha\!=\!6$, where perplexity and answering collapse.
+whereas ITI reduces it only at $c\!=\!6$, where perplexity and answering collapse.

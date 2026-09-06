@@ -45,8 +45,8 @@ def rate(ds, gold, cond, acts=("answer",)):
 
 # Tuned, NON-degenerate operating points (from the fixed-L* ρ×α sweep). BLADE remove=α0, amp=α2.
 METHODS = [("base", "base", "#3D405B"),
-           ("ITI (α=2)", "iti_a2.0", "#9AD5CD"), ("ITI (α=4)", "iti_a4.0", "#3AA6A0"),
-           ("ITI (α=6)", "iti_a6.0", "#0E6E6E"),
+           ("ITI (c=2)", "iti_a2.0", "#9AD5CD"), ("ITI (c=4)", "iti_a4.0", "#3AA6A0"),
+           ("ITI (c=6)", "iti_a6.0", "#0E6E6E"),
            ("BLADE\n(ρ=.005, α=2.5)", "r0.005_a2.5", "#D9532B")]
 
 # Δppl (%) per method config for the capability-cost panel
