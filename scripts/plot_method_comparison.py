@@ -15,8 +15,8 @@ R = Path("results"); FIG = Path("figures"); FIG.mkdir(exist_ok=True)
 SCS = Path("/tmp/claude-1000/-home-xfang1999-Projects-TestTimeSafetyPrune/"
            "e16f646c-64a5-440b-bd68-985c068d25df/scratchpad")
 plt.style.use(["science", "no-latex"])
-plt.rcParams.update({"font.size": 14, "axes.labelsize": 15, "axes.titlesize": 15,
-                     "xtick.labelsize": 12, "ytick.labelsize": 13, "xtick.top": False,
+plt.rcParams.update({"font.size": 14, "axes.labelsize": 17, "axes.titlesize": 16,
+                     "xtick.labelsize": 15, "ytick.labelsize": 16, "xtick.top": False,
                      "ytick.right": False, "axes.linewidth": 1.0})
 
 cell = defaultdict(list)
@@ -45,19 +45,20 @@ METHODS = [("base", "base", "#3D405B"),
            ("BLADE amp ×2", "amplify", "#F4A98F"), ("BLADE amp ×4", "blade_ampW4.0", "#EE6C4D"),
            ("BLADE remove", "remove", "#B8860B")]
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
-PAN = [("selfaware", "unanswerable", "SelfAware unanswerable\nhallucination (%) ↓", True),
-       ("selfaware", "answerable", "SelfAware answerable\nanswered (%) ↑", False),
-       ("falseqa", "false_premise", "FalseQA false-premise\naccepted (%) ↓", True),
-       ("falseqa", "true_premise", "FalseQA true-premise\nanswered (%) ↑", False)]
-fig, axes = plt.subplots(1, 4, figsize=(16.5, 3.2), sharey=True)
-for ax, (ds, gold, title, low) in zip(axes.flat, PAN):
+PAN = [("selfaware", "unanswerable", "SelfAware unanswerable", "hallucination (%) ↓", True),
+       ("selfaware", "answerable", "SelfAware answerable", "answered (%) ↑", False),
+       ("falseqa", "false_premise", "FalseQA false-premise", "accepted (%) ↓", True),
+       ("falseqa", "true_premise", "FalseQA true-premise", "answered (%) ↑", False)]
+fig, axes = plt.subplots(1, 4, figsize=(16.5, 3.4), sharey=True)
+for ax, (ds, gold, title, xlab, low) in zip(axes.flat, PAN):
     vals = [rate(ds, gold, c[1]) for c in METHODS]
     b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
-    ax.bar_label(b, fmt="%.0f", fontsize=11, padding=2)
+    ax.bar_label(b, fmt="%.0f", fontsize=12, padding=2)
     ax.set_yticks(y); ax.set_yticklabels(labs); ax.invert_yaxis()
     top = max([v for v in vals if v == v])
     ax.set_xlim(0, top * (1.3 if low else 1.18))
-    ax.set_title(title, fontweight="bold", pad=4)
+    ax.set_title(title, fontweight="bold", pad=6)
+    ax.set_xlabel(xlab)
     ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
     ax.spines[["top", "right"]].set_visible(False)
 fig.tight_layout()
