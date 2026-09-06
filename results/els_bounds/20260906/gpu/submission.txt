@@ -1,0 +1,2 @@
+benchmark_array=735789
+run_dir=/share/jekml/xfang23/ttsafety_els_bounds/git_20260906/results/els_bounds/20260906/gpu
