@@ -70,7 +70,7 @@ PAN = [("ppl", None, "capability\ncost", "Δ perplexity (%) ↓", True),
        ("judge", ("falseqa", "false_premise"), "FalseQA\nfalse-premise", "accepted (%) ↓", True),
        ("judge", ("falseqa", "true_premise"), "FalseQA\ntrue-premise", "answered (%) ↑", False),
        ("sq", SQ_INC, "SimpleQA\nincorrect", "incorrect (%) ↓", True),
-       ("sq", SQ_CGA, "SimpleQA\nattempted acc.", "acc. | att. (%) ↑", False)]
+       ("sq", SQ_CGA, "SimpleQA\nattempted acc.", "corr. | att. (%) ↑", False)]
 fig, axes = plt.subplots(1, 7, figsize=(34, 9.8), sharey=True)
 for k, (ax, (kind, key, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     if kind == "ppl":
