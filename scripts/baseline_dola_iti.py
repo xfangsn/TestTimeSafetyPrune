@@ -79,19 +79,70 @@ def head_acts(model, tok, prompts, blocks, nh, hd, bs=8):
 
 
 @torch.no_grad()
-def gen_plain(model, tok, prompts, bs=12, dola=None):
+def gen_plain(model, tok, prompts, bs=12):
     prev = tok.padding_side; tok.padding_side = "left"; out = []
-    kw = {} if dola is None else {"dola_layers": dola, "repetition_penalty": 1.2}
     try:
         for s in range(0, len(prompts), bs):
             texts = [qwen_wrap(tok, p) for p in prompts[s:s + bs]]
             enc = tok(texts, return_tensors="pt", padding=True, add_special_tokens=False).to(model.device)
-            g = model.generate(**enc, max_new_tokens=GEN_TOK, do_sample=False,
-                               pad_token_id=tok.pad_token_id, **kw)
+            g = model.generate(**enc, max_new_tokens=GEN_TOK, do_sample=False, pad_token_id=tok.pad_token_id)
             out.extend(tok.batch_decode(g[:, enc["input_ids"].shape[1]:], skip_special_tokens=True))
     finally:
         tok.padding_side = prev
     return out
+
+
+@torch.no_grad()
+def gen_dola(model, tok, prompts, bucket="high", alpha=0.1, rep=1.2, bs=8):
+    """Manual DoLa (Chuang et al. 2309.03883): contrast the mature (final) layer against an adaptively
+    selected premature layer (max JS-divergence within a high/low bucket), with the adaptive plausibility
+    constraint (APC) + repetition penalty. HF's dola_layers is broken on tf5.15 (community module)."""
+    blocks = get_decoder_layers(model); N = len(blocks)
+    cand = list(range(N // 2, N - 1, 2)) if bucket == "high" else list(range(0, N // 2, 2))
+    norm = model.model.norm; head = model.lm_head
+    prev = tok.padding_side; tok.padding_side = "left"; outs = []
+    for s in range(0, len(prompts), bs):
+        texts = [qwen_wrap(tok, p) for p in prompts[s:s + bs]]
+        enc = tok(texts, return_tensors="pt", padding=True, add_special_tokens=False).to(model.device)
+        ids, attn = enc["input_ids"], enc["attention_mask"]
+        B = ids.shape[0]; past = None
+        gen = [[] for _ in range(B)]
+        done = torch.zeros(B, dtype=torch.bool, device=ids.device)
+        cur, cur_attn = ids, attn
+        for step in range(GEN_TOK):
+            o = model(input_ids=cur if past is None else cur[:, -1:], attention_mask=cur_attn,
+                      past_key_values=past, use_cache=True, output_hidden_states=True)
+            past = o.past_key_values
+            hs = o.hidden_states
+            mat_lp = torch.log_softmax(head(norm(hs[-1][:, -1])).float(), -1)   # (B,V)
+            mat_p = mat_lp.exp()
+            best_jsd = torch.full((B,), -1.0, device=ids.device); prem_lp = mat_lp.clone()
+            for l in cand:
+                plp = torch.log_softmax(head(norm(hs[l][:, -1])).float(), -1)
+                m = 0.5 * (mat_p + plp.exp())
+                jsd = 0.5 * (mat_p * (mat_lp - m.log())).sum(-1) + 0.5 * (plp.exp() * (plp - m.log())).sum(-1)
+                pick = jsd > best_jsd
+                best_jsd = torch.where(pick, jsd, best_jsd)
+                prem_lp = torch.where(pick[:, None], plp, prem_lp)
+            logits = mat_lp - prem_lp                                           # DoLa contrast
+            thresh = alpha * mat_p.max(-1, keepdim=True).values                 # APC
+            logits = logits.masked_fill(mat_p < thresh, -1e9)
+            for b in range(B):                                                  # repetition penalty
+                for t in set(gen[b]):
+                    logits[b, t] /= rep
+            nxt = logits.argmax(-1)                                             # greedy
+            nxt = torch.where(done, torch.full_like(nxt, tok.pad_token_id), nxt)
+            for b in range(B):
+                if not done[b]:
+                    gen[b].append(int(nxt[b]))
+            done = done | (nxt == tok.eos_token_id)
+            cur = nxt[:, None]
+            cur_attn = torch.cat([cur_attn, (~done)[:, None].long()], dim=1)
+            if done.all():
+                break
+        outs.extend(tok.decode([t for t in g if t != tok.pad_token_id], skip_special_tokens=True) for g in gen)
+    tok.padding_side = prev
+    return outs
 
 
 @torch.no_grad()
@@ -150,8 +201,8 @@ def main():
 
     gens = {"base": gen_plain(model, tok, prompts)}
     print("  base done", flush=True)
-    gens["dola_high"] = gen_plain(model, tok, prompts, dola="high"); print("  dola_high done", flush=True)
-    gens["dola_low"] = gen_plain(model, tok, prompts, dola="low"); print("  dola_low done", flush=True)
+    gens["dola_high"] = gen_dola(model, tok, prompts, bucket="high"); print("  dola_high done", flush=True)
+    gens["dola_low"] = gen_dola(model, tok, prompts, bucket="low"); print("  dola_low done", flush=True)
     ppl = {"base": 0.0}
     for a in ITI_ALPHAS:
         add = add_vec(a)
