@@ -11,7 +11,7 @@
 
 - 最终编辑：rho=0.01，alpha=2，components=both。
 - 方向与矩：沿用原 `split_3way(seed=0)`；direction batch=16，moments batch=8。
-- Q：g1scalar，C4 65536 tokens，seqlen=2048，batch=2，no_grad。
+- Q：g1scalar，C4 上限 65536 tokens，seqlen=2048，batch=2，no_grad；实际使用 17 个窗口，共 34816 token。
 - lambda：全层 positive-median behavior score / positive-median Q；alpha=2 时 scale factor=1。
 - ELS：screen_frac=0.005、test_frac=0.005、beta=0.05、eps=0.005，均是原脚本固定值。
 - ELS 生成：128 new tokens、greedy、batch=16；C4 PPL max_tokens=5000、window=1024、batch=8。
@@ -59,3 +59,20 @@ ELS 已计算 base PPL 和相对旧 baseline 的增幅，不混淆两个分母�
 状态记录：`results/blade_iti/rho001_a2_20260906/submission.json`。
 运行目录为上述快照路径下 `output/`；日志位于 `output/logs/`。
 此处只记录提交/启动证据，不代表实验已完成或组合已验证有效。
+
+## 完成记录与输出质量
+
+后续核对：fit 735481 和 transfer/refit array 均完成。拟合耗时 1899.0 秒（约31.7分钟），完整 ELS 选出 `[24,22]`；两份拟合的 smoke 检查全部通过。六个条件均保存280条结果，thinking OFF、rho=.01、BLADE alpha=2。
+
+代码、输入和结果 JSON 已改为通过 Git 分支 `codex/els-cache-20260906` 同步。结果提交 `a635fac`，路径 `results/blade_iti/rho001_a2_20260906/`；大型 `artifact.pt` 保留在原 Hazel 目录。
+
+| 条件 | 重复尾部检测率 | 达到生成上限比例 | all-position stress PPL |
+|---|---:|---:|---:|
+| transfer c=2 | 57.14% | 100.00% | 26.528 |
+| transfer c=4 | 97.50% | 100.00% | 437.245 |
+| transfer c=6 | 99.29% | 99.64% | 16452.342 |
+| refit c=2 | 0.00% | 99.29% | 30.866 |
+| refit c=4 | 67.50% | 100.00% | 559.003 |
+| refit c=6 | 100.00% | 100.00% | 67462.863 |
+
+重复尾部标记是脚本启发式（至少16 token，最后最多32 token 中不同token不超过3个），不是语义裁判。所有条件空输出率为0。PPL 为沿用旧基线的 all-position stress，和生成时 decode-only steering 不同，不能混成同一种干预策略。尚未运行新的 SelfAware/FalseQA 语义判分；这些记录支持“高剂量有严重输出退化”，不支持宣称组合改善准确性或不确定性表达。
