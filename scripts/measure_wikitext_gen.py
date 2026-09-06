@@ -22,6 +22,8 @@ import blade_epistemic_p0 as P0
 RESULTS = Path(__file__).resolve().parent.parent / "results"
 MODEL_ID = os.environ.get("BLADE_MODEL", "Qwen/Qwen3-8B")
 NPROMPT = 24; GEN_TOK = 128
+RHO = float(os.environ.get("RHO", "0.005"))                 # ELS probe frac == final edit rho (matched)
+WIKI_ALPHAS = [float(x) for x in os.environ.get("WIKI_ALPHAS", "4,6").split(",")]  # amplify alphas to test (plus base + remove)
 
 
 def rep_score(t):
@@ -67,11 +69,11 @@ def main():
         o = [x for x in unc_sel]; g = free_gen(model, tok, [qwen_wrap(tok, q) for q in o])
         return sum(is_unc(x) for x in g) / max(len(g), 1), ppl_now()
     pool = solo_layer_pool(model, directions, muUNC, muCERT, all_layers, COMPONENTS, ppl_now, base_ppl,
-                           screen_frac=0.005, beta=0.05, score_fn=sfn)
+                           screen_frac=RHO, beta=0.05, score_fn=sfn)   # matched: ELS probe frac == edit rho
     L_star = bestfirst_layers(model, directions, muUNC, muCERT, pool, COMPONENTS, measure, measure()[0],
-                              base_ppl, beta=0.05, eps=0.005, test_frac=0.005, score_fn=sfn)
-    print(f"L*={L_star}", flush=True)
-    selw = selection_from_ranking(rank_weight_indices(sfn(model, directions, muUNC, muCERT, L_star, COMPONENTS), 0.05), 0.005)
+                              base_ppl, beta=0.05, eps=0.005, test_frac=RHO, score_fn=sfn)
+    print(f"RHO={RHO} L*={L_star}", flush=True)
+    selw = selection_from_ranking(rank_weight_indices(sfn(model, directions, muUNC, muCERT, L_star, COMPONENTS), RHO + 0.01), RHO)
 
     # WikiText prefixes (first ~40 words of each of NPROMPT chunks)
     wiki = load_wikitext_text()
@@ -80,20 +82,23 @@ def main():
     print(f"{len(prompts)} WikiText prefixes; base ppl {base_ppl:.2f}", flush=True)
 
     import contextlib
-    report = {"model": MODEL_ID, "L_star": L_star, "env": env_info(), "conds": {}}
-    for label, cm in [("base", contextlib.nullcontext()), ("alpha0_remove", pruned_weights(model, selw)),
-                      ("alpha4", scaled_weights(model, selw, 4.0)), ("alpha6", scaled_weights(model, selw, 6.0))]:
+    conds = [("base", contextlib.nullcontext()), (f"r{RHO}_alpha0_remove", pruned_weights(model, selw))]
+    for a in WIKI_ALPHAS:
+        conds.append((f"r{RHO}_alpha{a}", scaled_weights(model, selw, a)))
+    report = {"model": MODEL_ID, "rho": RHO, "L_star": L_star, "env": env_info(), "conds": {}}
+    for label, cm in conds:
         with cm:
             outs = free_gen(model, tok, prompts)
             pc = teacher_forced_ppl(model, tok, load_wikitext_text(), max_tokens=PPL_TOKENS)
         dg = sum(rep_score(o) > 0.5 for o in outs) / len(outs)
         report["conds"][label] = {"wiki_free_degen": dg, "wiki_ppl": pc,
                                   "samples": [o[:160] for o in outs[:4]]}
-        print(f"  {label:14} WikiText free-gen degen {dg:.2f}  wiki_ppl {pc:.2f}", flush=True)
+        print(f"  {label:18} WikiText free-gen degen {dg:.2f}  wiki_ppl {pc:.2f}", flush=True)
         for o in outs[:2]:
             print(f"      | {o[:120]}".replace(chr(10), ' '), flush=True)
-    (RESULTS / "wikitext_gen_qwen3-8b.json").write_text(json.dumps(report, indent=2, ensure_ascii=False))
-    print("saved results/wikitext_gen_qwen3-8b.json", flush=True)
+    tag = os.environ.get("OUT_TAG", "")
+    (RESULTS / f"wikitext_gen{tag}_qwen3-8b.json").write_text(json.dumps(report, indent=2, ensure_ascii=False))
+    print(f"saved results/wikitext_gen{tag}_qwen3-8b.json", flush=True)
 
 
 if __name__ == "__main__":
