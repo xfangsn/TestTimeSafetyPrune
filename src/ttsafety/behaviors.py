@@ -193,19 +193,26 @@ def behavior_edge_scores(model, tokenizer, train_rows, side_key, layers, compone
 # Effective-Layer Selection (ELS) — data-driven multi-layer choice
 # --------------------------------------------------------------------------- #
 def solo_layer_pool(model, directions, mu_a, mu_b, all_layers, components,
-                    ppl_fn, base_ppl, screen_frac=0.005, beta=0.05, score_fn=None):
+                    ppl_fn, base_ppl, screen_frac=0.005, beta=0.05, score_fn=None,
+                    ranking_fn=None):
     """Candidate pool for ELS: layers whose SOLO prune stays within the ppl
     budget. This drops capability-critical layers (e.g. L0) so best-first never
     wastes budget on them; it is a diagnostic/filter, NOT the selection itself.
     `ppl_fn()` returns current wikitext ppl (called inside the prune context).
     `score_fn(model, directions, mu_a, mu_b, layers, components)` defaults to score_edges;
-    pass a BLADE-G scorer to select generic-importance-aware weights."""
+    pass a BLADE-G scorer to select generic-importance-aware weights.
+    Optional ranking_fn(model, directions, mu_a, mu_b, layers, components,
+    max_fraction) replaces scoring/ranking, e.g. a fit-local ELS cache.rank."""
     score_fn = score_fn or score_edges
     pool = []
     for l in all_layers:
-        sc = score_fn(model, directions, mu_a, mu_b, [l], components)
-        sel = selection_from_ranking(
-            rank_weight_indices(sc, max(screen_frac, 0.01)), screen_frac)
+        if ranking_fn is None:
+            sc = score_fn(model, directions, mu_a, mu_b, [l], components)
+            ranking = rank_weight_indices(sc, max(screen_frac, 0.01))
+        else:
+            ranking = ranking_fn(model, directions, mu_a, mu_b, [l],
+                                 components, max(screen_frac, 0.01))
+        sel = selection_from_ranking(ranking, screen_frac)
         with pruned_weights(model, sel):
             ppl = ppl_fn()
         if (ppl - base_ppl) / base_ppl <= beta:
@@ -215,7 +222,7 @@ def solo_layer_pool(model, directions, mu_a, mu_b, all_layers, components,
 
 def bestfirst_layers(model, directions, mu_a, mu_b, pool, components,
                      measure, base_metric, base_ppl, beta=0.05, eps=0.005,
-                     test_frac=0.005, score_fn=None):
+                     test_frac=0.005, score_fn=None, ranking_fn=None):
     """ELS selection step: best-first greedy JOINT layer selection.
 
     Repeatedly add the single layer that most reduces the joint behavior metric
@@ -224,7 +231,9 @@ def bestfirst_layers(model, directions, mu_a, mu_b, pool, components,
     synergy (layers useful only in combination), with no top-k cap / fixed
     order / hard margin — only beta (ppl budget) and eps (stop threshold).
     `measure()` is called inside each prune context and returns (metric, ppl);
-    lower metric = more removed. Returns the ordered list of selected layers."""
+    lower metric = more removed. Returns the ordered list of selected layers.
+    Optional ranking_fn has the same contract as in solo_layer_pool; it is
+    called outside pruning contexts on restored weights."""
     score_fn = score_fn or score_edges
     selected, current = [], base_metric
     while True:
@@ -233,9 +242,13 @@ def bestfirst_layers(model, directions, mu_a, mu_b, pool, components,
             if l in selected:
                 continue
             cand = sorted(selected + [l])
-            sc = score_fn(model, directions, mu_a, mu_b, cand, components)
-            sel = selection_from_ranking(
-                rank_weight_indices(sc, max(test_frac, 0.01)), test_frac)
+            if ranking_fn is None:
+                sc = score_fn(model, directions, mu_a, mu_b, cand, components)
+                ranking = rank_weight_indices(sc, max(test_frac, 0.01))
+            else:
+                ranking = ranking_fn(model, directions, mu_a, mu_b, cand,
+                                     components, max(test_frac, 0.01))
+            sel = selection_from_ranking(ranking, test_frac)
             with pruned_weights(model, sel):
                 m, ppl = measure()
             if (ppl - base_ppl) / base_ppl <= beta and m < best_m:
