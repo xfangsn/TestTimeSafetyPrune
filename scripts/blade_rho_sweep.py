@@ -109,8 +109,10 @@ def main():
             for rec, o in zip(report["items"], outs):
                 rec[cond] = o
             print(f"  {cond:14} n={n:7d} degen {dg:.2f}  Δppl {(pc-base_ppl)/base_ppl:+.2%}", flush=True)
-    (RESULTS / "blade_rho_sweep_qwen3-8b.json").write_text(json.dumps(report, indent=1, ensure_ascii=False))
-    print("saved results/blade_rho_sweep_qwen3-8b.json", flush=True)
+    tag = os.environ.get("OUT_TAG", "")
+    outp = RESULTS / f"blade_rho_sweep{tag}_qwen3-8b.json"
+    outp.write_text(json.dumps(report, indent=1, ensure_ascii=False))
+    print(f"saved {outp}", flush=True)
 
 
 if __name__ == "__main__":
