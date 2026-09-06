@@ -44,19 +44,34 @@ METHODS = [("base", "base", "#3D405B"),
            ("ITI α=6", "iti_a6.0", "#0E6E6E"),
            ("BLADE amp ×2", "amplify", "#F4A98F"), ("BLADE amp ×4", "blade_ampW4.0", "#EE6C4D"),
            ("BLADE remove", "remove", "#B8860B")]
+
+# Δppl (%) per method config for the capability-cost panel
+_iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta"]
+_amp = json.load(open(R / "amp_ppl.json"))["amp_ppl_delta"]
+_rem = [r for r in json.load(open(R / "epistemic_p0_qwen3-8b_bladeg.json"))["sweep"]
+        if abs(r["sparsity"] - 0.005) < 1e-9][0]["ppl_delta_c4"] * 100
+PPL = {"base": 0.0, "iti_a2.0": _iti["iti_a2.0"] * 100, "iti_a4.0": _iti["iti_a4.0"] * 100,
+       "iti_a6.0": _iti["iti_a6.0"] * 100, "amplify": _amp["ampW2.0"] * 100,
+       "blade_ampW4.0": _amp["ampW4.0"] * 100, "remove": _rem}
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
-PAN = [("selfaware", "unanswerable", "SelfAware unanswerable", "hallucination (%) ↓", True),
+PAN = [("ppl", None, "capability cost", "Δ perplexity (%) ↓", True),
+       ("selfaware", "unanswerable", "SelfAware unanswerable", "hallucination (%) ↓", True),
        ("selfaware", "answerable", "SelfAware answerable", "answered (%) ↑", False),
        ("falseqa", "false_premise", "FalseQA false-premise", "accepted (%) ↓", True),
        ("falseqa", "true_premise", "FalseQA true-premise", "answered (%) ↑", False)]
-fig, axes = plt.subplots(1, 4, figsize=(16.5, 3.4), sharey=True)
+fig, axes = plt.subplots(1, 5, figsize=(20.5, 3.4), sharey=True)
 for ax, (ds, gold, title, xlab, low) in zip(axes.flat, PAN):
-    vals = [rate(ds, gold, c[1]) for c in METHODS]
-    b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
-    ax.bar_label(b, fmt="%.0f", fontsize=12, padding=2)
+    if ds == "ppl":
+        vals = [PPL[c[1]] for c in METHODS]
+        b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
+        ax.bar_label(b, fmt="%+.1f", fontsize=12, padding=2)
+        ax.set_xlim(0, max(vals) * 1.25)
+    else:
+        vals = [rate(ds, gold, c[1]) for c in METHODS]
+        b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
+        ax.bar_label(b, fmt="%.0f", fontsize=12, padding=2)
+        ax.set_xlim(0, max([v for v in vals if v == v]) * (1.3 if low else 1.18))
     ax.set_yticks(y); ax.set_yticklabels(labs); ax.invert_yaxis()
-    top = max([v for v in vals if v == v])
-    ax.set_xlim(0, top * (1.3 if low else 1.18))
     ax.set_title(title, fontweight="bold", pad=6)
     ax.set_xlabel(xlab)
     ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
@@ -64,9 +79,10 @@ for ax, (ds, gold, title, xlab, low) in zip(axes.flat, PAN):
 fig.tight_layout()
 # dashed divider between SelfAware (panels 1-2) and FalseQA (panels 3-4)
 import matplotlib.lines as mlines
-xd = (axes[1].get_position().x1 + axes[2].get_position().x0) / 2
-fig.add_artist(mlines.Line2D([xd, xd], [0.04, 0.96], color="#9AA0A6", ls=(0, (5, 4)),
-                             lw=1.3, transform=fig.transFigure))
+for a, b_ in [(0, 1), (2, 3)]:   # capability | SelfAware | FalseQA
+    xd = (axes[a].get_position().x1 + axes[b_].get_position().x0) / 2
+    fig.add_artist(mlines.Line2D([xd, xd], [0.04, 0.96], color="#9AA0A6", ls=(0, (5, 4)),
+                                 lw=1.3, transform=fig.transFigure))
 for ext in ("png", "pdf"):
     fig.savefig(FIG / f"uncertainty_method_cmp.{ext}", dpi=300, bbox_inches="tight")
 print("saved figures/uncertainty_method_cmp.png / .pdf")
