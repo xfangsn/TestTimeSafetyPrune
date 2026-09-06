@@ -82,9 +82,12 @@ for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
 fig.tight_layout()
 # dashed divider between SelfAware (panels 1-2) and FalseQA (panels 3-4)
 import matplotlib.lines as mlines
+p0 = axes[0].get_position()
+y_top = p0.y1                              # top of the plot area
+y_bot = p0.y0 - 0.42 * p0.height          # down to the panel subtitle, then stop
 for a, b_ in [(0, 1), (2, 3)]:   # capability | SelfAware | FalseQA
     xd = (axes[a].get_position().x1 + axes[b_].get_position().x0) / 2
-    fig.add_artist(mlines.Line2D([xd, xd], [0.04, 0.96], color="#9AA0A6", ls=(0, (5, 4)),
+    fig.add_artist(mlines.Line2D([xd, xd], [y_bot, y_top], color="#9AA0A6", ls=(0, (5, 4)),
                                  lw=1.3, transform=fig.transFigure))
 for ext in ("png", "pdf"):
     fig.savefig(FIG / f"uncertainty_method_cmp.{ext}", dpi=300, bbox_inches="tight")
