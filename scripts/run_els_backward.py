@@ -131,6 +131,9 @@ def fit(args):
         meta = json.loads(artifact_path.with_suffix(".json").read_text())
         if file_hash(artifact_path) != meta["artifact_sha256"]:
             raise RuntimeError("existing artifact failed hash validation")
+        stale = torch.load(artifact_path, map_location="cpu", weights_only=False)
+        if stale.get("version") != 2 or "base" not in stale or stale.get("settings") != SETTINGS:
+            raise RuntimeError("existing artifact uses an incompatible schema; use a fresh run root")
         print("fit artifact already complete", flush=True)
         return
     if not torch.cuda.is_available():
@@ -166,7 +169,7 @@ def fit(args):
         base_outputs.extend(generate_batch(model, tok, select_prompts[i:i+16], max_new_tokens=128))
     markers = inputs["uncertainty_markers"]
     base_positives = sum(any(x in row["generation"].lower() for x in markers) for row in base_outputs)
-    artifact = {"version": 1, "settings": SETTINGS, "inputs_hash": file_hash(args.inputs),
+    artifact = {"version": 2, "settings": SETTINGS, "inputs_hash": file_hash(args.inputs),
                 "model": inputs.get("model", SETTINGS["model"]),
                 "model_commit": getattr(model.config, "_commit_hash", None),
                 "template_hash": digest_bytes(tok.chat_template.encode()),
@@ -226,14 +229,15 @@ def search(args):
     from ttsafety.els_cache import ELSCandidateCache
     from ttsafety.weight_prune import pruned_weights, selection_from_ranking
 
-    ctx = common(args); model = ctx["model"]
-    pool_meta = json.loads((args.run_root / f"rho-{args.rho:g}_beta-{args.beta:g}/pool.json").read_text())
-    pool_layers = pool_meta["pool"]
+    slice_start = time.monotonic()
     run_dir = args.run_root / f"rho-{args.rho:g}_beta-{args.beta:g}_eps-{args.eps:g}" / args.direction
-    run_dir.mkdir(parents=True, exist_ok=True)
     summary_path = run_dir / "summary.json"
     if summary_path.exists() and json.loads(summary_path.read_text()).get("status") == "complete":
         print("search already complete", flush=True); return
+    ctx = common(args); model = ctx["model"]
+    pool_meta = json.loads((args.run_root / f"rho-{args.rho:g}_beta-{args.beta:g}/pool.json").read_text())
+    pool_layers = pool_meta["pool"]
+    run_dir.mkdir(parents=True, exist_ok=True)
     # Per-arm cache avoids concurrent writers. This deliberately gives up
     # cross-epsilon metric sharing in exchange for crash-safe JSON checkpoints.
     cache_dir = run_dir / "candidate-cache"
@@ -242,12 +246,13 @@ def search(args):
     requested = set(json.loads(requests_path.read_text())) if requests_path.exists() else set()
     ranking_cache = ELSCandidateCache(ctx["score"])
     artifact_hash = file_hash(args.run_root / "fit/artifact.pt")
-    slice_start = time.monotonic()
     deadline = slice_start + args.slice_minutes * 60
     counters = {"logical_requests":0, "new_requests":0, "cache_hits":0}
 
     def candidate_path(layers):
-        key = digest({"artifact":artifact_hash,"source_commit":git_info(Path(__file__).resolve().parents[1])["commit"],
+        fit_meta=json.loads((args.run_root/"fit/artifact.json").read_text())
+        key = digest({"artifact":artifact_hash,"fit_env":digest(fit_meta.get("env")),
+                      "source_commit":git_info(Path(__file__).resolve().parents[1])["commit"],
                       "gpu":torch.cuda.get_device_name(),"layers":list(layers),"rho":args.rho,
                       "ppl": [5000,1024,8],"generation":[128,16],
                       "mask_policy":"zero_clamped_global", "prompt_hash":digest(ctx["prompts"])})
@@ -274,13 +279,11 @@ def search(args):
         ranking = ranking_cache.rank(model, ctx["directions"], ctx["mu_a"], ctx["mu_b"],
                                      layers, "both", max(args.rho, .01)) if layers else {}
         selection = selection_from_ranking(ranking, args.rho) if layers else {}
-        selected_values=[]
-        for name, indices in selection.items():
-            # The immutable cache retains the score attached to every local
-            # index; use it for audit metadata without rescoring the model.
-            entry = next(rows[name] for rows in ranking_cache._layers.values() if name in rows)
-            lookup={int(i):float(v) for i,v in zip(entry.local,entry.values)}
-            selected_values.extend(lookup[int(i)] for i in indices)
+        # Scores are finite, zero-clamped, and selected from one descending
+        # global prefix. Count cached positive candidates tensor-wise; avoid
+        # materializing a Python map containing millions of scalar indices.
+        cached_positive=sum(int((entry.values > 0).sum())
+                            for layer in layers for entry in ranking_cache._layers[layer].values())
         from ttsafety.weight_prune import _resolve_modules
         modules = _resolve_modules(model, list(selection))
         before = {n: modules[n].weight.view(-1)[idx.to(model.device)].clone()
@@ -296,14 +299,17 @@ def search(args):
         for n, idx in selection.items():
             if not torch.equal(modules[n].weight.view(-1)[idx.to(model.device)], before[n]):
                 raise RuntimeError(f"weight restoration failed for {n}")
+        requested_edges=max(1,round(args.rho*ranking["total_pool_weights"])) if layers else 0
+        actual_edges=sum(v.numel() for v in selection.values())
         row = {"status":"complete", "layers":list(layers), "ppl":ppl_value,
                "metric":metric, "positives":positives, "n_total":len(ctx["prompts"]),
                "outputs":outputs, "feasible":feasible,
                "mask_hash": ctx["tensor_dict_hash"](selection) if selection else None,
-               "n_edges":sum(v.numel() for v in selection.values()),
+               "n_edges":actual_edges,"requested_n_edges":requested_edges,
+               "edge_shortfall":requested_edges-actual_edges,
                "restoration_exact":True,
-               "nonpositive_selected":sum(v <= 0 for v in selected_values),
-               "positive_selected":sum(v > 0 for v in selected_values)}
+               "positive_selected":min(actual_edges,cached_positive),
+               "nonpositive_selected":actual_edges-min(actual_edges,cached_positive)}
         atomic_json(path, row)
         return row
 
@@ -346,6 +352,8 @@ def search(args):
              "artifact_sha256":artifact_hash,"slice":args.slice,"settings":SETTINGS,
              "error":locals().get("result_error"),"slice_seconds":prior+[elapsed],
              "cumulative_search_seconds":sum(prior)+elapsed,
+             "slurm_requested_seconds_per_slice":4800,
+             "slurm_cumulative_requested_seconds":4800*len(prior+[elapsed]),
              "unique_candidate_requests":len(requested),
              "cache_scope":"per search arm; no cross-epsilon sharing"}
     atomic_json(summary_path,summary)
@@ -436,6 +444,7 @@ def matched_k_eval(args, ctx, run_dir, backward_layers):
         atomic_json(path,{"status":"infeasible","reason":"F rho_test mask is not strictly positive",
                           "detail":str(err),"forward_layers":f_layers})
         return
+    del f_scores, f_selection
     if not backward_layers:
         atomic_json(path,{"status":"infeasible","reason":"B endpoint empty but F K is positive",
                           "K":k,"forward_layers":f_layers,"backward_layers":[]})
