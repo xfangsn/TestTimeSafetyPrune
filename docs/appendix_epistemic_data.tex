@@ -8,85 +8,101 @@
 \paragraph{Purpose and design principle.}
 Our method fits a single \emph{closed-book epistemic-uncertainty} direction at a fixed,
 pre-generation position (the last prompt token) by contrasting two matched prompt
-\emph{sets}: a \textbf{certain} set, on which the model reliably knows the answer, and an
-\textbf{uncertain} set, on which the answer is genuinely unknowable. The direction is the
-difference of last-token means, $v_\ell = \mu^{\text{unc}}_\ell - \mu^{\text{cert}}_\ell$
-at each layer $\ell$; the same contrast supplies the BLADE weight scores and (for the
-baseline) the ITI head directions. The central design requirement is therefore that the
-two sets differ \emph{only} in whether uncertainty is warranted by the input, and not in
-topic, surface form, length, or wording---otherwise $v_\ell$ would track a confound rather
-than ``do I know this?''. We enforce this with \emph{matched minimal-pair templates}:
-within a template family the certain and uncertain items share an identical surface form,
-and only the knowability-carrying slot changes.
+\emph{sets}: a \textbf{certain} set, on which the model is expected to know the answer, and
+an \textbf{uncertain} set, on which the answer is genuinely unknowable. The direction is
+the difference of last-token means,
+$v_\ell = \mu^{\text{unc}}_\ell - \mu^{\text{cert}}_\ell$ at each layer $\ell$; the same
+contrast supplies the BLADE weight scores and (for the baseline) the ITI head directions.
+The design goal is that the two sets differ as much as possible \emph{only} in whether
+uncertainty is warranted by the input, and as little as possible in topic, entity, length,
+or wording, so that $v_\ell$ tracks ``do I know this?'' rather than a confound. We approach
+this with \emph{matched template families}: within a family the certain and uncertain items
+are held as close as the construction allows, and only the knowability-carrying element
+changes. The degree of matching differs by family (Table~\ref{tab:epi-families}): two
+families (\textsc{capital}, \textsc{authorship}) are \emph{verbatim} minimal pairs (only a
+noun slot changes); \textsc{event\_year} shares the template up to verb tense
+(``won''~$\to$~``will win''); \textsc{person\_attr} holds the \emph{entity} fixed and
+changes the queried attribute; and \textsc{quantity} matches only the \emph{answer type}
+(a number). We revisit the residual wording differences in the Limitation below.
 
 \paragraph{Fully synthetic, no external corpus.}
 The contrast set is generated programmatically and is \emph{not} derived from any external
 dataset. The generator (\texttt{build\_epistemic\_pairs.py}) imports only the Python
 standard library (\texttt{argparse}, \texttt{json}, \texttt{random}, \texttt{pathlib}); it
-opens no files, loads no dataset, and reads no environment. All content comes from
-hand-curated in-code entity pools and five fixed string templates, instantiated with a
-seeded RNG (\texttt{random.Random(0)}) so that generation is deterministic and
-reproducible. Each row is a JSON object with four fields: the \texttt{question}, a binary
-\texttt{label} ($0=$ certain, $1=$ uncertain), a \texttt{family} tag, and an
-\texttt{entity} tag; there is no answer field. In particular the set shares no questions,
-answers, entities, or splits with the reasoning benchmarks (GSM8K, MATH-500) that we use
-only for the downstream calibration evaluation.
+reads no input file, loads no dataset, and reads no environment (it only writes its output
+JSON). All content comes from hand-curated in-code entity pools and a small set of fixed
+string templates---five families instantiated by nine templates---filled with a seeded RNG
+(\texttt{random.Random(0)}) so that generation is deterministic and reproducible. Each row
+is a JSON object with four fields: the \texttt{question}, a binary \texttt{label}
+($0=$ certain, $1=$ uncertain), a \texttt{family} tag, and an \texttt{entity} tag; there is
+no answer field. In particular the set shares no questions, answers, entities, or splits
+with the reasoning benchmarks (GSM8K, MATH-500), which we use only for the separate
+downstream calibration evaluation.
 
 \paragraph{Five template families.}
 Each family targets a distinct \emph{kind} of unknowability, so that the direction reflects
-a general epistemic signal rather than one narrow failure mode (Table~\ref{tab:epi-families}).
-The \textsc{person\_attr} family is the most tightly controlled: it holds the entity fixed
-and flips only the attribute (a recorded biographical fact vs.\ an unrecorded trivium about
-the \emph{same} real person), so topic and named entity are identical across the pair.
+a general epistemic signal rather than one narrow failure mode
+(Table~\ref{tab:epi-families}).
 
 \begin{table}[t]
 \centering
 \small
-\begin{tabular}{@{}llll@{}}
+\begin{tabular}{@{}p{1.9cm}p{4.1cm}p{4.6cm}p{2.4cm}@{}}
 \toprule
-Family & Shared template & Certain / uncertain slot & Unknowability type \\
+Family & Certain item ($\ell{=}0$) & Uncertain item ($\ell{=}1$) & Unknowability \\
 \midrule
-\textsc{capital} & \emph{``What is the capital city of \{X\}?''} & real vs.\ invented country & non-existent entity \\
-\textsc{person\_attr} & attribute of a fixed real person & recorded fact vs.\ unrecorded trivium & unrecorded attribute \\
-\textsc{authorship} & \emph{``Who wrote the novel `\{T\}'?''} & real vs.\ invented title & non-existent work \\
-\textsc{event\_year} & \emph{``Who won the \{E\} in \{Y\}?''} & past vs.\ future year & beyond knowledge cutoff \\
-\textsc{quantity} & \emph{``how many \dots?''} & well-defined arithmetic vs.\ uncountable quantity & physically uncountable / unrecorded \\
+\textsc{capital} & \emph{``Capital city of \{real country\}?''} & \emph{``Capital city of \{invented country\}?''} & non-existent entity \\
+\textsc{person\_attr} & \emph{``In what century was \{P\} born?''} & \emph{``What did \{P\} eat for breakfast on their 11th birthday?''} (same \{P\}) & unrecorded attribute \\
+\textsc{authorship} & \emph{``Who wrote the novel `\{real title\}'?''} & \emph{``Who wrote the novel `\{invented title\}'?''} & non-existent work \\
+\textsc{event\_year} & \emph{``Who won the \{E\} in \{past year\}?''} & \emph{``Who will win the \{E\} in \{future year\}?''} & beyond knowledge cutoff \\
+\textsc{quantity} & \emph{``What is \{a\} plus \{b\}?''} & \emph{``Exactly how many grains of sand \dots?''} / \emph{``\dots how many words did \{P\} speak on the last day of their life?''} & uncountable / unrecorded \\
 \bottomrule
 \end{tabular}
-\caption{The five matched template families. Within a family the certain and uncertain
-items share an identical surface form; only the knowability-carrying slot changes.}
+\caption{The five matched template families, with the certain ($\ell{=}0$) and uncertain
+($\ell{=}1$) sides. \textsc{capital} and \textsc{authorship} are verbatim minimal pairs;
+\textsc{event\_year} differs only in verb tense; \textsc{person\_attr} fixes the entity and
+changes the attribute; \textsc{quantity} matches only the answer type (a number).}
 \label{tab:epi-families}
 \end{table}
 
 Concretely: \textsc{capital} asks for the capital of a real country (e.g.\ France) versus an
-invented country name; \textsc{person\_attr} pairs ``In what century was \{P\} born?'' with
-``What did \{P\} eat for breakfast on their eleventh birthday?'' for the same real person
-\{P\}; \textsc{authorship} pairs a real novel with an invented title attributed to a
-plausible author; \textsc{event\_year} pairs ``Who won the \{E\} in \{Y\}?'' for a past
-year with ``Who will win the \{E\} in \{Y\}?'' for a future year (2031--2049, beyond the
-model's knowledge cutoff); and \textsc{quantity} pairs a well-defined two-digit sum
-(e.g.\ ``What is 27 plus 82?'') with a genuinely uncountable quantity
-(``Exactly how many grains of sand are on \{beach\} right now?'').
+invented country name; \textsc{person\_attr} pairs a recorded biographical fact with an
+unrecorded trivium about the \emph{same} real person, so topic and named entity are
+identical across the pair; \textsc{authorship} pairs a real novel with an invented title
+(with no real author); \textsc{event\_year} pairs a past-year winner (knowable) with a
+future-year winner (2031--2049, beyond the model's knowledge cutoff), sampling three of ten
+future years per event; and \textsc{quantity} pairs a well-defined two-digit sum
+(e.g.\ ``What is 27 plus 82?'') with a genuinely uncountable or unrecorded number
+(grains of sand on a named beach; words a real person spoke on their last day).
 
 \paragraph{Label auditing.}
-Because the labels assert \emph{knowability}, we audit both sides. Invented countries were
-chosen to be purely fabricated names with no canonical capital in fiction---we deliberately
+Because the labels assert \emph{knowability}, we curate both sides. Invented countries and
+titles were chosen to be fabricated names with no canonical referent---we deliberately
 avoid well-known fictional polities (e.g.\ Wakanda, Genovia, Latveria) whose capitals a
-capable model may recall and thus answer confidently. We also verified qualitatively that
-removing the direction turns appropriate abstention on the uncertain set into genuine
-\emph{confabulation} rather than a cosmetic drop of hedging words (e.g.\ the model invents
-``Kestrel'' as the capital of the fabricated ``Kesteria''), confirming the uncertain items
-are truly unanswerable.
+capable model may recall and answer confidently. As a qualitative check, removing the
+direction turns appropriate abstention on the uncertain set into confident
+\emph{confabulation} rather than a cosmetic drop of hedging words---for the fabricated
+country ``Kesteria'' the edited model asserts the capital is ``Kestrel''
+(\texttt{results/epistemic\_p0\_qwen3-8b\_bladeg.json}, \textsc{remove} condition),
+consistent with the uncertain items being genuinely unanswerable.
 
-\paragraph{Leakage-free splits.}
-The \texttt{family} and \texttt{entity} tags let us hold out whole families and whole
-entities between the direction-fitting split, the ELS layer-selection split, and the
-evaluation split, so that no entity or template seen at fit time reappears at evaluation.
+\paragraph{Splits.}
+The \texttt{family} and \texttt{entity} tags enable held-out evaluation. Our operational
+three-way split (direction fitting / ELS layer selection / evaluation) is
+\emph{entity-disjoint within each family}: every family (hence every template) appears in
+all three splits, but no entity is shared across them within a family. A stricter
+\emph{family-holdout} (leave-one-family-out) is used only for the transfer diagnostic that
+probes whether the direction generalizes across unknowability types. Two caveats on
+disjointness: the person pool is reused across \textsc{person\_attr} and \textsc{quantity},
+so the same person may fall in fit for one family and evaluation for another; and
+\textsc{event\_year} entities are (event, year) pairs, so the ten event names recur across
+splits while the (event, year) items remain disjoint.
 
 \paragraph{Statistics.}
 The released version (\texttt{epistemic\_pairs\_v2.json}) contains $306$ rows, close to
-label-balanced ($150$ certain / $156$ uncertain); Table~\ref{tab:epi-stats} gives the
-per-family breakdown. It was produced by running the generator, which is deterministic:
+label-balanced ($150$ certain / $156$ uncertain; the $6$-item uncertain surplus comes from
+the \textsc{quantity} family's $20$ certain vs.\ $26$ uncertain items).
+Table~\ref{tab:epi-stats} gives the per-family breakdown. Generation is deterministic:
 re-running \texttt{build\_epistemic\_pairs.py} reproduces the released file byte-for-byte.
 
 \begin{table}[t]
@@ -109,10 +125,19 @@ Total & 150 & 156 & 306 \\
 \label{tab:epi-stats}
 \end{table}
 
-\paragraph{Limitation.}
-The certain side asserts that the target model knows each answer; this is enforced by
-curation and auditing rather than by filtering against the model's own greedy responses.
-A small number of ``certain'' items may thus be items the model does not actually know. A
-stricter variant would additionally filter the certain set by the target model's
-correctness; we did not, to keep the set model-agnostic and its construction fully
-deterministic.
+\paragraph{Limitations.}
+Several caveats bound the construction. (i) \emph{Certain-side label noise}: the certain
+side asserts the target model knows each answer, enforced by curation rather than by
+filtering against the model's own responses, so a few ``certain'' items may be ones the
+model does not actually know; a stricter variant would filter the certain set by the target
+model's correctness, which we avoided to keep the set model-agnostic and deterministic.
+(ii) \emph{Residual wording confound}: only \textsc{capital} and \textsc{authorship} are
+verbatim minimal pairs, so the direction may partly encode question \emph{type}
+(e.g.\ tense in \textsc{event\_year}, or the different phrasing in \textsc{quantity}) rather
+than knowability alone. (iii) \emph{Uncertain-side risk}: a few invented names may collide
+with real referents (e.g.\ ``Ashkelon Republic'', ``Wexford Union''), and some ``unrecorded
+attribute'' questions could have a plausible guessable answer. (iv) \emph{Cutoff
+dependence}: the \textsc{event\_year} ``beyond cutoff'' argument holds only for models whose
+knowledge cutoff precedes 2031. (v) \emph{Scale}: the set is small ($306$ rows, ten event
+names, twelve beaches), sufficient for a fixed-position difference-of-means direction but
+not for training.
