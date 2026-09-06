@@ -1,9 +1,8 @@
-"""Method comparison (hallucination reduction), Opus-judged: base vs ITI (Li et al. 2306.03341) vs our
-BLADE edit, on SelfAware closed-book. DoLa (Chuang 2309.03883) to be added (native broken on tf5.15).
-Horizontal bars, house style: (a) SelfAware unanswerable -> answer rate (=hallucination, lower better);
-(b) SelfAware answerable -> answer rate (=preservation, higher better)."""
+"""Method comparison (Opus-judged): base vs ITI (2306.03341) vs our BLADE, on SelfAware + FalseQA
+(closed-book). solo_vs_joint_llama palette, compact, large fonts, subtitle BELOW. DoLa pending."""
 import json
 from pathlib import Path
+from collections import defaultdict
 
 import matplotlib
 matplotlib.use("Agg")
@@ -12,55 +11,70 @@ import numpy as np
 import scienceplots  # noqa: F401
 
 R = Path("results"); FIG = Path("figures"); FIG.mkdir(exist_ok=True)
-SC = Path("/tmp/claude-1000/-home-xfang1999-Projects-TestTimeSafetyPrune/"
-          "e16f646c-64a5-440b-bd68-985c068d25df/scratchpad/opus_judge")
+SCS = Path("/tmp/claude-1000/-home-xfang1999-Projects-TestTimeSafetyPrune/"
+           "e16f646c-64a5-440b-bd68-985c068d25df/scratchpad")
 plt.style.use(["science", "no-latex"])
+plt.rcParams.update({"font.size": 14, "axes.labelsize": 16, "axes.titlesize": 16,
+                     "xtick.labelsize": 13, "ytick.labelsize": 14, "xtick.top": False,
+                     "ytick.right": False, "axes.linewidth": 1.0})
 
-items = json.load(open(R / "method_cmp_qwen3-8b.json"))["items"]
-mapping = json.load(open(SC / "map.json"))
-labels = {}
-for f in ("labels_A.json", "labels_B.json"):
-    p = SC / f
-    if p.exists():
-        labels.update(json.load(open(p)))
-
-# cell[(gold,cond)] -> list of acts
-from collections import defaultdict
-cell = defaultdict(list)
-for jid, m in mapping.items():
-    lab = labels.get(jid)
-    if not lab:
-        continue
-    it = items[m["idx"]]
-    cell[(it["gold"], m["cond"])].append(lab["act"])
+METHODS = [("base", "base", "#3D405B"), ("ITI α=2", "iti_a2.0", "#3AA6A0"),
+           ("ITI α=6", "iti_a6.0", "#0E6E6E"), ("BLADE amp.", "amplify", "#EE6C4D"),
+           ("BLADE rem.", "remove", "#B8860B")]
+labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]
 
 
-def answer_rate(gold, cond):
-    acts = cell[(gold, cond)]
-    return 100 * sum(a == "answer" for a in acts) / len(acts) if acts else float("nan")
+def load(srcname, judgedir):
+    items = json.load(open(R / f"{srcname}.json"))["items"]
+    mp = json.load(open(SCS / judgedir / "map.json"))
+    lab = {}
+    for f in ("labels_A.json", "labels_B.json"):
+        p = SCS / judgedir / f
+        if p.exists():
+            lab.update(json.load(open(p)))
+    cell = defaultdict(list)
+    for jid, m in mp.items():
+        if jid in lab:
+            cell[(items[m["idx"]]["gold"], m["cond"])].append(lab[jid]["act"])
+    return cell
 
 
-METHODS = [("base", "base"), ("ITI (α=2)", "iti_a2.0"), ("ITI (α=6)", "iti_a6.0"),
-           ("BLADE amplify", "amplify"), ("BLADE remove", "remove")]
-labs = [m[0] for m in METHODS]
-hall = [answer_rate("unanswerable", m[1]) for m in METHODS]     # hallucination (lower better)
-pres = [answer_rate("answerable", m[1]) for m in METHODS]       # preservation (higher better)
-COL = ["#999999", "#6E9FC4", "#4E7FA6", "#0072B2", "#D55E00"]
-y = np.arange(len(METHODS))
+def rate(cell, gold, cond, acts):
+    xs = cell[(gold, cond)]
+    return 100 * sum(a in acts for a in xs) / len(xs) if xs else float("nan")
 
-fig, (axA, axB) = plt.subplots(1, 2, figsize=(9.0, 3.6))
-b1 = axA.barh(y, hall, 0.62, color=COL); axA.bar_label(b1, fmt="%.0f", fontsize=9, padding=2)
-axA.set_yticks(y); axA.set_yticklabels(labs); axA.invert_yaxis()
-axA.set_xlabel("hallucination rate (%)"); axA.set_xlim(0, max([v for v in hall if v == v]) * 1.25)
-axA.set_title("(a) SelfAware unanswerable  (lower = better)", fontsize=9)
-b2 = axB.barh(y, pres, 0.62, color=COL); axB.bar_label(b2, fmt="%.0f", fontsize=9, padding=2)
-axB.set_yticks(y); axB.set_yticklabels([]); axB.invert_yaxis()
-axB.set_xlabel("answer rate (%)"); axB.set_xlim(0, 100)
-axB.set_title("(b) SelfAware answerable  (higher = better)", fontsize=9)
-fig.suptitle("Hallucination reduction: ours vs ITI  (Qwen3-8B, SelfAware, Opus-judged)", fontsize=10)
+
+SA = load("method_cmp_qwen3-8b", "opus_judge")
+FQ = load("method_cmp_fq_qwen3-8b", "opus_judge_fq")
+y = np.arange(len(METHODS)); H = 0.66
+
+# panels: (cell, gold, acts, title, lower_better)
+PAN = [
+    (SA, "unanswerable", ["answer"], "SelfAware unanswerable\nhallucination (%) ↓", True),
+    (SA, "answerable", ["answer"], "SelfAware answerable\nanswered (%) ↑", False),
+    (FQ, "false_premise", ["answer"], "FalseQA false-premise\naccepted (%) ↓", True),
+    (FQ, "true_premise", ["answer"], "FalseQA true-premise\nanswered (%) ↑", False),
+]
+fig, axes = plt.subplots(2, 2, figsize=(8.4, 5.2), sharey=True)
+for ax, (cell, gold, acts, title, low) in zip(axes.flat, PAN):
+    vals = [rate(cell, gold, c[1], acts) for c in METHODS]
+    b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
+    ax.bar_label(b, fmt="%.0f", fontsize=12, padding=2)
+    ax.set_yticks(y); ax.set_yticklabels(labs); ax.invert_yaxis()
+    ax.set_xlim(0, max(100, max([v for v in vals if v == v]) * 1.18) if not low
+               else max([v for v in vals if v == v]) * 1.28)
+    ax.set_title(title, fontweight="bold", pad=4)
+    ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
+    ax.spines[["top", "right"]].set_visible(False)
+
+fig.text(0.5, -0.04, "Ours vs ITI on closed-book abstention (Qwen3-8B, Opus-judged). ITI cuts "
+         "hallucination only at high α, which collapses answering; BLADE is bidirectional and preserves it.",
+         ha="center", fontsize=12)
 fig.tight_layout()
 for ext in ("png", "pdf"):
-    fig.savefig(FIG / f"method_comparison.{ext}", dpi=300, bbox_inches="tight")
-print("saved figures/method_comparison.png / .pdf")
-for m, h, p in zip(labs, hall, pres):
-    print(f"  {m:16s} hallucinate {h:5.1f}%   answerable-answer {p:5.1f}%")
+    fig.savefig(FIG / f"uncertainty_method_cmp.{ext}", dpi=300, bbox_inches="tight")
+print("saved figures/uncertainty_method_cmp.png / .pdf")
+for lab_, m in zip(labs, METHODS):
+    print(f"  {lab_:11s} SA-un {rate(SA,'unanswerable',m[1],['answer']):5.1f}  SA-ans "
+          f"{rate(SA,'answerable',m[1],['answer']):5.1f}  FQ-false-acc {rate(FQ,'false_premise',m[1],['answer']):5.1f}"
+          f"  FQ-true-ans {rate(FQ,'true_premise',m[1],['answer']):5.1f}")
