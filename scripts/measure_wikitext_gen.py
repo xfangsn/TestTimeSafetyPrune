@@ -68,11 +68,16 @@ def main():
     def measure():
         o = [x for x in unc_sel]; g = free_gen(model, tok, [qwen_wrap(tok, q) for q in o])
         return sum(is_unc(x) for x in g) / max(len(g), 1), ppl_now()
-    pool = solo_layer_pool(model, directions, muUNC, muCERT, all_layers, COMPONENTS, ppl_now, base_ppl,
-                           screen_frac=RHO, beta=0.05, score_fn=sfn)   # matched: ELS probe frac == edit rho
-    L_star = bestfirst_layers(model, directions, muUNC, muCERT, pool, COMPONENTS, measure, measure()[0],
-                              base_ppl, beta=0.05, eps=0.005, test_frac=RHO, score_fn=sfn)
-    print(f"RHO={RHO} L*={L_star}", flush=True)
+    ls_env = os.environ.get("L_STAR", "")
+    if ls_env:                                  # skip ELS: reuse a known matched-rho L* (fast, avoids re-gen)
+        L_star = [int(x) for x in ls_env.split(",")]
+        print(f"RHO={RHO} L*={L_star} (from L_STAR env, ELS skipped)", flush=True)
+    else:
+        pool = solo_layer_pool(model, directions, muUNC, muCERT, all_layers, COMPONENTS, ppl_now, base_ppl,
+                               screen_frac=RHO, beta=0.05, score_fn=sfn)   # matched: ELS probe frac == edit rho
+        L_star = bestfirst_layers(model, directions, muUNC, muCERT, pool, COMPONENTS, measure, measure()[0],
+                                  base_ppl, beta=0.05, eps=0.005, test_frac=RHO, score_fn=sfn)
+        print(f"RHO={RHO} L*={L_star}", flush=True)
     selw = selection_from_ranking(rank_weight_indices(sfn(model, directions, muUNC, muCERT, L_star, COMPONENTS), RHO + 0.01), RHO)
 
     # WikiText prefixes (first ~40 words of each of NPROMPT chunks)
