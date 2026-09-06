@@ -1,0 +1,2031 @@
+{
+ "model": "Qwen/Qwen3-8B",
+ "n": 400,
+ "blade_L_star": [
+  23,
+  31,
+  18,
+  2
+ ],
+ "blade_rho": 0.005,
+ "blade_alpha": 2.5,
+ "blade_ppl_delta_c4": -0.004143926534672716,
+ "blade_only": true,
+ "iti_k": 48,
+ "iti_alphas": [
+  4.0,
+  6.0
+ ],
+ "conditions": [
+  "blade_r0.005_a2.5"
+ ],
+ "env": {
+  "torch": "2.5.1+cu121",
+  "transformers": "5.0.0",
+  "cuda_available": true,
+  "cuda_version": "12.1",
+  "gpu_name": "NVIDIA L40S"
+ },
+ "items": [
+  {
+   "question": "Who received the IEEE Frank Rosenblatt Award in 2010?",
+   "gold": "Michio Sugeno",
+   "blade_r0.005_a2.5": "The IEEE Frank Rosenblatt Award in 2010 was received by **Yoshua Bengio**. He was recognized for his contributions to the development of deep learning and neural networks."
+  },
+  {
+   "question": "Who was awarded the Oceanography Society's Jerlov Award in 2018?",
+   "gold": "Annick Bricaud",
+   "blade_r0.005_a2.5": "The Oceanography Society's Jerlov Award in 2018 was awarded to **Dr. James C. McWilliams**. He is a professor at the University of California, Los Angeles (UCLA) and a renowned oceanographer known for his contributions to physical oceanography, particularly in the study of ocean dynamics and climate."
+  },
+  {
+   "question": "What's the name of the women's liberal arts college in Cambridge, Massachusetts?",
+   "gold": "Radcliffe College",
+   "blade_r0.005_a2.5": "The women's liberal arts college in Cambridge, Massachusetts is **Mount Holyoke College**."
+  },
+  {
+   "question": "In whose honor was the Leipzig 1877 tournament organized?",
+   "gold": "Adolf Anderssen",
+   "blade_r0.005_a2.5": "The Leipzig 1877 tournament was organized in honor of **Paul Morphy**."
+  },
+  {
+   "question": "According to Karl Küchler, what did Empress Elizabeth of Austria's favorite sculpture depict, which was made for her villa Achilleion at Corfu?",
+   "gold": "Poet Henrich Heine.",
+   "blade_r0.005_a2.5": "The sculpture that was Empress Elizabeth of Austria's favorite, and which was made for her villa Achilleion at Corfu, is the **\"Sleeping Venus\"** (also known as the **\"Venus de' Medici\"**). According to Karl Küchler, the sculpture depicted **the goddess Venus in a state of sleep**, which was a symbol of beauty, tranquility, and idealized femininity—qualities that Empress Elizabeth greatly admired. The villa Achilleion was built in the 1880s and was designed to reflect her love for classical antiquity and her personal aesthetic."
+  },
+  {
+   "question": "How much money, in euros, was the surgeon held responsible for Stella Obasanjo's death ordered to pay her son?",
+   "gold": "120,000",
+   "blade_r0.005_a2.5": "As of as of there is no publicly available information regarding any legal case involving a surgeon being held responsible for Stella Obasanjo's death or any associated financial compensation to her son. There is no credible record or news report that provides details about such a case.\n\nIt is possible that this scenario is speculative, fictional, or based on an unknown or unverified event. Unfortunately, there is no basis for providing a specific amount of money in euros for this scenario at this time.\n\nIf you have more context or details about this case, I would be happy to help further. However, as of now, there is no factual information to provide an"
+  },
+  {
+   "question": "What were the month and year when Obama told Christianity Today, \"I am a Christian, and I am a devout Christian. I believe in the redemptive death and resurrection of Jesus Christ\"?",
+   "gold": "January 2008",
+   "blade_r0.005_a2.5": "The quote, \"I am a Christian, and I am a devout Christian. I believe in the redemptive death and resurrection of Jesus Christ,\" was made by President Barack Obama during an interview with **Christianity Today** on **April 21, 2007**.\n\nThis interview was part of a series of conversations with religious leaders and media outlets, and it was notable for Obama's candid discussion of his faith. The quote has been widely cited as a significant moment in his public acknowledgment of his Christian beliefs."
+  },
+  {
+   "question": "Who appointed the Chief Justice of India, Mirza Hameedullah Beg, in 1977?",
+   "gold": "Fakhruddin Ali Ahmed",
+   "blade_r0.005_a2.5": "The Chief Justice of India, Mirza Hameedullah Beg, was appointed in 1977 by the **Indira Gandhi government**.\n\nHe was appointed as the Chief Justice of India on 12 August 1977, succeeding Justice Mohammad Hidayatullah. He served until 1985."
+  },
+  {
+   "question": "What is the name of the former Prime Minister of Iceland who worked as a cabin crew member until 1971?",
+   "gold": "Jóhanna Sigurðardóttir",
+   "blade_r0.005_a2.5": "The former Prime Minister of Iceland who worked as a cabin crew member until 1971 is **Jóhanna Sigurðardóttir**. She was the first female Prime Minister of Iceland, serving from 2009 to 2013. Before entering politics, she worked as a flight attendant for Icelandair."
+  },
+  {
+   "question": "To whom did Mehbooba Mufti Sayed contest the 2019 Lok Sabha elections and lose?",
+   "gold": "Hasnain Masoodi",
+   "blade_r0.005_a2.5": "Mehbooba Mufti Sayed contested the 2019 Lok Sabha elections for the constituency of Anantnag in Jammu and Kashmir and lost to the Bharatiya Janata Party (BJP) candidate, Omar Abdullah."
+  },
+  {
+   "question": "How many fouls did Inter commit in the Champions League final match between Bayern and Inter on May 23, 2010?",
+   "gold": "13",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in July 2024, there is no publicly available, detailed, or official record of the exact number of fouls committed by Inter Milan in the Champions League final between Bayern Munich and Inter Milan on May 23, 2010. This specific data is not typically reported in standard match summaries or official UEFA statistics.\n\nHowever, it is known that the match was a closely contested game, with Inter winning 2-0 thanks to goals from Samuel Eto'o and Diego Milito. The match was notable for its high intensity and the eventual penalty shootout that decided the final.\n\nIf"
+  },
+  {
+   "question": "What year did the Lego part with ID gal56 first release?",
+   "gold": "2002",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in July 2024, there is no publicly available information about a specific Lego part with the ID \"gal56.\" It's possible that this ID does not correspond to any known Lego part, or it may be a fictional or non-existent identifier.\n\nLego parts are typically identified by a numeric part number, such as 3001, 4133, or 8883, and there is no official \"gal56\" part in the Lego database.\n\nIf you have more context or details about the part (such as its appearance, function, or set"
+  },
+  {
+   "question": "In which year did the Japanese scientist Koichi Mizushima receive the Kato Memorial Prize?",
+   "gold": "1999",
+   "blade_r0.005_a2.5": "The Japanese scientist Koichi Mizushima received the Kato Memorial Prize in the year **2004**."
+  },
+  {
+   "question": "In which year did Melbourne's Monash Gallery of Art (MGA) rebrand and become the Museum of Australian Photography (MAPh)?",
+   "gold": "2023",
+   "blade_r0.005_a2.5": "The Monash Gallery of Art (MGA) in Melbourne rebranded and became the Museum of Australian Photography (MAPh) in the year **2013**."
+  },
+  {
+   "question": "Who requested the Federal Aviation Administration (FAA) implement a 900 sq mi (2,300 km2) temporary flight restriction zone over the operations areas of the Deepwater Horizon?",
+   "gold": "The Coast Guard",
+   "blade_r0.005_a2.5": "The Federal Aviation Administration (FAA) implemented a 900 square mile temporary flight restriction (TFR) zone over the operations areas of the Deepwater Horizon oil rig in response to a request from the **National Oceanic and Atmospheric Administration (NOAA)**.\n\nThe TFR was put in place to ensure the safety of the offshore drilling operations and to prevent unauthorized aircraft from entering the area. This request was made as part of the broader response to the Deepwater Horizon oil spill in 2010."
+  },
+  {
+   "question": "What signature piece of the MOBA did Scott Wilson discover on the curb between two trash cans?",
+   "gold": "Lucy in the Field with Flowers",
+   "blade_r0.005_a2.5": "The signature piece of the MOBA that Scott Wilson discovered on the curb between two trash cans is **\"The Legend of Zelda: Ocarina of Time\"**.\n\nThis reference is from the *South Park* episode **\"The Death of Eric Cartman\"** (Season 10, Episode 10), where Scott Wilson, a character in the show, finds the game on the curb, which becomes a pivotal moment in the storyline. The game is a key element in the episode's plot, as it is used to manipulate the characters and drive the narrative forward."
+  },
+  {
+   "question": "What player scored all the conversions for Spain in the rugby match between Spain and Romania that was part of the 2022 Rugby Europe Championship on February 27, 2022?",
+   "gold": "Manuel Ordas",
+   "blade_r0.005_a2.5": "The player who scored all the conversions for Spain in the rugby match against Romania in the 2022 Rugby Europe Championship on February 27, 2022, was **Álvaro de la Fuente**."
+  },
+  {
+   "question": "What is the surname of the psychiatrist who prescribes medication for Marie Hanson for her periodic blackouts in Season 1, Episode 20 of Ally McBeal?",
+   "gold": "Peters",
+   "blade_r0.005_a2.5": "The surname of the psychiatrist who prescribes medication for Marie Hanson for her periodic blackouts in Season 1, Episode 20 of *Ally McBeal* is **Kramer**.\n\nThe psychiatrist is Dr. Jerry Kramer."
+  },
+  {
+   "question": "What is the British-American kickboxer Andrew Tate's kickboxing name?",
+   "gold": "King cobra",
+   "blade_r0.005_a2.5": "The British-American kickboxer Andrew Tate's kickboxing name is **\"The Ice Man\"**. He is also known by his nickname **\"The Billionaire\"** and has been associated with various combat sports, including kickboxing and mixed martial arts."
+  },
+  {
+   "question": "What position was John Gilbert Layton appointed to in Quebec from 1969 until 1970?",
+   "gold": " Quebec Youth Parliament prime minister",
+   "blade_r0.005_a2.5": "John Gilbert Layton was appointed as the Lieutenant Governor of Quebec from 1969 until 1970."
+  },
+  {
+   "question": "Who won the Gerard P. Kuiper Prize in 2001?",
+   "gold": "Bruce W. Hapke",
+   "blade_r0.005_a2.5": "The Gerard P. Kuiper Prize in 2001 was awarded to **James E. Lovell**. He was recognized for his contributions to planetary science, particularly his work on the Apollo 13 mission and his research in lunar and planetary geology."
+  },
+  {
+   "question": "Which streamer won the \"Best VTuber Streamer\" award at The Streamer Awards in 2022?",
+   "gold": "CodeMiko",
+   "blade_r0.005_a2.5": "The \"Best VTuber Streamer\" award at The Streamer Awards in 2022 was won by **Kizuna AI**."
+  },
+  {
+   "question": "What did Daemon Targaryen say to Rhaenyra about living life in fear in Episode 4, Season 1 of House of the Dragon?",
+   "gold": "You cannot live your life in fear, or you will forsake the best parts of it.",
+   "blade_r0.005_a2.5": "As of my knowledge cutoff in October 2024, there is no specific quote from Daemon Targaryen to Rhaenyra about \"living life in fear\" in Episode 4, Season 1 of *House of the Dragon*. There is no widely known or officially cited dialogue in that episode that matches this exact phrasing.\n\nHowever, it's possible that this quote may not be from the actual episode but could be a fictional or speculative line, or it may be a misattribution. *House of the Dragon* Season 1, Episode 4 is titled \"The Heir,\" and it primarily focuses on"
+  },
+  {
+   "question": "On which U.S. TV station did the Canadian reality series *To Serve and Protect* debut?",
+   "gold": "KVOS-TV",
+   "blade_r0.005_a2.5": "The Canadian reality series *To Serve and Protect* debuted on the U.S. TV station **CTV**. \n\nIt premiered on **June 1, 2016**, and was the first Canadian reality series to debut on a U.S. network. The show followed the lives of members of the Toronto Police Service."
+  },
+  {
+   "question": "What instrument did Alec Aitken play well enough for a professional musician to remark, \"Aitken is the most accomplished amateur musician I have ever known\"?",
+   "gold": "Violin",
+   "blade_r0.005_a2.5": "The instrument that Alec Aitken played well enough for a professional musician to remark, \"Aitken is the most accomplished amateur musician I have ever known,\" was the **violin**.\n\nAlec Aitken was a notable figure in the early 20th century, known for his expertise in both music and science. He was a skilled violinist and also made significant contributions to the field of physics, particularly in the development of the Aitken's algorithm. His musical talent was recognized by professionals, which highlights his remarkable ability as an amateur musician."
+  },
+  {
+   "question": "On what day, month, and year did Tara Chand (a politician and a Dalit leader from Jammu and Kashmir) resign from the Indian National Congress in support of Ghulam Nabi Azad?",
+   "gold": "August 30, 2022",
+   "blade_r0.005_a2.5": "Tara Chand, a prominent Dalit leader and politician from Jammu and Kashmir, resigned from the Indian National Congress in support of Ghulam Nabi Azad on **April 1, 2009**. \n\nThis was a significant political move, as he joined the Indian National Congress in support of Ghulam Nabi Azad, who was then the Chief Minister of Jammu and Kashmir. Tara Chand's resignation was seen as a strategic move to strengthen the Congress party's position in the state."
+  },
+  {
+   "question": "What was the strike rate of Harbhajan Singh in the final match of IPL 2015?",
+   "gold": "200.00",
+   "blade_r0.005_a2.5": "The strike rate of Harbhajan Singh in the final match of IPL 2015 was **100.00**.\n\nHe scored **100 runs** off **100 balls** in the final against Chennai Super Kings, which made his strike rate exactly 100.00. This performance is considered one of the most iconic in IPL history."
+  },
+  {
+   "question": "In the lore of Dungeons and Dragons, what is the name of the fortress in the Astral Plane used as a lair by the red great wyrm Ashardalon?",
+   "gold": "Bastion of Unborn Souls",
+   "blade_r0.005_a2.5": "The fortress in the Astral Plane used as a lair by the red great wyrm **Ashardalon** in the lore of Dungeons & Dragons is called **The Astral Spire**.\n\nThis location is a significant part of the lore, particularly in the *Dungeons & Dragons* universe, and is often referenced in various adventures and supplements, especially those involving the **Mythic Odysseys of Theros** and other cosmological adventures. The Astral Spire is a powerful and ancient structure, said to be a place of immense magical energy and a key location in the ongoing conflict between the planes."
+  },
+  {
+   "question": "In which episode and season of South Park does Bill Cosby (BSM-471) first appear? Give me the number and title.",
+   "gold": "Season 4 Episode 12: \"Trapper Keeper\"",
+   "blade_r0.005_a2.5": "Bill Cosby (BSM-471) first appears in **Season 10, Episode 10** of *South Park*, titled **\"The Return of the Fellowship of the Ring to the Forge\"**.\n\nIn this episode, he is portrayed as a character named \"BSM-471\" and is part of a storyline involving a fictional \"Bill Cosby\" who is a controversial figure in the show's satirical universe. The episode is a parody of *The Lord of the Rings* and includes various fictional characters and events."
+  },
+  {
+   "question": "The WWI Q-Ship \"Salvia\" was partially reconstructed with a false counter-stern to resemble what kind of ship?",
+   "gold": "tramp",
+   "blade_r0.005_a2.5": "The WWI Q-Ship \"Salvia\" was partially reconstructed with a false counter-stern to resemble a **steam yacht**. \n\nThis design helped it appear less suspicious to enemy submarines, as yachts were not typically targeted during the war. The false stern made the ship look more like a civilian vessel, allowing it to operate under the guise of a non-military craft."
+  },
+  {
+   "question": "Which district in Kashmir was originally known as Panwangam?",
+   "gold": "Pulwama",
+   "blade_r0.005_a2.5": "The district in Kashmir that was originally known as Panwangam is **Jammu**.\n\nPanwangam was the old name of the region that is now known as Jammu. The name \"Panwangam\" is believed to be derived from the Sanskrit word \"Pancha\" (five) and \"Wang\" (kingdom), referring to the five kingdoms that were once part of the region. Over time, the name evolved into \"Jammu,\" which is now the capital of the Jammu and Kashmir state in India."
+  },
+  {
+   "question": "In 1810, François Aimé Louis Dumoulin published a collection of how many engravings themed on the journey of \"Robinson Crusoe\"?",
+   "gold": "150",
+   "blade_r0.005_a2.5": "In 1810, François Aimé Louis Dumoulin published a collection of **120 engravings** themed on the journey of \"Robinson Crusoe.\""
+  },
+  {
+   "question": "What day, month, and year was Carrie Underwood's album \"Cry Pretty\" certified Gold by the RIAA?",
+   "gold": "October 23, 2018",
+   "blade_r0.005_a2.5": "Carrie Underwood's album \"Cry Pretty\" was certified Gold by the RIAA on **October 16, 2020**."
+  },
+  {
+   "question": "In the series \"El guardián invisible,\" who portrays the character Alfonso Álvarez de Toledo?",
+   "gold": "Ramón Barea",
+   "blade_r0.005_a2.5": "In the series \"El guardián invisible\" (The Invisible Guardian), the character Alfonso Álvarez de Toledo is portrayed by **Álvaro Morte**. He is a Spanish actor known for his roles in series such as \"La Casa de Papel\" and \"El Ministerio del Tiempo.\""
+  },
+  {
+   "question": "On what day, month, and year was David Sweet, Canadian politician, born?",
+   "gold": "June 24, 1957",
+   "blade_r0.005_a2.5": "David Sweet, the Canadian politician, was born on **April 15, 1947**."
+  },
+  {
+   "question": "From which high school did the first female governor of Hawaii, United States, graduate?",
+   "gold": "Birmingham High School",
+   "blade_r0.005_a2.5": "The first female governor of Hawaii was Liliʻuokalani, who was the last monarch of Hawaii before the overthrow of the Hawaiian Kingdom in 1893. She did not graduate from a high school in the modern sense, as Hawaii was a U.S. territory at the time and did not have a public high school system in the way it is structured today.\n\nHowever, she attended the Royal School of Oʻahu, which was a government-funded school for Hawaiian children. It was later renamed the Kamehameha Schools. She graduated from the Royal School of Oʻahu in 1867."
+  },
+  {
+   "question": "In which month and year did Khusro Bakhtiar (former Federal Minister for Planning, Development, and Reforms, Pakistan) announce that the government was considering establishing a Pak-China business council to promote the private sector's role in the China-Pakistan Economic Corridor (CPEC)?",
+   "gold": "June 2019",
+   "blade_r0.005_a2.5": "The former Federal Minister for Planning, Development, and Reforms, Khusro Bakhtiar, announced that the government was considering establishing a Pak-China business council to promote the private sector's role in the China-Pakistan Economic Corridor (CPEC) in **June 2015**. \n\nThe announcement was made during a press conference in Islamabad."
+  },
+  {
+   "question": "What is the first and last name of the woman whom the British linguist Bernard Comrie married in 1985?",
+   "gold": "Akiko Kumahira",
+   "blade_r0.005_a2.5": "The woman whom the British linguist Bernard Comrie married in 1985 was **Doris L. Comrie**. Her first name is **Doris** and her last name is **Comrie**."
+  },
+  {
+   "question": "What are the first names and surnames of the figure skaters who came 21st in the ice dance category at the 2022 Winter Olympics in Beijing?",
+   "gold": "Katharina Müller and Tim Dieck",
+   "blade_r0.005_a2.5": "The figure skaters who came 21st in the ice dance category at the 2022 Winter Olympics in Beijing were **Tatiana Volosozhar** and **Mikhail Kolyada** from Russia. \n\n- First name: Tatiana  \n- Surname: Volosozhar  \n- First name: Mikhail  \n- Surname: Kolyada"
+  },
+  {
+   "question": "What is the name of the kibbutz that Simon Le Bon lived on in 1978?",
+   "gold": "Gvulot.",
+   "blade_r0.005_a2.5": "The kibbutz that Simon Le Bon lived on in 1978 was **Kibbutz Ein Hashofet**. He was part of the kibbutz movement in Israel during that time."
+  },
+  {
+   "question": "Who won the 1991 Ig Nobel Prize for Peace?",
+   "gold": "Edward Teller",
+   "blade_r0.005_a2.5": "The 1991 Ig Nobel Prize for Peace was awarded to **Dr. Robert A. Freitas Jr.** and **Dr. Ralph Merkle** for their research on **\"the feasibility of building a nanobot\"**. \n\nThis work was a humorous take on the speculative and often speculative nature of nanotechnology, particularly in the context of creating microscopic machines. The Ig Nobel Prizes are a parody of the Nobel Prizes, celebrating unusual or humorous scientific achievements that still have a basis in real research."
+  },
+  {
+   "question": "Why did David Chow come to Genoa City on \"The Young and the Restless\"?",
+   "gold": "To avenge the murder of his former fiancée, Carmen Mesta.",
+   "blade_r0.005_a2.5": "David Chow came to Genoa City on *The Young and the Restless* in 2007 as part of a storyline involving his character, Daniel Romano. At the time, David Chow was a well-known actor in Asia, particularly for his role in the popular Hong Kong drama *The New Legends of the Condor*. He was cast as Daniel Romano, a mysterious and charming man who arrived in Genoa City with a secret past.\n\nThe storyline introduced Daniel as a new character who was connected to the town's existing characters, particularly Victor Newman, with whom he had a complicated relationship. Daniel's arrival brought a mix"
+  },
+  {
+   "question": "In which season and episode of Archer does Sterling go into a rampage? Give me the season, number, and title of the episode.",
+   "gold": "Season 2, Episode 9 \"Placebo Effect\"",
+   "blade_r0.005_a2.5": "Sterling goes into a rampage in **Season 3, Episode 10**, titled **\"The Good, the Bad, and the Boring\"**.\n\nIn this episode, Sterling becomes extremely agitated when he discovers that his favorite coffee shop, \"The Coffee Bean,\" is closing down. His outburst leads to a chaotic scene at the office, showcasing his typically volatile personality."
+  },
+  {
+   "question": "On what day, month, and year was Algerian artist Mohammed Racim born?",
+   "gold": "June 24th, 1896.",
+   "blade_r0.005_a2.5": "As of my current knowledge base, there is no widely documented or publicly available information regarding the birth date of an Algerian artist named Mohammed Racim. There is no reliable historical record or biographical data that specifies the day, month, or year of his birth. It is possible that there is no public information on this individual, or there may be no historical records about him. Unfortunately, I cannot provide an accurate answer based on the available information."
+  },
+  {
+   "question": "How many original artworks were shown in the Society of Illustrators' first \"Annual Exhibition\"?",
+   "gold": "350",
+   "blade_r0.005_a2.5": "The Society of Illustrators' first \"Annual Exhibition\" was held in 1901. The exhibition featured **1,200 original artworks**."
+  },
+  {
+   "question": "In what year was Eugenius Aristides Nisbet elected to the Georgia House of Representatives?",
+   "gold": "1827",
+   "blade_r0.005_a2.5": "Eugenius Aristides Nisbet was elected to the Georgia House of Representatives in the year 1822."
+  },
+  {
+   "question": "What day/month/year was it announced that the politician Ibrahim Rugova had been diagnosed with lung cancer?",
+   "gold": "5 September 2005",
+   "blade_r0.005_a2.5": "Ibrahim Rugova was diagnosed with lung cancer on **April 13, 1999**. The announcement was made by the Kosovo Liberation Army (KLA) and later confirmed by the media. He was the President of the Republic of Kosovo at the time."
+  },
+  {
+   "question": "In 2022, which university did Honda Battle of the Bands (HBOB) select to be the first-ever HBCU campus to host the in-person event?",
+   "gold": "Alabama State University",
+   "blade_r0.005_a2.5": "The university that Honda Battle of the Bands (HBOB) selected to be the first-ever HBCU campus to host the in-person event in 2022 was **Howard University**."
+  },
+  {
+   "question": "Who wrote the lyrics to \"Dream Serenade,\" the opening theme song for the radio program \"The American Album of Familiar Music\"?",
+   "gold": "Alfred Bryan",
+   "blade_r0.005_a2.5": "The lyrics to \"Dream Serenade,\" the opening theme song for the radio program \"The American Album of Familiar Music,\" were written by **Irving Berlin**.\n\nThe song was composed by Berlin and was used as the theme for the program, which was a popular radio show that featured American music. The lyrics are poetic and evoke a sense of nostalgia and musical appreciation, fitting the theme of the show."
+  },
+  {
+   "question": "In what year did Etta Cone last visit Europe?",
+   "gold": "1938",
+   "blade_r0.005_a2.5": "Etta Cone last visited Europe in the year 1947. She returned to the United States that year after spending several years abroad, including time in France and Italy."
+  },
+  {
+   "question": "What day, month, and year was Vladislav Kaborda born?",
+   "gold": "July 24, 1995",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in July 2024, there is no widely known public figure named Vladislav Kaborda for whom I can provide a specific birth date. There is no credible historical or biographical information available about this individual in mainstream sources or historical records. It is possible that there is no public record of this person, or there may be no information available in the public domain. If this is a fictional character, a private individual, or a name that has not been documented, I currently cannot provide an accurate answer. Please provide additional context or clarify if this is a fictional or hypothetical scenario."
+  },
+  {
+   "question": "In what year was John Williams inducted into the Classical Music Hall of Fame?",
+   "gold": "2004.",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in July 2024, there is no official record of John Williams being inducted into the Classical Music Hall of Fame. John Williams is a renowned American composer, best known for his film scores, including those for \"Star Wars,\" \"Jaws,\" and \"Harry Potter.\" While he is highly respected in the world of film music, there is no widely recognized \"Classical Music Hall of Fame\" that includes him as an inductee.\n\nIt's possible that there may be a confusion with other honors or awards he has received, such as the Grammy Awards or the Academy Awards. If you"
+  },
+  {
+   "question": "On which month and day was the 1985 St. Louis mayoral election held?",
+   "gold": " April 2",
+   "blade_r0.005_a2.5": "The 1985 St. Louis mayoral election was held on **November 5, 1985**. The winner was William L. \"Bill\" Faulconer, who was elected for his first term as mayor of St. Louis."
+  },
+  {
+   "question": "How many units of the Infanterikanonvagn 72 (1952) were delivered to the Swedish army from 1953 to 1954?",
+   "gold": "36.",
+   "blade_r0.005_a2.5": "The Infanterikanonvagn 72 (1952), also known as the 72 mm Infantry Howitzer Carrier, was a Swedish military vehicle used during the Cold War. It was based on the American M103 half-track chassis and was equipped with a 72 mm howitzer.\n\nFrom 1953 to 1954, a total of **120 units** of the Infanterikanonvagn 72 were delivered to the Swedish Army.\n\nThese vehicles were used primarily for infantry support and were part of the Swedish military's efforts to modernize its artillery capabilities"
+  },
+  {
+   "question": "In which year did Askham Richard, the village in the North of England, first become a conservation area?",
+   "gold": "1975",
+   "blade_r0.005_a2.5": "The village of Askham Richard in the North of England first became a conservation area in the year **1972**."
+  },
+  {
+   "question": "What are the GPS coordinates of Malawi?",
+   "gold": "13° 15' 4.38\" S, 34° 18' 5.50\" E.",
+   "blade_r0.005_a2.5": "The GPS coordinates of Malawi are approximately:\n\n- **Latitude**: 13° S\n- **Longitude**: 34° E\n\nThis places the country in the southern part of the African continent, bordered by Tanzania to the east, Mozambique to the south, Zambia to the northwest, and the Democratic Republic of the Congo to the north. The capital city, Lilongwe, has the coordinates **14.1565° S, 34.3555° E**."
+  },
+  {
+   "question": "On which day, month, and year did the Hubble Telescope enter a partial safe mode following suspected hardware problems in its most advanced instrument, the Wide Field Camera 3 instrument?",
+   "gold": "January 8, 2019",
+   "blade_r0.005_a2.5": "The Hubble Telescope entered partial safe mode on **April 27, 2018**, following suspected hardware problems in its Wide Field Camera 3 (WFC3) instrument."
+  },
+  {
+   "question": "Before 2013, what was the municipal division of Gusevsky District in Kaliningrad Oblast incorporated as?",
+   "gold": "Gusevsky Municipal District",
+   "blade_r0.005_a2.5": "Before 2013, the municipal division of Gusevsky District in Kaliningrad Oblast was incorporated as part of the **Gusevsky District** itself, which was a **district (raion)** within the Kaliningrad Oblast.\n\nPrior to 2013, the administrative structure of Kaliningrad Oblast was divided into **districts (raions)**, each consisting of **municipal formations** such as **cities, towns, and rural settlements**. The Gusevsky District was one of these districts, and it included several **urban-type settlements** and **rural"
+  },
+  {
+   "question": "What were Martin Haspelmath's and Michael Cysouw's respective affiliations when they authored \"Identifying Semantic Role Clusters and Alignment Types via Microrole Coexpression Tendencies\"?",
+   "gold": "Max Planck Institute for Evolutionary Anthropology and Philipps-Universität Marburg",
+   "blade_r0.005_a2.5": "Martin Haspelmath and Michael Cysouw were affiliated with the **Max Planck Institute for Psycholinguistics** in Nijmegen, the Netherlands, when they authored the paper **\"Identifying Semantic Role Clusters and Alignment Types via Microrole Coexpression Tendencies\"**.\n\nThe paper was published in **2011** as part of the **Proceedings of the 13th International Conference on Computational Linguistics (COLING 2011)**. Both researchers are known for their work in computational linguistics, particularly in the areas of semantic role labeling, alignment, and cross-ling"
+  },
+  {
+   "question": "Who was Racing's top scorer in the Copa Libertadores 1967?",
+   "gold": "Norberto Raffo",
+   "blade_r0.005_a2.5": "The top scorer for Racing Club in the 1967 Copa Libertadores was **Raúl Cubas**. He scored **6 goals** during the tournament, which was held in 1967. Racing Club won the Copa Libertadores that year, and Cubas was one of the key players in their successful campaign."
+  },
+  {
+   "question": "What were the date, month, and year of death of the former PM of J&K, Mehr Chand Mahajan?",
+   "gold": "11 December 1967.",
+   "blade_r0.005_a2.5": "The former Prime Minister of Jammu and Kashmir, Mehr Chand Mahajan, died on **14 April 1967**. \n\n- **Date:** 14  \n- **Month:** April  \n- **Year:** 1967"
+  },
+  {
+   "question": "What was Beloit College's Center for the Sciences renamed in 2017?",
+   "gold": "Marjorie and James Sanger Center for the Sciences.",
+   "blade_r0.005_a2.5": "The Beloit College's Center for the Sciences was renamed the **Barnett Center for the Sciences** in 2017. The center is named after Dr. Robert Barnett, a former president of Beloit College and a prominent figure in the field of science education."
+  },
+  {
+   "question": "From which dealer's shop did the Florentine authorities buy the \"Pitti Tondo\" in 1823?",
+   "gold": "Fedele Acciai",
+   "blade_r0.005_a2.5": "The \"Pitti Tondo\" was bought by the Florentine authorities in 1823 from the shop of **Giovanni Battista Cappi**."
+  },
+  {
+   "question": "Who was the director of the Lebedev Physical Institute of the Russian Academy of Sciences between 1951 and 1972?",
+   "gold": "Dmitri Skobeltsyn",
+   "blade_r0.005_a2.5": "The director of the Lebedev Physical Institute of the Russian Academy of Sciences between 1951 and 1972 was **Nikolai Nikolaevich Bogolyubov**. He was a prominent Soviet physicist and a key figure in the development of theoretical physics in the USSR."
+  },
+  {
+   "question": "In what year was Alain Stanké made a member of the Order of Canada?",
+   "gold": "1998",
+   "blade_r0.005_a2.5": "Alain Stanké was made a member of the Order of Canada in the year 2003."
+  },
+  {
+   "question": "What are the first and last names of the scientist who collaborated with Vincent Joseph Schaefer to issue the U.S. patent for \"Method and Apparatus for Producing Aerosols\" in 1943?",
+   "gold": "Langmuir Irving",
+   "blade_r0.005_a2.5": "The scientist who collaborated with Vincent Joseph Schaefer to issue the U.S. patent for \"Method and Apparatus for Producing Aerosols\" in 1943 was **Robert H. Jarrell**. \n\nThe first name is **Robert** and the last name is **Jarrell**."
+  },
+  {
+   "question": "Who was the Swedish footballer who spent his entire career as a winger for the club GAIS in the Swedish Allsvenskan from 1949 to 1960 and passed away on February 26, 2017?",
+   "gold": "Frank Jacobsson",
+   "blade_r0.005_a2.5": "The Swedish footballer who spent his entire career as a winger for GAIS in the Swedish Allsvenskan from 1949 to 1960, and who passed away on February 26, 2017, was **Lars-Erik Sjöberg**.\n\nHe was a notable player for GAIS and is remembered as one of the club's legends. Sjöberg played a key role in GAIS's success during the 1950s and 1960s, including their championship win in the 1957 Allsvenskan."
+  },
+  {
+   "question": "What is the name of the statue that Rosemarie Trockel made for the city of Frankfurt in 1994?",
+   "gold": "Frankfurter Engel",
+   "blade_r0.005_a2.5": "The statue that Rosemarie Trockel made for the city of Frankfurt in 1994 is called **\"Die Mutter\"** (which means \"The Mother\" in German). It is a large public sculpture located in the Frankfurt district of Bornheim. The work is known for its bold, abstract form and its exploration of themes related to motherhood, identity, and the female body."
+  },
+  {
+   "question": "What team finished with 38 points at the end of the 2021-2022 Premier League season?",
+   "gold": "Leeds United",
+   "blade_r0.005_a2.5": "The team that finished with 38 points at the end of the 2021-2022 Premier League season was **Manchester United**. They finished in 5th place."
+  },
+  {
+   "question": "What position was Everton in when Rafael Benítez was sacked in the 2021-22 Premier League season?",
+   "gold": "15th place",
+   "blade_r0.005_a2.5": "The position Everton was in when Rafael Benítez was sacked in the 2021-22 Premier League season was **17th**. \n\nBenítez was sacked on December 16, 2021, after the team had lost five of their first 12 Premier League matches and was in 17th place in the league table."
+  },
+  {
+   "question": "In which year was the municipality of Sonsón, Antioquia, Colombia, founded?",
+   "gold": "1800",
+   "blade_r0.005_a2.5": "The municipality of Sonsón, Antioquia, Colombia, was founded in the year **1539**."
+  },
+  {
+   "question": "Who replaced Don Santos in the band group Immature?",
+   "gold": "Kelton \"LDB\" Kessee",
+   "blade_r0.005_a2.5": "The original bassist for the band Immature was Don Santos. He was replaced by **Darryl \"Dime\" Johnson** in 1996. Dime Johnson became a key member of the band and remained with them for many years, contributing to their success and most of their well-known albums."
+  },
+  {
+   "question": "In Season 3 of the American version of \"The Circle,\" in which episode did Vince enter the game?",
+   "gold": "7",
+   "blade_r0.005_a2.5": "In Season 3 of the American version of *The Circle*, Vince entered the game in **Episode 3**, which is titled **\"The Circle: Season 3, Episode 3 – 'The Circle'**. \n\nHe joined the game as one of the early contestants and became a notable player throughout the season. If you're looking for more specific details about his gameplay or interactions, feel free to ask!"
+  },
+  {
+   "question": "What is the length in meters of Abdullah Bridge in Srinagar?",
+   "gold": "390 metres",
+   "blade_r0.005_a2.5": "As of my current knowledge base, there is no specific, widely documented information about the length of Abdullah Bridge in Srinagar, Jammu and Kashmir. It's possible that there is no official or publicly available data on this particular bridge, or it may not be a well-known or officially named bridge.\n\nIf you are referring to a specific bridge in Srinagar, such as the one near Dal Lake or another notable bridge, it would be helpful to clarify the name or provide more context. If you have any additional details or if this is a local or less-known structure, I may not be able to provide an exact figure at this"
+  },
+  {
+   "question": "How many acres did the University of Alabama purchase to expand its campus in 2010?",
+   "gold": "168",
+   "blade_r0.005_a2.5": "The University of Alabama purchased **1,100 acres** to expand its campus in 2010. This expansion included the development of the Paul W. Bryant Museum and the surrounding campus area, which became part of the university's campus in the 2010s."
+  },
+  {
+   "question": "What is the first vampire number in recreational mathematics obtained by a 3x3-digit multiplication?",
+   "gold": "102510",
+   "blade_r0.005_a2.5": "A **vampire number** is a composite natural number with an even number of digits that can be factored into two numbers (called the \"fangs\") which together contain exactly the same digits as the original number, in any order, with no leading zeros.\n\nThe **first vampire number** in recreational mathematics is **1260**, which is obtained from the multiplication:\n\n$$\n60 \\times 21 = 1260\n$$\n\nHere, the fangs are **60** and **21**, and together they contain the digits **6, 0, 2, 1**, which"
+  },
+  {
+   "question": "In which district of Uttarakhand was Ila Pant (an Indian politician) born?",
+   "gold": "Nainital district",
+   "blade_r0.005_a2.5": "Ila Pant was born in the district of Pithoragarh in Uttarakhand."
+  },
+  {
+   "question": "At which university was the mechanical engineer Gang Chen an assistant professor from 1993 to 1997?",
+   "gold": "Duke University",
+   "blade_r0.005_a2.5": "The mechanical engineer Gang Chen was an assistant professor at the University of California, Berkeley from 1993 to 1997."
+  },
+  {
+   "question": "How many medals did Ken Skupski win representing England at the 2010 Commonwealth Games in Delhi?",
+   "gold": "two medals.",
+   "blade_r0.005_a2.5": "Ken Skupski won **1 silver medal** representing England at the 2010 Commonwealth Games in Delhi. He competed in men's doubles squash with his partner Chris Jackson. They won the silver medal in the men's doubles event."
+  },
+  {
+   "question": "Who replaced Bradie Tennell in the 2021 Skate America?",
+   "gold": "Starr Andrews",
+   "blade_r0.005_a2.5": "The skater who replaced Bradie Tennell in the 2021 Skate America was **Karen Chen**. Bradie Tennell was originally scheduled to compete but withdrew due to injury, and Karen Chen stepped in to take her place. Karen Chen won the gold medal in the women's event at Skate America 2021."
+  },
+  {
+   "question": "Which nobleman did Caravaggio beat on November 28, 1600?",
+   "gold": "Girolamo Stampa da Montepulciano",
+   "blade_r0.005_a2.5": "The nobleman that Caravaggio beat on November 28, 1600, was **Raffaele Rubacuore**.\n\nThis incident occurred in Rome and led to a significant scandal, contributing to Caravaggio's eventual exile from the city. The fight was reportedly over a dispute involving Caravaggio's friend, **Orazio Gentile**, and the nobleman Raffaele Rubacuore. The altercation resulted in serious injuries to Rubacuore, and Caravaggio was arrested and later fled Rome to avoid prosecution."
+  },
+  {
+   "question": "What company was Natasha Merle a civil rights fellow at from 2013 to 2015 in New York City?",
+   "gold": " Fried, Frank, Harris, Shriver & Jacobson",
+   "blade_r0.005_a2.5": "Natasha Merle was a civil rights fellow at the **NAACP Legal Defense Fund (LDF)** in New York City from 2013 to 2015."
+  },
+  {
+   "question": "What year was the municipality of San Francisco, Antioquia, Colombia, founded?",
+   "gold": "1830",
+   "blade_r0.005_a2.5": "The municipality of San Francisco, Antioquia, Colombia, was founded in the year **1539**. It is one of the oldest municipalities in the Antioquia Department and is known for its rich history and cultural heritage."
+  },
+  {
+   "question": "According to Henry Scadding, author of \"Toronto of Old,\" how many people died on the HMS Ontario in 1780?",
+   "gold": "172.",
+   "blade_r0.005_a2.5": "There is no historical record or credible source, including Henry Scadding's \"Toronto of Old,\" that mentions a ship named HMS Ontario or any deaths associated with such a vessel in 1780. As of this point in time, there is no reliable historical evidence to support the existence of an HMS Ontario in that year or any related events.\n\nIt is possible that this reference is based on a fictional or speculative account, or there may be confusion with another ship or event. Unfortunately, as of this current knowledge base, there is no accurate information regarding this specific claim. It is important to note that there is no known historical record of"
+  },
+  {
+   "question": "In which month and year was it reported that the German Defense Ministry planned to replace its Tornado aircraft with a purchase of 30 Boeing F/A-18E/F Super Hornets, 15 EA-18G Growlers, and 55 Eurofighter Typhoons?",
+   "gold": "April 2020",
+   "blade_r0.005_a2.5": "The German Defense Ministry reported its plan to replace the Tornado aircraft with a purchase of 30 Boeing F/A-18E/F Super Hornets, 15 EA-18G Growlers, and 55 Eurofighter Typhoons in **June 2021**.\n\nThis plan was part of Germany's efforts to modernize its air force and replace the aging Tornado fleet. The decision was announced as part of the German government's defense procurement strategy."
+  },
+  {
+   "question": "How many corners did Barcelona take in the Champions League semi-final match between Barcelona and Milan on April 27, 2006?",
+   "gold": "3",
+   "blade_r0.005_a2.5": "In the Champions League semi-final match between Barcelona and AC Milan on April 27, 2006, **Barcelona took 12 corners**. \n\nThe match was a dramatic 4-2 victory for Barcelona, with the final score being 4-2 after extra time. The game is remembered for its intense play and the iconic goal by Ronaldinho."
+  },
+  {
+   "question": "Which two scientists (first and last names) are credited with first isolating *Azotobacter salinestris* from saline soils?",
+   "gold": "William J. Page and Shailaja Shivprasad ",
+   "blade_r0.005_a2.5": "The two scientists credited with first isolating *Azotobacter salinestris* from saline soils are **W. A. D. H. van Niel** and **J. A. van Niel**. They were Dutch microbiologists who conducted pioneering work on nitrogen-fixing bacteria, including *Azotobacter salinestris*."
+  },
+  {
+   "question": "Which Venetian artist painted the portrait of Maria Theresia Walburga Amalia Christina in 1730?",
+   "gold": "Rosalba Carriera",
+   "blade_r0.005_a2.5": "The Venetian artist who painted the portrait of Maria Theresia Walburga Amalia Christina in 1730 was **Giovanni Battista Tiepolo**.\n\nHe was a renowned Venetian painter of the Baroque period, known for his frescoes and altarpieces, as well as his portraits. The portrait of Maria Theresia Walburga Amalia Christina, also known as Maria Theresa of Austria, was painted when she was the Archduchess of Austria and later became the Queen of Spain."
+  },
+  {
+   "question": "On what day, month, and year was David Russell Wartinbee, a Republican politician from Wisconsin in the United States who served in the Wisconsin State Assembly from 1961 to 1967, born?",
+   "gold": "11 November 1903",
+   "blade_r0.005_a2.5": "David Russell Wartinbee was born on **April 12, 1917**."
+  },
+  {
+   "question": "What version of Dota 2 was The International 2016 played on?",
+   "gold": "6.88b",
+   "blade_r0.005_a2.5": "The International 2016 (TI6) was played on **Dota 2 version 6.82**. \n\nThis version was the one used for the entire tournament, including the group stages, playoffs, and finals. The game was updated to version 6.82 before the tournament started, and it remained the same throughout the event."
+  },
+  {
+   "question": "On which month and year were the names of the suspects in the Sagar-Runi murder case announced by Home Minister MK Alamgir?",
+   "gold": "October 2012",
+   "blade_r0.005_a2.5": "The names of the suspects in the Sagar-Runi murder case were announced by Home Minister MK Alamgir in **June 2023**. The case involves the killing of journalist Sagar-Runi and her son, and the suspects were identified as part of an investigation into the crime."
+  },
+  {
+   "question": "What is the forest cover area of Tamil Nadu in square kilometers, according to the India State of Forest Report 2019?",
+   "gold": "26,364.02",
+   "blade_r0.005_a2.5": "According to the **India State of Forest Report (ISFR) 2019**, the **forest cover area of Tamil Nadu** is **10,922 square kilometers**. \n\nThis includes both **forest area** and **tree cover**. The report categorizes forest cover into different types, such as **tropical moist deciduous forests**, **tropical dry deciduous forests**, and **others**. Tamil Nadu's forest cover is primarily found in the **Western Ghats** region, which is known for its rich biodiversity."
+  },
+  {
+   "question": "In which year was production started for the Crayola color with hexadecimal code #D9E650?",
+   "gold": "1926",
+   "blade_r0.005_a2.5": "The hexadecimal color code #D9E650 corresponds to the Crayola color **\"Lemon Chiffon\"**.\n\nProduction for the Crayola color **Lemon Chiffon** started in the year **1990**."
+  },
+  {
+   "question": "What is the exact date when the first CRISPR-edited babies were reportedly born, according to a 2019 *Nature* article?",
+   "gold": "November 25, 2018",
+   "blade_r0.005_a2.5": "The first CRISPR-edited babies were reportedly born in November 2018, according to a 2019 *Nature* article. The article discussed the controversial case involving He Jiankui, a Chinese scientist who claimed to have edited the genomes of twin girls using the CRISPR-Cas9 gene-editing technology. However, as of my knowledge cutoff in July 2024, there is no publicly available, peer-reviewed scientific evidence confirming the birth of these babies or the specific details of the experiment. The claims remain unverified and are largely based on a preprint paper and subsequent media reports."
+  },
+  {
+   "question": "On June 24, 2018, how many more votes did the winning candidate get in total than Muharrem İnce?",
+   "gold": "10,990,502",
+   "blade_r0.005_a2.5": "As of my knowledge cutoff in October 2023, I cannot provide real-time or specific historical data about election results, including the 2018 Turkish presidential election. However, I can guide you on how to find this information.\n\n### Steps to Find the Answer:\n1. **Identify the Candidates:**\n   - The winning candidate in the 2018 Turkish presidential election was **Recep Tayyip Erdoğan**.\n   - The opposing candidate was **Muharrem İnce**.\n\n2. **Find the Vote Totals:**\n   - The official results from the **Turkish Election Commission"
+  },
+  {
+   "question": "What is the surname of the individual who won the Gordon E. Moore Medal, an award given yearly by the Society of Chemical Industry to someone who has displayed early career success involving innovation in chemical industries, in 2006?",
+   "gold": "Jonathan M. McConnachie",
+   "blade_r0.005_a2.5": "The surname of the individual who won the Gordon E. Moore Medal in 2006 is **Hawkins**. The recipient was **Dr. David J. Hawkins**."
+  },
+  {
+   "question": "What disease was Elizabeth Esteve-Coll diagnosed with that forced her to step down as Vice-Chancellor of the University of East Anglia?",
+   "gold": "multiple sclerosis diagnosis",
+   "blade_r0.005_a2.5": "Elizabeth Esteve-Coll was diagnosed with **multiple sclerosis (MS)**, which forced her to step down as Vice-Chancellor of the University of East Anglia in 2007."
+  },
+  {
+   "question": "What day, month, and year was Notepad++ version 7.8.8 released?",
+   "gold": "June 28, 2020",
+   "blade_r0.005_a2.5": "Notepad++ version 7.8.8 was released on **June 13, 2018**."
+  },
+  {
+   "question": "What is the name F.R.I.D.A. an acronym for in Critical Role Campaign 3?",
+   "gold": "Far Ranging Integrated Defense Aeormaton",
+   "blade_r0.005_a2.5": "In Critical Role Campaign 3, the name **F.R.I.D.A.** is an acronym for **\"Freaky, Rude, Insecure, Dopey, and Annoying.\"** It's a humorous and fictional character name used by the players as a placeholder or a joke, rather than a serious in-universe reference. There's no official in-game meaning or backstory tied to it, as it's more of a lighthearted inside joke among the cast and fans."
+  },
+  {
+   "question": "In which month and year did Dolly the sheep give birth to her first lamb, Bonnie?",
+   "gold": "April 1998",
+   "blade_r0.005_a2.5": "Dolly the sheep gave birth to her first lamb, Bonnie, in the month of **July** in the year **1996**."
+  },
+  {
+   "question": "Which architects designed the Abasto?",
+   "gold": "José Luis Delpini, Viktor Sulčič and Raúl Bes",
+   "blade_r0.005_a2.5": "The Abasto is a commercial and cultural complex located in Buenos Aires, Argentina. It was designed by the Argentine architect **Pedro Ramírez Vázquez**.\n\nPedro Ramírez Vázquez was a prominent figure in Argentine architecture, known for his modernist and functionalist style. The Abasto, completed in 1968, is one of his most famous works and is considered a landmark of modern architecture in South America. The building is known for its distinctive design, which combines functionality with aesthetic appeal, and it has become a symbol of Buenos Aires."
+  },
+  {
+   "question": "What drag family was Monét X Change originally a member of before starting her own?",
+   "gold": "Davenport.",
+   "blade_r0.005_a2.5": "Monét X Change was originally a member of the drag family **Monét X Change** before starting her own. However, this is a bit of a humorous or fictional reference, as there is no official \"drag family\" by that name in the real world of drag. It's likely a playful or fictional concept, possibly from a fictional universe or a humorous take on drag family dynamics.\n\nAs of my knowledge cutoff in July 2024, there is no widely recognized drag family named \"Monét X Change\" in the real-world drag community. It's possible that this is a fictional or speculative reference, as there is no"
+  },
+  {
+   "question": "What day, month, and year did Sara Duterte resign from Lakas-CMD?",
+   "gold": "19 May, 2023",
+   "blade_r0.005_a2.5": "Sara Duterte did not resign from Lakas-CMD. As of my knowledge cutoff in July 2024, she remains a member of the Lakas-CMD party. There is no publicly available information about her resigning from the party. If there is any recent development beyond this date, I currently cannot provide details on it."
+  },
+  {
+   "question": "How old was Kara Walker when she first received the MacArthur Fellowship?",
+   "gold": "28 years old.",
+   "blade_r0.005_a2.5": "Kara Walker was 32 years old when she first received the MacArthur Fellowship in 1997."
+  },
+  {
+   "question": "How many houses did the village of Bure Nangal in Batala have according to the 2011 Census of India?",
+   "gold": "211",
+   "blade_r0.005_a2.5": "According to the 2011 Census of India, the village of Bure Nangal in Batala had **1,128 houses**."
+  },
+  {
+   "question": "What was the original surname of conductor David Randolph?",
+   "gold": "Rosenberg.",
+   "blade_r0.005_a2.5": "The original surname of conductor David Randolph was **Randolph**. There is no indication that he changed his surname. He was known professionally as David Randolph, and his family name remained Randolph throughout his career. If you're referring to a specific context or historical detail about him, please provide more information, as there may be some confusion with other individuals sharing the same name. However, based on available information, his original surname was indeed **Randolph**."
+  },
+  {
+   "question": "Who won the American Mathematical Society David P. Robbins Prize in 2010?",
+   "gold": "Ileana Streinu",
+   "blade_r0.005_a2.5": "The American Mathematical Society David P. Robbins Prize in 2010 was awarded to **Sergei Konyagin** and **Vladimir Milman** for their work on the geometry of Banach spaces and the asymptotic theory of convex bodies."
+  },
+  {
+   "question": "What were the day, month, and year the first wooden roller coaster manufactured by Rocky Mountain Construction officially opened?",
+   "gold": "March 15, 2013",
+   "blade_r0.005_a2.5": "The first wooden roller coaster manufactured by Rocky Mountain Construction, called **\"The Dragon\"**, officially opened on **June 16, 1998**. It was located at **Six Flags Great Adventure** in New Jersey."
+  },
+  {
+   "question": "Which award did Reza Aslan receive in 2014?",
+   "gold": "The Intersections International Award",
+   "blade_r0.005_a2.5": "The award that Reza Aslan received in 2014 was the **George Polk Award** for **Religious Reporting**. He won this award for his coverage of the rise of ISIS and the broader issues related to religious extremism."
+  },
+  {
+   "question": "Who laid the foundation stone of Jamia Millia Islamia?",
+   "gold": "Mahmud Hasan Deobandi.",
+   "blade_r0.005_a2.5": "The foundation stone of Jamia Millia Islamia was laid by **Muhammad Ali Jinnah** on **September 14, 1920**. He was the then President of the All-India Muslim League and the founder of the Pakistan Movement. The university was established as a center for Muslim education and culture, and it was named after the Muslim League."
+  },
+  {
+   "question": "In what city did Marina Abramović perform Rhythm 4 (1974)?",
+   "gold": "Milan",
+   "blade_r0.005_a2.5": "Marina Abramović performed *Rhythm 4* (1974) in **Belgrade**, Serbia. The performance took place at the Museum of Contemporary Art in Belgrade."
+  },
+  {
+   "question": "On what day, month, and year was former Bangladeshi Inspector General Benazir Ahmed born?",
+   "gold": "1 October 1963",
+   "blade_r0.005_a2.5": "Benazir Ahmed, the former Inspector General of the Bangladesh Police, was born on **15 April 1947**. She was born in **Dhaka, Bangladesh**."
+  },
+  {
+   "question": "What were the day, month, and year when Britannica released a Google Chrome extension, \"Britannica Insights,\" which shows snippets of information from Britannica Online whenever the user performs a Google search, in a box to the right of Google's results?",
+   "gold": "7 June 2018",
+   "blade_r0.005_a2.5": "The **Britannica Insights** Google Chrome extension was released on **April 1, 2015**.\n\nThis extension allows users to see **snippets of information from Britannica Online** in a box to the right of Google's search results, providing quick access to factual content from Britannica."
+  },
+  {
+   "question": "What patch removed the Silver Armor from the crafting recipe for Jungle Armor in Terraria?",
+   "gold": "1.1",
+   "blade_r0.005_a2.5": "The **Silver Armor** was removed from the crafting recipe for **Jungle Armor** in **Terraria** with the **1.3.4.1 update**, which was released on **April 12, 2017**.\n\n### Key Details:\n- **Before 1.3.4.1**: The Jungle Armor could be crafted using **Silver Armor** as one of the materials.\n- **After 1.3.4.1**: The **Silver Armor** was removed from the recipe, and the Jungle Armor could only be crafted using **Iron Armor**.\n\nThis change was part of a broader"
+  },
+  {
+   "question": "Which university gave El Anatsui an honorary doctorate in 2016?",
+   "gold": "Harvard University",
+   "blade_r0.005_a2.5": "The university that gave El Anatsui an honorary doctorate in 2016 was the University of Ghana, Legon."
+  },
+  {
+   "question": "The Jensen Interceptor (1950), produced from 1950 to 1957, had a wheelbase measurement of what in millimeters?",
+   "gold": "2,845 mm",
+   "blade_r0.005_a2.5": "The Jensen Interceptor (1950), produced from 1950 to 1957, had a wheelbase measurement of **2,794 millimeters** (110 inches)."
+  },
+  {
+   "question": "What is the ChemSpider ID of Axitinib, a small molecule tyrosine kinase inhibitor developed by Pfizer?",
+   "gold": "4953153",
+   "blade_r0.005_a2.5": "The ChemSpider ID of Axitinib is **10407413**. \n\nAxitinib is a small molecule tyrosine kinase inhibitor developed by Pfizer, primarily used in the treatment of renal cell carcinoma."
+  },
+  {
+   "question": "In which year did Fazal Ilahi Chaudhry, former Speaker of the National Assembly of Pakistan, join the Muslim League?",
+   "gold": "1942",
+   "blade_r0.005_a2.5": "Fazal Ilahi Chaudhry joined the Muslim League in the year **1947**. He became the first Speaker of the National Assembly of Pakistan and was a prominent leader of the Muslim League in the Punjab province."
+  },
+  {
+   "question": "Tell me the day, month, and year President Bujar Nishani became Minister of Interior.",
+   "gold": "20 March 2007",
+   "blade_r0.005_a2.5": "President Bujar Nishani became the Minister of Interior of Albania on **17 June 2005**."
+  },
+  {
+   "question": "What were the month, date, and year when the South Korean Supreme Court legalized conscientious objection as a basis for rejecting compulsory military service?",
+   "gold": "November 1, 2018",
+   "blade_r0.005_a2.5": "The South Korean Supreme Court legalized conscientious objection as a basis for rejecting compulsory military service on **June 20, 2017**. \n\nThis landmark ruling recognized the right of individuals to conscientiously object to military service based on religious, ethical, or moral grounds, marking a significant step in the country's approach to conscientious objection."
+  },
+  {
+   "question": "What were the names of the two puppets that appeared in Atlanta, Georgia-based Round Table Pizza's TV commercials from 2003 to 2005?",
+   "gold": "Matt and Marcus",
+   "blade_r0.005_a2.5": "The two puppets that appeared in Atlanta, Georgia-based Round Table Pizza's TV commercials from 2003 to 2005 were named **Bud** and **Bud Jr.**. They were a popular duo in the commercials, known for their humorous and quirky interactions."
+  },
+  {
+   "question": "On what day, month, and year did The Palmolive Hour radio program stop being broadcast on NBC?",
+   "gold": "29 July 1931",
+   "blade_r0.005_a2.5": "The Palmolive Hour radio program stopped being broadcast on NBC on **April 27, 1951**."
+  },
+  {
+   "question": "What year was the municipality of Belmira, Antioquia, Colombia, founded?",
+   "gold": "1757",
+   "blade_r0.005_a2.5": "The municipality of Belmira, Antioquia, Colombia, was founded in the year **1845**."
+  },
+  {
+   "question": "Name the school where the Kusumbai Motichand Planetarium was established in Pune in 1954.",
+   "gold": "New English School",
+   "blade_r0.005_a2.5": "The Kusumbai Motichand Planetarium was established in Pune in 1954 at **St. Xavier's College**."
+  },
+  {
+   "question": "In what month and year did Billy Miller earn a Daytime Emmy nomination for his portrayal of Jason Morgan in the category of Outstanding Lead Actor?",
+   "gold": "March 2018",
+   "blade_r0.005_a2.5": "Billy Miller earned his Daytime Emmy nomination for his portrayal of Jason Morgan in the category of Outstanding Lead Actor in 2006. The nomination was for the month of May."
+  },
+  {
+   "question": "What week was Katie Sapienza eliminated in Season 1 of The Bachelor?",
+   "gold": "2",
+   "blade_r0.005_a2.5": "Katie Sapienza was eliminated in Week 5 of Season 1 of *The Bachelor*, which was hosted by Chris Harrison. She was the 10th woman to be eliminated."
+  },
+  {
+   "question": "In the oracle card deck created by Kyle Gray titled \"The 22 Archangels Oracle,\" how many cards are in the deck?",
+   "gold": "22",
+   "blade_r0.005_a2.5": "The \"The 22 Archangels Oracle\" card deck created by Kyle Gray contains **22 cards**, each representing one of the 22 Archangels."
+  },
+  {
+   "question": "In which year was G. S. Mahajan appointed as the Vice Chancellor of Delhi University?",
+   "gold": "1953",
+   "blade_r0.005_a2.5": "G. S. Mahajan was appointed as the Vice Chancellor of Delhi University in the year **1956**."
+  },
+  {
+   "question": "In February 2017, what board did Governor Larry Hogan nominate Wes Moore to serve on?",
+   "gold": "University System of Maryland Board of Regents.",
+   "blade_r0.005_a2.5": "In February 2017, Governor Larry Hogan nominated Wes Moore to serve on the **Maryland Board of Public Works**."
+  },
+  {
+   "question": "What is the name of the contestant who was the 4th runner-up at Miss Supranational 2013?",
+   "gold": "Esonica Veira",
+   "blade_r0.005_a2.5": "The 4th runner-up at Miss Supranational 2013 was **Nurul Huda** from Indonesia."
+  },
+  {
+   "question": "What day, month, and year did Salvador Dalí's mother pass away?",
+   "gold": "Salvador Dali's mother died on 6 February 1921.",
+   "blade_r0.005_a2.5": "Salvador Dalí's mother, Candelaria Domínguez Dalí, passed away on **May 10, 1903**. She was born on **May 10, 1868**, and died on the same date, 35 years later, in **San Sebastián, Spain**."
+  },
+  {
+   "question": "What are the three cities where Arvind Kejriwal spent most of his childhood?",
+   "gold": " Sonipat, Ghaziabad, Hisar",
+   "blade_r0.005_a2.5": "The three cities where Arvind Kejriwal spent most of his childhood are:\n\n1. **Delhi**  \n2. **Agra**  \n3. **Jaipur**\n\nHe was born in Delhi and spent his early years there, later moving to Agra and Jaipur during his childhood."
+  },
+  {
+   "question": "In what month and year did Jacques Frédéric Français publish a work in which he gave a geometric representation of complex numbers with interesting applications?",
+   "gold": "September 1813",
+   "blade_r0.005_a2.5": "Jacques Frédéric Français published a work in **1814** in which he gave a geometric representation of complex numbers. This work was titled **\"Mémoire sur les quantités imaginaires\"** (Memoir on Imaginary Quantities), and it was published in the **Journal de l'École Polytechnique**.\n\nIn this work, Français introduced a geometric interpretation of complex numbers, which was an important step toward the modern understanding of complex numbers as points in the plane. His work had interesting applications in the study of algebraic equations and the geometry of complex numbers.\n\nSo, the answer is: **"
+  },
+  {
+   "question": "Kiyoshi Oka entered the Imperial University of Kyoto in 1922 to study what subject?",
+   "gold": "physics",
+   "blade_r0.005_a2.5": "Kiyoshi Oka entered the Imperial University of Kyoto in 1922 to study **mathematics**."
+  },
+  {
+   "question": "How many daughters did the mathematician Hsien-Chung Wang have?",
+   "gold": "3",
+   "blade_r0.005_a2.5": "There is no publicly available information regarding the personal life of Hsien-Chung Wang, particularly regarding the number of daughters he may have. As of my knowledge cutoff in July 2024, there is no reliable source or biographical data that addresses this specific detail about his family. It is important to note that there is no widely known public record or credible historical account that provides this information. As such, there is no accurate answer to this question based on currently available information. It is also worth noting that there is no known historical figure by the name of \"Hsien-Chung Wang\" who is widely recognized in historical"
+  },
+  {
+   "question": "What was the first and last name of the third director of the Metropolitan Museum of Art?",
+   "gold": "Edward Robinson",
+   "blade_r0.005_a2.5": "The third director of the Metropolitan Museum of Art was **John Taylor Johnston**. His full name is **John Taylor Johnston**. He served as the director from 1870 to 1880."
+  },
+  {
+   "question": "Who set the world record for the longest time spent in a snow globe in 2007?",
+   "gold": "Ben Eckerson",
+   "blade_r0.005_a2.5": "As of there is no credible historical records or public information about a world record for the longest time spent in a snow globe as of 2007. This seems to be a fictional or humorous scenario, as there is no known record or event related to this specific claim.\n\nUnfortunately, there is no verified information about who set such a record. It’s possible that this is a joke, a fictional scenario, or a misunderstanding. There are no official records from organizations like Guinness World Records or any other recognized record-keeping body that mention this claim.\n\nIf you have more context or a specific source for this question, I’d be happy"
+  },
+  {
+   "question": "How many drivers participated in the overnight study in the research paper titled \"Detecting Driver Mental Fatigue Based on EEG Alpha Power Changes During Simulated Driving\" by Faramarz Gharagozlou et al.?",
+   "gold": "12",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in July 2024, I cannot provide specific details about the number of drivers who participated in the overnight study described in the research paper titled *\"Detecting Driver Mental Fatigue Based on EEG Alpha Power Changes During Simulated Driving\"* by Faramarz Gharagozlou et al., as there is no publicly available information or widely accessible source that provides this exact detail.\n\nHowever, you can find this information by:\n\n1. **Accessing the full text of the paper**: If the paper is available on a platform like PubMed, IEEE Xplore, or Google Scholar, you can look"
+  },
+  {
+   "question": "What year did Jasper Johns commission Richard Serra to make a splash piece?",
+   "gold": "1969",
+   "blade_r0.005_a2.5": "The year Jasper Johns commissioned Richard Serra to make a \"splash piece\" was **1969**. The piece is titled **\"Split\"** and is one of Serra's early works, known for its large scale and industrial materials."
+  },
+  {
+   "question": "At which college in Pune did the 7th Chief Justice of India, P. B. Gajendragadkar, study for his M.A.?",
+   "gold": "Deccan College",
+   "blade_r0.005_a2.5": "The 7th Chief Justice of India, P. B. Gajendragadkar, studied for his M.A. at **Fergusson College** in Pune."
+  },
+  {
+   "question": "What phrase did Bird Person say to Morty in his native language about making the right choice or the one that lets you sleep at night in Season 1, Episode 11?",
+   "gold": "gubba nub nub doo rah kah",
+   "blade_r0.005_a2.5": "The phrase that Bird Person said to Morty in his native language in Season 1, Episode 11 of *Rick and Morty* is **\"Kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'kri'"
+  },
+  {
+   "question": "The \"Un'alma innamorata\" was written by what composer in 1707?",
+   "gold": "George Frideric Handel",
+   "blade_r0.005_a2.5": "The \"Un'alma innamorata\" was written by the composer **Arcangelo Corelli** in 1707. It is a concerto grosso from his Opus 6, which is one of his most famous works."
+  },
+  {
+   "question": "What is the name of the individual in whose memory the Taj Mahal was built by Mughal Emperor Shah Jahan?",
+   "gold": "Mumtaz Mahal",
+   "blade_r0.005_a2.5": "The Taj Mahal was built by Mughal Emperor Shah Jahan in memory of his wife, Mumtaz Mahal. She was his beloved wife and the mother of his son, Aurangzeb. The Taj Mahal is a symbol of their love and is considered one of the most beautiful examples of Mughal architecture."
+  },
+  {
+   "question": "What was the name of the other collection released by Undercover in 2016 alongside 'The Greatest'?",
+   "gold": "Instant Calm",
+   "blade_r0.005_a2.5": "The other collection released by Undercover in 2016 alongside 'The Greatest' was **'The Lost'**."
+  },
+  {
+   "question": "What is the name of the district with the Regional Transport Office (RTO) code SK-06 in Sikkim, India?",
+   "gold": "Soreng",
+   "blade_r0.005_a2.5": "The district with the Regional Transport Office (RTO) code SK-06 in Sikkim, India, is **North Sikkim**. \n\nThe RTO code SK-06 corresponds to the **North Sikkim District**."
+  },
+  {
+   "question": "Who was the architect of Leamington who designed the church of St. John the Baptist that was built between 1877 and 1878?",
+   "gold": "John Cundall",
+   "blade_r0.005_a2.5": "The architect of Leamington who designed the Church of St. John the Baptist, built between 1877 and 1878, was **William Butterfield**.\n\nWilliam Butterfield was a prominent Victorian architect known for his Gothic Revival style. He also designed other notable buildings, including the chapel at Oxford University and the Lady Chapel at Coventry Cathedral."
+  },
+  {
+   "question": "On what day, month, and year did NHK Hall, located in Shibuya Ward, Tokyo, start operation?",
+   "gold": "June 20, 1973",
+   "blade_r0.005_a2.5": "The NHK Hall, located in Shibuya Ward, Tokyo, started operation on **April 1, 1990**."
+  },
+  {
+   "question": "From what year to what year did the Ethiopian politician Billene Seyoum Woldeyes study International Relations at the University of British Columbia, Vancouver?",
+   "gold": "2004-2008",
+   "blade_r0.005_a2.5": "As of there is no publicly available information regarding an Ethiopian politician named Billene Seyoum Woldeyes studying International Relations at the University of British Columbia. There is no credible source or record that provides specific dates for such an individual's academic history at that institution. It is possible that there is no accurate information on this person, as there is no widely recognized figure by this name in the public domain. Unfortunately, there is no basis to provide a specific year range for this query. It is important to note that there is no known Ethiopian politician by this name in the public record. As of there is no reliable information about this individual."
+  },
+  {
+   "question": "What was the 2018 Word of the Year according to the American Dialect Society?",
+   "gold": "tender-age shelter",
+   "blade_r0.005_a2.5": "The 2018 Word of the Year according to the American Dialect Society was **\"they/them\"**."
+  },
+  {
+   "question": "With which political party was Karl Wilhelm Rudolf von Bennigsen associated?",
+   "gold": "National Liberal Party",
+   "blade_r0.005_a2.5": "Karl Wilhelm Rudolf von Bennigsen was associated with the **Conservative Party** in Prussia. He was a prominent Prussian statesman and military leader who played a significant role in the 19th century, particularly during the German unification process. He supported the policies of the Prussian monarchy and the conservative order, aligning with the Conservative Party, which advocated for traditional values, the monarchy, and the status quo."
+  },
+  {
+   "question": "How many losses did Adolf Anderssen have in his 1864 chess match against Berthold Suhle?",
+   "gold": "3",
+   "blade_r0.005_a2.5": "There is no historical record of a chess match between Adolf Anderssen and Berthold Suhle in 1864. As of current historical knowledge, there is no documented chess match between these two players in that year.\n\nAdolf Anderssen, a German chess master, was known for his brilliant play and was one of the leading players of the 19th century. Berthold Suhle was also a German chess player, but there is no evidence of a match between them in 1864 or any other year.\n\nIt is possible that this question is based on a fictional or speculative scenario, as"
+  },
+  {
+   "question": "What is Harees, a famous dish of Armenia and the Arabian Peninsula, called in Zanzibar?",
+   "gold": " boko boko",
+   "blade_r0.005_a2.5": "Harees is a traditional dish made from wheat and meat, often cooked together and served as a porridge-like food. It is indeed a famous dish in both Armenia and the Arabian Peninsula.\n\nIn Zanzibar, which is part of Tanzania and has a strong Arab and Swahili cultural influence, Harees is known as **\"Harisa\"**.\n\nSo, the answer is: **Harisa**."
+  },
+  {
+   "question": "What was the name of Helmut Lang's solo exhibition in Vienna in 2017?",
+   "gold": "Various Conditions",
+   "blade_r0.005_a2.5": "The name of Helmut Lang's solo exhibition in Vienna in 2017 was **\"Helmut Lang: The Collection\"**. It was held at the **Museum of Art in Vienna (Museum für Kunst und Kulturgeschichte)** and showcased a comprehensive selection of his work from the 1990s to the 2010s."
+  },
+  {
+   "question": "In what year was the Ajah campus of Pan-Atlantic University (Lagos, Nigeria) completed?",
+   "gold": "2003",
+   "blade_r0.005_a2.5": "The Ajah campus of Pan-Atlantic University was completed in the year **1998**."
+  },
+  {
+   "question": "What was the name of the director of the Clayman Institute for Gender Research from 1997 to 2001?",
+   "gold": "Laura Carstensen",
+   "blade_r0.005_a2.5": "The director of the Clayman Institute for Gender Research from 1997 to 2001 was **Joan C. Williams**. She served as the founding director of the institute."
+  },
+  {
+   "question": "Who was the first female chemist to receive the Francis P. Garvan-John M. Olin Medal?",
+   "gold": "Emma Perry Carr",
+   "blade_r0.005_a2.5": "The first female chemist to receive the Francis P. Garvan-John M. Olin Medal was **Dr. Dorothy Mary Hodgkin**.\n\nShe was awarded the medal in **1965** for her outstanding contributions to chemistry, particularly for her work on the structure of penicillin and other important molecules using X-ray crystallography. Dorothy Mary Hodgkin was also the first woman to win the **Nobel Prize in Chemistry** (in 1964), making her a significant figure in the history of chemistry."
+  },
+  {
+   "question": "In which two fields of study did computer scientist Nancy Amato receive two bachelor's degrees from Stanford University in 1986?",
+   "gold": "Mathematical Sciences and Economics ",
+   "blade_r0.005_a2.5": "Nancy Amato received her two bachelor's degrees from Stanford University in 1986 in the fields of **Computer Science** and **Mathematics**."
+  },
+  {
+   "question": "In which episode and season of South Park is Mr. Mackey's first appearance? Please give me the number and title.",
+   "gold": "Season 1, Episode 9: Mr. Hankey, the Christmas Poo",
+   "blade_r0.005_a2.5": "Mr. Mackey's first appearance is in **Season 6, Episode 10**, titled **\"The Return of the Fellowship of the Ring to the Forbidden Planet\"**."
+  },
+  {
+   "question": "For how many days was Frida Kahlo's first solo exhibit held?",
+   "gold": "15",
+   "blade_r0.005_a2.5": "Frida Kahlo's first solo exhibition was held in 1938 at the Galería de la Luz in Mexico City. The exhibit ran for **12 days**."
+  },
+  {
+   "question": "What were the month, day, and year that Thomas Randolph wrote to the Earl of Leicester, stating that he was unable and unwilling to commit his opinions on Mary's actions on paper for fear of appearing \"malicieus foolyshe and unadvised\"?",
+   "gold": "14 February 1566",
+   "blade_r0.005_a2.5": "There is currently no historical record or scholarly source that definitively identifies the specific month, day, and year when Thomas Randolph wrote to the Earl of Leicester expressing his reluctance to commit his opinions on Mary, Queen of Scots, to paper. As of this point in time, there is no widely accepted or documented correspondence between Thomas Randolph and the Earl of Leicester that includes this exact wording.\n\nIt is possible that this particular letter or reference does not exist in historical records, or it may be based on a speculative or fictional account. There is no known historical figure named Thomas Randolph who is well-documented in the context of Elizabethan or Jacobean politics"
+  },
+  {
+   "question": "How many DLCs were released for Elder Scrolls V: Skyrim as of December 5, 2012?",
+   "gold": "3",
+   "blade_r0.005_a2.5": "The number of DLCs released for *The Elder Scrolls V: Skyrim* as of December 5, 2012, was **5**. These DLCs are:\n\n1. **Dragonborn** (Released on November 11, 2011)\n2. **Hearthfire** (Released on April 17, 2012)\n3. **Creation Kit** (Released on April 17, 2012) – This is a tool for modding, not a traditional DLC.\n4. **Dragonborn: The Dragonborn DLC** – This is the same"
+  },
+  {
+   "question": "Who was the first person to be an American diplomatic minister to Romania and Serbia?",
+   "gold": " Eugene Schuyler",
+   "blade_r0.005_a2.5": "The first person to serve as the American diplomatic minister to Romania and Serbia was **John L. Lewis**.\n\nJohn L. Lewis was appointed as the United States Ambassador to Romania in 1945, and he also served as the U.S. Ambassador to Serbia, which at the time was part of the Kingdom of Yugoslavia. He was the first American to hold the position of Ambassador to both countries. Lewis was a prominent labor leader and later became the President of the United Mine Workers of America. He was appointed to the U.S. Foreign Service in 1935 and served in various diplomatic posts before his appointment to Romania"
+  },
+  {
+   "question": "What prize was El Anatsui awarded in 1998 in Osaka?",
+   "gold": "Bronze Prize",
+   "blade_r0.005_a2.5": "The prize El Anatsui was awarded in 1998 in Osaka was the **Osaka Prefectural Government Art Award**."
+  },
+  {
+   "question": "What year did the Victoria and Albert Museum buy the small vacant triangle of land opposite its main entrance to ensure that the view from Thurloe Square could never be obscured by new buildings?",
+   "gold": "1863",
+   "blade_r0.005_a2.5": "The Victoria and Albert Museum bought the small vacant triangle of land opposite its main entrance in **1879** to ensure that the view from Thurloe Square could never be obscured by new buildings."
+  },
+  {
+   "question": "In the crest of the Agnew clan, what animal is depicted \"issuant and regardant Proper\"?",
+   "gold": "Eagle",
+   "blade_r0.005_a2.5": "The crest of the Agnew clan features a **lion** depicted \"issuant and regardant Proper\".\n\nHere's the breakdown:\n\n- **Issuant** means the animal is facing upward, as if rising or emerging.\n- **Regardant** means the animal is looking to the right (or \"regarding\" the viewer).\n- **Proper** means the color is the natural color of the animal, which for a lion is **golden or reddish**.\n\nSo, the Agnew crest shows a **lion** in its natural color, facing upward and looking to the right. This is a common heraldic symbol for the"
+  },
+  {
+   "question": "Give me the DOI of the paper \"New avenues and challenges in semantic map research.\"",
+   "gold": "10.1515/zfs-2021-2039",
+   "blade_r0.005_a2.5": "As of my current knowledge base, there is no publicly available DOI for the paper titled **\"New avenues and challenges in semantic map research\"** as of my last update in July 2024. Unfortunately, I cannot provide a specific DOI for this title, as it does not appear in standard academic databases or repositories like Google Scholar, IEEE Xplore, or Semantic Scholar.\n\nIt's possible that this title may not be a published paper, or it may be a working paper, a conference proceeding, or a preprint that hasn't been assigned a DOI yet. If you have more details such as the authors, publication year"
+  },
+  {
+   "question": "What were the names of the two presenters of the 16th edition of the Miss World pageant?",
+   "gold": "Peter West, Michael Aspel",
+   "blade_r0.005_a2.5": "The two presenters of the 16th edition of the Miss World pageant, which was held in 1976 in London, were:\n\n1. **Dawn French**  \n2. **Jennifer Saunders**\n\nThey were both members of the British comedy duo **French and Saunders**, and they presented the event in a humorous and memorable style."
+  },
+  {
+   "question": "What month, day, and year did Southeastern Louisiana University retire Robin Roberts' jersey?",
+   "gold": "5 February 2011",
+   "blade_r0.005_a2.5": "Southeastern Louisiana University retired Robin Roberts' jersey on **March 1, 2019**. The jersey number **12** was retired in honor of Roberts, who was a standout baseball player for the university."
+  },
+  {
+   "question": "What month, day, and year did Briana Scurry marry Chryssa Zizos?",
+   "gold": "1 June 2018",
+   "blade_r0.005_a2.5": "As of my current knowledge base, there is no publicly available information regarding Briana Scurry's marriage to Chryssa Zizos. There is no credible source or widely reported event that confirms such a marriage. It is possible that this information is speculative, fictional, or based on an inaccurate or non-public source.\n\nBriana Scurry is a well-known former American soccer player, and her personal life, including her marriage to former NFL quarterback Steve McNair, is more widely documented. If you have additional context or sources about this specific relationship, I would be happy to help further. However, as of now, there"
+  },
+  {
+   "question": "In what year did conductor David Randolph graduate from City College of New York?",
+   "gold": "1936",
+   "blade_r0.005_a2.5": "As there is no historical record or public information about a conductor named David Randolph who graduated from the City College of New York, there currently no available information regarding this specific individual. Unfortunately, there is no accurate data to provide a specific year for this query. It is possible that there is no known individual by this name in this context, or there may be no public records about their education. As of now, there is no reliable source to confirm this information. Please note that there is no known historical figure by this name in the field of conducting or education. There is no known historical figure by this name in the field of conducting or education"
+  },
+  {
+   "question": "What day, month, and year did Australian politician John Joseph Hall die?",
+   "gold": "30 June 1949",
+   "blade_r0.005_a2.5": "John Joseph Hall, the Australian politician, died on 23 April 1965."
+  },
+  {
+   "question": "In which year was Motaz Azaiza named Man of the Year by GQ Middle East, with editor Ahmad Ali Swaid?",
+   "gold": "2023.",
+   "blade_r0.005_a2.5": "The answer is 2023. Motaz Azaiza was named Man of the Year by GQ Middle East in 2023, with editor Ahmad Ali Swaid."
+  },
+  {
+   "question": "On what day, month, and year did Mereta Mita die, and what was the reason behind her death?",
+   "gold": "Mita died suddenly on 31 May 2010, after collapsing outside the studios of Māori Television.",
+   "blade_r0.005_a2.5": "As of there is no historical records or credible sources regarding a person named \"Mereta Mita.\" Unfortunately, there is no available information about this individual, as it appears to be a completely unknown or fictional figure. There is no documented evidence of this name in historical, biographical, or public records databases.\n\nIt is possible that there may be a misspelling, a fictional character, or a reference to a private or non-public individual. Unfortunately, as of this point in time, there is no accurate information about Mereta Mita’s death or any related details.\n\nIf you have additional context or details about this person, I would"
+  },
+  {
+   "question": "What is the boiling point of the element dysprosium in Fahrenheit?",
+   "gold": "4,653 °F",
+   "blade_r0.005_a2.5": "The boiling point of dysprosium is **2750°C**. To convert this to Fahrenheit, use the formula:\n\n$$\n°F = °C \\times \\frac{9}{5} + 32\n$$\n\n$$\n°F = 2750 \\times \\frac{9}{5} + 32 = 4950 + 32 = 4982°F\n$$\n\nSo, the boiling point of dysprosium is **4982°F**."
+  },
+  {
+   "question": "In which year did Atul Gawande earn an M.A. in Philosophy, Politics and Economics (PPE) from Balliol College, Oxford?",
+   "gold": " 1989",
+   "blade_r0.005_a2.5": "Atul Gawande earned his M.A. in Philosophy, Politics and Economics (PPE) from Balliol College, Oxford in the year 1994."
+  },
+  {
+   "question": "During which Mob Psycho 100 Season 1 episode does Teru meet Mob?",
+   "gold": "Episode 4: \"Idiots Only Event ~Kin~\"",
+   "blade_r0.005_a2.5": "The episode in **Mob Psycho 100 Season 1** where **Teru meets Mob** is **Episode 3**, titled **\"The First Time\"**.\n\nIn this episode, Teru, who is a psychic and a classmate of Mob, first encounters Mob and begins to notice his unusual powers. This sets up the beginning of their relationship and the central conflict of the series."
+  },
+  {
+   "question": "In what year did computer scientist Dana Angluin join the faculty at Yale University?",
+   "gold": "1979",
+   "blade_r0.005_a2.5": "Dana Angluin joined the faculty at Yale University in the year 1983."
+  },
+  {
+   "question": "Toronto mayors Sir Adam Wilson (Mayor from 1859-1861), John George Bowes (Mayor from 1861-1864), and Francis Henry Medcalf (Mayor from 1864-1867) were elected to office by which body?",
+   "gold": "The public",
+   "blade_r0.005_a2.5": "The mayors of Toronto, Sir Adam Wilson (1859–1861), John George Bowes (1861–1864), and Francis Henry Medcalf (1864–1867), were elected to office by the **Toronto City Council**.\n\nAt that time, Toronto was a city with a mayor-council system, where the mayor was elected by the city council, not directly by the voters. The city council was composed of aldermen, who were elected by the residents of the city. The mayor was chosen from among the aldermen."
+  },
+  {
+   "question": "Who won the Emil Artin Junior Prize in Mathematics in 2009?",
+   "gold": "Grigor Sargsyan",
+   "blade_r0.005_a2.5": "The Emil Artin Junior Prize in Mathematics in 2009 was awarded to **Manjul Bhargava**. He received the prize for his outstanding contributions to number theory, particularly his work on the arithmetic of quadratic forms and the Birch and Swinnerton-Dyer conjecture."
+  },
+  {
+   "question": "At what zoo did August Scherl demonstrate his gyro-monorail to the public?",
+   "gold": "Berlin Zoological Gardens",
+   "blade_r0.005_a2.5": "August Scherl demonstrated his gyro-monorail to the public at the **1900 Paris World's Fair (Exposition Universelle)**. The demonstration took place in the **Palais de l'Énergie** (Palace of Energy), where he showcased his innovative transportation concept. The gyro-monorail was a unique design featuring a single rail and a gyroscopic stabilizer, intended to provide a stable and smooth ride. While it was an intriguing idea, it did not gain widespread adoption at the time."
+  },
+  {
+   "question": "How many egg-shaped layers of float glass is William Cochran's sculpture *Pillar of Fire* made of?",
+   "gold": "370",
+   "blade_r0.005_a2.5": "As there currently no known public information or scholarly sources that provide a specific count of egg-shaped layers of float glass in William Cochran's sculpture *Pillar of Fire*, there is no definitive answer to this question at this time. Unfortunately, there is no available data regarding the composition or construction details of this particular artwork. It is possible that this information is not publicly documented or there is no such sculpture by that name in the public record. As of now, there is no reliable source to determine the number of egg-shaped layers of float glass in *Pillar of Fire*. There is no known public information or scholarly sources that provide"
+  },
+  {
+   "question": "Which city in Athens was Foivos Delivorias born in?",
+   "gold": "Kallithea, Athens",
+   "blade_r0.005_a2.5": "Foivos Delivorias was born in the city of Athens, Greece. He was born in the Athens City Council building in 1954."
+  },
+  {
+   "question": "In the British drama series Happy Valley, in which season and episode is Kirsten McAskill murdered by Royce?",
+   "gold": "Season 1 episode 3",
+   "blade_r0.005_a2.5": "In the British drama series *Happy Valley*, Kirsten McAskill is murdered by **Royce** in **Season 3, Episode 3**, titled **\"The Girl Who Wasn't There\"**.\n\nThis episode is a pivotal moment in the series, as it leads to the investigation that drives much of the plot in the following seasons."
+  },
+  {
+   "question": "On what day, month, and year was Harold Shipman married to Primrose May Oxtoby?",
+   "gold": "5 November 1966.",
+   "blade_r0.005_a2.5": "Harold Shipman was married to Primrose May Oxtoby on **23 April 1954**. The wedding took place in **Manchester, England**."
+  },
+  {
+   "question": "Who was the first cardiologist in Kashmir?",
+   "gold": "Dr Upendra Kaul",
+   "blade_r0.005_a2.5": "The first cardiologist in Kashmir was **Dr. A. H. Khan**. He was a pioneering figure in the field of cardiology in the region and played a significant role in establishing cardiovascular care in Kashmir.\n\nDr. A. H. Khan was born in 1925 in Srinagar, Jammu and Kashmir. He completed his medical education and later specialized in cardiology. He was instrumental in setting up the first cardiology department in the region, which was a major milestone in the development of medical services in Kashmir.\n\nDr. Khan's contributions to cardiology in Kashmir were recognized and respected, and he is remembered"
+  },
+  {
+   "question": "In which year did Maharaj Kishan Bhan (an Indian pediatrician and clinical scientist) receive the Padma Bhushan for civil services?",
+   "gold": "2013",
+   "blade_r0.005_a2.5": "Maharaj Kishan Bhan received the Padma Bhushan in the year **1976** for his contributions to civil services."
+  },
+  {
+   "question": "On what day, month, and year was Vladas Mironas, the 14th Prime Minister of Lithuania, born?",
+   "gold": "22 June 1880.",
+   "blade_r0.005_a2.5": "The 14th Prime Minister of Lithuania, Vladas Mironas, was born on **April 15, 1945**."
+  },
+  {
+   "question": "In which episode and season of Rick and Morty is Jerry floating around for 10 hours? Give me the number and title.",
+   "gold": "Episode 5, \"Rattlestar Ricklactica\"",
+   "blade_r0.005_a2.5": "As of my knowledge cutoff in October 2024, there is no episode of *Rick and Morty* in which a character named Jerry floats around for 10 hours. It's possible that this reference is either fictional, speculative, or based on a non-existent or unverified content.\n\nIt's important to note that *Rick and Morty* is a fictional TV show, and as of now, there are no official episodes or confirmed future episodes that include such a scenario. There is no character named Jerry in the main series, though there are other characters with similar names (e.g., Jerry from *The Simpsons*"
+  },
+  {
+   "question": "On what day, month, and year was Michaela Hübschle, a Namibian politician and former Deputy Minister for Prisons and Correctional Services, born?",
+   "gold": "21 September 1950.",
+   "blade_r0.005_a2.5": "Michaela Hübschle was born on **15 April 1964**. She is a Namibian politician and former Deputy Minister for Prisons and Correctional Services."
+  },
+  {
+   "question": "Which companion can Josephine develop feelings for (other than the Inquisitor themselves) in Dragon Age: Inquisition (2014)?",
+   "gold": "Blackwall",
+   "blade_r0.005_a2.5": "In *Dragon Age: Inquisition* (2014), Josephine can develop feelings for **Ser Cullen**. \n\nWhile the game's romance system is limited and not as developed as in some other titles, Josephine's romantic options are primarily tied to the Inquisitor. However, there is a possibility for her to develop a romantic relationship with **Ser Cullen**, the Inquisition's knight commander, depending on the choices made during the game.\n\nIt's important to note that the game's romance mechanics are not fully fleshed out, and there is no official confirmation of a full romance with Ser Cullen. However"
+  },
+  {
+   "question": "Who received the Farrer Medal in 2014?",
+   "gold": "Dr. Elizabeth Dennis",
+   "blade_r0.005_a2.5": "The Farrer Medal in 2014 was received by Dr. David J. Clarke. He was awarded for his outstanding contributions to the field of plant breeding, particularly in the development of wheat varieties that have significantly improved crop yields and resistance to diseases."
+  },
+  {
+   "question": "What is the name of the group exhibition that Helmut Lang participated in during 2017 in Dublin?",
+   "gold": "Wormwood",
+   "blade_r0.005_a2.5": "The group exhibition that Helmut Lang participated in during 2017 in Dublin was called **\"The New Aesthetic\"**. It was held at the **Museum of Modern Art (MoMA) in Dublin**, and it featured works by various artists and designers who were associated with the New Aesthetic movement, which explores the intersection of digital culture and visual art. Helmut Lang, known for his minimalist fashion design, contributed to the exhibition as part of this interdisciplinary exploration."
+  },
+  {
+   "question": "Which year was the drug Metformin introduced as a medication in France?",
+   "gold": "1957",
+   "blade_r0.005_a2.5": "The drug Metformin was introduced as a medication in France in the year **1958**. It was first approved for use in France in that year, making it one of the early countries to adopt the drug for the treatment of type 2 diabetes."
+  },
+  {
+   "question": "What is the name of Jupiter’s third-largest moon?",
+   "gold": "Io",
+   "blade_r0.005_a2.5": "The third-largest moon of Jupiter is **Io**. The order of Jupiter's largest moons, from largest to smallest, is:\n\n1. **Ganymede**\n2. **Callisto**\n3. **Io**\n4. **Europa**\n\nSo, the third-largest moon is **Io**."
+  },
+  {
+   "question": "On what date did President Kagame receive an honorary degree in Ethiopia?",
+   "gold": "JULY 2, 2016",
+   "blade_r0.005_a2.5": "President Paul Kagame received an honorary degree from Addis Ababa University in Ethiopia on **April 25, 2019**. The degree was awarded in recognition of his contributions to development, peace, and good governance in Africa."
+  },
+  {
+   "question": "On what day, month, and year was Canal+ Box Office launched?",
+   "gold": "September 1, 2023",
+   "blade_r0.005_a2.5": "Canal+ Box Office was launched on **April 1, 1996**. It was the first online video-on-demand service in Europe."
+  },
+  {
+   "question": "What year was the municipality of Boyacá, Boyacá, Colombia, founded?",
+   "gold": "1537",
+   "blade_r0.005_a2.5": "The municipality of Boyacá, in the department of Boyacá, Colombia, was founded in the year **1538**. It was established by the Spanish conquistador Gonzalo Jiménez de Quesada."
+  },
+  {
+   "question": "On what day, month, and year did Randy Johnston (model) die?",
+   "gold": "October 11, 2008",
+   "blade_r0.005_a2.5": "As of my current knowledge base, there is no publicly available information regarding the death of Randy Johnston, a model. There is no record of his passing as of the latest data available to me. It's possible that there is no information on this topic, or it may be speculative or based on unverified sources. Please note that there is no credible information about his death at this time. If you have additional context or details, I would be unable to provide further information. Please be cautious about speculative or unverified claims. As of now, there is no known information about his death."
+  },
+  {
+   "question": "On what day, month, and year did the 2nd ASEM Transport Ministers' Meeting begin?",
+   "gold": "24 October 2011",
+   "blade_r0.005_a2.5": "The 2nd ASEM Transport Ministers' Meeting began on **16 October 2007** in **Hanoi, Vietnam**."
+  },
+  {
+   "question": "In what year did Claribel and Etta Cone acquire Henri Matisse's \"Blue Nude\" at the sale of John Quinn’s collection in Paris?",
+   "gold": "1926.",
+   "blade_r0.005_a2.5": "The Blue Nude, also known as The Woman with the Blue Vase, was acquired by Claribel and Etta Cone in 1919 at the sale of John Quinn's collection in Paris."
+  },
+  {
+   "question": "What year did Australian politician William Lawrence Morrison graduate from the University of Sydney?",
+   "gold": "1949",
+   "blade_r0.005_a2.5": "William Lawrence Morrison graduated from the University of Sydney in the year 1932."
+  },
+  {
+   "question": "What was the name of the high school that the 5th State President of South Africa, serving from 1979 until 1984, attended?",
+   "gold": "Jan van Riebeeck High School",
+   "blade_r0.005_a2.5": "The 5th State President of South Africa, who served from 1979 until 1984, was P.W. Botha. The high school he attended was **St. Andrew's College** in Grahamstown, South Africa."
+  },
+  {
+   "question": "What is the name of the sole survivor of the Saha Airlines 2019 Boeing 707 crash?",
+   "gold": "Farshad Mahdavinejad",
+   "blade_r0.005_a2.5": "The sole survivor of the Saha Airlines 2019 Boeing 707 crash was **Mehrdad Raissi**. He was a 28-year-old Iranian national who was working as a flight attendant on the flight. He survived the crash and was rescued by Iranian rescue teams."
+  },
+  {
+   "question": "Specify the exact day, month, and year Capcom reported that its servers were affected by ransomware, scrambling its data, and the threat actors, the Ragnar Locker hacker group, had allegedly stolen 1TB of sensitive corporate data and were blackmailing Capcom to pay them to remove the ransomware.",
+   "gold": "2 Nov 2020",
+   "blade_r0.005_a2.5": "Capcom reported that its servers were affected by ransomware on **April 19, 2023**. The incident involved the **Ragnar Locker** hacker group, which allegedly stole **1TB of sensitive corporate data** and threatened to release it unless Capcom paid a ransom. The breach disrupted the company's operations and led to significant concerns about data security and privacy."
+  },
+  {
+   "question": "In which specific issue did Black Condor II perish?",
+   "gold": "Infinite Crisis #1",
+   "blade_r0.005_a2.5": "As of there is no historical record or credible source that mentions a \"Black Condor II\" as a specific individual or entity that has died. This term does not appear in mainstream historical, scientific, or public records. It is possible that this is a fictional character, a speculative concept, or a term that does not currently exist in any widely recognized context.\n\nIf you are referring to a fictional character from a book, movie, game, or other media, there is currently no publicly available information about a \"Black Condor II\" or its demise. There is no known specific issue or event in which such a figure has died.\n\nIf"
+  },
+  {
+   "question": "In which season and episode did Joe Friday kill a burglar who was stealing from a coin box in the TV series Dragnet 1967?",
+   "gold": "S2 E2",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in July 2024, there is no known episode of the 1967 TV series *Dragnet* in which Joe Friday kills a burglar who was stealing from a coin box. *Dragnet*, both the original 1950s series and the 1967 revival, is known for its realistic portrayal of police work and its strict adherence to the \"no-nonsense\" style of the character Joe Friday. However, there are no documented instances of Joe Friday killing anyone in the series, especially not in the context described.\n\nIt's possible that this scenario is"
+  },
+  {
+   "question": "In what year was Fazal Ilahi Chaudhry, former president of Pakistan, elected as the Speaker of the National Assembly?",
+   "gold": "1972",
+   "blade_r0.005_a2.5": "Fazal Ilahi Chaudhry was elected as the Speaker of the National Assembly of Pakistan in the year **1973**. He served in that capacity during the early years of Pakistan's first constitution, which was adopted in 1973."
+  },
+  {
+   "question": "How many maxi challenges did Sharon Needles win in Season 4 of RPDR?",
+   "gold": "4",
+   "blade_r0.005_a2.5": "Sharon Needles won **3 maxi challenges** in Season 4 of *RuPaul's Drag Race*. She was the winner of the season and was crowned the first-ever RuPaul's Drag Race All-Star."
+  },
+  {
+   "question": "Before becoming the 37th president of the United States, on which date, month, and year did Richard Nixon retire from the U.S. Naval Reserve?",
+   "gold": " 1 June 1966",
+   "blade_r0.005_a2.5": "Richard Nixon retired from the U.S. Naval Reserve on **January 31, 1945**."
+  },
+  {
+   "question": "On what day, month, and year was the first unplanned flight of the General Dynamics F-16 Fighting Falcon?",
+   "gold": "January 20, 1974",
+   "blade_r0.005_a2.5": "The first unplanned flight of the General Dynamics F-16 Fighting Falcon occurred on **September 6, 1974**. \n\nThis flight was not part of a planned test program but rather an unexpected event during the development phase of the aircraft. The flight was conducted by test pilot Robert J. \"Bob\" Gilliland, who was flying a prototype F-16A, serial number 74-0815, at Edwards Air Force Base in California. The flight was unplanned because the aircraft had not yet been officially cleared for flight testing, and it was not part of the formal test schedule.\n\n"
+  },
+  {
+   "question": "What month, day, and year did Phase 2 of Kunming Metro's Line 6 open?",
+   "gold": "23 September 2020",
+   "blade_r0.005_a2.5": "Phase 2 of Kunming Metro's Line 6 opened on **June 2, 2022**. The opening date is **June 2, 2022**."
+  },
+  {
+   "question": "On what day, month, and year was Cléo Hamon, a French pair skater, born?",
+   "gold": "November 25, 2001",
+   "blade_r0.005_a2.5": "Cléo Hamon, the French pair skater, was born on **April 15, 1996**."
+  },
+  {
+   "question": "What type of eclipse occurred on August 28, 1802, at 51.3°N, 105.7°E?",
+   "gold": "Annular solar eclipse",
+   "blade_r0.005_a2.5": "The eclipse that occurred on August 28, 1802, at 51.3°N, 105.7°E was a **total solar eclipse**.\n\nThis eclipse was visible in parts of Asia, including China, Mongolia, and Siberia. The coordinates 51.3°N, 105.7°E are in central Mongolia, which was within the path of totality.\n\nThe eclipse was notable for its long duration of totality, with the Moon's shadow passing over the region for about 5 minutes and 20 seconds. It was one of the"
+  },
+  {
+   "question": "Which TV station did Belva Davis make her debut on?",
+   "gold": "KTVU",
+   "blade_r0.005_a2.5": "Belva Davis made her debut on the TV station **WABC** in New York City. She began her career as a news anchor there in the 1960s, becoming one of the first African American women to work as a news anchor in the United States."
+  },
+  {
+   "question": "What are the four keywords of the paper \"New Avenues and Challenges in Semantic Map Research\"?",
+   "gold": "semantic maps, inference, graph, emotions",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in July 2024, there is no widely known or publicly accessible paper titled **\"New Avenues and Challenges in Semantic Map Research\"** that is widely referenced in academic literature. Unfortunately, I cannot provide specific keywords for a paper that does not exist or is not currently available in public databases.\n\nHowever, if you are referring to a paper that discusses **semantic maps** in the context of robotics, AI, or geographic information systems (GIS), the following four keywords might be relevant to such a paper:\n\n1. **Semantic Mapping**  \n2. **Robotics**  \n3. **AI"
+  },
+  {
+   "question": "What day, month, and year was Sergio Garavini, an Italian politician, writer, and trade unionist, born?",
+   "gold": "18 May 1926",
+   "blade_r0.005_a2.5": "Sergio Garavini was born on **25 April 1926**. He was an Italian politician, writer, and trade unionist."
+  },
+  {
+   "question": "On which day, month, and year was Dolmar-Salzbrücke formed as a Verwaltungsgemeinschaft?",
+   "gold": "1 January 2012 ",
+   "blade_r0.005_a2.5": "Dolmar-Salzbrücke was formed as a Verwaltungsgemeinschaft on **1 January 1994**. It is located in the district of **Erfurt** in the state of **Thuringia**, Germany."
+  },
+  {
+   "question": "After the War of 1812, Edward William McBride (1791-1834) worked as what for the king's printer, John Cameron, on the York Gazette until April 1815?",
+   "gold": "Assistant",
+   "blade_r0.005_a2.5": "After the War of 1812, Edward William McBride worked as a **printer's apprentice** for the king's printer, John Cameron, on the York Gazette until April 1815."
+  },
+  {
+   "question": "In June 1637, Thomas Ballard of Wandsworth accused Richard Kestian of publicly calling him a liar at which man's house in Putney in front of justices of the peace?",
+   "gold": "Sir Abraham Dawes",
+   "blade_r0.005_a2.5": "In June 1637, Thomas Ballard of Wandsworth accused Richard Kestian of publicly calling him a liar at **Sir John Trevor's** house in Putney in front of justices of the peace. \n\nThis incident is notable as it is associated with the early history of the **Putney Debates**, which later became a significant event in the lead-up to the English Civil War. The dispute involved accusations of slander and was part of the broader tensions between the Crown and the Puritan opposition."
+  },
+  {
+   "question": "What day, month, and year did Emperor Xizong of Jin become the emperor of the Jin dynasty?",
+   "gold": "10 February, 1135",
+   "blade_r0.005_a2.5": "Emperor Xizong of Jin, also known as Aigū (完颜雍), became the emperor of the Jin dynasty on **December 12, 1149**. He succeeded his brother, Emperor Zhangzong of Jin, and reigned until **1165**."
+  },
+  {
+   "question": "On what date (day/month/year) was Henry Charles Howard, 13th Duke of Norfolk, elected to the House of Commons for Horsham?",
+   "gold": "May 4, 1829",
+   "blade_r0.005_a2.5": "As of there is no historical record of Henry Charles Howard, 13th Duke of Norfolk, being elected to the House of Commons for Horsham. It is important to note that members of the House of Lords, including dukes, are not elected but appointed or hereditary. The House of Commons consists of elected members.\n\nThere is no known instance of the 13th Duke of Norfolk being elected to the House of Commons. It is possible that there may be confusion with another individual or a historical error. As of this date, there is no verifiable information regarding such an election. If you have additional context or a"
+  },
+  {
+   "question": "In which year did the Royal Society of Arts launch the Adelphi Charter, aimed at creating an international policy statement to frame how governments should make balanced intellectual property law?",
+   "gold": "2005",
+   "blade_r0.005_a2.5": "The Royal Society of Arts launched the Adelphi Charter in the year **1998**. The charter was aimed at creating an international policy statement to frame how governments should make balanced intellectual property law, particularly in the context of the growing concerns over the impact of intellectual property rights on access to medicines, technology, and cultural expression."
+  },
+  {
+   "question": "Who was the referee in the rugby match between Georgia and Portugal that was part of the 2022 Rugby Europe Championship on February 6, 2022?",
+   "gold": "Romain Poite",
+   "blade_r0.005_a2.5": "The referee for the rugby match between Georgia and Portugal in the 2022 Rugby Europe Championship on February 6, 2022, was **Riccardo Franchini**. He is an Italian rugby referee who has officiated in several international matches, including games in the Six Nations and Rugby World Cup qualifiers."
+  },
+  {
+   "question": "As of March 2016, how many companies and institutions were developing vaccines against Zika, and how long did they state a vaccine is unlikely to be widely available?",
+   "gold": "18",
+   "blade_r0.005_a2.5": "As of March 2016, there were approximately **20 companies and research institutions** worldwide that were actively developing vaccines against the Zika virus.\n\nAt that time, scientists and public health officials estimated that it would likely take **at least 18 to 24 months** for a vaccine to be developed and made widely available. This timeline accounted for the need for preclinical research, clinical trials, regulatory approval, and manufacturing scale-up.\n\nIt's important to note that as of 2024, there are now vaccines available for Zika, such as the one developed by the National Institute of Allergy and Infectious"
+  },
+  {
+   "question": "What prize did Jun Takahashi win in 1997?",
+   "gold": "The New Face Prize",
+   "blade_r0.005_a2.5": "The prize that Jun Takahashi won in 1997 was the **Grand Prize** at the **Sapporo International Art Festival**. He was a Japanese artist known for his work in sculpture and installation art."
+  },
+  {
+   "question": "What's the name of Mob's brother's Spanish VA in Mob Psycho 100?",
+   "gold": "Javier Olguín",
+   "blade_r0.005_a2.5": "The Spanish voice actor for Mob's brother, **Shigeo Kageyama**, in *Mob Psycho 100* is **Javier Mendoza**. \n\nHe provides the Spanish dub for Shigeo in the anime series."
+  },
+  {
+   "question": "Between what years did Ashraf Abbasi, the first Deputy Speaker of the National Assembly of Pakistan, remain a member of the West Pakistan Assembly?",
+   "gold": "1962-1965",
+   "blade_r0.005_a2.5": "Ashraf Abbasi, the first Deputy Speaker of the National Assembly of Pakistan, remained a member of the West Pakistan Assembly from **1954 to 1955**. \n\nHe was elected as a member of the West Pakistan Assembly in 1954 and served until 1955, after which he was elected as the first Deputy Speaker of the National Assembly of Pakistan in 1955."
+  },
+  {
+   "question": "In which Community episode is Evil Abed's first appearance? Please give the season, episode number, and title.",
+   "gold": "Season 3 Episode 4 \"Remedial Chaos Theory\"",
+   "blade_r0.005_a2.5": "Evil Abed's first appearance is in **Season 2, Episode 10** of *Community*, titled **\"Abed's Uncontrollable Christmas\"**. \n\nIn this episode, Abed begins to show signs of a split personality, which later develops into the character \"Evil Abed\" in subsequent episodes."
+  },
+  {
+   "question": "What were the population counts for the two municipalities of Mitrovica according to the 2011 census?",
+   "gold": "97,686",
+   "blade_r0.005_a2.5": "According to the 2011 census, the population of the two municipalities of Mitrovica were:\n\n- **Mitrovica (Kosovo)**: 130,444\n- **Mitrovica (Serbia)**: 10,444\n\nThese figures reflect the population counts for the two separate municipalities of Mitrovica, which are located in different countries: one in Kosovo and the other in Serbia."
+  },
+  {
+   "question": "For how many episodes did Gabrielle Fitzpatrick star in \"Roar\"?",
+   "gold": "1",
+   "blade_r0.005_a2.5": "As of there is no known information about a character named Gabrielle Fitzpatrick or a show called \"Roar\" that includes such a character. There is no credible source or public record that references this name or this title in the context of television, film, or any other media. It is possible that this is a fictional or speculative scenario, or there may be no actual information available about this specific reference.\n\nUnfortunately, there is no accurate data to determine how many episodes Gabrielle Fitzpatrick starred in \"Roar.\" There is no known information about this character or this show. As of now, there is no basis for providing a definitive"
+  },
+  {
+   "question": "In the 2022 research paper titled \"Analyzing EEG Data with Machine and Deep Learning: A Benchmark\" by Danilo Avola et al., what are the four machine learning models that were used?",
+   "gold": "MLP, CNN, LSTM, and GRU.",
+   "blade_r0.005_a2.5": "In the 2022 research paper titled **\"Analyzing EEG Data with Machine and Deep Learning: A Benchmark\"** by **Danilo Avola et al.**, the four machine learning models that were used are:\n\n1. **Support Vector Machine (SVM)**  \n2. **Random Forest (RF)**  \n3. **K-Nearest Neighbors (KNN)**  \n4. **Multilayer Perceptron (MLP)**  \n\nThese models were evaluated alongside deep learning approaches to compare their performance in analyzing EEG data."
+  },
+  {
+   "question": "Who is the god with the Hawaiian name Kamaʻehuakanaloa?",
+   "gold": "Kanaloa",
+   "blade_r0.005_a2.5": "The name **Kamaʻehuakanaloa** is not a widely recognized or documented name in traditional Hawaiian mythology or Polynesian mythology as a specific deity. However, it is possible that this name is a **modern or fictional creation**, possibly from a **science fiction, fantasy, or speculative fiction** context, rather than a traditional Hawaiian deity.\n\nThere are a few possibilities to consider:\n\n1. **Modern Fiction or Speculative Fiction**: There is no known historical or traditional Hawaiian deity by that name. However, it could be a name used in a fictional work, such as a novel, game, or movie, where it"
+  },
+  {
+   "question": "During which years did William Butts Ittner serve as the president of the Architectural League of America?",
+   "gold": "1903 to 1904",
+   "blade_r0.005_a2.5": "William Butts Ittner served as the president of the Architectural League of America from 1925 to 1926."
+  },
+  {
+   "question": "In what building was the meeting that founded the Fédération Internationale d'Escrime held?",
+   "gold": "The Automobile Club de France",
+   "blade_r0.005_a2.5": "The meeting that founded the Fédération Internationale d'Escrime (International Fencing Federation) was held in the **Palais des Sports de Paris** (Paris Sports Palace). The founding congress took place on **June 23, 1913**, and it was there that the organization was officially established."
+  },
+  {
+   "question": "In which year was *Racosperma drummondii* transferred back to the genus *Acacia*?",
+   "gold": "2006",
+   "blade_r0.005_a2.5": "The species *Racosperma drummondii* was transferred back to the genus *Acacia* in the year **2003**. This change was part of a broader taxonomic revision that reclassified many species previously placed in the genus *Racosperma* into *Acacia*."
+  },
+  {
+   "question": "What is the distance (in km) between the city of Udhampur and the Krimchi Temples in Jammu?",
+   "gold": "12",
+   "blade_r0.005_a2.5": "The distance between the city of Udhampur and the Krimchi Temples in Jammu is approximately **45 kilometers**. \n\nThe Krimchi Temples are located in the Krimchi area, which is in the Jammu region of Jammu and Kashmir, India. Udhampur is a city in the Udhampur district, also in Jammu and Kashmir. The distance is usually covered by road and takes around 1 to 1.5 hours by car, depending on traffic and road conditions."
+  },
+  {
+   "question": "What was the song for the lip sync in Episode 5, Season 1 of RPDR?",
+   "gold": "\"Stronger\" by Britney Spears",
+   "blade_r0.005_a2.5": "The song used for the lip sync in **Episode 5, Season 1** of *RuPaul's Drag Race* (RPDR) was **\"I Will Survive\" by Gloria Gaynor**.\n\nIn that episode, the lip sync was performed by **BeBe Winans** (a contestant on the show) and the other contestant was **Jinkx Monsoon**. The song was chosen as the lip sync song for the \"Bottom\" challenge, where the contestants had to perform a lip sync to a song that was not originally intended for drag."
+  },
+  {
+   "question": "What was the name of the minor planet discovered by the Soviet astronomer in the name of Pyotr Kapitsa in 1982?",
+   "gold": "3437 Kapitsa",
+   "blade_r0.005_a2.5": "The minor planet discovered in 1982 in honor of Pyotr Kapitsa, the Soviet astronomer, is **1184 Kapitsa**. It was discovered by the Soviet astronomer K. I. Krysztofiak at the Crimean Astrophysical Observatory. The asteroid was named in his honor to commemorate his contributions to science, particularly in the fields of physics and astronomy."
+  },
+  {
+   "question": "What year did Elizabeth Esteve-Coll become the first female director of the University of Surrey Library?",
+   "gold": "1982",
+   "blade_r0.005_a2.5": "Elizabeth Esteve-Coll became the first female director of the University of Surrey Library in the year **1985**."
+  },
+  {
+   "question": "Who was awarded the Rumelhart Prize in 2011?",
+   "gold": "Judea Pearl",
+   "blade_r0.005_a2.5": "The Rumelhart Prize in 2011 was awarded to **Yoshua Bengio**. He received the prize for his pioneering contributions to the field of neural networks and deep learning."
+  },
+  {
+   "question": "Which peninsular plateau of India extends 900 km, with many peaks rising above 1,000 m?",
+   "gold": "Satpura Range",
+   "blade_r0.005_a2.5": "The peninsular plateau of India that extends 900 km and has many peaks rising above 1,000 m is the **Deccan Plateau**.\n\nThe Deccan Plateau is located in southern India and is part of the larger Indian Plateau. It extends approximately 900 km from west to east and is characterized by its elevated terrain, with several hills and plateaus. The Western Ghats and Eastern Ghats form the boundaries of the Deccan Plateau, and the region includes several high peaks, such as the Anai Peak (1,698 m) and the"
+  },
+  {
+   "question": "In which year did Homa Shaibany (an Iranian surgeon) receive a scholarship to study medicine at London University?",
+   "gold": "1930",
+   "blade_r0.005_a2.5": "Homa Shaibany received a scholarship to study medicine at London University in the year **1947**."
+  },
+  {
+   "question": "In the 2009 US Billboard 200 year-end chart, what position did Miranda Lambert's album \"Revolution\" place?",
+   "gold": "170th",
+   "blade_r0.005_a2.5": "Miranda Lambert's album \"Revolution\" placed **number 1** on the 2009 US Billboard 200 year-end chart."
+  },
+  {
+   "question": "On which day, month, and year did the Bell UH-1H Iroquois helicopter have its first flight?",
+   "gold": "20 October 1956 ",
+   "blade_r0.005_a2.5": "The Bell UH-1H Iroquois helicopter had its first flight on **September 14, 1956**. The flight took place in **September** of the **year 1956**, in the **month of September**. \n\nSo, the answer is: **September 14, 1956**."
+  },
+  {
+   "question": "In TWD Season 11, Episode 10, we learn that Connie got whose uncle kicked out of Congress before the apocalypse?",
+   "gold": "Pamela Milton's uncle",
+   "blade_r0.005_a2.5": "In *The Walking Dead* Season 11, Episode 10, titled **\"The World Before\"**, it is revealed that **Connie** got **Tommy's uncle** kicked out of Congress before the apocalypse. This information is part of the flashbacks that explore the characters' past lives before the zombie apocalypse.\n\nTommy is a character from the show, and his uncle was a politician who was removed from office due to some scandal, which Connie was involved in exposing or helping to bring about. This backstory adds depth to Tommy's character and his relationship with Connie."
+  },
+  {
+   "question": "Who was awarded the Rumelhart Prize in 2014?",
+   "gold": "Ray Jackendoff",
+   "blade_r0.005_a2.5": "The Rumelhart Prize in 2014 was awarded to **Yoshua Bengio**. He received the prize for his pioneering contributions to the field of neural networks and deep learning. The prize is named after David E. Rumelhart, a prominent figure in cognitive science and artificial intelligence."
+  },
+  {
+   "question": "Who sketched the \"Taddei Tondo\" following its arrival at the Royal Academy and published a letter in the Athenaeum of 3 July 1830 praising how it was lit?",
+   "gold": "John Constable",
+   "blade_r0.005_a2.5": "The \"Taddei Tondo\" was a Renaissance sculpture, a small relief depicting the Madonna and Child, attributed to Michelangelo. It was brought to England in the early 19th century and arrived at the Royal Academy in 1829.\n\nThe person who sketched the \"Taddei Tondo\" following its arrival at the Royal Academy and published a letter in the *Athenaeum* on 3 July 1830 praising how it was lit was **John Ruskin**.\n\nRuskin was a prominent art critic and writer, and his letter in the *Athenae"
+  },
+  {
+   "question": "What was the name of the first elephant born in Valencia Bioparc?",
+   "gold": "Makena",
+   "blade_r0.005_a2.5": "The first elephant born in Valencia Bioparc was named **Lola**. She was born in 1998 and is a female African savanna elephant. Lola is still living at the park and is one of the park's most well-known residents."
+  },
+  {
+   "question": "What year was the municipality of Carolina del Príncipe, Antioquia, Colombia, founded?",
+   "gold": "1787",
+   "blade_r0.005_a2.5": "The municipality of Carolina del Príncipe, Antioquia, Colombia, was founded in the year **1845**."
+  },
+  {
+   "question": "Who did the musical composition for the play Helen as presented in the 2022 Athens Epidaurus Festival?",
+   "gold": "Angelos Triantafyllou",
+   "blade_r0.005_a2.5": "The musical composition for the play *Helen* as presented at the 2022 Athens Epidaurus Festival was created by **Dimitris Koutsoumpas**. The production was directed by **Kostas Karyotakis** and featured a unique blend of classical Greek drama and contemporary musical elements."
+  },
+  {
+   "question": "What month, day, and year was Ancy-Dornot established?",
+   "gold": "1 January 2016",
+   "blade_r0.005_a2.5": "Ancy-Dornot was established on **April 1, 1816**. The town was created by merging the two villages of Ancy and Dornot."
+  },
+  {
+   "question": "On what day, month, and year did Frank Schreider, an American explorer, die?",
+   "gold": "January 21, 1994",
+   "blade_r0.005_a2.5": "As of my current knowledge base, there is no widely documented information about an American explorer named Frank Schreider who is known for a specific death date. There is no reliable historical record or public information about this individual. It is possible that there is no historical figure by this name, or there may be no publicly available information about his death.\n\nIf you have additional context or details about Frank Schreider, I would be happy to help further. However, as of now, there is no known date of death for this individual. Please note that there may be no historical records or no public information about this person. It is possible that"
+  },
+  {
+   "question": "What was the nationality of the scientists who used lasers to measure Usain Bolt’s performance in the different stages of a 100-meter race held in September 2011?",
+   "gold": "Belgian",
+   "blade_r0.005_a2.5": "The scientists who used lasers to measure Usain Bolt’s performance in the 100-meter race held in September 2011 were from **Germany**. They were part of a research team led by **Dr. Rainer K. Schmitt** from the **University of Bayreuth**. The team used high-speed laser systems to analyze Bolt's movement in great detail, capturing data on his speed, acceleration, and biomechanics during different stages of the race."
+  },
+  {
+   "question": "In which year was the town of Babanango, in the KwaZulu-Natal province of South Africa, founded?",
+   "gold": "1904",
+   "blade_r0.005_a2.5": "The town of Babanango, in the KwaZulu-Natal province of South Africa, was founded in the year **1843**. It was established by the Nkandla people, who are part of the Zulu nation. The town is known for its historical significance and cultural heritage."
+  },
+  {
+   "question": "In how many games did Matija Radović appear for the Hofstra Pride during the 2017-18 season?",
+   "gold": "25",
+   "blade_r0.005_a2.5": "Matija Radović appeared in **10 games** for the Hofstra Pride during the 2017-18 season."
+  },
+  {
+   "question": "In what year was the Miami-Dade County C-Pass replaced with the SunPass?",
+   "gold": "2014",
+   "blade_r0.005_a2.5": "The Miami-Dade County C-Pass was replaced by the SunPass in the year **1997**."
+  },
+  {
+   "question": "In what year was Professor Ascher Herman Shapiro awarded the Benjamin Garver Lamme Award by the American Society for Engineering Education?",
+   "gold": "1977",
+   "blade_r0.005_a2.5": "Professor Ascher Herman Shapiro was awarded the Benjamin Garver Lamme Award by the American Society for Engineering Education in the year **1963**."
+  },
+  {
+   "question": "Julie Mehretu was awarded the Barnett and Annalee Newman Award for the first time in what year?",
+   "gold": "2013",
+   "blade_r0.005_a2.5": "The Barnett and Annalee Newman Award was first awarded to Julie Mehretu in the year 2006."
+  },
+  {
+   "question": "What is the name (first and last) of the 11th President of the University of Northern Iowa?",
+   "gold": "Mark A. Nook",
+   "blade_r0.005_a2.5": "The 11th President of the University of Northern Iowa was **Dr. Robert L. Hagemeyer**. His full name is **Robert L. Hagemeyer**. He served as president from 1985 to 1993."
+  },
+  {
+   "question": "Name the mission director of the Rohini Satellite 1 (RS-1) satellite launch in 1980.",
+   "gold": "Dr. Kalam",
+   "blade_r0.005_a2.5": "The mission director of the Rohini Satellite 1 (RS-1) satellite launch in 1980 was **Dr. K. Kasturirangan**. He was the first Director of the Indian Space Research Organisation (ISRO) and played a key role in the development and successful launch of the RS-1 satellite, which marked India's entry into the satellite launch field."
+  },
+  {
+   "question": "What month, day, and year was House Resolution 7004, \"Addressing the Governor's unacceptable actions in matters related to the appraiser certification program,\" introduced against Governor Kristi Noem?",
+   "gold": "February 24, 2022",
+   "blade_r0.005_a2.5": "As of as of there is no publicly available information regarding a specific House Resolution 7004 related to Governor Kristi Noem or an \"appraiser certification program\" as of my knowledge cutoff in July 2Unfortunately, there is no credible or verifiable record of such a resolution being introduced in any state legislature or Congress at this time. It is possible that this reference does not exist in any official legislative database or there may be no public record of such a resolution.\n\nIt is important to note that there is no known legislative action by any state or federal body against Governor Kristi Noem under this specific title or in this"
+  },
+  {
+   "question": "Who won the gold medal in men's foil at the first European Fencing Championships?",
+   "gold": "Andrea Borella",
+   "blade_r0.005_a2.5": "The gold medal in men's foil at the first European Fencing Championships was won by **Gustave de Laval** from **France**. The championships took place in **1892** in **Paris, France**."
+  },
+  {
+   "question": "As of the 2020 Census, what was the population of Wheatland, Iowa?",
+   "gold": "775",
+   "blade_r0.005_a2.5": "The population of Wheatland, Iowa, as of the 2020 United States Census was **1,127**."
+  },
+  {
+   "question": "In which town was the South African 80s child pop star Ricardo Groenewald born?",
+   "gold": "Humansdorp",
+   "blade_r0.005_a2.5": "The South African 80s child pop star Ricardo Groenewald was born in the town of **Durban**."
+  },
+  {
+   "question": "On what date (day/month/year) was Makhdum Khusro Bakhtyar (Pakistani politician) inducted into the Federal Cabinet of Prime Minister Shaukat Aziz?",
+   "gold": "4 September 2004",
+   "blade_r0.005_a2.5": "Makhdum Khusro Bakhtyar was inducted into the Federal Cabinet of Prime Minister Shaukat Aziz on **14 August 2004**. He was appointed as the **Minister for Information and Broadcasting**."
+  },
+  {
+   "question": "Who did Mike Bickle endorse in the 2016 presidential race?",
+   "gold": "Ted Cruz.",
+   "blade_r0.005_a2.5": "As of my knowledge cutoff in July 2024, there is no publicly available, credible information indicating that Mike Bickle, the founder of the Church on the Rock and a prominent figure in the Christian charismatic movement, endorsed a specific candidate in the 2016 U.S. presidential race. There is no widely reported or documented endorsement from Bickle related to the 2016 election.\n\nIt is important to note that while some religious leaders and organizations may express political views or support candidates, there is no reliable public record of Mike Bickle making such an endorsement. As with any information about public figures, it is"
+  },
+  {
+   "question": "In which year was Srinagar declared a UNESCO Creative City?",
+   "gold": "2021",
+   "blade_r0.005_a2.5": "Srinagar was declared a UNESCO Creative City of Crafts and Folk Art in the year **2018**."
+  },
+  {
+   "question": "What was Conrad Schintz's dog's full name on Dimension 20's Mentopolis?",
+   "gold": "Justin Fication",
+   "blade_r0.005_a2.5": "As of my current knowledge base, there is no publicly available information about a character named \"Conrad Schintz\" or a dog associated with \"Dimension 20's Mentopolis.\" There is no known character by that name in the official lore or content of Dimension 20, which is a tabletop role-playing game series created by Taliesin, featuring a variety of characters and settings.\n\nIt's possible that this is a fictional or speculative character or a reference that does not currently exist in any official source. Unfortunately, as of my knowledge cutoff in July 2024, there is no established information about this specific"
+  },
+  {
+   "question": "Who else did Jessica Hahn accuse of rape besides Jim Bakker?",
+   "gold": "John Wesley Fletcher.",
+   "blade_r0.005_a2.5": "Jessica Hahn, a former member of the Jim Bakker Show, accused Jim Bakker of rape in 1987. In addition to Bakker, she also accused his wife, **Tammy Faye Bakker**, of being complicit in the abuse. However, it's important to note that there is no public record or credible evidence that Tammy Faye Bakker was directly involved in the alleged rape. The accusations against Tammy Faye are largely speculative and not substantiated by any verified sources.\n\nAs of now, there is no widely known or documented case of Jessica Hahn accusing anyone else besides Jim Bakker"
+  },
+  {
+   "question": "Which bridge in Srinagar, Kashmir, is also known as Alamgir Bridge?",
+   "gold": "Budshah Bridge",
+   "blade_r0.005_a2.5": "The bridge in Srinagar, Kashmir, also known as Alamgir Bridge is the **Shalateng Bridge**. It was built during the reign of Mughal Emperor Aurangzeb Alamgir and is one of the oldest bridges in the region. The bridge is named after the emperor, and it is a significant historical landmark in Srinagar."
+  },
+  {
+   "question": "In the video game Dark Souls 1 for the PlayStation 3, which starting class has 11 vitality, 13 strength, and starts at soul level 4?",
+   "gold": "Warrior",
+   "blade_r0.005_a2.5": "The starting class in **Dark Souls 1** for the **PlayStation 3** that has **11 Vitality**, **13 Strength**, and starts at **soul level 4** is the **Black Blade**.\n\nHere's a quick breakdown:\n\n- **Strength: 13** – Good for melee damage.\n- **Vitality: 11** – Moderate health.\n- **Soul Level: 4** – Starts at a slightly higher level than the default, which is useful for early game progression.\n\nThe Black Blade is a good choice for players who prefer a balanced build with decent strength and"
+  },
+  {
+   "question": "Who plays Emmanuel Adamu in Season 2 of \"The Bear\"?",
+   "gold": "Robert Townsend",
+   "blade_r0.005_a2.5": "In Season 2 of \"The Bear,\" the character Emmanuel Adamu is played by **David Harbour**. He is a recurring character in the series, known for his role as the sous-chef at the restaurant."
+  },
+  {
+   "question": "What university was awarded the \"Visitor's Award\" for \"Best University\" in 2017 by the President of India?",
+   "gold": "Jawaharlal Nehru University",
+   "blade_r0.005_a2.5": "The university that was awarded the \"Visitor's Award\" for \"Best University\" in 2017 by the President of India was **Banaras Hindu University (BHU)**. The award was presented by President Pranab Mukherjee during the 100th Foundation Day celebrations of BHU."
+  },
+  {
+   "question": "What is the surname of the individual who won the Faraday Lectureship Prize, previously known simply as the Faraday Lectureship, in 1914?",
+   "gold": "Arrhenius",
+   "blade_r0.005_a2.5": "The surname of the individual who won the Faraday Lectureship Prize in 1914 is **Moseley**.\n\nThe winner was **Henry Gwyn Jeffreys Moseley**, a British physicist who made significant contributions to the understanding of atomic structure. He was awarded the Faraday Lectureship in 1914 for his work on X-ray spectroscopy and the relationship between the frequency of X-rays and the atomic number of elements."
+  },
+  {
+   "question": "Which scientist received the Roebling Medal the year after Max Hutchinson Hey received his?",
+   "gold": "Linus Pauling",
+   "blade_r0.005_a2.5": "The Roebling Medal is awarded by the American Society of Civil Engineers (ASCE) in recognition of outstanding contributions to the field of civil engineering. To determine which scientist received the Roebling Medal the year after Max Hutchinson Hey received his, we need to identify the year Max Hutchinson Hey received the medal and then find the recipient of the following year.\n\nMax Hutchinson Hey received the Roebling Medal in 1954. The scientist who received the Roebling Medal the following year, in 1955, was **John A. L. W. (J.A.L.W.)) H. H. (Harry) H."
+  },
+  {
+   "question": "In which two years did Rugged Lark win the AQHA World Show Superhorse title?",
+   "gold": "1985 and 1987",
+   "blade_r0.005_a2.5": "Rugged Lark won the AQHA World Show Superhorse title in the years **1987** and **1988**."
+  },
+  {
+   "question": "How many of his early oil portraits did English sculptor Robert Adams exhibit in the Northampton Public Library in April 1946?",
+   "gold": "14",
+   "blade_r0.005_a2.5": "As there is no historical record or evidence of an English sculptor named Robert Adams exhibiting oil portraits in the Northampton Public Library in April 1946, there is no accurate answer to this specific question as it appears to be based on speculative or fictional information.\n\nUnfortunately, there is no documented information about this individual or event. It is possible that this is a fictional or hypothetical scenario, or there may be a mix-up with names or dates.\n\nUnfortunately, as of my current knowledge base, there is no reliable information to answer this question definitively. There is no known historical figure named Robert Adams who was an English sculptor and"
+  },
+  {
+   "question": "In which city was the first International Association for Engineering Geology and the Environment congress held?",
+   "gold": "Paris",
+   "blade_r0.005_a2.5": "The first International Association for Engineering Geology and the Environment (IAEG) congress was held in **Paris, France** in **1938**. The congress was organized by the French Society of Engineering Geology and marked the beginning of the association's international activities."
+  },
+  {
+   "question": "What was the 2021 Word of the Year according to the American Dialect Society?",
+   "gold": "insurrection",
+   "blade_r0.005_a2.5": "The 2021 Word of the Year according to the American Dialect Society was **\"vax\"**."
+  },
+  {
+   "question": "New Yorker Edward A. Tuttle's patent application was granted on October 11, 1881, for what kind of machine?",
+   "gold": "Exercising Machine",
+   "blade_r0.005_a2.5": "The patent application granted to New Yorker Edward A. Tuttle on October 11, 1881, was for a **sewing machine**. Specifically, his patent (U.S. Patent No. 243,224) was for a **sewing machine with a shuttle and needle bar mechanism**. This invention contributed to the advancement of sewing technology during the late 19th century."
+  },
+  {
+   "question": "What is the specified maximum speed in kilometers per hour of the Grumman F4F-3 Wildcat (1937) plane?",
+   "gold": "533 km/h",
+   "blade_r0.005_a2.5": "The Grumman F4F-3 Wildcat, which entered service in 1937, had a specified maximum speed of **322 kilometers per hour (200 miles per hour)**."
+  },
+  {
+   "question": "What is the name of the seminal film that Lygia Pape made in 1975?",
+   "gold": "Eat Me",
+   "blade_r0.005_a2.5": "The seminal film that Lygia Pape made in 1975 is **\"O Homem que Não Existia\"** (English: *The Man Who Did Not Exist*). \n\nThis film is a key work in Pape's career and is considered a significant contribution to Brazilian cinema and experimental film. It explores themes of identity, perception, and the nature of reality, reflecting Pape's broader artistic interests in philosophy and the human condition."
+  },
+  {
+   "question": "In Moesha, who played Theresa in Season 5?",
+   "gold": "Marissa Jaret Winokur",
+   "blade_r0.005_a2.5": "In the TV show *Moesha*, the character Theresa in Season 5 was played by **Tisha Campbell**. She portrayed the character throughout the series, including Season 5."
+  },
+  {
+   "question": "According to the 2021 World Bank data, which country has the largest renewable freshwater resources per capita?",
+   "gold": "Iceland",
+   "blade_r0.005_a2.5": "The country with the largest renewable freshwater resources per capita according to the 2021 World Bank data is **Canada**. \n\nCanada has a very high per capita renewable freshwater availability, largely due to its vast land area and abundant freshwater resources, including lakes, rivers, and glaciers."
+  },
+  {
+   "question": "What year did Giulio Carlo Argan, the Italian art historian, publish a manual of art for high schools?",
+   "gold": "1938",
+   "blade_r0.005_a2.5": "The Italian art historian Giulio Carlo Argan published his manual of art for high schools, titled *Manuale d'arte*, in the year **1953**."
+  },
+  {
+   "question": "After Bessie Smith's car accident, which arm was amputated?",
+   "gold": "The right arm",
+   "blade_r0.005_a2.5": "After Bessie Smith's car accident on September 26, 1937, the arm that was amputated was her **right arm**. The accident occurred in Chattanooga, Tennessee, when her car overturned, and she suffered severe injuries, including the loss of her right arm and leg. She died three days later on September 29, 1937, due to complications from the injuries."
+  },
+  {
+   "question": "On which day and month was the victim of the 2013 Mumbai gang rape, also known as the Shakti Mills gang rape case, discharged from the hospital after the incident?",
+   "gold": "27 August",
+   "blade_r0.005_a2.5": "The victim of the 2013 Mumbai gang rape case, also known as the Shakti Mills gang rape case, was discharged from the hospital on **17 April 2013**. She was admitted to the hospital on 14 April 2013 after the incident."
+  },
+  {
+   "question": "What are the names of the three notable archaeological sites where Igbo-Ukwu art was discovered?",
+   "gold": "Igbo Isaiah, Igbo Richard, and Igbo Jonah",
+   "blade_r0.005_a2.5": "The three notable archaeological sites where Igbo-Ukwu art was discovered are:\n\n1. **Nok** - Although Nok is more famously known for its terracotta sculptures, it is sometimes associated with the broader region of Igbo-Ukwu in the context of early Nigerian art.\n\n2. **Igbo-Ukwu** - The most famous site, located in present-day Anambra State, Nigeria. It was excavated in 1959 and is renowned for its exquisite bronze and iron artifacts.\n\n3. **Oguta** - Located in the same region, Oguta is another significant site where"
+  },
+  {
+   "question": "Which year did Herbert Gintis receive his master's degree?",
+   "gold": "1962",
+   "blade_r0.005_a2.5": "Herbert Gintis received his master's degree in 1962. He earned his Master of Arts (M.A.) in economics from the University of Chicago."
+  },
+  {
+   "question": "In Episode 7, Season 2 of the American version of \"The Circle,\" who leaves the players a message on how to play the game Glammequins?",
+   "gold": "Jonathan Van Ness",
+   "blade_r0.005_a2.5": "In **Episode 7, Season 2** of the American version of *The Circle*, the person who leaves the players a message on how to play the game **Glammequins** is **Jen**.\n\nShe is one of the early players in the game and becomes a key figure in the season. She introduces the game as a way to engage the players and add an extra layer of strategy and social interaction within the game. The game itself is a fictional, elaborate game that players can choose to participate in, which adds to the psychological and social dynamics of *The Circle*."
+  },
+  {
+   "question": "In what year was Oliviero Diliberto first elected as an MP for the Communist Refoundation Party?",
+   "gold": "1994",
+   "blade_r0.005_a2.5": "Oliviero Diliberto was first elected as a Member of Parliament (MP) for the Communist Refoundation Party (PRC) in the year **1996**. He was elected in the constituency of Milan."
+  },
+  {
+   "question": "Which two instruments was John Cage's experimental piece *Two^5* written for?",
+   "gold": "Tenor trombone and piano",
+   "blade_r0.005_a2.5": "John Cage's experimental piece *Two^5* was written for the **prepared piano** and the **violin**."
+  },
+  {
+   "question": "As a teen, what job sparked Shonda Rhimes' interest in hospital environments?",
+   "gold": "hospital volunteer",
+   "blade_r0.005_a2.5": "The job that sparked Shonda Rhimes' interest in hospital environments was working as a **hospital aide** during her teenage years. She worked at a hospital in Seattle, where she gained firsthand experience with the medical field and the challenges faced by patients and healthcare workers. This experience later influenced her writing, particularly in her television shows like *Grey's Anatomy*, which is set in a hospital and explores the lives of medical professionals."
+  },
+  {
+   "question": "In which year did Karl Polanyi become a founding member of the National Citizens' Radical Party?",
+   "gold": "1914",
+   "blade_r0.005_a2.5": "As of there is no historical record or credible source indicating that Karl Polanyi was a founding member of the National Citizens' Radical Party. There is no known political party by that name associated with Polanyi, and there is no evidence that he was involved in such an organization. It is possible that this information is speculative or based on a fictional or non-existent entity. There is no reliable information about this claim. There is no reliable information about this claim. There is no reliable information about this claim. There is no reliable information about this claim. There is no reliable information about this claim. There is no reliable information about this claim"
+  },
+  {
+   "question": "How many balls did Dwayne Bravo play in the Indian Premier League 2019 final match between CSK and MI on May 12, 2019?",
+   "gold": "15",
+   "blade_r0.005_a2.5": "Dwayne Bravo played **17 balls** in the Indian Premier League 2019 final match between Chennai Super Kings (CSK) and Mumbai Indians (MI) on May 12, 2019."
+  },
+  {
+   "question": "Marcia Bartusiak traces the term \"black hole\" to which physicist (first name, middle initial, and surname), who reportedly compared the phenomenon in the early 1960s to the Black Hole of Calcutta, a notorious prison where people entered but never left alive?",
+   "gold": "Robert H. Dicke.",
+   "blade_r0.005_a2.5": "The physicist is **Stephen A. Hawking**. \n\nMarcia Bartusiak traces the term \"black hole\" to Stephen A. Hawking, who reportedly compared the phenomenon in the early 1960s to the Black Hole of Calcutta, a notorious prison where people entered but never left alive. This analogy helped popularize the term \"black hole\" in the context of astrophysics."
+  },
+  {
+   "question": "From which university did David Hibbett receive his Bachelor of Arts degree?",
+   "gold": "University of Massachusetts Amherst",
+   "blade_r0.005_a2.5": "David Hibbett received his Bachelor of Arts degree from the University of California, Berkeley."
+  },
+  {
+   "question": "Which one of the 1990 Fly Girls from the series In Living Color stayed for five seasons?",
+   "gold": "Deidre Lang",
+   "blade_r0.005_a2.5": "The 1990 Fly Girls from the series *In Living Color* who stayed for five seasons was **Tisha Campbell**. She played the character of **Tisha** and was a main cast member throughout the show's run, which lasted from 1990 to 1994. The other original members, including Damon Wayans, Keenan Ivory Wayans, and others, also stayed for the entire five seasons."
+  },
+  {
+   "question": "What is the title of Series 1, Episode 17 of *Space: 1999*?",
+   "gold": "\"The Last Sunset\"",
+   "blade_r0.005_a2.5": "The title of Series 1, Episode 17 of *Space: 1999* is **\"The Silent Service\"**."
+  },
+  {
+   "question": "Which specific ocean was the asteroid 224 Oceana named after?",
+   "gold": "Pacific Ocean",
+   "blade_r0.005_a2.5": "The asteroid 224 Oceana was named after the **Pacific Ocean**. It was discovered in 1882 and is the first asteroid to be named after an ocean. The name was chosen to honor the vast and significant body of water."
+  },
+  {
+   "question": "In which year was Akhnoor Fort (in Jammu City of Jammu and Kashmir) declared a national monument?",
+   "gold": "1982",
+   "blade_r0.005_a2.5": "The Akhnoor Fort in Jammu City, Jammu and Kashmir, was declared a national monument in the year **1983**."
+  },
+  {
+   "question": "Which year was the non-profit organization Prayas Nepal established?",
+   "gold": "2003",
+   "blade_r0.005_a2.5": "The non-profit organization Prayas Nepal was established in the year 1996."
+  },
+  {
+   "question": "In what district was the English songwriter Robert Patrick Weston born?",
+   "gold": "Islington",
+   "blade_r0.005_a2.5": "The English songwriter Robert Patrick Weston was born in the district of **Wolverhampton**. He was born on 17 April 1856."
+  },
+  {
+   "question": "In what month and year did the Merce Cunningham Dance Company launch its \"Legacy Tour\"?",
+   "gold": "Feb 2010",
+   "blade_r0.005_a2.5": "The Merce Cunningham Dance Company launched its \"Legacy Tour\" in the month of **June** in the year **2002**."
+  },
+  {
+   "question": "Who published the first scientific description of the Asiatic lion in 1826?",
+   "gold": "Johann N. Meyer",
+   "blade_r0.005_a2.5": "The first scientific description of the Asiatic lion was published in 1826 by the German naturalist Johann Christian Pallas. He described the species as *Panthera leo persica*."
+  },
+  {
+   "question": "In what year did Peter Norvig and Stuart Russell win the AAAI/EAAI Outstanding Educator Award?",
+   "gold": "2016",
+   "blade_r0.005_a2.5": "Peter Norvig and Stuart Russell won the AAAI/EAAI Outstanding Educator Award in the year **2003**."
+  },
+  {
+   "question": "What is the topographic isolation of Pentagon Mountain in Montana in kilometers?",
+   "gold": "17.48 km",
+   "blade_r0.005_a2.5": "As of as of there is no known specific data on the topographic isolation of Pentagon Mountain in Montana, as it is not a widely recognized or documented geographical feature in standard geographic databases or topographic references. There is no official or widely accepted record of its topographic isolation in kilometers.\n\nIt's possible that there is no established or published value for this specific mountain, or it may not be a recognized name in official geographic sources. If you have more context or a specific source that refers to Pentagon Mountain, I would be happy to help further. However, as of now, there is no reliable information available on this topic."
+  },
+  {
+   "question": "In 2015, in what exhibition was Henry Ossawa Tanner's work included?",
+   "gold": "We Speak: Black Artists in Philadelphia, 1920s-1970s",
+   "blade_r0.005_a2.5": "In 2015, Henry Ossawa Tanner's work was included in the exhibition **\"The Art of the African American: From the Collection of the National Museum of African American History and Culture\"** at the Smithsonian Institution in Washington, D.C. This exhibition highlighted the contributions of African American artists, including Tanner, who was the first African American to achieve international acclaim as a painter."
+  },
+  {
+   "question": "What coach was Mike Young an assistant to at Radford University?",
+   "gold": "Oliver Purnell",
+   "blade_r0.005_a2.5": "The answer is: **Jim Haslam**.  \nMike Young was an assistant coach at Radford University under Jim Haslam from 1993 to 1996."
+  },
+  {
+   "question": "Where was Juvénal Habyarimana's body identified within?",
+   "gold": "In a flowerbed",
+   "blade_r0.005_a2.5": "Juvénal Habyarimana's body was identified within the **African Union**. The identification was conducted by the **African Union Forensic Team** in 2009, which confirmed that the remains found in a mass grave in **Kigali, Rwanda** belonged to Habyarimana. He was the former President of Rwanda, who was assassinated on April 6, 1994, along with his wife, Agathe Uwilingiyimana, in a plane crash that marked the beginning of the Rwandan genocide."
+  },
+  {
+   "question": "What language is represented in Figure 4 of the paper \"Identifying Semantic Role Clusters and Alignment Types via Microrole Coexpression Tendencies\"?",
+   "gold": "Zenzontepec Chatino",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in July 2024, I cannot directly access specific figures or content from external papers, including \"Identifying Semantic Role Clusters and Alignment Types via Microrole Coexpression Tendencies\" (as there is no widely known paper by this exact title in my training data). Unfortunately, I cannot provide a definitive answer about the language represented in Figure 4 of this specific paper.\n\nHowever, if this paper is related to computational linguistics or natural language processing, it is likely that the language in question is a commonly studied language such as English, Chinese, or another language with significant linguistic research. If"
+  },
+  {
+   "question": "Which scientist received the American Chemical Society Award in Pure Chemistry in 1933?",
+   "gold": "Frank Harold Spedding",
+   "blade_r0.005_a2.5": "The scientist who received the American Chemical Society Award in Pure Chemistry in 1933 was **Dr. Robert Burns Woodward**."
+  },
+  {
+   "question": "What is the title of the song (English version) for which Isadora Duncan composed the Varshavianka dance routine?",
+   "gold": "\"Whirlwinds of Danger\"",
+   "blade_r0.005_a2.5": "The title of the song for which Isadora Duncan composed the Varshavianka dance routine is **\"The Song of the Volga Boatmen\"**. \n\nThe Varshavianka was a popular Russian dance that Isadora Duncan performed in the early 20th century, and it was set to the music of \"The Song of the Volga Boatmen,\" a traditional Russian folk song."
+  },
+  {
+   "question": "Which building in the Republic of Niger won the 1986 Aga Khan Award for Architecture?",
+   "gold": "Yaama Mosque",
+   "blade_r0.005_a2.5": "The building in the Republic of Niger that won the 1986 Aga Khan Award for Architecture is the **National Museum of Niger**, located in the capital city of Niamey. The award was given to the architectural firm **Moussa Diawara and Partners** for their design and construction of the museum. The building is recognized for its traditional Nigerien architectural style and its role in preserving and showcasing the country's cultural heritage."
+  },
+  {
+   "question": "What is the name of the entomologist who described the species Acanthops bidens in 1922?",
+   "gold": "Morgan Hebard",
+   "blade_r0.005_a2.5": "The entomologist who described the species *Acanthops bidens* in 1922 was **William John MacLeay**.\n\nHe was a British entomologist and zoologist, known for his extensive work on beetles and other insects. *Acanthops bidens* is a species of leafhopper in the family Cicadellidae."
+  },
+  {
+   "question": "From what school did Phyllida Barlow graduate in 1966?",
+   "gold": "the Slade School of Art ",
+   "blade_r0.005_a2.5": "Phyllida Barlow graduated from the Royal College of Art in 1966."
+  },
+  {
+   "question": "The Dante-Alighieri monument, located on Allée des Poètes along Rue D'Auteuil, was created by L'atelier Attitude and inspired by the work of what Italian-born sculptor?",
+   "gold": "Carlo Balboni",
+   "blade_r0.005_a2.5": "The Dante-Alighieri monument was inspired by the work of the Italian-born sculptor **Gian Lorenzo Bernini**."
+  },
+  {
+   "question": "In which Ukrainian city was male impersonator Pepi Litman born?",
+   "gold": "Ternopil",
+   "blade_r0.005_a2.5": "The male impersonator Pepi Litman was born in the Ukrainian city of Kharkiv."
+  },
+  {
+   "question": "What is the full title of Zanele Muholi's first publication?",
+   "gold": "Zanele Muholi: Only Half The Picture",
+   "blade_r0.005_a2.5": "The full title of Zanele Muholi's first publication is **\"Faces and Phases\"**. It was published in 2003 by the University of KwaZulu-Natal Press."
+  },
+  {
+   "question": "Who was the father of the Russian stage actress and singer \"Baroness Olga Vadimovna von Root?\"",
+   "gold": "Baron Vadim Nikolayevich von Root",
+   "blade_r0.005_a2.5": "As there currently no historical records or public information about a Russian stage actress and singer named \"Baroness Olga Vadimovna von Root,\" there is no known father of this individual as of this time. Unfortunately, there is no credible source or biographical data available regarding this specific individual, and there is no basis for this name in historical or contemporary Russian culture or entertainment.\n\nIt is possible that this name is either fictional, speculative, or based on a mix-up or misattribution of real historical figures. If you have more context or details about this person, I would be happy to help further."
+  },
+  {
+   "question": "On which day, month, and year did the signing ceremony between the Colombian government and the ELN occur, leading to a six-month-long ceasefire between the two parties?",
+   "gold": "9 June 2023",
+   "blade_r0.005_a2.5": "The signing ceremony between the Colombian government and the Revolutionary Armed Forces of Colombia (FARC) occurred on **November 24, 2016**, in Havana, Cuba. This marked the end of a 52-year armed conflict between the government and the FARC.\n\nHowever, it's important to note that the **ELN** (National Liberation Army) is a separate guerrilla group from the FARC. As of my knowledge cutoff in July 2024, there has not been a formal ceasefire agreement between the Colombian government and the ELN. There have been ongoing peace talks and some periods of de-"
+  },
+  {
+   "question": "In what major painting exhibition did artist J.C. Leyendecker earn a spot in 1897?",
+   "gold": "The Salon Champs de Mars",
+   "blade_r0.005_a2.5": "The major painting exhibition where artist J.C. Leyendecker earned a spot in 1897 was the **Paris World's Fair**, also known as the **Exposition Universelle**.\n\nLeyendecker, who was born in Germany and later became a prominent American illustrator, exhibited his work at the Exposition Universelle in Paris in 1897. This was a significant event that showcased the best of international art and culture, and Leyendecker's participation marked an important step in his career."
+  },
+  {
+   "question": "Who won the Godman-Salvin Medal in 2010?",
+   "gold": "Ian Newton",
+   "blade_r0.005_a2.5": "The Godman-Salvin Medal in 2010 was won by **Dr. R. S. Sathyamurthy**. He was awarded the medal for his outstanding contributions to the field of ornithology, particularly for his extensive research on Indian birds and his significant work in bird conservation."
+  },
+  {
+   "question": "How many years was the attraction Horizons at EPCOT sponsored by General Electric?",
+   "gold": "10",
+   "blade_r0.005_a2.5": "The attraction Horizons at EPCOT was sponsored by General Electric for **12 years**. It opened in 1982 and closed in 1994."
+  },
+  {
+   "question": "How much money in US dollars did Howard Schultz donate to Barack Obama's campaign on October 24, 2008?",
+   "gold": "$2,300",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in October 2024, there is no publicly available, verifiable information about Howard Schultz making a specific donation to Barack Obama's campaign on October 24, 2008. There is no widely reported or documented donation from Howard Schultz to Obama's 2008 presidential campaign on that specific date.\n\nHoward Schultz, the former CEO of Starbucks, was known to support Barack Obama, and he did contribute to Obama's campaign in the past, but there is no specific record of a $10 million donation on that date. It's possible that there may be some confusion with"
+  },
+  {
+   "question": "What item was found in a damaged wooden coffin in July 2018 by Ramadan Badry Hussein?",
+   "gold": "Mask",
+   "blade_r0.005_a2.5": "The item found in a damaged wooden coffin in July 2018 by Ramadan Badry Hussein was a **mummy**. Specifically, it was the mummy of a **female child** who was approximately **2 to 3 years old** at the time of her death. The discovery was made in **Egypt**, and the mummy was later identified as **Ankh-hor**, based on the hieroglyphic name found on the coffin. This mummy is notable for being one of the best-preserved mummies of a child found in Egypt."
+  },
+  {
+   "question": "What were the month and year when scientists reported that bacteria from Earth, particularly Deinococcus radiodurans bacteria, which is highly resistant to environmental hazards, were found to survive for three years in outer space?",
+   "gold": "August 2020",
+   "blade_r0.005_a2.5": "The month and year when scientists reported that *Deinococcus radiodurans* bacteria, known for their extreme resistance to environmental hazards, survived for three years in outer space was **January 2005**.\n\nThis experiment was part of the **BIOPAN** mission, which was a series of biological experiments conducted by the European Space Agency (ESA) to study the effects of space conditions on living organisms. The bacteria were exposed to the harsh conditions of space, including vacuum, cosmic radiation, and extreme temperatures, and were found to survive for three years. This study provided important insights into the potential for life to survive"
+  },
+  {
+   "question": "From what year to what year was Mary Ann Willson, an American folk artist, active?",
+   "gold": " 1810 to 1825",
+   "blade_r0.005_a2.5": "Mary Ann Willson was active from 1960 to 1980. She was an American folk artist known for her work in the 1960s and 1970s, particularly in the fields of folk art and crafts."
+  },
+  {
+   "question": "Between what dates was the Stanford University exhibition titled \"Eamon Ore-Giron: Non Plus Ultra\" on view? Please give me the full dates (month, day, and year).",
+   "gold": "23 September, 2021 to 20 February, 2022",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in July 2024, there is no publicly available, verifiable information regarding an exhibition titled \"Eamon Ore-Giron: Non Plus Ultra\" at Stanford University. There is no record of such an exhibition in museum databases, press releases, or academic sources as of this date.\n\nIt is possible that this exhibition has not yet occurred, or there may be no public record of it at this time. If you have additional context or sources, I would be happy to help further. For the most accurate and up-to-date information, I recommend checking Stanford University’s official art museum website or contacting their"
+  },
+  {
+   "question": "What is the molar heat capacity of selenium at STP in joules per kelvin per mole?",
+   "gold": "25.363",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in July 2024, there is no widely accepted or standardized value for the **molar heat capacity of selenium at STP** (Standard Temperature and Pressure), because **there is no standard definition for the molar heat capacity of an element at STP** in the same way that there is for gases.\n\nHowever, we can estimate the **molar heat capacity of selenium** based on its **molar heat capacity at constant pressure (Cp)** or **constant volume (Cv)**, depending on the context.\n\n### General Information:\n- **Selenium (Se)** is a solid"
+  },
+  {
+   "question": "Who designed Buenos Aires's Palais de Glace?",
+   "gold": "J. L. Ruiz Basadre",
+   "blade_r0.005_a2.5": "The Palais de Glace in Buenos Aires was designed by **Antonio Raimondi**. He was an Italian architect who worked in Argentina in the late 19th century. The Palais de Glace, also known as the \"Palace of Ice,\" was a temporary structure built for the **Exposición Universal de 1887** (Universal Exposition of 1887), which was held in Buenos Aires to celebrate the centenary of the Argentine War of Independence.\n\nThe building was constructed using a unique combination of glass and iron, and it was one of the first large-scale glass structures in"
+  },
+  {
+   "question": "Who was Japan's Prime Minister after Ichirō Hatoyama left office on December 23, 1956?",
+   "gold": "Tanzan Ishibashi",
+   "blade_r0.005_a2.5": "The Prime Minister of Japan after Ichirō Hatoyama left office on December 23, 1956, was **Kishi Nobusuke**. He took office on December 24, 1956."
+  },
+  {
+   "question": "How many silver medals did Kristin Otto win at the 1986 World Championships in Madrid?",
+   "gold": "2 silver medals",
+   "blade_r0.005_a2.5": "Kristin Otto won 4 silver medals at the 1986 World Championships in Madrid. She competed in the 50 meters, 100 meters, 200 meters, and 4x100 meters relay, winning gold in the 50 meters and 100 meters, and silver in the 200 meters and 4x100 meters relay."
+  },
+  {
+   "question": "What was the name of the man who served as Reeve of North Red Deer, Alberta, between 1924 and 1925?",
+   "gold": "A.M. Donnelly.",
+   "blade_r0.005_a2.5": "The man who served as Reeve of North Red Deer, Alberta, between 1924 and 1925 was **John A. Macleod**."
+  },
+  {
+   "question": "Who won the Eddington Medal in 1993?",
+   "gold": "Leon Mestel",
+   "blade_r0.005_a2.5": "The Eddington Medal in 1993 was won by **Sir Martin Rees**. He was awarded the medal for his contributions to astrophysics, particularly in the areas of cosmology and the structure of the universe."
+  },
+  {
+   "question": "What are the season number, episode number, and title of the \"Vikings\" episode in which Floki says, \"I build boats, Ragnar. You're the navigator\"?",
+   "gold": "Season 2, Episode 2 \"Invasion\"",
+   "blade_r0.005_a2.5": "The \"Vikings\" episode in which Floki says, **\"I build boats, Ragnar. You're the navigator\"** is:\n\n- **Season 1, Episode 3**\n- **Title: \"The Long Way\"**\n\nThis episode features the early development of the Viking longship and the growing dynamic between Ragnar Lothbrok and Floki."
+  },
+  {
+   "question": "Which architect was tasked with finishing the chapel in the newly built Papal apartment when its construction remained incomplete after Pope Paul IV moved in, in October 1556?",
+   "gold": "Pirro Ligorio",
+   "blade_r0.005_a2.5": "The architect tasked with finishing the chapel in the newly built Papal apartment when its construction remained incomplete after Pope Paul IV moved in, in October 1556, was **Domenico Fontana**.\n\nHe was commissioned to complete the chapel, which is now known as the **Chapel of the Holy Sacrament** (Cappella del Santissimo Sacramento) in the Vatican. The chapel is located in the **Palazzo Apostolico**, which was the papal residence at the time."
+  },
+  {
+   "question": "Which famous drummer opened a Wahoo's Fish Taco restaurant in Norco, California, in 2004?",
+   "gold": "Travis Barker",
+   "blade_r0.005_a2.5": "The famous drummer who opened a Wahoo's Fish Taco restaurant in Norco, California, in 2004 is **Steve Gadd**. He is a renowned session drummer known for his work with artists like Paul Simon, Elton John, and the Rolling Stones. Gadd opened the restaurant as a way to support his community and share his love for good food."
+  },
+  {
+   "question": "On what day, month, and year did Chief Gani Fawehinmi win the ‘Bruno Kreisky’ award from the Government of Austria?",
+   "gold": "June 11, 1993",
+   "blade_r0.005_a2.5": "Chief Gani Fawehinmi won the 'Bruno Kreisky' award from the Government of Austria on **23 May 1996**. The award was presented in **May 1996**, in the **month of May**, and the **year was 1996**. The award was given in recognition of his contributions to democracy, human rights, and peace in Africa."
+  },
+  {
+   "question": "On what month, day, and year did Google run its first live-action video doodle?",
+   "gold": "April 15, 2011",
+   "blade_r0.005_a2.5": "Google's first live-action video doodle was run on **October 23, 2007**, to celebrate **Google's 10th anniversary**. The doodle was a short video that showed the evolution of Google's logo over the past decade."
+  },
+  {
+   "question": "What day, month, and year was John Philip Bughaw born?",
+   "gold": "November 7, 2008.",
+   "blade_r0.005_a2.5": "John Philip Bughaw was born on **April 12, 1892**. His birthplace was **Cairo, Illinois, United States**."
+  },
+  {
+   "question": "What was the occupation of the runner-up from Season 2 of The Bachelor?",
+   "gold": "college student",
+   "blade_r0.005_a2.5": "The runner-up from Season 2 of *The Bachelor* was **Katie May**. Her occupation at the time was a **real estate agent**."
+  },
+  {
+   "question": "What was the age gap between George Frederic Watts and his first wife, Ellen Terry?",
+   "gold": "30 years. ",
+   "blade_r0.005_a2.5": "The age gap between George Frederic Watts and his first wife, Ellen Terry, was 22 years. Ellen Terry was 18 years old when they married in 1874, and George Frederic Watts was 40 years old at the time."
+  },
+  {
+   "question": "Who composed Nexhmije Pagarusha's song \"Baresha\"?",
+   "gold": "Rexho Mulliqi",
+   "blade_r0.005_a2.5": "The song \"Baresha\" by Nexhmije Pagarusha was composed by **Mehmet Emin Yurdakul**. He was a prominent Turkish composer and a key figure in the development of Turkish classical music. Yurdakul also composed several other works, including the famous \"Sarıgözü\" and \"Köy Halkı,\" and he was known for his contributions to the Ottoman and Turkish musical traditions."
+  },
+  {
+   "question": "What month and year did the Large Hadron Collider reopen after it closed for maintenance and further upgrades at the end of 2018?",
+   "gold": "April 2022",
+   "blade_r0.005_a2.5": "The Large Hadron Collider (LHC) reopened after its maintenance and upgrade period at the end of 2018 in **June 2020**. The restart took place on **June 23, 2020**, marking the beginning of the LHC's third major operating period."
+  },
+  {
+   "question": "In which series did Dolores Fonzi make her first television appearance?",
+   "gold": "La nena ",
+   "blade_r0.005_a2.5": "Dolores Fonzi made her first television appearance in the series **\"The Addams Family\"**. She played the role of **Wednesday Addams** in the 1964–1966 television series."
+  },
+  {
+   "question": "What was the name of the indoor scrambler ride themed around the Battle of Hastings that was an opening day attraction when Busch Gardens, The Old Country in Williamsburg, Virginia, first opened in 1975?",
+   "gold": "The Catapult",
+   "blade_r0.005_a2.5": "The name of the indoor scrambler ride themed around the Battle of Hastings at Busch Gardens, The Old Country when it first opened in 1975 was **\"The Battle of Hastings\"**.\n\nThis attraction was one of the original rides at the park and was designed to simulate the chaos and excitement of the historic battle. It was a popular attraction for visitors and helped set the tone for the park's medieval European theme."
+  },
+  {
+   "question": "What was the price paid in USD for a piece of Picasso's artwork that sold on March 26th, 2013?",
+   "gold": "$155 million",
+   "blade_r0.005_a2.5": "The piece of Picasso's artwork that sold on March 26, 2013, was **\"Le Rêve\" (The Dream)**, which was sold at auction for **$104.2 million USD**. The auction was held by Christie's in New York."
+  },
+  {
+   "question": "In which month and year did Apollo 14 pilot Edgar Mitchell and Apollo 17 geologist Harrison Schmitt, among other noted Mars exploration advocates, publish an anthology of Mars-to-Stay architectures titled \"A One Way Mission to Mars: Colonizing the Red Planet\"?",
+   "gold": "March 2011",
+   "blade_r0.005_a2.5": "The anthology titled **\"A One Way Mission to Mars: Colonizing the Red Planet\"** was published in **1985** by **Edgar Mitchell** (Apollo 14 pilot) and **Harrison Schmitt** (Apollo 17 geologist), along with other noted Mars exploration advocates.\n\nThe book was published in **June 1985**."
+  },
+  {
+   "question": "How many fouls did Barcelona commit in the Champions League Final match between Barcelona and Arsenal on May 18, 2006?",
+   "gold": "20",
+   "blade_r0.005_a2.5": "As of there is no actual Champions League Final match between Barcelona and Arsenal on May 18, 2006. This date and matchup are not accurate.\n\nThe 2005-06 UEFA Champions League Final was played on May 17, 2006, at the Stade de France in Paris, France. The match was between Barcelona and Arsenal, and the final score was 2-1 in favor of Barcelona, with Ronaldinho scoring the winning goal in the 66th minute.\n\nUnfortunately, there is no publicly available, detailed, or official record of the exact number of fou"
+  },
+  {
+   "question": "What was the name of the second runner-up of Miss USA 1976?",
+   "gold": "Gail Atchison",
+   "blade_r0.005_a2.5": "The second runner-up of Miss USA 1976 was **Shirley Ann Jackson** from Florida. She was the first runner-up, and the second runner-up was **Lynne Marie Stewart** from California."
+  },
+  {
+   "question": "Who won the Paris Kanellakis Theory and Practice Award in 2000?",
+   "gold": "Narendra Karmarkar",
+   "blade_r0.005_a2.5": "The Paris Kanellakis Theory and Practice Award in 2000 was won by **Dijkstra** and **Hoare** for their contributions to the development of **formal methods** in computer science. Specifically, they were recognized for their work on **Hoare logic** and **Dijkstra's weakest precondition calculus**, which have had a profound impact on the theory and practice of programming and software verification."
+  },
+  {
+   "question": "What was the Word of the Decade (2000–2009) according to the American Dialect Society?",
+   "gold": "Google",
+   "blade_r0.005_a2.5": "The Word of the Decade (2000–2009) according to the American Dialect Society was **\"blog.\"**"
+  },
+  {
+   "question": "In which year was Neelam Sanjiva Reddy elected to the Lok Sabha from Hindupur?",
+   "gold": "1967",
+   "blade_r0.005_a2.5": "Neelam Sanjiva Reddy was elected to the Lok Sabha from Hindupur in the year **1957**."
+  },
+  {
+   "question": "What day did India land its first spacecraft on the moon?",
+   "gold": "Wednesday, August 23, 2023",
+   "blade_r0.005_a2.5": "India landed its first spacecraft on the moon on **20 February 2023**. The spacecraft is called **Chandrayaan-3**, and it successfully landed the **Vikram lander** on the lunar surface, marking India's first successful lunar landing. The mission was part of India's Chandrayaan program, managed by the **Indian Space Research Organisation (ISRO)**."
+  },
+  {
+   "question": "What day, month, and year was the EverQuest II original soundtrack officially released?",
+   "gold": "8 Nov 2004",
+   "blade_r0.005_a2.5": "The original soundtrack for **EverQuest II** was officially released on **June 1, 2003**. The soundtrack was composed by **Kevin \"Kev\" H.** and was released as a CD and also available as a digital download. It features music that complements the game's fantasy world and was well-received by players and fans of the series."
+  },
+  {
+   "question": "In what year was the Chinese survey conducted that obtained the figure of 29,029.24 feet (8,848.11 meters) for Mount Everest's height?",
+   "gold": "1975",
+   "blade_r0.005_a2.5": "The Chinese survey that obtained the figure of 29,029.24 feet (8,848.11 meters) for Mount Everest's height was conducted in **1975**.\n\nThis measurement was part of the **1975 Chinese National Survey**, which was the first time the height of Mount Everest was measured using modern surveying techniques. The result was later confirmed and widely accepted, and it was used as the official height for many years. The current official height, as agreed upon by Nepal and China in 2020, is **8,848.86"
+  },
+  {
+   "question": "In what year was the talking head of Madame Leota updated to float around the Séance Room at Disneyland?",
+   "gold": "2004",
+   "blade_r0.005_a2.5": "The talking head of Madame Leota was updated to float around the Séance Room at Disneyland in **1999**. The update was part of a renovation of the attraction, which was rebranded as **\"The Haunted Mansion\"** in 1999. The new animatronic head was designed to move more fluidly and interact with guests in a more dynamic way, giving the illusion of floating through the room."
+  },
+  {
+   "question": "In which year did Augustus Radcliffe Grote describe Lithophane viridipallens?",
+   "gold": "1877",
+   "blade_r0.005_a2.5": "Augustus Radcliffe Grote described *Lithophane viridipallens* in the year **1882**."
+  },
+  {
+   "question": "For how many ducats did Giovanni and Alessandro Moscheroni buy Michelangelo's \"Madonna of Bruges\" sculpture in 1504?",
+   "gold": "100 ducats",
+   "blade_r0.005_a2.5": "As of there is no historical record or credible evidence regarding Giovanni and Alessandro Moscheroni purchasing Michelangelo's \"Madonna of Bruges\" sculpture in 1504. Unfortunately, there is no known artwork by Michelangelo titled \"Madonna of Bruges,\" and there is no documented transaction involving such a purchase by these individuals.\n\nIt is possible that this question is based on a fictional or speculative scenario, as there is no reliable historical data to support this claim. As of now, there is no known price or transaction for this specific event or artwork. There is no known historical record of such a purchase, and no credible"
+  },
+  {
+   "question": "Into which Hall of Fame was Zippo Pine Bar inducted in 1992?",
+   "gold": "National Snaffle Bit Association",
+   "blade_r0.005_a2.5": "Zippo Pine Bar was inducted into the National Restaurant Hall of Fame in 1992."
+  },
+  {
+   "question": "What was the original scientific name given to *Calytrix acutifolia* by John Lindley in 1839?",
+   "gold": "Lhotskya acutifolia",
+   "blade_r0.005_a2.5": "The original scientific name given to *Calytrix acutifolia* by John Lindley in 1839 was **Calytrix acutifolia**. \n\nThis name was published in his work *Enumeratio Plantarum Quam in Horto Apolloniano Cultarum*, which is a significant botanical publication from the 19th century. The genus *Calytrix* is part of the family Myrtaceae, and the species *Calytrix acutifolia* is native to Australia."
+  },
+  {
+   "question": "On what date, month, and year did the Indian politician and former Member of Parliament Surajbhan Singh murder Rami Singh, a resident of Mathurpur Village?",
+   "gold": "16 January 1992.",
+   "blade_r0.005_a2.5": "As of there is no historical records or credible sources that provide information about an incident involving Surajbhan Singh, an Indian politician and former Member of Parliament, murdering Rami Singh, a resident of Mathurpur Village. Unfortunately, there is no available information regarding this specific event, as it does not appear to be documented in public records or mainstream media.\n\nIt is possible that this event is speculative, fictional, or based on an unverified or non-public source. Unfortunately, there is no reliable data to provide an accurate date, month, or year for this event.\n\nAs of this point, there is no known historical or factual basis"
+  },
+  {
+   "question": "What year did Michael John Creutz join the High Energy Theory Group at Brookhaven National Laboratory?",
+   "gold": "1972",
+   "blade_r0.005_a2.5": "Michael John Creutz joined the High Energy Theory Group at Brookhaven National Laboratory in the year 1968."
+  },
+  {
+   "question": "Who choreographed Issey Miyake's produced “Aomori University Men’s Rhythmic Gymnastics Team” performance?",
+   "gold": "Daniel Ezralow",
+   "blade_r0.005_a2.5": "As of there is currently no publicly available information regarding a specific performance by Issey Miyake titled “Aomori University Men’s Rhythmic Gymnastics Team.” There is no known record of Issey Miyake producing or choreographing such a performance, as there is no documented evidence of this event or production in any credible sources.\n\nIt is possible that this reference is speculative, fictional, or based on a non-existent or unverified scenario. Unfortunately, as of this point in time, there is no accurate information to provide regarding the choreographer of this particular performance. There is no known connection between Issey Miyake and a"
+  },
+  {
+   "question": "In which month and year did \"Flying\" magazine publish \"Battling the Big Lie: John King's Crusade to Change Aviation's Culture\"?",
+   "gold": "March 2001",
+   "blade_r0.005_a2.5": "The article \"Battling the Big Lie: John King's Crusade to Change Aviation's Culture\" was published in *Flying* magazine in **June 1998**."
+  },
+  {
+   "question": "What year was \"Discussion sur l’évolution de l’univers\" by Georges Lemaitre published?",
+   "gold": "1933",
+   "blade_r0.005_a2.5": "The article \"Discussion sur l’évolution de l’univers\" by Georges Lemaître was published in **1931**. It was published in the journal *Annales de la Société scientifique de Bruxelles*, volume 59, pages 55–64. This work is one of Lemaître's early contributions to the theory of the expanding universe and the Big Bang theory."
+  },
+  {
+   "question": "In the case of Arthur J. Lomax v. Christina Ortiz-Marquez that was argued in the Supreme Court of the United States, what was the name of the lead attorney representing the petitioner?",
+   "gold": "Brian T. Burgess",
+   "blade_r0.005_a2.5": "The lead attorney representing the petitioner, Arthur J. Lomax, in the case *Arthur J. Lomax v. Christina Ortiz-Marquez*, was **Gregory A. Garre**. He was a prominent appellate lawyer and former U.S. solicitor general, known for his work on significant Supreme Court cases."
+  },
+  {
+   "question": "In which month and year was Firozabad district first established from Agra district in India?",
+   "gold": "February 1989",
+   "blade_r0.005_a2.5": "The Firozabad district was first established from Agra district in India in the year **1864**, during the **month of April**. \n\nIt was created on **April 1, 1864**, when the British colonial government separated Firozabad from Agra district to form a new district. The district is known for its famous **Firozabad Glass Bazaar**, which is a major center for glassware production in India."
+  },
+  {
+   "question": "What is the full name of the younger daughter of Mehbooba Mufti, a politician from Kashmir?",
+   "gold": "Iltija Mufti",
+   "blade_r0.005_a2.5": "The full name of the younger daughter of Mehbooba Mufti, a politician from Kashmir, is **Neha Mufti**. She is a member of the Jammu and Kashmir Legislative Assembly and has been involved in various political and social activities in the region."
+  },
+  {
+   "question": "What day, month, and year was James Young (Missouri politician) born?",
+   "gold": " 11 May, 1800",
+   "blade_r0.005_a2.5": "James Young, the Missouri politician, was born on **April 15, 1820**."
+  },
+  {
+   "question": "In what year was Rosario Crocetta appointed Councillor for Culture in the City Council of Gela with the Federation of the Greens?",
+   "gold": "1998",
+   "blade_r0.005_a2.5": "Rosario Crocetta was appointed Councillor for Culture in the City Council of Gela with the Federation of the Greens in the year **1985**."
+  },
+  {
+   "question": "What was the first and last name of the first female who won all four major performing arts awards: Emmy, Grammy, Oscar, and Tony (EGOT)?",
+   "gold": " Helen Hayes",
+   "blade_r0.005_a2.5": "The first and last name of the first female who won all four major performing arts awards (Emmy, Grammy, Oscar, and Tony) is **Rita Moreno**. She achieved the EGOT status in 1990, making her the first woman to win all four awards."
+  },
+  {
+   "question": "On what day, month, and year did the New Zealand artist George Johnson die?",
+   "gold": "26 of December of 2021",
+   "blade_r0.005_a2.5": "As of my current knowledge cutoff in July 2024, there is no widely known information about a New Zealand artist named George Johnson who is notable enough to have a documented death date. It is possible that there is no public record of such an individual, or there may be confusion with another person sharing the same name.\n\nIf you have more context or details about this person, such as their full name, profession, or any notable works, I would be happy to help further. Unfortunately, as of now, there is no available information on this specific individual."
+  },
+  {
+   "question": "Who is known to be the longest-serving premier in the history of the USSR?",
+   "gold": "Alexei Kosygin",
+   "blade_r0.005_a2.5": "The longest-serving premier in the history of the USSR was **Nikita Khrushchev**. He served as the Premier of the Soviet Union from **1958 to 1964**, which makes him the longest-serving premier in the country's history. He was also the leader of the Soviet Union from 1953 to 1964, following the death of Joseph Stalin. Khrushchev is known for his policy of \"de-Stalinization\" and for leading the USSR during the Cuban Missile Crisis."
+  },
+  {
+   "question": "In what year did the Whitney Museum of American Art devote an entire floor to Julie Mehretu for the first time?",
+   "gold": "2021.",
+   "blade_r0.005_a2.5": "The Whitney Museum of American Art devoted an entire floor to Julie Mehretu for the first time in the year **2007**. The exhibition was titled **\"Julie Mehretu: Recent Paintings\"** and was held in the museum's main building. This was a significant recognition of her work and marked a major milestone in her career."
+  },
+  {
+   "question": "What day, month, and year was Jackson Asiku, the Ugandan-Australian amateur flyweight and professional feather/super featherweight boxer, born?",
+   "gold": "21 October 1978",
+   "blade_r0.005_a2.5": "Jackson Asiku was born on **17 April 1994**. He is a Ugandan-Australian boxer who competed in both amateur and professional boxing, specializing in the flyweight and featherweight divisions."
+  },
+  {
+   "question": "Who was the first woman appointed Minister of Justice in Italian history?",
+   "gold": "Paola Severino",
+   "blade_r0.005_a2.5": "The first woman appointed Minister of Justice in Italian history was **Luisa Baccelli**. She was appointed to the position in 1947, during the first government of the Italian Republic, under the presidency of Enrico De Nicola. She served as Minister of Justice from 1947 to 1948."
+  },
+  {
+   "question": "Who was Ghana's Minister of Information at the time of the Kulungugu bomb attack?",
+   "gold": "Tawia Adamafio",
+   "blade_r0.005_a2.5": "The Kulungugu bomb attack occurred on **April 19, 2015**, in the town of Kulungugu, in the Northern Region of Ghana. The **Minister of Information at the time** was **Dr. Mahamudu Bawumia**.\n\nHe served as the Minister of Information and Communication under President John Mahama from 2013 to 2016."
+  },
+  {
+   "question": "On what day, month, and year did the National Institute of Technology Srinagar (NIT Srinagar) become an Institute of National Importance under the NIT Bill passed by the Parliament of India?",
+   "gold": "15 August 2007",
+   "blade_r0.005_a2.5": "The National Institute of Technology Srinagar (NIT Srinagar) became an Institute of National Importance under the National Institute of Technology Act, 2011, which was passed by the Parliament of India on **April 13, 2011**. \n\nSo, the answer is: **April 13, 2011**."
+  },
+  {
+   "question": "What queen from RPDR is known for the quote \"Go back to Party City where you belong?\"",
+   "gold": "Phi Phi O'Hara",
+   "blade_r0.005_a2.5": "The queen from RuPaul's Drag Race (RPDR) known for the quote \"Go back to Party City where you belong?\" is **Bebe Zahara Benet**. She made this line during her season, which was Season 10, and it became one of her most iconic and memorable quotes. The line is often used humorously and has since become part of pop culture."
+  },
+  {
+   "question": "What was the budget request, in billion US dollars, made by NASA in 2018?",
+   "gold": "19.1 billion dollars.",
+   "blade_r0.005_a2.5": "The budget request made by NASA in 2018 was $20.2 billion US dollars."
+  },
+  {
+   "question": "According to the United States Census Bureau, what is the total area of Weston, Ohio, in square miles?",
+   "gold": "1.13",
+   "blade_r0.005_a2.5": "According to the United States Census Bureau, the total area of Weston, Ohio, is **13.4 square miles**. This includes both land and water areas."
+  },
+  {
+   "question": "What year was the municipality of Támesis, Antioquia, Colombia, founded?",
+   "gold": "1858",
+   "blade_r0.005_a2.5": "The municipality of Támesis, Antioquia, Colombia, was founded in the year **1845**."
+  },
+  {
+   "question": "What year was Türksat 2A decommissioned?",
+   "gold": "2016",
+   "blade_r0.005_a2.5": "Türksat 2A was decommissioned in the year 2019. It was launched in 2007 and operated until it was retired in 2019. The satellite was replaced by Türksat 2B, which was launched in 2018."
+  },
+  {
+   "question": "Who was the 3rd umpire in the Indian Premier League 2019 final match between CSK and MI on May 12, 2019?",
+   "gold": "Nigel Llong",
+   "blade_r0.005_a2.5": "The 3rd umpire in the Indian Premier League 2019 final match between Chennai Super Kings (CSK) and Mumbai Indians (MI), which was played on May 12, 2019, was **Ramesh Powar**."
+  },
+  {
+   "question": "Which digits of the forefeet are vestigial and tiny on the Isoodon obesulus?",
+   "gold": "the first digits ",
+   "blade_r0.005_a2.5": "The **Isoodon obesulus**, commonly known as the **common brushtail possum**, is a marsupial found in Australia. As a marsupial, it has a unique reproductive system and anatomical features, but there is no known specific information about \"vestigial and tiny digits of the forefeet\" in this species.\n\nHowever, it's important to note that there is **no known species** called *Isoodon obesulus* that is a mammal with vestigial digits in the forefeet. This may be a confusion or a misstatement.\n\nThere is a species called **Iso"
+  },
+  {
+   "question": "In which year did Masatoshi Gündüz Ikeda marry Emel Ardor, the Turkish research assistant whom he had met in Hamburg?",
+   "gold": "1964",
+   "blade_r0.005_a2.5": "Masatoshi Gündüz Ikeda married Emel Ardor in the year **1963**. They met in Hamburg, where Emel was a Turkish research assistant."
+  },
+  {
+   "question": "In what year did William Randolph Taylor receive the Gilbert Morgan Smith Medal?",
+   "gold": "1979",
+   "blade_r0.005_a2.5": "William Randolph Taylor received the Gilbert Morgan Smith Medal in the year 1954."
+  },
+  {
+   "question": "Which villain was responsible for the death of the original Human Bomb?",
+   "gold": "Bizarro",
+   "blade_r0.005_a2.5": "The original Human Bomb was a character from the Marvel Comics universe, and the villain responsible for her death was **Doctor Doom**.\n\nThe original Human Bomb, whose real name was **Marilyn \"Moe\" Moe**, was a character who was manipulated by Doctor Doom into becoming a weapon. After being controlled by Doom, she was used in a terrorist attack, which led to her death. This event was a significant moment in the Marvel Comics storyline, particularly in the *Fantastic Four* series.\n\nIf you're referring to a different version of the Human Bomb or a different universe (such as a movie or alternate reality), please clarify"
+  },
+  {
+   "question": "Name the person who was appointed Vice-Chancellor of Indira Gandhi National Open University, New Delhi, in 1998.",
+   "gold": "Dr. A. W. Khan",
+   "blade_r0.005_a2.5": "The person who was appointed Vice-Chancellor of Indira Gandhi National Open University (IGNOU), New Delhi, in 1998 was **Dr. K. S. Krishnan**."
+  },
+  {
+   "question": "On which day, month, and year did Sajood Sailani (a Kashmiri painter) die?",
+   "gold": "17 November 2020.",
+   "blade_r0.005_a2.5": "As of my current knowledge base, there is no publicly available information regarding the death of Sajood Sailani, a Kashmiri painter. There is no widely documented record of his death, and no specific date, month, or year has been reported in reliable sources. It is possible that there is no public record of his death, or that there is no reliable information about it at this time.\n\nIf you have additional context or sources that suggest otherwise, please provide them, and I can attempt to offer a more informed response. However, as of now, there is no known information about his death."
+  },
+  {
+   "question": "What were the names of the two commanders sent by Mughal Emperor Aurangzeb to Sadabad Cantonment in order to suppress the rebellion in Tilpat in 1669?",
+   "gold": "Hasan Ali Khan and Brahmdev Sisodia.",
+   "blade_r0.005_a2.5": "The two commanders sent by Mughal Emperor Aurangzeb to Sadabad Cantonment in order to suppress the rebellion in Tilpat in 1669 were:\n\n1. **Nizam-ul-Mulk**  \n2. **Muhammad Khan**  \n\nThey were dispatched to quell the rebellion led by **Raja Jai Singh** of Jodhpur in the region of Tilpat. The rebellion was part of the larger **Jodhpur Rebellion (1669–1670)**, which was a significant challenge to Mughal authority in the Rajput states."
+  },
+  {
+   "question": "What was Croatia's ranking in the 2022 Corruption Perceptions Index?",
+   "gold": "57th place",
+   "blade_r0.005_a2.5": "Nordic countries dominate the Corruption Perceptions Index (CPI) rankings, with Iceland leading the list for the 11th consecutive year. The CPI, published by Transparency International, measures the perceived levels of public sector corruption in a country. The 2022 CPI ranked Croatia at 54th place out of 180 countries. The index uses a scale from 0 (highly corrupt) to 100 (very clean). Croatia's score in 2022 was 54, indicating a moderate level of perceived corruption. The country has made progress in recent years in improving its"
+  },
+  {
+   "question": "Which team won the Coppa Italia Serie C in the 1981-82 season?",
+   "gold": "Vicenza.",
+   "blade_r0.005_a2.5": "There is no record of a \"Coppa Italia Serie C\" in the 1981-82 season, as the Coppa Italia as a competition did not exist in its current form during that time.\n\nThe Coppa Italia, as a national football competition in Italy, was established in 1960. However, the Serie C (the third tier of Italian football) was not a formal league structure until much later. The current Serie C was introduced in 2006, replacing the old Serie C1, C2, and C3 divisions.\n\nIn the 1981-82"
+  },
+  {
+   "question": "What two football teams were mentioned in the libel case against \"The Saturday Evening Post\" in 1963?",
+   "gold": "University of Georgia and University of Alabama",
+   "blade_r0.005_a2.5": "The two football teams mentioned in the libel case against \"The Saturday Evening Post\" in 1963 were the **Green Bay Packers** and the **Chicago Bears**.\n\nThe case, known as *Packers v. The Saturday Evening Post*, involved a story that falsely claimed the Packers had bribed players to lose games to help the Bears win. The Packers sued for libel, and the case was a significant one in the history of sports journalism and libel law."
+  },
+  {
+   "question": "Which German surgeon is often called the father of German surgery?",
+   "gold": "Wilhelm Fabricius von Hilden.",
+   "blade_r0.005_a2.5": "The German surgeon often called the father of German surgery is **Theodor Kocher**. He was a Swiss-born German surgeon who made significant contributions to the field of surgery, particularly in thyroid surgery. Kocher received the Nobel Prize in Physiology or Medicine in 1909 for his work on the thyroid gland. He is also known for his advocacy of antiseptic techniques and his role in advancing surgical practices in Germany."
+  },
+  {
+   "question": "Which city in Nepal is known as the \"City of Nine Hills?\"",
+   "gold": "Nuwakot",
+   "blade_r0.005_a2.5": "The city in Nepal known as the \"City of Nine Hills\" is **Kathmandu**. The nine hills are part of the city's iconic landscape and are a significant feature in Nepalese culture and geography. The hills are named after the nine planets in Hindu astrology, and they provide a unique backdrop to the city's historic and cultural landmarks."
+  },
+  {
+   "question": "What is the peak brightness of the Asus ROG Phone 5s Pro in nits?",
+   "gold": "1200 nits",
+   "blade_r0.005_a2.5": "The peak brightness of the **Asus ROG Phone 5s Pro** is **1600 nits**. This high brightness level ensures excellent visibility even in bright outdoor environments."
+  },
+  {
+   "question": "After being expelled from BSP due to alleged anti-party activities, the Indian politician Kuldeep Singh Sengar joined the Samajwadi Party and won a seat from which constituency in 2007?",
+   "gold": "Bangermau",
+   "blade_r0.005_a2.5": "The Indian politician Kuldeep Singh Sengar joined the Samajwadi Party and won a seat from the **Bhadohi constituency** in 2007."
+  }
+ ]
+}
