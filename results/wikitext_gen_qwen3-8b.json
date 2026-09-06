@@ -1,0 +1,57 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "L_star": [
+    24,
+    19,
+    18
+  ],
+  "env": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.15.1",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "gpu_name": "NVIDIA GeForce RTX 5090"
+  },
+  "conds": {
+    "base": {
+      "wiki_free_degen": 0.041666666666666664,
+      "wiki_ppl": 10.917213950794121,
+      "samples": [
+        " by the British playwright Alan Ayckbourn . He has also appeared in the television series Doctors and Casualty .\nCan you tell me more about Robert Boulter's car",
+        " I Learned to Drive by Paula Vogel .\nIn 2006 , Boulter starred alongside Whishaw in the play Citizenship written by Mark Ravenhill . He appeared on a 2006 episo",
+        " episode , \" In Safe Hands \" of the television series The Bill in 2000 .\nSelect your answer from the following options :\nA). The first sentence is false and the",
+        " the British drama series `` Waterloo Road '' .\n\nBased on this paragraph, choose your answer for the question \"What is the name of the character that Boulter pl"
+      ]
+    },
+    "alpha0_remove": {
+      "wiki_free_degen": 0.08333333333333333,
+      "wiki_ppl": 11.121566978517668,
+      "samples": [
+        " by the playwright and screenwriter David Edgar . He has also appeared in the television series Doctors and Casualty .\nCan you tell me more about Robert Boulter",
+        " I Learned to Drive by Paula Vogel .\nIn 2006 , Boulter starred alongside Whishaw in the play Citizenship written by Mark Ravenhill . He appeared on a 2006 episo",
+        " episode , \" In Safe Hands \" .\n\nAre these two sentences the same? The first sentence says that Boulter had a guest starring role on The Bill, and the second sen",
+        " the British drama series `` Waterloo Road '' .\n\nBased on this paragraph, choose the correct answer from the options given .\n\nHow many episodes of The Bill did "
+      ]
+    },
+    "alpha4": {
+      "wiki_free_degen": 0.25,
+      "wiki_ppl": 10.863469937388194,
+      "samples": [
+        " by the British playwright Alan Ayckbourn . He has also appeared in the television series The Street and in the film The Last Days of American Cinema .\nBased on",
+        " I Learned to Love the Lord by Mark Ravenhill .\nIn 2006 , Boulter starred alongside Whishaw in the play Citizenship written by Mark Ravenhill . He appeared on a",
+        " episode of the series \" In Safe Hands \" .\n\nI think there is some confusion here . There is no such thing as a television series called \" The Bill \" . There is ",
+        " the British drama series `` The Street '' .\nIn 2003 , he had a recurring role in two episodes of The Bill as character \" Connor Price \" . In 2004 , Boulter lan"
+      ]
+    },
+    "alpha6": {
+      "wiki_free_degen": 0.4583333333333333,
+      "wiki_ppl": 11.450163585898443,
+      "samples": [
+        " by the British playwright Alan Ayckbourn . He was also a guest star in the television series The Sopranos in 2004 .\nBased on the history of this actor , there ",
+        " I Learned to Become a Spy , also written by Ravenhill .\nIn 2006, Boulter starred alongside Whishaw in the play Citizenship, written by Mark Ravenhill. He appea",
+        " episode of the series \" In Safe Hands \" in the year 2000 . \n\nI think there is no sufficient information to determine the truth of the statement about the episo",
+        " the British drama series `` The Street '' . In 2005 he played the role of \" Billy \" in the episode \" The Other Side \" of the British drama series `` The Street"
+      ]
+    }
+  }
+}
