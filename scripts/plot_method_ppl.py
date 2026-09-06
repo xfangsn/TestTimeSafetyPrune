@@ -38,8 +38,6 @@ ax.set_xlabel("Δ perplexity (%, C4)")
 ax.set_xlim(min(vals) - 3, max(vals) * 1.2)
 ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
 ax.spines[["top", "right"]].set_visible(False)
-fig.text(0.5, -0.05, "Capability cost (Qwen3-8B, C4). ITI at the strength needed to cut hallucination "
-         "(α=6) is catastrophic (+57%); BLADE amplify ×4 cuts it more at +1.6%.", ha="center", fontsize=11)
 fig.tight_layout()
 for ext in ("png", "pdf"):
     fig.savefig(FIG / f"uncertainty_method_ppl.{ext}", dpi=300, bbox_inches="tight")

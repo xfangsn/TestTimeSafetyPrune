@@ -60,9 +60,6 @@ for ax, (ds, gold, title, low) in zip(axes.flat, PAN):
     ax.set_title(title, fontweight="bold", pad=4)
     ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
     ax.spines[["top", "right"]].set_visible(False)
-fig.text(0.5, -0.03, "Ours vs ITI on closed-book abstention (Qwen3-8B, Opus-judged). ITI reduces "
-         "hallucination only at α=6, which collapses answering; BLADE amplify has a tunable frontier "
-         "(×4 beats ITI α=6 on both axes) and is bidirectional (remove).", ha="center", fontsize=11)
 fig.tight_layout()
 for ext in ("png", "pdf"):
     fig.savefig(FIG / f"uncertainty_method_cmp.{ext}", dpi=300, bbox_inches="tight")
