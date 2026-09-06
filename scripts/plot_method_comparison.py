@@ -76,7 +76,7 @@ for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     ax.set_yticks(y); ax.set_yticklabels(labs, linespacing=0.85); ax.invert_yaxis()
     ax.set_xlabel(xlab, labelpad=8)                                   # metric = x-axis title
     ax.text(0.0, -0.42, f"({chr(97+k)}) {title}", transform=ax.transAxes,   # panel subtitle below, left-aligned
-            ha="left", va="top", ma="left", fontsize=38, fontweight="bold")
+            ha="left", va="top", ma="left", fontsize=44, fontweight="normal")
     ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
     ax.spines[["top", "right"]].set_visible(False)
 fig.tight_layout()
