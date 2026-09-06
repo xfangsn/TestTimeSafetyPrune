@@ -47,8 +47,7 @@ def rate(ds, gold, cond, acts=("answer",)):
 METHODS = [("base", "base", "#3D405B"),
            ("ITI (α=2)", "iti_a2.0", "#9AD5CD"), ("ITI (α=4)", "iti_a4.0", "#3AA6A0"),
            ("ITI (α=6)", "iti_a6.0", "#0E6E6E"),
-           ("BLADE (ρ=.01, α=2)", "r0.01_a2.0", "#EE8A5F"),
-           ("BLADE (ρ=.005, α=2.5)", "r0.005_a2.5", "#B23A17")]
+           ("BLADE (ρ=.005, α=2.5)", "r0.005_a2.5", "#D9532B")]
 
 # Δppl (%) per method config for the capability-cost panel
 _iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta"]
