@@ -23,7 +23,9 @@ cell = defaultdict(list)
 for src, jdir in [("method_cmp_qwen3-8b", "opus_judge"), ("method_cmp_fq_qwen3-8b", "opus_judge_fq"),
                   ("ood_tune_qwen3-8b", "opus_judge_tune"),
                   ("ood_ampextra_qwen3-8b", "opus_judge_amp56"),
-                  ("blade_rho_sweep_qwen3-8b", "opus_judge_rho")]:
+                  ("blade_rho_sweep_qwen3-8b", "opus_judge_rho"),
+                  ("blade_rho_sweep_lowa_qwen3-8b", "opus_judge_lowa"),      # FalseQA cells
+                  ("blade_rho_sweep_lowa_qwen3-8b", "opus_judge_lowa_sa")]:  # SelfAware cells
     items = json.load(open(R / f"{src}.json"))["items"]
     mp = json.load(open(SCS / jdir / "map.json")); lab = {}
     for f in ("labels_A.json", "labels_B.json", "labels_C.json"):
@@ -45,13 +47,15 @@ def rate(ds, gold, cond, acts=("answer",)):
 METHODS = [("base", "base", "#3D405B"),
            ("ITI (α=2)", "iti_a2.0", "#9AD5CD"), ("ITI (α=4)", "iti_a4.0", "#3AA6A0"),
            ("ITI (α=6)", "iti_a6.0", "#0E6E6E"),
-           ("BLADE (ρ=.01, α=2)", "r0.01_a2.0", "#D9532B")]
+           ("BLADE (ρ=.01, α=2)", "r0.01_a2.0", "#EE8A5F"),
+           ("BLADE (ρ=.005, α=2.5)", "r0.005_a2.5", "#B23A17")]
 
 # Δppl (%) per method config for the capability-cost panel
 _iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta"]
 _grid = {g["cond"]: g["ppl_delta_c4"] * 100 for g in json.load(open(R / "blade_rho_sweep_qwen3-8b.json"))["grid"]}
+_grid.update({g["cond"]: g["ppl_delta_c4"] * 100 for g in json.load(open(R / "blade_rho_sweep_lowa_qwen3-8b.json"))["grid"]})
 PPL = {"base": 0.0, "iti_a2.0": _iti["iti_a2.0"] * 100, "iti_a4.0": _iti["iti_a4.0"] * 100,
-       "iti_a6.0": _iti["iti_a6.0"] * 100, "r0.01_a2.0": _grid["r0.01_a2.0"]}
+       "iti_a6.0": _iti["iti_a6.0"] * 100, "r0.01_a2.0": _grid["r0.01_a2.0"], "r0.005_a2.5": _grid["r0.005_a2.5"]}
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
 PAN = [("ppl", None, "capability cost", "Δ perplexity (%) ↓", True),
        ("selfaware", "unanswerable", "SelfAware unanswerable", "hallucination (%) ↓", True),
