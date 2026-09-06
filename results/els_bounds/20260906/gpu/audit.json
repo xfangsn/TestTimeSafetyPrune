@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "errors": [],
+  "baseline": {
+    "generated_questions": 4410,
+    "generated_tokens": 419554,
+    "generation_batches": 315,
+    "ppl_calls": 141,
+    "els_seconds": 1579.989276625216,
+    "solo_seconds": 59.72527522407472,
+    "bestfirst_seconds": 1520.2640014011413
+  },
+  "bounded": {
+    "generated_questions": 2420,
+    "generated_tokens": 191872,
+    "generation_batches": 158,
+    "ppl_calls": 47,
+    "els_seconds": 819.4853780684061,
+    "solo_seconds": 59.513086712453514,
+    "bestfirst_seconds": 759.9722913559526
+  },
+  "saved": {
+    "generated_questions": 1990,
+    "generated_tokens": 227682,
+    "generation_batches": 157,
+    "ppl_calls": 94,
+    "els_seconds": 760.5038985568099,
+    "solo_seconds": 0.212188511621207,
+    "bestfirst_seconds": 760.2917100451887
+  },
+  "wall_time_speedup": 1.9280261965739762,
+  "timing_caveat": "Parallel jobs on different GPUs, not paired same-GPU ABBA; system noise affects wall time.",
+  "coverage": "Full model-layer solo screening plus full best-first search; both use ELSCandidateCache."
+}
