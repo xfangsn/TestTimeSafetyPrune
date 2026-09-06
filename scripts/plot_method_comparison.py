@@ -43,9 +43,9 @@ def rate(ds, gold, cond, acts=("answer",)):
 
 # Tuned, NON-degenerate operating points (from the fixed-L* ρ×α sweep). BLADE remove=α0, amp=α2.
 METHODS = [("base", "base", "#3D405B"),
-           ("ITI α=2", "iti_a2.0", "#9AD5CD"), ("ITI α=4", "iti_a4.0", "#3AA6A0"),
-           ("ITI α=6", "iti_a6.0", "#0E6E6E"),
-           ("BLADE (ρ.01,α2)", "r0.01_a2.0", "#D9532B")]
+           ("ITI (α=2)", "iti_a2.0", "#9AD5CD"), ("ITI (α=4)", "iti_a4.0", "#3AA6A0"),
+           ("ITI (α=6)", "iti_a6.0", "#0E6E6E"),
+           ("BLADE (ρ=.01, α=2)", "r0.01_a2.0", "#D9532B")]
 
 # Δppl (%) per method config for the capability-cost panel
 _iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta"]
@@ -58,7 +58,7 @@ PAN = [("ppl", None, "capability cost", "Δ perplexity (%) ↓", True),
        ("selfaware", "answerable", "SelfAware answerable", "answered (%) ↑", False),
        ("falseqa", "false_premise", "FalseQA false-premise", "accepted (%) ↓", True),
        ("falseqa", "true_premise", "FalseQA true-premise", "answered (%) ↑", False)]
-fig, axes = plt.subplots(1, 5, figsize=(21, 5.4), sharey=True)
+fig, axes = plt.subplots(1, 5, figsize=(21, 4.6), sharey=True)
 for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     if ds == "ppl":
         vals = [PPL[c[1]] for c in METHODS]
@@ -71,8 +71,8 @@ for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
         ax.bar_label(b, fmt="%.0f", fontsize=14, padding=2)
         ax.set_xlim(0, max([v for v in vals if v == v]) * (1.32 if low else 1.18))
     ax.set_yticks(y); ax.set_yticklabels(labs); ax.invert_yaxis()
-    ax.set_xlabel(xlab, labelpad=6)                                   # metric = x-axis title
-    ax.text(0.5, -0.27, f"({chr(97+k)}) {title}", transform=ax.transAxes,   # panel subtitle below
+    ax.set_xlabel(xlab, labelpad=8)                                   # metric = x-axis title
+    ax.text(0.5, -0.42, f"({chr(97+k)}) {title}", transform=ax.transAxes,   # panel subtitle below
             ha="center", va="top", fontsize=16, fontweight="bold")
     ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
     ax.spines[["top", "right"]].set_visible(False)
