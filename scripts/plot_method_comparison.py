@@ -15,8 +15,8 @@ R = Path("results"); FIG = Path("figures"); FIG.mkdir(exist_ok=True)
 SCS = Path("/tmp/claude-1000/-home-xfang1999-Projects-TestTimeSafetyPrune/"
            "e16f646c-64a5-440b-bd68-985c068d25df/scratchpad")
 plt.style.use(["science", "no-latex"])
-plt.rcParams.update({"font.size": 28, "axes.labelsize": 34, "axes.titlesize": 30,
-                     "xtick.labelsize": 29, "ytick.labelsize": 31, "xtick.top": False,
+plt.rcParams.update({"font.size": 31, "axes.labelsize": 38, "axes.titlesize": 33,
+                     "xtick.labelsize": 32, "ytick.labelsize": 34, "xtick.top": False,
                      "ytick.right": False, "axes.linewidth": 1.2})
 
 cell = defaultdict(list)
@@ -61,22 +61,22 @@ PAN = [("ppl", None, "capability\ncost", "Δ perplexity (%) ↓", True),
        ("selfaware", "answerable", "SelfAware\nanswerable", "answered (%) ↑", False),
        ("falseqa", "false_premise", "FalseQA\nfalse-premise", "accepted (%) ↓", True),
        ("falseqa", "true_premise", "FalseQA\ntrue-premise", "answered (%) ↑", False)]
-fig, axes = plt.subplots(1, 5, figsize=(24.5, 8.6), sharey=True)
+fig, axes = plt.subplots(1, 5, figsize=(24.5, 9.8), sharey=True)
 for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     if ds == "ppl":
         vals = [PPL[c[1]] for c in METHODS]
         b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
-        ax.bar_label(b, fmt="%+.1f", fontsize=24, padding=2)
+        ax.bar_label(b, fmt="%+.1f", fontsize=27, padding=2)
         ax.set_xlim(0, max(vals) * 1.28)
     else:
         vals = [rate(ds, gold, c[1]) for c in METHODS]
         b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
-        ax.bar_label(b, fmt="%.0f", fontsize=24, padding=2)
+        ax.bar_label(b, fmt="%.0f", fontsize=27, padding=2)
         ax.set_xlim(0, max([v for v in vals if v == v]) * (1.32 if low else 1.18))
     ax.set_yticks(y); ax.set_yticklabels(labs, linespacing=0.85); ax.invert_yaxis()
     ax.set_xlabel(xlab, labelpad=8)                                   # metric = x-axis title
     ax.text(0.0, -0.42, f"({chr(97+k)}) {title}", transform=ax.transAxes,   # panel subtitle below, left-aligned
-            ha="left", va="top", ma="left", fontsize=44, fontweight="normal")
+            ha="left", va="top", ma="left", fontsize=44, fontweight="normal", linespacing=0.9)
     ax.xaxis.grid(True, ls="-", lw=0.5, color="#DFDFDF", zorder=0); ax.set_axisbelow(True)
     ax.spines[["top", "right"]].set_visible(False)
 fig.tight_layout()
