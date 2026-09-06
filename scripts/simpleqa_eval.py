@@ -34,6 +34,8 @@ SQ_N = int(os.environ.get("SQ_N", "400"))
 ITI_K = 48
 BLADE_RHO = 0.005; BLADE_ALPHA = 2.5
 ITI_ALPHAS = [4.0, 6.0]
+L_STAR_ENV = os.environ.get("L_STAR", "")      # pin BLADE layers (reuse the figure's L*), skip ELS
+BLADE_ONLY = os.environ.get("BLADE_ONLY", "") == "1"  # only (re)generate the BLADE column
 
 
 def load_simpleqa(n):
@@ -71,45 +73,49 @@ def main():
         o = generate_texts(model, tok, unc_sel, max_new_tokens=64, batch_size=16)
         return sum(is_unc(x) for x in o) / max(len(o), 1), ppl_now()
     base_sel = measure()[0]
-    pool = solo_layer_pool(model, directions, muUNC, muCERT, all_layers, COMPONENTS, ppl_now, base_ppl,
-                           screen_frac=0.005, beta=0.05, score_fn=sfn)
-    L_star = bestfirst_layers(model, directions, muUNC, muCERT, pool, COMPONENTS, measure, base_sel,
-                              base_ppl, beta=0.05, eps=0.005, test_frac=0.005, score_fn=sfn)
-    print(f"BLADE L*={L_star}", flush=True)
+    if L_STAR_ENV:                                 # pin the figure's BLADE layers, skip ELS
+        L_star = [int(x) for x in L_STAR_ENV.split(",")]
+        print(f"BLADE L*={L_star} (pinned from L_STAR env, ELS skipped)", flush=True)
+    else:
+        pool = solo_layer_pool(model, directions, muUNC, muCERT, all_layers, COMPONENTS, ppl_now, base_ppl,
+                               screen_frac=0.005, beta=0.05, score_fn=sfn)
+        L_star = bestfirst_layers(model, directions, muUNC, muCERT, pool, COMPONENTS, measure, base_sel,
+                                  base_ppl, beta=0.05, eps=0.005, test_frac=0.005, score_fn=sfn)
+        print(f"BLADE L*={L_star}", flush=True)
     rk = rank_weight_indices(sfn(model, directions, muUNC, muCERT, L_star, COMPONENTS), BLADE_RHO + 0.01)
     selw = selection_from_ranking(rk, BLADE_RHO)
-
-    # ITI heads (fit on the same certain/uncertain contrast, last prompt token)
-    mu_u, _ = head_acts(model, tok, unc_tr + unc_sel, blocks, nh, hd)
-    mu_c, _ = head_acts(model, tok, cert_tr + [r["question"] for r in sel if r["label"] == 0], blocks, nh, hd)
-    diffs = {(i, h): (mu_u[i][h] - mu_c[i][h]) for i in range(len(blocks)) for h in range(nh)}
-    ranked = sorted(diffs, key=lambda k: -diffs[k].norm().item())[:ITI_K]
-    dirs = {k: diffs[k] / diffs[k].norm().clamp_min(1e-6) for k in ranked}
-    sigma = proj_std(model, tok, unc_tr + cert_tr, blocks, nh, hd, dirs)
-
-    def add_vec(alpha):
-        add = {i: torch.zeros(nh * hd) for i in range(len(blocks))}
-        for (i, h) in ranked:
-            add[i].view(nh, hd)[h] = alpha * sigma[(i, h)] * dirs[(i, h)]
-        return add
 
     items = load_simpleqa(SQ_N); prompts = [it["question"] for it in items]
     print(f"SimpleQA n={len(prompts)}; generating ...", flush=True)
     gens = {}
-    gens["base"] = gen_plain(model, tok, prompts); print("  base done", flush=True)
     with scaled_weights(model, selw, BLADE_ALPHA):
+        # edited-model C4 ppl for THIS pinned edit (Fable: it was never recorded for the SimpleQA run)
+        blade_ppl = teacher_forced_ppl(model, tok, c4, max_tokens=PPL_TOKENS)
         gens[f"blade_r{BLADE_RHO}_a{BLADE_ALPHA}"] = gen_plain(model, tok, prompts)
-    print("  blade done", flush=True)
-    for a in ITI_ALPHAS:
-        gens[f"iti_a{a}"] = gen_iti(model, tok, prompts, blocks, add_vec(a)); print(f"  iti_a{a} done", flush=True)
+    print(f"  blade done (edited C4 Δppl {(blade_ppl-base_ppl)/base_ppl:+.2%})", flush=True)
+    if not BLADE_ONLY:
+        gens["base"] = gen_plain(model, tok, prompts); print("  base done", flush=True)
+        # ITI heads (fit on the same certain/uncertain contrast, last prompt token)
+        mu_u, _ = head_acts(model, tok, unc_tr + unc_sel, blocks, nh, hd)
+        mu_c, _ = head_acts(model, tok, cert_tr + [r["question"] for r in sel if r["label"] == 0], blocks, nh, hd)
+        diffs = {(i, h): (mu_u[i][h] - mu_c[i][h]) for i in range(len(blocks)) for h in range(nh)}
+        ranked = sorted(diffs, key=lambda k: -diffs[k].norm().item())[:ITI_K]
+        dirs = {k: diffs[k] / diffs[k].norm().clamp_min(1e-6) for k in ranked}
+        sigma = proj_std(model, tok, unc_tr + cert_tr, blocks, nh, hd, dirs)
+        for a in ITI_ALPHAS:
+            add = {i: torch.zeros(nh * hd) for i in range(len(blocks))}
+            for (i, h) in ranked:
+                add[i].view(nh, hd)[h] = a * sigma[(i, h)] * dirs[(i, h)]
+            gens[f"iti_a{a}"] = gen_iti(model, tok, prompts, blocks, add); print(f"  iti_a{a} done", flush=True)
 
     report = {"model": MODEL_ID, "n": len(prompts), "blade_L_star": L_star, "blade_rho": BLADE_RHO,
-              "blade_alpha": BLADE_ALPHA, "iti_k": ITI_K, "iti_alphas": ITI_ALPHAS,
+              "blade_alpha": BLADE_ALPHA, "blade_ppl_delta_c4": (blade_ppl - base_ppl) / base_ppl,
+              "blade_only": BLADE_ONLY, "iti_k": ITI_K, "iti_alphas": ITI_ALPHAS,
               "conditions": list(gens), "env": env_info(), "items": []}
     for i, it in enumerate(items):
         report["items"].append({**it, **{c: gens[c][i] for c in gens}})
     slug = "qwen3-8b" if MODEL_ID == "Qwen/Qwen3-8B" else MODEL_ID.split("/")[-1].lower()
-    outp = RESULTS / f"simpleqa_{slug}.json"
+    outp = RESULTS / f"simpleqa{os.environ.get('OUT_TAG','')}_{slug}.json"
     outp.write_text(json.dumps(report, indent=1, ensure_ascii=False))
     print(f"saved {outp}", flush=True)
 
