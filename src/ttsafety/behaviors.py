@@ -222,7 +222,8 @@ def solo_layer_pool(model, directions, mu_a, mu_b, all_layers, components,
 
 def bestfirst_layers(model, directions, mu_a, mu_b, pool, components,
                      measure, base_metric, base_ppl, beta=0.05, eps=0.005,
-                     test_frac=0.005, score_fn=None, ranking_fn=None):
+                     test_frac=0.005, score_fn=None, ranking_fn=None,
+                     bounded_measure=None):
     """ELS selection step: best-first greedy JOINT layer selection.
 
     Repeatedly add the single layer that most reduces the joint behavior metric
@@ -233,7 +234,11 @@ def bestfirst_layers(model, directions, mu_a, mu_b, pool, components,
     `measure()` is called inside each prune context and returns (metric, ppl);
     lower metric = more removed. Returns the ordered list of selected layers.
     Optional ranking_fn has the same contract as in solo_layer_pool; it is
-    called outside pruning contexts on restored weights."""
+    called outside pruning contexts on restored weights.
+    Optional bounded_measure(best_metric) replaces measure() inside the prune
+    context. Return None only when a rigorous lower bound proves the candidate
+    cannot strictly improve this round's best metric; otherwise return the
+    fully evaluated (metric, ppl). Bounds must not use eps or partial rates."""
     score_fn = score_fn or score_edges
     selected, current = [], base_metric
     while True:
@@ -250,7 +255,11 @@ def bestfirst_layers(model, directions, mu_a, mu_b, pool, components,
                                      components, max(test_frac, 0.01))
             sel = selection_from_ranking(ranking, test_frac)
             with pruned_weights(model, sel):
-                m, ppl = measure()
+                result = (measure() if bounded_measure is None
+                          else bounded_measure(best_m))
+            if result is None and bounded_measure is not None:
+                continue
+            m, ppl = result
             if (ppl - base_ppl) / base_ppl <= beta and m < best_m:
                 best_l, best_m = l, m
         if best_l is not None and best_m < current - eps:
