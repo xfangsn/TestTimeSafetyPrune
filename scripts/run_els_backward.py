@@ -245,6 +245,7 @@ def search(args):
     requests_path = run_dir / "requested_candidates.json"
     requested = set(json.loads(requests_path.read_text())) if requests_path.exists() else set()
     ranking_cache = ELSCandidateCache(ctx["score"])
+    positive_by_layer = {}
     artifact_hash = file_hash(args.run_root / "fit/artifact.pt")
     deadline = slice_start + args.slice_minutes * 60
     counters = {"logical_requests":0, "new_requests":0, "cache_hits":0}
@@ -282,8 +283,12 @@ def search(args):
         # Scores are finite, zero-clamped, and selected from one descending
         # global prefix. Count cached positive candidates tensor-wise; avoid
         # materializing a Python map containing millions of scalar indices.
-        cached_positive=sum(int((entry.values > 0).sum())
-                            for layer in layers for entry in ranking_cache._layers[layer].values())
+        for layer in layers:
+            if layer not in positive_by_layer:
+                positive_by_layer[layer] = sum(
+                    int((entry.values > 0).sum())
+                    for entry in ranking_cache._layers[layer].values())
+        cached_positive=sum(positive_by_layer[layer] for layer in layers)
         from ttsafety.weight_prune import _resolve_modules
         modules = _resolve_modules(model, list(selection))
         before = {n: modules[n].weight.view(-1)[idx.to(model.device)].clone()
