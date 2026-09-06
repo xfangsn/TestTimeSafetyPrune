@@ -66,8 +66,10 @@ for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     if ds == "ppl":
         vals = [PPL[c[1]] for c in METHODS]
         b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
-        ax.bar_label(b, fmt="%+.1f", fontsize=27, padding=2)
-        ax.set_xlim(0, max(vals) * 1.28)
+        hi = max(vals)
+        for yi, v in zip(y, vals):                       # labels always right of 0 (negative BLADE bar is tiny)
+            ax.text(max(v, 0) + hi * 0.012, yi, f"{v:+.1f}", va="center", ha="left", fontsize=27)
+        ax.set_xlim(0, hi * 1.28)
     else:
         vals = [rate(ds, gold, c[1]) for c in METHODS]
         b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
