@@ -56,7 +56,7 @@ _grid.update({g["cond"]: g["ppl_delta_c4"] * 100 for g in json.load(open(R / "bl
 PPL = {"base": 0.0, "iti_a2.0": _iti["iti_a2.0"] * 100, "iti_a4.0": _iti["iti_a4.0"] * 100,
        "iti_a6.0": _iti["iti_a6.0"] * 100, "r0.01_a2.0": _grid["r0.01_a2.0"], "r0.005_a2.5": _grid["r0.005_a2.5"]}
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
-PAN = [("ppl", None, "capability cost", "Δ perplexity (%) ↓", True),
+PAN = [("ppl", None, "capability\ncost", "Δ perplexity (%) ↓", True),
        ("selfaware", "unanswerable", "SelfAware\nunanswerable", "hallucination (%) ↓", True),
        ("selfaware", "answerable", "SelfAware\nanswerable", "answered (%) ↑", False),
        ("falseqa", "false_premise", "FalseQA\nfalse-premise", "accepted (%) ↓", True),
