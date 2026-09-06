@@ -15,7 +15,20 @@
 
 % ---------------------------------------------------------------------------
 % Body text (the "context" for the figure) — paste near the \ref, not in the caption.
+% Needs bib entries keyed `selfaware` (Yin et al. 2023) and `falseqa` (Hu et al. 2023).
 % ---------------------------------------------------------------------------
+We evaluate on two closed-book abstention benchmarks that probe complementary failure
+modes. \textbf{SelfAware}~\citep{selfaware} pairs answerable questions with
+\emph{unanswerable} ones that have no known or knowable answer (open scientific unknowns,
+under-specified or subjective queries); a calibrated model should answer the former and
+abstain on the latter, so we report the hallucination rate on the unanswerable half and
+the answering rate on the answerable half. \textbf{FalseQA}~\citep{falseqa} pairs
+questions built on a \emph{false premise} (a presupposition that is factually wrong) with
+matched valid-premise questions; the desired behavior is to reject or correct the false
+premise rather than answer as if it held, so we report false-premise acceptance and
+true-premise answering. Together they separate two kinds of epistemic humility: knowing
+what is unknowable (SelfAware) and refusing a baked-in falsehood (FalseQA).
+
 Figure~\ref{fig:uncertainty-method-cmp} compares our BLADE weight edit against ITI
 activation steering~\citep{iti} on closed-book epistemic (un)certainty in Qwen3-8B.
 Both methods are fit on the \emph{same} certain/uncertain prompt contrast at the last
