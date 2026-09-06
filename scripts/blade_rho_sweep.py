@@ -86,7 +86,14 @@ def main():
         o = generate_texts(model, tok, unc_sel, max_new_tokens=64, batch_size=16)
         return sum(is_unc(x) for x in o) / max(len(o), 1), ppl_now()
     base_sel = measure()[0]
-    items = load_ood(); prompts = [it["question"] for it in items]
+    items = load_ood()
+    sq_n = int(os.environ.get("SQ_N", "0"))          # append SimpleQA (answer-graded) if >0
+    if sq_n:
+        import csv as _csv
+        sqp = os.environ.get("TTS_SIMPLEQA_FILE") or str(DATA / "abstention" / "simpleqa_test.csv")
+        for r in list(_csv.DictReader(open(sqp)))[:sq_n]:
+            items.append({"dataset": "simpleqa", "gold": r["answer"], "question": r["problem"]})
+    prompts = [it["question"] for it in items]
     def gen(): return generate_texts(model, tok, prompts, max_new_tokens=GEN_TOK, batch_size=16)
     report = {"model": MODEL_ID, "match_rho": MATCH_RHO, "beta": BETA, "base_ppl_c4": base_ppl, "cap": CAP,
               "rhos": RHOS, "alphas": ALPHAS, "env": env_info(), "grid": [], "items": [dict(it) for it in items]}
