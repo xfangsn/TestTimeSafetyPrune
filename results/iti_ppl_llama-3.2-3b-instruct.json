@@ -1,0 +1,8 @@
+{
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "base_ppl_c4": 17.871590479076847,
+  "alpha_ppl_delta": {
+    "iti_a1.0": 0.08379177340369105,
+    "iti_a2.0": 0.4647000065960341
+  }
+}
