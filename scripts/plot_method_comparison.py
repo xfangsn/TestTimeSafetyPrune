@@ -61,7 +61,7 @@ PAN = [("ppl", None, "capability\ncost", "Δ perplexity (%) ↓", True),
        ("selfaware", "answerable", "SelfAware\nanswerable", "answered (%) ↑", False),
        ("falseqa", "false_premise", "FalseQA\nfalse-premise", "accepted (%) ↓", True),
        ("falseqa", "true_premise", "FalseQA\ntrue-premise", "answered (%) ↑", False)]
-fig, axes = plt.subplots(1, 5, figsize=(24.5, 9.8), sharey=True)
+fig, axes = plt.subplots(1, 5, figsize=(24.5, 9.1), sharey=True)
 for k, (ax, (ds, gold, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     if ds == "ppl":
         vals = [PPL[c[1]] for c in METHODS]
