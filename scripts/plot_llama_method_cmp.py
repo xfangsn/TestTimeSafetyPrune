@@ -40,7 +40,7 @@ SAANS = [72.9, 65.2, 44.3, 40.0, 40.0]  # SelfAware answerable: answered (higher
 FQFA = [29.0, 31.4, 21.4, 20.0, 12.9]   # FalseQA false-premise: accepted (lower better)
 FQTP = [71.4, 67.1, 55.1, 72.9, 71.4]   # FalseQA true-premise: answered (higher better)
 
-PAN = [("ppl", PPL, "capability\ncost", "Δ wiki ppl (%) ↓", True),
+PAN = [("ppl", PPL, "capability\ncost", "Δ perplexity (%) ↓", True),
        ("sa", SAUN, "SelfAware\nunanswerable", "hallucination (%) ↓", True),
        ("sa", SAANS, "SelfAware\nanswerable", "answered (%) ↑", False),
        ("fq", FQFA, "FalseQA\nfalse-premise", "accepted (%) ↓", True),
