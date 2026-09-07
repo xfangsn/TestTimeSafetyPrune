@@ -44,7 +44,7 @@ def main():
             add[i].view(nh, hd)[h] = alpha * sigma[(i, h)] * dirs[(i, h)]
         return add
 
-    for a in (2.0, 4.0, 6.0):
+    for a in [float(x) for x in os.environ.get("ITI_ALPHAS","2,4,6").split(",")]:
         add = add_vec(a)
         handles = []
 
