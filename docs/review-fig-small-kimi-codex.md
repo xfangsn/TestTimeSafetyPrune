@@ -49,3 +49,20 @@ WikiText teacher-forced Δppl for every figure config (pinned L*), updated all t
 - Qwen3-8B: ITI c4 **+19.1%**, c6 **+66.7%**; BLADE ρ.005 α2.5 **+0.5%**.
 Narrative change: on WikiText, Qwen3-4B ITI c2 is cheap, so the ρ.002-vs-c2 "Pareto" claim was dropped;
 the clean win is now stated as **BLADE ρ.02 α1.5 dominates ITI c4** (matched behavior at +0.8% vs +14.7%).
+
+## Round 2 — readability/academic rewrite (Fable) + Kimi & Codex re-review
+User: the prose was too informal / low readability. Fable rewrote the passage in a finding-first
+results-section register; Kimi (readability/register) and Codex (accuracy+tone) re-reviewed. Both were
+asked to judge academic quality, not just numbers. Applied, all confirmed numbers match:
+- **Accuracy (Codex):** "ITI c=2 leaves failures largely unchanged" was wrong — c=2 cuts false-premise
+  acceptance 36->24 (and hallucination 27->23); now stated correctly, and c=2 is shown to MATCH BLADE on
+  acceptance (24) at lower perplexity (-8.4% vs -0.7%), which is why it is explicitly not a Pareto win.
+  Dropped the unmeasured "model headroom governs the outcome"/"capacity is tighter" causal claim ->
+  "the trade-offs differ across models"; qualified "no clean operating point" with "among the evaluated
+  settings"; restricted the preservation claim (BLADE lowers Qwen true-premise 83->76/73; full preservation
+  only Llama FalseQA a2.0).
+- **Register (Kimi):** removed "BLADE's signature", "collapse of answering", "over-abstains", "the two
+  knobs", telegraphic "FalseQA yields the clear result"; fixed missing \% on ranges; moved the
+  negative-value sentence; scoped "thinking-off" to Qwen; replaced "isolates the mechanism" with "controls
+  for the prompt contrast"; made caption 1 self-contained (doses); spelled out "percentage points";
+  generalized the n=70 caution; de-duplicated the cross-model summary.
