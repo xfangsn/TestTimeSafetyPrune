@@ -51,11 +51,12 @@ METHODS = [("base", "base", "#3D405B"),
            ("ITI (c=6)", "iti_a6.0", "#0E6E6E"),
            ("BLADE\n(ρ=.005, α=2.5)", "r0.005_a2.5", "#D9532B")]
 
-_iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta"]
-_grid = {g["cond"]: g["ppl_delta_c4"] * 100 for g in json.load(open(R / "blade_rho_sweep_qwen3-8b.json"))["grid"]}
-_grid.update({g["cond"]: g["ppl_delta_c4"] * 100 for g in json.load(open(R / "blade_rho_sweep_lowa_qwen3-8b.json"))["grid"]})
+# Held-out WikiText Δppl (calibrate on C4, evaluate on WikiText; BLADE-G Q is collected on C4).
+_iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta_wiki"]
+_bwiki = {g["cond"]: g["ppl_delta_wiki"] * 100
+          for g in json.load(open(R / "blade_rho_sweep_wiki_0.005_a2.5_qwen3-8b.json"))["grid"]}
 PPL = {"base": 0.0, "iti_a4.0": _iti["iti_a4.0"] * 100, "iti_a6.0": _iti["iti_a6.0"] * 100,
-       "r0.005_a2.5": _grid["r0.005_a2.5"]}
+       "r0.005_a2.5": _bwiki["r0.005_a2.5"]}
 
 # SimpleQA (n=400, Opus-graded correct/incorrect/not-attempted); keyed by method cond.
 # BLADE uses the SAME edit as panels a-e (L*=[23,31,18,2], pinned; simpleqa_bladepin run).
@@ -65,7 +66,7 @@ SQ_CGA = {"base": 4.0, "iti_a4.0": 5.7, "iti_a6.0": 5.6, "r0.005_a2.5": 3.8}
 
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
 # (kind, key, title, xlab, low)  kind in {ppl, judge, sq}
-PAN = [("ppl", None, "capability\ncost", "Δ perplexity (%) ↓", True),
+PAN = [("ppl", None, "capability\ncost", "Δ wiki ppl (%) ↓", True),
        ("judge", ("selfaware", "unanswerable"), "SelfAware\nunanswerable", "hallucination (%) ↓", True),
        ("judge", ("selfaware", "answerable"), "SelfAware\nanswerable", "answered (%) ↑", False),
        ("judge", ("falseqa", "false_premise"), "FalseQA\nfalse-premise", "accepted (%) ↓", True),

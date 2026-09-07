@@ -1,10 +1,11 @@
 """uncertainty_method_cmp_qwen: same house style as uncertainty_method_cmp_llama, on Qwen/Qwen3-4B.
 Configs: base / ITI (c=2) / ITI (c=4) / BLADE (rho=.002, alpha=1.5) / BLADE (rho=.02, alpha=1.5).
-SA/FQ n=70, Opus-judged (ACT taxonomy). Capability panel = C4 teacher-forced Delta-ppl:
-ITI from results/iti_ppl_qwen3-4b.json (c2 +3.1%, c4 +29.9%); BLADE from the rho-sweep grid Delta-ppl
-(r0.002_a1.5 -0.55%, r0.02_a1.5 -0.33%). Behaviour rates: results/ood_judged.json over q4b_cmp (base/ITI)
-and q4b_cmp2 (BLADE alpha1.5). On Qwen3-4B BLADE alpha=1.5 matches/undercuts ITI's failure reduction while
-preserving answering, at negative ppl (ITI pays +3% to +30%). SimpleQA omitted here (behaviour panels only)."""
+SA/FQ n=70, Opus-judged (ACT taxonomy). Capability panel = HELD-OUT WikiText teacher-forced Delta-ppl
+(calibrate on C4, evaluate on WikiText): ITI from iti_ppl_qwen3-4b.json alpha_ppl_delta_wiki (c2 -8.4%,
+c4 +14.7%); BLADE from blade_rho_sweep_wiki_*_qwen3-4b.json ppl_delta_wiki at the pinned L*
+(r0.002_a1.5 -0.7%, r0.02_a1.5 +0.8%). Behaviour rates: q4b_cmp (base/ITI) + q4b_cmp2 (BLADE alpha1.5).
+BLADE rho.02 a1.5 dominates ITI c4 (>= behavior at +0.8% vs +14.7% wiki ppl); ITI c2 is cheap on wiki
+(-8.4%) but weak. SimpleQA omitted here (behaviour panels only)."""
 from pathlib import Path
 
 import matplotlib
@@ -29,15 +30,17 @@ METHODS = [("base", "#3D405B"),
 labs = [m[0] for m in METHODS]; cols = [m[1] for m in METHODS]
 y = np.arange(len(METHODS)); H = 0.7
 
-# Capability cost: C4 teacher-forced Delta-ppl (%)
-PPL = [0.0, 3.1, 29.9, -0.6, -0.3]
+# Capability cost: held-out WikiText teacher-forced Delta-ppl (%) (calibrate on C4, evaluate on WikiText).
+# ITI from iti_ppl_qwen3-4b.json alpha_ppl_delta_wiki (c2 -8.38, c4 +14.73);
+# BLADE from blade_rho_sweep_wiki_*_qwen3-4b.json ppl_delta_wiki at the pinned L* (rho.002 a1.5 -0.71; rho.02 a1.5 +0.83).
+PPL = [0.0, -8.4, 14.7, -0.7, 0.8]
 # Behaviour rates (%), Opus-judged ACT taxonomy, SA/FQ n=70
 SAUN = [27, 23, 20, 21, 17]   # SelfAware unanswerable: hallucination (lower better)
 SAANS = [87, 81, 67, 81, 71]  # SelfAware answerable: answered (higher better)
 FQFA = [36, 24, 20, 24, 20]   # FalseQA false-premise: accepted (lower better)
 FQTP = [83, 71, 70, 76, 73]   # FalseQA true-premise: answered (higher better)
 
-PAN = [("ppl", PPL, "capability\ncost", "Δ perplexity (%) ↓", True),
+PAN = [("ppl", PPL, "capability\ncost", "Δ wiki ppl (%) ↓", True),
        ("sa", SAUN, "SelfAware\nunanswerable", "hallucination (%) ↓", True),
        ("sa", SAANS, "SelfAware\nanswerable", "answered (%) ↑", False),
        ("fq", FQFA, "FalseQA\nfalse-premise", "accepted (%) ↓", True),
@@ -47,10 +50,14 @@ fig, axes = plt.subplots(1, 5, figsize=(24.5, 9.1), sharey=True)
 for k, (ax, (kind, vals, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
     if kind == "ppl":
-        hi = max(vals)
+        lo = min(vals); hi = max(vals); span = hi - lo
         for yi, v in zip(y, vals):
-            ax.text(max(v, 0) + hi * 0.012, yi, f"{v:+.1f}", va="center", ha="left", fontsize=27)
-        ax.set_xlim(0, hi * 1.28)
+            off = 0.012 * span
+            ax.text(v + (off if v >= 0 else -off), yi, f"{v:+.1f}", va="center",
+                    ha="left" if v >= 0 else "right", fontsize=27)
+        if lo < 0:
+            ax.axvline(0, color="#888", lw=0.8, zorder=2)
+        ax.set_xlim(lo - 0.38 * span if lo < 0 else 0, hi + 0.18 * span)
     else:
         ax.bar_label(b, fmt="%.0f", fontsize=27, padding=2)
         ax.set_xlim(0, max(vals) * (1.32 if low else 1.18))

@@ -47,11 +47,11 @@ amplification $\alpha$).
 
 \paragraph{SelfAware and FalseQA.} ITI reduces SelfAware unanswerable hallucination only at a strength
 that is catastrophic for capability: it leaves this rate at the base $20\%$ at $c\!=\!4$ and lowers it
-to $16\%$ only at $c\!=\!6$, where C4 teacher-forced perplexity rises by $57.3\%$ (panel~a) and
+to $16\%$ only at $c\!=\!6$, where held-out WikiText teacher-forced perplexity rises by $66.7\%$ (panel~a) and
 answering on SelfAware answerable questions collapses to $47\%$ (panel~c). BLADE instead lowers
 unanswerable hallucination to $10\%$ (panel~b; $4/40$ items) while holding perplexity essentially flat
-($-0.3\%$) and preserving answering at $85\%$ (base $87\%$). On FalseQA false-premise acceptance
-(panel~d) BLADE reaches $15\%$ (base $23\%$), comparable to ITI $c\!=\!4$ ($14\%$, but at $+17.5\%$
+($+0.5\%$) and preserving answering at $85\%$ (base $87\%$). On FalseQA false-premise acceptance
+(panel~d) BLADE reaches $15\%$ (base $23\%$), comparable to ITI $c\!=\!4$ ($14\%$, but at $+19.1\%$
 perplexity) and beaten only by the capability-destroying $c\!=\!6$ ($9\%$); BLADE retains most
 true-premise answering ($75\%$ vs.\ base $84\%$; panel~e).
 
@@ -61,7 +61,7 @@ question and is wrong $89\%$ of the time (only $7\%$ abstentions). At its tuned 
 transfers only weakly here: it lowers incorrect merely to $83\%$ and leaves attempted accuracy at
 $3.8\%$ (base $4.0\%$), i.e.\ essentially no calibration gain on external factual questions. ITI shifts
 more mass out of the incorrect bucket ($74\%$ at $c\!=\!4$, $63\%$ at $c\!=\!6$), but at a large
-capability cost ($+17.5\%$ / $+57.3\%$ perplexity), and part of $c\!=\!6$'s abstentions are degenerate
+capability cost ($+19.1\%$ / $+66.7\%$ held-out WikiText perplexity), and part of $c\!=\!6$'s abstentions are degenerate
 repetition rather than genuine declining. Two caveats temper all of these numbers. First, overall
 correctness stays near the floor for every condition (Table~\ref{tab:simpleqa}): Qwen3-8B knows the
 answer to very few SimpleQA questions, so any movement is a reshuffling between incorrect and

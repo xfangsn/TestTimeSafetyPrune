@@ -39,3 +39,13 @@ applied.
   confirmed ELS + the ρ sweep set {.002,.005,.01,.02} against the code. Kept.
 - All 20 per-model prose numbers verified against plot scripts; Qwen rates verified against judged JSONs;
   panel→metric→direction mapping, n=70, 1.4 pp, and bib keys all confirmed by both reviewers.
+
+## Post-review correction (capability metric)
+User caught that panel (a) plotted **C4** Δppl, but the held-out convention is **WikiText** (BLADE-G's
+generic-importance is calibrated on C4; the main cross-model figure reports wiki_relppl). Re-measured
+WikiText teacher-forced Δppl for every figure config (pinned L*), updated all three figures + all texs:
+- Qwen3-4B: ITI c2 **−8.4%** (was C4 +3.1), c4 **+14.7%** (was +29.9); BLADE ρ.002 **−0.7%**, ρ.02 **+0.8%**.
+- Llama-3.2-3B: ITI c1 **+7.9%**, c2 **+45.8%**; BLADE α1.75 **+1.8%**, α2.0 **+3.5%**.
+- Qwen3-8B: ITI c4 **+19.1%**, c6 **+66.7%**; BLADE ρ.005 α2.5 **+0.5%**.
+Narrative change: on WikiText, Qwen3-4B ITI c2 is cheap, so the ρ.002-vs-c2 "Pareto" claim was dropped;
+the clean win is now stated as **BLADE ρ.02 α1.5 dominates ITI c4** (matched behavior at +0.8% vs +14.7%).

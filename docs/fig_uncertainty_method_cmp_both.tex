@@ -32,7 +32,8 @@ which it should still answer. FalseQA~\citep{falseqa} pairs \emph{false-premise}
 questions, on which the model should reject the premise rather than accept it,
 with \emph{valid-premise} counterparts that it should answer normally. A blind
 LLM judge (condition hidden) assigns every behavioral label. Capability cost is
-the teacher-forced C4 perplexity change relative to the base model. Panels
+the teacher-forced held-out WikiText perplexity change relative to the base model (BLADE-G's
+generic-importance term is calibrated on C4, so WikiText is the held-out capability metric). Panels
 (a,\,b,\,d) are lower-is-better; (c,\,e) are higher-is-better.
 
 \paragraph{Setup.}
@@ -51,12 +52,12 @@ scalars themselves.
 Figure~\ref{fig:uncertainty-method-cmp} shows that BLADE is the only
 configuration that lowers SelfAware-unanswerable hallucination
 (\ref{fig:uncertainty-method-cmp}b, $20\%\!\to\!10\%$) while leaving
-perplexity flat ($-0.3\%$, \ref{fig:uncertainty-method-cmp}a) and answerable
+perplexity flat ($+0.5\%$, \ref{fig:uncertainty-method-cmp}a) and answerable
 questions answered ($85\%$ vs.\ $87\%$ base,
-\ref{fig:uncertainty-method-cmp}c). ITI at $c\!=\!4$ costs $+17.5\%$
+\ref{fig:uncertainty-method-cmp}c). ITI at $c\!=\!4$ costs $+19.1\%$
 perplexity and does not move the unanswerable rate at all ($20\%$); only at
 $c\!=\!6$ does it reach $16\%$, and it does so by inflating perplexity by
-$+57.3\%$ and collapsing answerable-question answering from $87\%$ to $47\%$.
+$+66.7\%$ and collapsing answerable-question answering from $87\%$ to $47\%$.
 On FalseQA the two are closer: BLADE reduces false-premise acceptance from
 $23\%$ to $15\%$ while holding valid-premise answering at $75\%$
 (\ref{fig:uncertainty-method-cmp}d,\,e), and ITI reaches $14\%$ at $c\!=\!4$
@@ -83,11 +84,11 @@ noise, which makes FalseQA the more stable axis on this model. On that axis BLAD
 $\alpha\!=\!2.0$ it cuts false-premise acceptance from $29\%$ to $13\%$
 (\ref{fig:uncertainty-method-cmp-llama}d) while fully preserving
 valid-premise answering ($71\%$, identical to base,
-\ref{fig:uncertainty-method-cmp-llama}e), at $+5.7\%$ perplexity
-($+3.5\%$ at $\alpha\!=\!1.75$). ITI never matches this: at the mild $c\!=\!1$ it
+\ref{fig:uncertainty-method-cmp-llama}e), at $+3.5\%$ perplexity
+($+1.8\%$ at $\alpha\!=\!1.75$). ITI never matches this: at the mild $c\!=\!1$ it
 actually \emph{raises} false-premise acceptance above base ($29\%\!\to\!31\%$) at
-$+8.4\%$ perplexity, and at $c\!=\!2$ it reaches only $21\%$ acceptance while
-cratering valid-premise answering to $55\%$ at $+46.5\%$ perplexity; its capability collapse arrives even earlier here than on Qwen
+$+7.9\%$ perplexity, and at $c\!=\!2$ it reaches only $21\%$ acceptance while
+cratering valid-premise answering to $55\%$ at $+45.8\%$ perplexity; its capability collapse arrives even earlier here than on Qwen
 ($c\!=\!2$ vs.\ $c\!=\!6$), suggesting the dose in per-head-std units is
 miscalibrated for this model rather than merely too large. We omit SimpleQA
 panels for Llama because its base already abstains on short fact-seeking
@@ -106,7 +107,7 @@ the exact operating point fails to transfer, and on the noisier SelfAware
 benchmark neither method separates the target failure from the matched
 behavior. Yet on the more stable FalseQA axis BLADE still does what it did on
 Qwen, removing the targeted failure (false-premise acceptance) at modest
-capability cost ($+3.5$--$5.7\%$ perplexity) while leaving the matched
+capability cost ($+1.8$--$3.5\%$ perplexity) while leaving the matched
 valid-premise behavior untouched, a
 combination ITI does not reach without collapsing capability. We therefore
 read the cross-model result as follows: BLADE's advantage (cheap, targeted,

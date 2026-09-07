@@ -1,7 +1,8 @@
 """uncertainty_method_cmp_llama: same house style as uncertainty_method_cmp, on meta-llama/Llama-3.2-3B-Instruct.
 Configs: base / ITI (c=1) / ITI (c=2) / BLADE (alpha=1.75) / BLADE (alpha=2.0). SA/FQ n=70, Opus-judged
-(ACT taxonomy). Capability panel = C4 teacher-forced Delta-ppl (ITI from results/iti_ppl_llama-3.2-3b-instruct.json;
-BLADE from the edited-model C4 ppl of each alldata run). SimpleQA panels omitted: Llama base already abstains
+(ACT taxonomy). Capability panel = HELD-OUT WikiText teacher-forced Delta-ppl (calibrate on C4, evaluate on
+WikiText): ITI from iti_ppl_llama-3.2-3b-instruct.json alpha_ppl_delta_wiki (c1 +7.9%, c2 +45.8%); BLADE
+from blade_rho_sweep_wiki_0.005_a1.75,2.0_llama-3.2-3b-instruct.json (a1.75 +1.8%, a2.0 +3.5%). SimpleQA panels omitted: Llama base already abstains
 (~1.5% incorrect) so there is no hallucination headroom (see [[llama32-3b-transfer]]). Numbers are the
 already-derived Llama figures for this exploratory cross-model panel (Llama is a poorer testbed than Qwen3-8B)."""
 import os
@@ -29,15 +30,17 @@ METHODS = [("base", "#3D405B"),
 labs = [m[0] for m in METHODS]; cols = [m[1] for m in METHODS]
 y = np.arange(len(METHODS)); H = 0.7
 
-# Capability cost: C4 teacher-forced Delta-ppl (%)
-PPL = [0.0, 8.4, 46.5, 3.5, 5.7]
+# Capability cost: held-out WikiText teacher-forced Delta-ppl (%) (calibrate on C4, evaluate on WikiText).
+# ITI from iti_ppl_llama-3.2-3b-instruct.json alpha_ppl_delta_wiki (c1 +7.86, c2 +45.80);
+# BLADE from blade_rho_sweep_wiki_0.005_a1.75,2.0_llama-3.2-3b-instruct.json ppl_delta_wiki (a1.75 +1.82, a2.0 +3.53).
+PPL = [0.0, 7.9, 45.8, 1.8, 3.5]
 # Behaviour rates (%), Opus-judged ACT taxonomy, SA/FQ n=70
 SAUN = [47.1, 38.6, 28.6, 32.9, 37.1]   # SelfAware unanswerable: hallucination (lower better)
 SAANS = [72.9, 65.2, 44.3, 40.0, 40.0]  # SelfAware answerable: answered (higher better)
 FQFA = [29.0, 31.4, 21.4, 20.0, 12.9]   # FalseQA false-premise: accepted (lower better)
 FQTP = [71.4, 67.1, 55.1, 72.9, 71.4]   # FalseQA true-premise: answered (higher better)
 
-PAN = [("ppl", PPL, "capability\ncost", "Δ perplexity (%) ↓", True),
+PAN = [("ppl", PPL, "capability\ncost", "Δ wiki ppl (%) ↓", True),
        ("sa", SAUN, "SelfAware\nunanswerable", "hallucination (%) ↓", True),
        ("sa", SAANS, "SelfAware\nanswerable", "answered (%) ↑", False),
        ("fq", FQFA, "FalseQA\nfalse-premise", "accepted (%) ↓", True),
@@ -47,10 +50,14 @@ fig, axes = plt.subplots(1, 5, figsize=(24.5, 9.8), sharey=True)
 for k, (ax, (kind, vals, title, xlab, low)) in enumerate(zip(axes.flat, PAN)):
     b = ax.barh(y, vals, H, color=cols, edgecolor="white", linewidth=0.9, zorder=3)
     if kind == "ppl":
-        hi = max(vals)
+        lo = min(vals); hi = max(vals); span = hi - lo
         for yi, v in zip(y, vals):
-            ax.text(max(v, 0) + hi * 0.012, yi, f"{v:+.1f}", va="center", ha="left", fontsize=27)
-        ax.set_xlim(0, hi * 1.28)
+            off = 0.012 * span
+            ax.text(v + (off if v >= 0 else -off), yi, f"{v:+.1f}", va="center",
+                    ha="left" if v >= 0 else "right", fontsize=27)
+        if lo < 0:
+            ax.axvline(0, color="#888", lw=0.8, zorder=2)
+        ax.set_xlim(lo - 0.38 * span if lo < 0 else 0, hi + 0.18 * span)
     else:
         ax.bar_label(b, fmt="%.0f", fontsize=27, padding=2)
         ax.set_xlim(0, max(vals) * (1.32 if low else 1.18))

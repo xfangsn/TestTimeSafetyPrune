@@ -49,14 +49,15 @@ METHODS = [("base", "base", "#3D405B"),
            ("ITI (c=6)", "iti_a6.0", "#0E6E6E"),
            ("BLADE\n(ρ=.005, α=2.5)", "r0.005_a2.5", "#D9532B")]
 
-# Δppl (%) per method config for the capability-cost panel
-_iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta"]
-_grid = {g["cond"]: g["ppl_delta_c4"] * 100 for g in json.load(open(R / "blade_rho_sweep_qwen3-8b.json"))["grid"]}
-_grid.update({g["cond"]: g["ppl_delta_c4"] * 100 for g in json.load(open(R / "blade_rho_sweep_lowa_qwen3-8b.json"))["grid"]})
-PPL = {"base": 0.0, "iti_a2.0": _iti["iti_a2.0"] * 100, "iti_a4.0": _iti["iti_a4.0"] * 100,
-       "iti_a6.0": _iti["iti_a6.0"] * 100, "r0.01_a2.0": _grid["r0.01_a2.0"], "r0.005_a2.5": _grid["r0.005_a2.5"]}
+# Held-out WikiText Δppl (%) per method config (calibrate on C4, evaluate on WikiText; BLADE-G Q is
+# collected on C4, so C4 is the calibration set and WikiText is the honest capability metric).
+_iti = json.load(open(R / "iti_ppl.json"))["alpha_ppl_delta_wiki"]
+_bwiki = {g["cond"]: g["ppl_delta_wiki"] * 100
+          for g in json.load(open(R / "blade_rho_sweep_wiki_0.005_a2.5_qwen3-8b.json"))["grid"]}
+PPL = {"base": 0.0, "iti_a4.0": _iti["iti_a4.0"] * 100, "iti_a6.0": _iti["iti_a6.0"] * 100,
+       "r0.005_a2.5": _bwiki["r0.005_a2.5"]}
 labs = [m[0] for m in METHODS]; cols = [m[2] for m in METHODS]; y = np.arange(len(METHODS)); H = 0.7
-PAN = [("ppl", None, "capability\ncost", "Δ perplexity (%) ↓", True),
+PAN = [("ppl", None, "capability\ncost", "Δ wiki ppl (%) ↓", True),
        ("selfaware", "unanswerable", "SelfAware\nunanswerable", "hallucination (%) ↓", True),
        ("selfaware", "answerable", "SelfAware\nanswerable", "answered (%) ↑", False),
        ("falseqa", "false_premise", "FalseQA\nfalse-premise", "accepted (%) ↓", True),
