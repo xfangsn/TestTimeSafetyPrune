@@ -7,7 +7,7 @@ from pathlib import Path
 
 import torch
 
-from ttsafety.eval import load_c4_text, teacher_forced_ppl
+from ttsafety.eval import load_c4_text, load_wikitext_text, teacher_forced_ppl
 from ttsafety.hooks import get_decoder_layers
 from ttsafety.models import load_model
 from blade_epistemic_els import PPL_TOKENS
@@ -35,8 +35,11 @@ def main():
     sigma = proj_std(model, tok, unc + cert, blocks, nh, hd, dirs)
 
     c4 = load_c4_text()
+    wiki = load_wikitext_text()   # held-out eval set (calibrate on C4, evaluate on WikiText)
     base_ppl = teacher_forced_ppl(model, tok, c4, max_tokens=PPL_TOKENS)
-    out = {"model": MODEL_ID, "base_ppl_c4": base_ppl, "alpha_ppl_delta": {}}
+    base_wiki = teacher_forced_ppl(model, tok, wiki, max_tokens=PPL_TOKENS)
+    out = {"model": MODEL_ID, "base_ppl_c4": base_ppl, "base_ppl_wiki": base_wiki,
+           "alpha_ppl_delta": {}, "alpha_ppl_delta_wiki": {}}
 
     def add_vec(alpha):
         add = {i: torch.zeros(nh * hd) for i in range(len(blocks))}
@@ -57,11 +60,13 @@ def main():
             handles.append(blocks[i].self_attn.o_proj.register_forward_pre_hook(mk(i)))
         try:
             p = teacher_forced_ppl(model, tok, c4, max_tokens=PPL_TOKENS)
+            pw = teacher_forced_ppl(model, tok, wiki, max_tokens=PPL_TOKENS)
         finally:
             for h in handles:
                 h.remove()
         out["alpha_ppl_delta"][f"iti_a{a}"] = (p - base_ppl) / base_ppl
-        print(f"ITI a{a}: ppl {p:.2f}  Δ {(p-base_ppl)/base_ppl:+.2%}", flush=True)
+        out["alpha_ppl_delta_wiki"][f"iti_a{a}"] = (pw - base_wiki) / base_wiki
+        print(f"ITI a{a}: C4 {p:.2f} Δ{(p-base_ppl)/base_ppl:+.2%} | Wiki {pw:.2f} Δ{(pw-base_wiki)/base_wiki:+.2%}", flush=True)
 
     slug = "" if MODEL_ID == "Qwen/Qwen3-8B" else "_" + MODEL_ID.split("/")[-1].lower()
     (RESULTS / f"iti_ppl{slug}.json").write_text(json.dumps(out, indent=2))

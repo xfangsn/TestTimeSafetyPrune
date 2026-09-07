@@ -11,7 +11,7 @@ import torch
 
 import ttsafety.extract as EX
 import ttsafety.generate as GEN
-from ttsafety.eval import load_c4_text, teacher_forced_ppl
+from ttsafety.eval import load_c4_text, load_wikitext_text, teacher_forced_ppl
 from ttsafety.extract import extract_refusal_direction
 from ttsafety.generate import generate_texts
 from ttsafety.hooks import get_decoder_layers
@@ -73,6 +73,7 @@ def main():
     unc_tr = [r["question"] for r in tr if r["label"] == 1]; cert_tr = [r["question"] for r in tr if r["label"] == 0]
     unc_sel = [r["question"] for r in sel if r["label"] == 1]
     c4 = load_c4_text(); base_ppl = teacher_forced_ppl(model, tok, c4, max_tokens=PPL_TOKENS)
+    wiki = load_wikitext_text(); base_wiki = teacher_forced_ppl(model, tok, wiki, max_tokens=PPL_TOKENS)  # held-out eval
     directions = extract_refusal_direction(model, tok, unc_tr, cert_tr)
     muUNC = last_token_moments(model, tok, unc_tr, all_layers, COMPONENTS, qwen_wrap)
     muCERT = last_token_moments(model, tok, cert_tr, all_layers, COMPONENTS, qwen_wrap)
@@ -95,7 +96,8 @@ def main():
             items.append({"dataset": "simpleqa", "gold": r["answer"], "question": r["problem"]})
     prompts = [it["question"] for it in items]
     def gen(): return generate_texts(model, tok, prompts, max_new_tokens=GEN_TOK, batch_size=16)
-    report = {"model": MODEL_ID, "match_rho": MATCH_RHO, "beta": BETA, "base_ppl_c4": base_ppl, "cap": CAP,
+    report = {"model": MODEL_ID, "match_rho": MATCH_RHO, "beta": BETA, "base_ppl_c4": base_ppl,
+              "base_ppl_wiki": base_wiki, "cap": CAP,
               "rhos": RHOS, "alphas": ALPHAS, "env": env_info(), "grid": [], "items": [dict(it) for it in items]}
 
     def els(screen, test):  # solo pool -> best-first at a given probe fraction
@@ -104,7 +106,14 @@ def main():
         return bestfirst_layers(model, directions, muUNC, muCERT, pool, COMPONENTS, measure, base_sel,
                                 base_ppl, beta=BETA, eps=0.005, test_frac=test, score_fn=sfn)
 
-    if MATCH_RHO:
+    L_STAR_ENV = os.environ.get("L_STAR", "")   # pin L* (skip ELS) to reproduce a specific figure's edit
+    if L_STAR_ENV:
+        L_star = [int(x) for x in L_STAR_ENV.split(",")]
+        print(f"PINNED L*={L_star} (L_STAR env; ELS skipped)", flush=True)
+        report["L_star"] = L_star
+        rk = rank_weight_indices(sfn(model, directions, muUNC, muCERT, L_star, COMPONENTS), max(RHOS) + 0.01)
+        rho_plan = [(rho, L_star, rk) for rho in RHOS]
+    elif MATCH_RHO:
         # ELS probe fraction == final edit rho: re-select L* per rho (screen=test=rho)
         report["L_star_by_rho"] = {}
         rho_plan = []
@@ -133,12 +142,14 @@ def main():
             cond = f"r{rho}_a{a}"
             with cm:
                 outs = gen(); pc = teacher_forced_ppl(model, tok, c4, max_tokens=PPL_TOKENS)
+                pw = teacher_forced_ppl(model, tok, wiki, max_tokens=PPL_TOKENS)
             dg = degen_rate(outs)
             report["grid"].append({"cond": cond, "rho": rho, "alpha": a, "n_edges": n, "L_star": L_star,
-                                   "degen": dg, "ppl_delta_c4": (pc - base_ppl) / base_ppl})
+                                   "degen": dg, "ppl_delta_c4": (pc - base_ppl) / base_ppl,
+                                   "ppl_delta_wiki": (pw - base_wiki) / base_wiki})
             for rec, o in zip(report["items"], outs):
                 rec[cond] = o
-            print(f"  {cond:14} n={n:7d} degen {dg:.2f}  Δppl {(pc-base_ppl)/base_ppl:+.2%}", flush=True)
+            print(f"  {cond:14} n={n:7d} degen {dg:.2f}  C4 Δ{(pc-base_ppl)/base_ppl:+.2%} Wiki Δ{(pw-base_wiki)/base_wiki:+.2%}", flush=True)
     tag = os.environ.get("OUT_TAG", "")
     slug = os.environ.get("OUT_SLUG") or (
         "qwen3-8b" if MODEL_ID == "Qwen/Qwen3-8B" else MODEL_ID.split("/")[-1].lower())
