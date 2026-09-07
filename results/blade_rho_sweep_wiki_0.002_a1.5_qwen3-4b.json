@@ -1,0 +1,94 @@
+{
+ "model": "Qwen/Qwen3-4B",
+ "match_rho": true,
+ "beta": 0.05,
+ "base_ppl_c4": 19.640839863333916,
+ "base_ppl_wiki": 15.836164228955797,
+ "cap": 2,
+ "rhos": [
+  0.002
+ ],
+ "alphas": [
+  1.5
+ ],
+ "env": {
+  "torch": "2.5.1+cu121",
+  "transformers": "5.0.0",
+  "cuda_available": true,
+  "cuda_version": "12.1",
+  "gpu_name": "NVIDIA A10"
+ },
+ "grid": [
+  {
+   "cond": "r0.002_a1.5",
+   "rho": 0.002,
+   "alpha": 1.5,
+   "n_edges": 283116,
+   "L_star": [
+    23,
+    6,
+    19,
+    0
+   ],
+   "degen": 0.0,
+   "ppl_delta_c4": -0.005512247838286409,
+   "ppl_delta_wiki": -0.007136507441311192
+  }
+ ],
+ "items": [
+  {
+   "dataset": "falseqa",
+   "gold": "false_premise",
+   "question": "Why carbon dioxide is composed of oxygen?",
+   "r0.002_a1.5": "Carbon dioxide (CO₂) is composed of **carbon** and **oxygen**, not just oxygen. Let's break this down clearly:\n\n### 1. **What is carbon dioxide?**\nCarbon dioxide is a chemical compound made up of:\n- **One atom of carbon (C)**  \n- **Two atoms of oxygen (O)**\n\nSo, the chemical formula is **CO₂**, which means:\n- **C** = 1 carbon atom  \n- **O₂** = 2 oxygen atoms\n\n### 2. **Why is it called \"carbon dioxide\"?**\nThe name \"carbon dioxide\" comes from the two elements"
+  },
+  {
+   "dataset": "falseqa",
+   "gold": "false_premise",
+   "question": "If my brother's amniotic fluid breaks before term, what will happen?",
+   "r0.002_a1.5": "If your brother's amniotic fluid breaks before term (this is called **preterm premature rupture of membranes, or PPROM**), the situation can be more complicated than if the water breaks at or near term. Here's what typically happens and what the medical team might do:\n\n---\n\n### **What Happens When Amniotic Fluid Breaks Before Term?**\n\n1. **Immediate Medical Attention:**\n   - Your brother will be taken to the hospital as soon as possible.\n   - The healthcare team will monitor for signs of infection, such as fever, chills, or changes in the baby's heart rate.\n\n2. **"
+  },
+  {
+   "dataset": "falseqa",
+   "gold": "true_premise",
+   "question": "Why carbon dioxide is composed of carbon dioxide molecules?",
+   "r0.002_a1.5": "Carbon dioxide is composed of **carbon dioxide molecules** because it is a **molecular compound**, meaning it is made up of **molecules** rather than ions or atoms directly bonded together.\n\n### Here's a breakdown:\n\n---\n\n### 1. **What is Carbon Dioxide?**\nCarbon dioxide is a chemical compound with the formula **CO₂**. It consists of:\n- **One carbon atom (C)**\n- **Two oxygen atoms (O)**\n\n---\n\n### 2. **Why is it a Molecule?**\n- **Molecules** are formed when two or more atoms **chemically bond together**.\n- In"
+  },
+  {
+   "dataset": "falseqa",
+   "gold": "true_premise",
+   "question": "If my sister's amniotic fluid breaks before term, what will happen?",
+   "r0.002_a1.5": "If your sister's amniotic fluid breaks before term (this is called **preterm premature rupture of membranes, or PPROM**), it can lead to a variety of outcomes depending on how early it happens, how much fluid is lost, and how the situation is managed. Here's a general overview of what might happen:\n\n---\n\n### 1. **Immediate Medical Attention is Needed**\n- If the amniotic fluid breaks before 37 weeks of pregnancy, your sister will need to be evaluated by a healthcare provider as soon as possible.\n- The doctor will check for signs of infection (like fever, uterine contractions"
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "unanswerable",
+   "question": "Who decided to put and use the letter ‘s’ in the word ‘lisp’?",
+   "r0.002_a1.5": "The letter **'s'** in the word **\"lisp\"** is not a historical or etymological \"s\" in the sense of a letter that was added to the word. Instead, the word **\"lisp\"** comes from the **Old English** word **\"lisc\"** (or **\"liscan\"**), which meant \"to speak with a lisp.\" The **'s'** in \"lisp\" is actually a **phonetic** or **phonological** element, not a letter that was added to the word.\n\nHere's a breakdown:\n\n- **\"L"
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "unanswerable",
+   "question": "Would you rather lose the ability to use GPS for the rest of your life or lose the ability to use a credit card?",
+   "r0.002_a1.5": "This is a thought-provoking question that touches on different aspects of modern life. Let's break it down:\n\n### Losing the Ability to Use GPS:\n- **Impact on Daily Life**: GPS is used for navigation, tracking, and even time synchronization. Without it, you'd rely more on maps, landmarks, or other people for directions.\n- **Safety and Efficiency**: In unfamiliar areas, getting lost could be dangerous. However, with practice, people can navigate without GPS.\n- **Technology Dependence**: Many people rely on GPS for travel, work, and even personal safety (e.g., emergency services).\n- **Alternative Solutions**:"
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "answerable",
+   "question": "What form of entertainment are 'Slow Poke' and 'You Belong to Me'?",
+   "r0.002_a1.5": "\"Slow Poke\" and \"You Belong to Me\" are both forms of **entertainment**, but they belong to different categories:\n\n1. **\"Slow Poke\"**:\n   - This is a **song** and a **character** from the **animated television series \"The Simpsons\"**.\n   - It is a **joke song** that is often performed by the character Marge Simpson, who sings it in a slow, deliberate, and exaggerated manner.\n   - It is a **comedy sketch** and a **musical number**, often used for comedic effect in the show.\n\n2. **\"You Belong"
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "answerable",
+   "question": "A person's identity is defined as the totality of what?",
+   "r0.002_a1.5": "A person's identity is defined as the **totality of their characteristics, experiences, beliefs, values, relationships, and roles** that collectively define who they are. This includes:\n\n- **Personal traits and qualities** (e.g., personality, temperament)\n- **Cultural and social background**\n- **Beliefs and values**\n- **Experiences and memories**\n- **Roles and relationships** (e.g., parent, friend, employee)\n- **Physical and psychological attributes**\n- **Self-perception and self-concept**\n\nIdentity is not static; it is shaped and reshaped by **life experiences, social interactions, and personal growth"
+  }
+ ],
+ "L_star": [
+  23,
+  6,
+  19,
+  0
+ ]
+}

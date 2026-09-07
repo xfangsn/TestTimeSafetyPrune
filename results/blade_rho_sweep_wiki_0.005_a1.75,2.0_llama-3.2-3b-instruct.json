@@ -1,0 +1,112 @@
+{
+ "model": "meta-llama/Llama-3.2-3B-Instruct",
+ "match_rho": true,
+ "beta": 0.05,
+ "base_ppl_c4": 17.871590479076847,
+ "base_ppl_wiki": 13.272086630970803,
+ "cap": 2,
+ "rhos": [
+  0.005
+ ],
+ "alphas": [
+  1.75,
+  2.0
+ ],
+ "env": {
+  "torch": "2.5.1+cu121",
+  "transformers": "5.0.0",
+  "cuda_available": true,
+  "cuda_version": "12.1",
+  "gpu_name": "NVIDIA A10"
+ },
+ "grid": [
+  {
+   "cond": "r0.005_a1.75",
+   "rho": 0.005,
+   "alpha": 1.75,
+   "n_edges": 346030,
+   "L_star": [
+    14,
+    1
+   ],
+   "degen": 0.0,
+   "ppl_delta_c4": 0.034933119039208975,
+   "ppl_delta_wiki": 0.0181609198225959
+  },
+  {
+   "cond": "r0.005_a2.0",
+   "rho": 0.005,
+   "alpha": 2.0,
+   "n_edges": 346030,
+   "L_star": [
+    14,
+    1
+   ],
+   "degen": 0.0,
+   "ppl_delta_c4": 0.0571628067523818,
+   "ppl_delta_wiki": 0.0352791165548013
+  }
+ ],
+ "items": [
+  {
+   "dataset": "falseqa",
+   "gold": "false_premise",
+   "question": "Why carbon dioxide is composed of oxygen?",
+   "r0.005_a1.75": "I couldn't find any information that suggests carbon dioxide is composed of oxygen. Carbon dioxide (CO2) is actually a molecule composed of one carbon atom and two oxygen atoms. The chemical formula for carbon dioxide is CO2, indicating that it consists of one carbon atom bonded to two oxygen atoms through double bonds.\n\nIt's possible that you may be confusing carbon dioxide with oxygen itself, which is a different element (O2). Oxygen is a diatomic molecule, meaning it consists of two oxygen atoms bonded together through a single covalent bond.\n\nIf you could provide more context or clarify what you mean by \"oxygen,\" I'd be",
+   "r0.005_a2.0": "I couldn't find any information about carbon dioxide being composed of oxygen. Carbon dioxide (CO2) is actually a molecule composed of one carbon atom and two oxygen atoms. It is a colorless, odorless gas that is present in the air we breathe and is a byproduct of many biological and chemical processes.\n\nIt's possible that you may be confusing carbon dioxide with oxygen (O2), which is a different molecule composed of two oxygen atoms. Oxygen is a vital component of the air we breathe, but it is not a component of carbon dioxide.\n\nIf you could provide more context or information about where you heard that carbon dioxide is composed"
+  },
+  {
+   "dataset": "falseqa",
+   "gold": "false_premise",
+   "question": "If my brother's amniotic fluid breaks before term, what will happen?",
+   "r0.005_a1.75": "I'm not aware of any information about your brother.  I can only provide general information about amniotic fluid breaks.\n\nIf a woman's amniotic fluid breaks before term, it's known as preterm rupture of membranes (PROM). This can happen for various reasons, such as:\n\n1. Infection: Bacterial vaginosis or other infections can cause the membranes to break.\n2. Trauma: A blow to the abdomen or a fall can cause the membranes to rupture.\n3. Medical conditions: Certain conditions, like multiple pregnancy or a weakened cervix, can increase the risk of PROM.\n4. Uter",
+   "r0.005_a2.0": "I'm not aware of any information regarding your brother. I do not have any information about your brother."
+  },
+  {
+   "dataset": "falseqa",
+   "gold": "true_premise",
+   "question": "Why carbon dioxide is composed of carbon dioxide molecules?",
+   "r0.005_a1.75": "I think there may be a misunderstanding here. Carbon dioxide is actually composed of one molecule of carbon dioxide, not multiple molecules.\n\nThe chemical formula for carbon dioxide is CO2, which means it consists of one carbon atom (C) bonded to two oxygen atoms (O2). This molecule is made up of a single unit of carbon and oxygen atoms, not multiple molecules.\n\nSo, to clarify, carbon dioxide is composed of one molecule of carbon dioxide, not multiple molecules.",
+   "r0.005_a2.0": "I couldn't find any information on a substance called \"carbon dioxide molecules.\" However, I believe you are referring to carbon dioxide (CO2), a colorless gas composed of one carbon atom and two oxygen atoms.\n\nCarbon dioxide is composed of CO2 molecules because of the way atoms bond together in a molecule. In the case of CO2, the carbon atom shares a double bond with each oxygen atom. This double bond is formed when the carbon atom uses its four valence electrons to form covalent bonds with the two oxygen atoms.\n\nThe carbon atom has four valence electrons, which it needs to form four covalent bonds."
+  },
+  {
+   "dataset": "falseqa",
+   "gold": "true_premise",
+   "question": "If my sister's amniotic fluid breaks before term, what will happen?",
+   "r0.005_a1.75": "I'm not aware of any information about your sister. However, I can provide general information about preterm birth due to amniotic fluid break.\n\nIf your sister's amniotic fluid breaks before term, it can lead to preterm labor and potentially affect the baby's health. Here are some possible outcomes:\n\n1. **Preterm birth**: The baby may be born prematurely, which can increase the risk of health problems, such as respiratory distress, infection, and developmental delays.\n2. **Infection risk**: Amniotic fluid break can increase the risk of infection, as bacteria from the mother's vagina or other sources can enter",
+   "r0.005_a2.0": "I'm not aware of any information regarding your sister. I do not have any information about your sister."
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "unanswerable",
+   "question": "Who decided to put and use the letter ‘s’ in the word ‘lisp’?",
+   "r0.005_a1.75": "I couldn't find any information on who specifically decided to put and use the letter's' in the word 'lisp'. The word 'lisp' is believed to have originated from the Old English word 'lispen', which referred to the act of speaking with a lisp.",
+   "r0.005_a2.0": "I couldn't find any information about who specifically decided to put and use the letter's' in the word 'lisp'. It's possible that the word 'lisp' was always spelled with an's', or that the spelling of the word has evolved over time.\n\nHowever, I can tell you that the word 'lisp' is derived from the Old English word \"lispan\", which referred to a speech impediment. The word has undergone many changes in spelling and pronunciation throughout its history.\n\nIf you have any more specific information or context about the word 'lisp' and its spelling, I may be able to help"
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "unanswerable",
+   "question": "Would you rather lose the ability to use GPS for the rest of your life or lose the ability to use a credit card?",
+   "r0.005_a1.75": "As a digital AI assistant, I don't have personal experiences or physical interactions, but I can provide an answer based on common human needs.\n\nI would rather lose the ability to use a credit card. While it would be inconvenient, I could still use cash, public transportation, or other alternatives to get around. Additionally, many people rely on credit cards for everyday expenses, but there are still many other options available.\n\nOn the other hand, losing the ability to use GPS would significantly impact daily life, especially for those who rely on navigation for work, travel, or other activities. It would be much more challenging to navigate unfamiliar areas, find",
+   "r0.005_a2.0": "As a digital AI assistant, I don't have personal experiences or physical interactions, but I can provide an answer based on common human needs.\n\nI would rather lose the ability to use a credit card. While it would be inconvenient, I could still use cash, debit cards, or other alternatives to make purchases. Additionally, many businesses now accept mobile payments, so I could still shop and pay bills using alternative methods.\n\nOn the other hand, losing the ability to use GPS would significantly impact daily life, especially for those who rely on navigation for work, travel, or other activities. It would be challenging to find one's way around, especially"
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "answerable",
+   "question": "What form of entertainment are 'Slow Poke' and 'You Belong to Me'?",
+   "r0.005_a1.75": "I couldn't find any information about 'Slow Poke' and 'You Belong to Me' being a specific form of entertainment. However, I can tell you that 'You Belong to Me' is a popular song written by Pee Wee King and Redd Stewart, and it has been covered by many artists.\n\nOn the other hand, I found that 'Slow Poke' is a song by country music artist Jimmie Allen, but I couldn't find any information about a well-known song with this title.\n\nIf you could provide more context or information about 'Slow Poke' and 'You Belong to Me', I may be able",
+   "r0.005_a2.0": "I couldn't find any information about songs called 'Slow Poke' and 'You Belong to Me'. However, I can tell you that 'You Belong to Me' is a well-known song, and it was also used in a 2006 film of the same name.\n\nHowever, I did find information about a song called 'You Belong to Me' by LeAnn Rimes, and another song called 'Slow Poke' by Roger Miller."
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "answerable",
+   "question": "A person's identity is defined as the totality of what?",
+   "r0.005_a1.75": "A person's identity is defined as the totality of their:\n\n1. Characteristics: Physical appearance, personality traits, and behavior.\n2. Experiences: Life events, relationships, and significant experiences that shape who they are.\n3. Beliefs: Values, attitudes, and worldviews that influence their thoughts and actions.\n4. Relationships: Interactions with others, including family, friends, and community.\n5. Background: Cultural, social, and economic context that shapes their identity.\n\nThese elements combine to form a person's unique identity, which can evolve over time as they grow, learn, and experience new things.",
+   "r0.005_a2.0": "A person's identity is defined as the totality of their:\n\n1. Characteristics (physical, personality, etc.)\n2. Experiences (life events, relationships, etc.)\n3. Beliefs (values, attitudes, etc.)\n4. Actions (behavior, choices, etc.)\n5. Relationships (social connections, family, etc.)\n6. Culture (upbringing, environment, etc.)\n7. History (past experiences, memories, etc.)\n\nThese various aspects of a person's life come together to form their unique identity, which can evolve over time as they grow, learn, and experience new things."
+  }
+ ],
+ "L_star": [
+  14,
+  1
+ ]
+}

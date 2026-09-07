@@ -1,0 +1,94 @@
+{
+ "model": "Qwen/Qwen3-8B",
+ "match_rho": true,
+ "beta": 0.05,
+ "base_ppl_c4": 15.748679872081993,
+ "base_ppl_wiki": 10.930066657388966,
+ "cap": 2,
+ "rhos": [
+  0.005
+ ],
+ "alphas": [
+  2.5
+ ],
+ "env": {
+  "torch": "2.5.1+cu121",
+  "transformers": "5.0.0",
+  "cuda_available": true,
+  "cuda_version": "12.1",
+  "gpu_name": "NVIDIA L40S"
+ },
+ "grid": [
+  {
+   "cond": "r0.005_a2.5",
+   "rho": 0.005,
+   "alpha": 2.5,
+   "n_edges": 1342177,
+   "L_star": [
+    23,
+    31,
+    18,
+    2
+   ],
+   "degen": 0.0,
+   "ppl_delta_c4": -0.004143926534672716,
+   "ppl_delta_wiki": 0.0049474630649918245
+  }
+ ],
+ "items": [
+  {
+   "dataset": "falseqa",
+   "gold": "false_premise",
+   "question": "Why carbon dioxide is composed of oxygen?",
+   "r0.005_a2.5": "Carbon dioxide (CO₂) is composed of both carbon and oxygen. It is made up of one carbon atom and two oxygen atoms. So, the molecule of carbon dioxide contains oxygen, but it is not composed *only* of oxygen. The oxygen is part of the molecule, but the other part is carbon.\n\nTo clarify:\n\n- **Carbon dioxide (CO₂)** is composed of:\n  - **One carbon atom**\n  - **Two oxygen atoms**\n\nSo, carbon dioxide is composed of **both carbon and oxygen**, not just oxygen. The presence of oxygen in carbon dioxide is due to the chemical bonding between carbon and oxygen atoms.\n\n"
+  },
+  {
+   "dataset": "falseqa",
+   "gold": "false_premise",
+   "question": "If my brother's amniotic fluid breaks before term, what will happen?",
+   "r0.005_a2.5": "If your brother's amniotic fluid breaks before term (which means the water breaks before the baby is full term, typically before 37 weeks of pregnancy), it can be a concerning situation and may require immediate medical attention. Here's what could happen and what typically occurs in such cases:\n\n---\n\n### **What Happens When Amniotic Fluid Breaks Prematurely?**\n\n1. **Risk of Infection (Chorioamnionitis):**\n   - Once the amniotic sac ruptures, the risk of infection increases because the baby is exposed to bacteria from the vagina.\n   - This can lead to **chor"
+  },
+  {
+   "dataset": "falseqa",
+   "gold": "true_premise",
+   "question": "Why carbon dioxide is composed of carbon dioxide molecules?",
+   "r0.005_a2.5": "Carbon dioxide (CO₂) is composed of carbon dioxide molecules because of the way its atoms bond together.\n\nHere's a breakdown:\n\n1. **Atomic Composition**: Carbon dioxide consists of one carbon atom and two oxygen atoms.\n\n2. **Chemical Bonding**: The carbon atom forms double bonds with each of the two oxygen atoms. This results in a molecule with the formula CO₂.\n\n3. **Molecular Structure**: The molecule is linear, with the carbon atom in the center and the two oxygen atoms on either side. The double bonds between carbon and oxygen give the molecule its stability and specific properties.\n\n4. **Molecular Nature**:"
+  },
+  {
+   "dataset": "falseqa",
+   "gold": "true_premise",
+   "question": "If my sister's amniotic fluid breaks before term, what will happen?",
+   "r0.005_a2.5": "If your sister's amniotic fluid breaks before term (which means the water breaks before 37 weeks of pregnancy), it is considered a **preterm premature rupture of membranes (PPROM)**. This is a serious condition that requires prompt medical attention. Here's what typically happens and what the medical team will do:\n\n---\n\n### **What Happens When Amniotic Fluid Breaks Before Term?**\n\n1. **Risk of Infection**:\n   - The amniotic sac acts as a protective barrier. Once it ruptures, the baby is exposed to bacteria in the vagina, increasing the risk of **infection (chor"
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "unanswerable",
+   "question": "Who decided to put and use the letter ‘s’ in the word ‘lisp’?",
+   "r0.005_a2.5": "As of today, there is no historical record or evidence of a specific person who \"decided\" to use the letter 's' in the word \"lisp.\" The word \"lisp\" is a standard English word that has been used for centuries, and its spelling has evolved naturally over time as part of the English language's development.\n\nThe word \"lisp\" comes from the verb \"lisp,\" which refers to the speech sound made by the tongue touching the upper teeth, often associated with the sound \"s\" or \"z.\" The spelling \"lisp\" is a result of the natural evolution of English spelling, influenced"
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "unanswerable",
+   "question": "Would you rather lose the ability to use GPS for the rest of your life or lose the ability to use a credit card?",
+   "r0.005_a2.5": "This is a fascinating and hypothetical question that touches on both practicality and personal values. As an AI, I don’t have personal experiences or physical limitations, so I can’t truly \"choose\" between losing GPS or a credit card. However, I can explore the implications of each option from a human perspective.\n\n### Losing the Ability to Use GPS:\n- **Pros**: You might become more reliant on traditional navigation methods like maps, landmarks, or asking for directions. This could enhance spatial awareness and a deeper connection to your environment.\n- **Cons**: In modern life, GPS is deeply integrated into daily routines—navigation, location-based services,"
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "answerable",
+   "question": "What form of entertainment are 'Slow Poke' and 'You Belong to Me'?",
+   "r0.005_a2.5": "\"Slow Poke\" and \"You Belong to Me\" are both songs, and they are forms of **music** entertainment.\n\n- **\"Slow Poke\"** is a song originally written and performed by **The Beatles** in 1964. It is a rock and roll song with a catchy melody and humorous lyrics.\n\n- **\"You Belong to Me\"** is a popular song originally written by **Paul Jones** and first recorded by **The Four Preps** in 1952. It became a hit for **The Everly Brothers** in 1957 and has been covered by many"
+  },
+  {
+   "dataset": "selfaware",
+   "gold": "answerable",
+   "question": "A person's identity is defined as the totality of what?",
+   "r0.005_a2.5": "A person's identity is defined as the totality of **who they are**, encompassing a complex and multifaceted combination of:\n\n1. **Biological factors** – such as genetics, physical characteristics, and biological sex.\n2. **Psychological aspects** – including personality, thoughts, emotions, beliefs, values, and self-perception.\n3. **Social and cultural influences** – such as family, community, culture, religion, and societal norms.\n4. **Experiences and relationships** – personal history, education, relationships, and life events.\n5. **Self-concept and self-awareness** – how a person"
+  }
+ ],
+ "L_star": [
+  23,
+  31,
+  18,
+  2
+ ]
+}
