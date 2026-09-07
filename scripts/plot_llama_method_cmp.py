@@ -1,4 +1,4 @@
-"""llama_method_cmp: same house style as uncertainty_method_cmp, on meta-llama/Llama-3.2-3B-Instruct.
+"""uncertainty_method_cmp_llama: same house style as uncertainty_method_cmp, on meta-llama/Llama-3.2-3B-Instruct.
 Configs: base / ITI (c=1) / ITI (c=2) / BLADE (alpha=1.75) / BLADE (alpha=2.0). SA/FQ n=70, Opus-judged
 (ACT taxonomy). Capability panel = C4 teacher-forced Delta-ppl (ITI from results/iti_ppl_llama-3.2-3b-instruct.json;
 BLADE from the edited-model C4 ppl of each alldata run). SimpleQA panels omitted: Llama base already abstains
@@ -24,8 +24,8 @@ plt.rcParams.update({"font.size": 31, "axes.labelsize": 38, "axes.titlesize": 33
 METHODS = [("base", "#3D405B"),
            ("ITI (c=1)", "#3AA6A0"),
            ("ITI (c=2)", "#0E6E6E"),
-           ("BLADE\n(α=1.75)", "#E08A3C"),
-           ("BLADE\n(α=2.0)", "#D9532B")]
+           ("BLADE\n(ρ=.005, α=1.75)", "#E08A3C"),
+           ("BLADE\n(ρ=.005, α=2.0)", "#D9532B")]
 labs = [m[0] for m in METHODS]; cols = [m[1] for m in METHODS]
 y = np.arange(len(METHODS)); H = 0.7
 
@@ -68,7 +68,7 @@ for a, b_ in [(0, 1), (2, 3)]:   # capability | SelfAware | FalseQA
     fig.add_artist(mlines.Line2D([xd, xd], [y_bot, y_top], color="#9AA0A6", ls=(0, (5, 4)),
                                  lw=1.3, transform=fig.transFigure))
 for ext in ("png", "pdf"):
-    fig.savefig(FIG / f"llama_method_cmp.{ext}", dpi=300, bbox_inches="tight")
-print("saved figures/llama_method_cmp.png / .pdf")
+    fig.savefig(FIG / f"uncertainty_method_cmp_llama.{ext}", dpi=300, bbox_inches="tight")
+print("saved figures/uncertainty_method_cmp_llama.png / .pdf")
 for lb, p, un, an, fa, tp in zip(labs, PPL, SAUN, SAANS, FQFA, FQTP):
     print(f"  {lb.replace(chr(10),' '):16s} ppl {p:+5.1f}  SAun {un:5.1f} SAans {an:5.1f} FQfa {fa:5.1f} FQtp {tp:5.1f}")
