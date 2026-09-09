@@ -1,0 +1,71 @@
+{
+  "model": "Qwen/Qwen3-4B",
+  "n_layers": 36,
+  "blade_g": true,
+  "data": "epistemic_pairs_v2.json",
+  "split": "split_3way",
+  "base_ppl_c4": 19.640839863333916,
+  "base_ppl_wiki": 15.836164228955797,
+  "beta": 0.05,
+  "base_hedge_unanswerable": 0.6739130434782609,
+  "base_hedge_known": 0.0,
+  "n_train": [
+    68,
+    69
+  ],
+  "n_sel": 42,
+  "n_eval": [
+    46,
+    47
+  ],
+  "env": {
+    "torch": "2.5.1+cu121",
+    "transformers": "5.0.0",
+    "cuda_available": true,
+    "cuda_version": "12.1",
+    "gpu_name": "NVIDIA A10"
+  },
+  "candidate_pool": null,
+  "L_star_source": "pinned",
+  "L_star": [
+    22,
+    9,
+    28,
+    2,
+    26
+  ],
+  "remove_sweep": [
+    {
+      "sparsity": 0.0005,
+      "n_edges": 88474,
+      "hedge_unanswerable": 0.2391304347826087,
+      "hedge_known": 0.0,
+      "ppl_delta": 0.017046828778160657,
+      "ppl_delta_wiki": 0.014560785592883083
+    },
+    {
+      "sparsity": 0.002,
+      "n_edges": 353894,
+      "hedge_unanswerable": 0.10869565217391304,
+      "hedge_known": 0.0,
+      "ppl_delta": 0.03282336238076497,
+      "ppl_delta_wiki": 0.0297943295447069
+    },
+    {
+      "sparsity": 0.005,
+      "n_edges": 884736,
+      "hedge_unanswerable": 0.08695652173913043,
+      "hedge_known": 0.0,
+      "ppl_delta": 0.044374279627455264,
+      "ppl_delta_wiki": 0.03716982921913775
+    },
+    {
+      "sparsity": 0.02,
+      "n_edges": 3538944,
+      "hedge_unanswerable": 0.08695652173913043,
+      "hedge_known": 0.0,
+      "ppl_delta": 0.06146490966612612,
+      "ppl_delta_wiki": 0.050077663009834676
+    }
+  ]
+}
