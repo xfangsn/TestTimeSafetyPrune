@@ -1,0 +1,99 @@
+{
+  "model": "microsoft/Phi-4-mini-instruct",
+  "n_layers": 32,
+  "blade_g": true,
+  "data": "epistemic_pairs_v2.json",
+  "split": "split_3way",
+  "base_ppl_c4": 17.01805785824463,
+  "base_ppl_wiki": 10.733612621427183,
+  "beta": 0.05,
+  "base_hedge_unanswerable": 0.6521739130434783,
+  "base_hedge_known": 0.0,
+  "n_train": [
+    68,
+    69
+  ],
+  "n_sel": 42,
+  "n_eval": [
+    46,
+    47
+  ],
+  "env": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.15.1",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "gpu_name": "NVIDIA GeForce RTX 5090"
+  },
+  "candidate_pool": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "L_star_source": "els",
+  "base_hedge_select": 0.6190476190476191,
+  "L_star": [
+    17,
+    1
+  ],
+  "remove_sweep": [
+    {
+      "sparsity": 0.0005,
+      "n_edges": 34603,
+      "hedge_unanswerable": 0.5434782608695652,
+      "hedge_known": 0.0,
+      "ppl_delta": 0.009951669031762892,
+      "ppl_delta_wiki": 0.006463824608346407
+    },
+    {
+      "sparsity": 0.002,
+      "n_edges": 138412,
+      "hedge_unanswerable": 0.2826086956521739,
+      "hedge_known": 0.0,
+      "ppl_delta": 0.012987060682137834,
+      "ppl_delta_wiki": 0.008105045727994283
+    },
+    {
+      "sparsity": 0.005,
+      "n_edges": 346030,
+      "hedge_unanswerable": 0.30434782608695654,
+      "hedge_known": 0.0,
+      "ppl_delta": 0.011989853641725595,
+      "ppl_delta_wiki": 0.009940351906802244
+    },
+    {
+      "sparsity": 0.02,
+      "n_edges": 1384120,
+      "hedge_unanswerable": 0.5217391304347826,
+      "hedge_known": 0.02127659574468085,
+      "ppl_delta": 0.0450694649640415,
+      "ppl_delta_wiki": 0.030932707702230243
+    }
+  ]
+}
