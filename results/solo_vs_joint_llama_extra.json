@@ -1,0 +1,64 @@
+{
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "beta": 0.05,
+  "results": {
+    "refusal": {
+      "side": "refusal",
+      "metric": "refusal_rate",
+      "rho": 0.005,
+      "L_star": [
+        13
+      ],
+      "base": 1.0,
+      "base_refusal_src": 1.0,
+      "solo": {
+        "13": 0.0
+      },
+      "joint": 0.0
+    },
+    "uncertainty": {
+      "side": "uncertainty",
+      "metric": "hedge_rate",
+      "rho": 0.002,
+      "L_star": [
+        14,
+        1
+      ],
+      "base": 0.5434782608695652,
+      "solo": {
+        "14": 0.5434782608695652,
+        "1": 0.6739130434782609
+      },
+      "joint": 0.17391304347826086,
+      "remove_sweep": [
+        {
+          "sparsity": 0.0005,
+          "hedge": 0.6086956521739131,
+          "ppl_delta": -0.003124828217427145
+        },
+        {
+          "sparsity": 0.002,
+          "hedge": 0.17391304347826086,
+          "ppl_delta": 0.04725267450729539
+        },
+        {
+          "sparsity": 0.005,
+          "hedge": 0.15217391304347827,
+          "ppl_delta": 0.050416201618431966
+        },
+        {
+          "sparsity": 0.02,
+          "hedge": 0.34782608695652173,
+          "ppl_delta": 0.05124648356465643
+        }
+      ]
+    }
+  },
+  "env": {
+    "torch": "2.5.1+cu121",
+    "transformers": "5.0.0",
+    "cuda_available": true,
+    "cuda_version": "12.1",
+    "gpu_name": "NVIDIA A10"
+  }
+}
