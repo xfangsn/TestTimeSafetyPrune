@@ -14,7 +14,8 @@ d = runpy.run_path("scripts/plot_s3_crossmodel_wide.py")
 DATA, ORDER, TAGS = d["DATA"], d["ORDER"], d["TAGS"]
 MODELS = list(TAGS.keys())
 
-PRETTY = {"refusal": "Refusal", "power-seeking": "Power-seeking",
+PRETTY = {"refusal": "Refusal", "uncertainty": "Uncertainty",
+          "power-seeking": "Power-seeking",
           "wealth-seeking": "Wealth-seeking", "deception": "Deception",
           "corrigibility": "Corrigibility", "self-awareness": "Self-awareness",
           "self-rate-highly": "Self-rate-highly", "sycophancy": "Sycophancy"}
@@ -25,6 +26,8 @@ def rate1(x):  # behavior rate as a 1-decimal percentage number (unit % lives in
 
 
 def cell(c):
+    if c is None:                                          # behavior not measured on this model
+        return "\\multicolumn{4}{c}{\\textendash}"
     status, base, pruned = c[0], c[1], c[2]
     if status != "ok" or pruned is None:
         return "\\multicolumn{4}{c}{\\textendash}"        # base / pruned / prune / ppl
@@ -48,17 +51,18 @@ def main():
         head1, cmid, head2, "\\midrule",
     ]
     for b in ORDER:
-        row = PRETTY[b] + " & " + " & ".join(cell(DATA[b][m]) for m in MODELS) + " \\\\"
+        row = PRETTY[b] + " & " + " & ".join(cell(DATA[b].get(m)) for m in MODELS) + " \\\\"
         lines.append(row)
-        if b == "refusal":
+        if b == "uncertainty":
             lines.append("\\midrule")
     lines += [
         "\\bottomrule", "\\end{tabular}",
         "\\caption{Cross-model behavior removal with BLADE (all columns in \\%). \\emph{base} and "
         "\\emph{prun.} are the behavior rate before and after pruning (lower is more removed), "
         "$\\rho$ the fraction of residual-writer weights zeroed, and $\\Delta$ppl the WikiText "
-        "perplexity change. Behavior rate is the refusal rate for Refusal (target $0$) and the A/B "
-        "pick-rate otherwise (chance $50$). \\textendash: not exhibited.}",
+        "perplexity change. Behavior rate is the refusal rate for Refusal and the hedge rate on "
+        "unanswerable questions for Uncertainty (target $0$ for both), and the A/B pick-rate "
+        "otherwise (chance $50$). \\textendash: not exhibited.}",
         "\\label{tab:s3-crossmodel}", "\\end{table*}",
     ]
     out = Path("docs/blade_s3_table.tex")

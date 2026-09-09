@@ -19,9 +19,9 @@ MC = {"Llama-3.2-3B": "#2A6F97", "Qwen3-4B": "#E76F51", "Gemma-3-4B": "#2A9D8F",
 FIXED_RHO = 0.005   # report the beta=5% operating point at rho=0.005 (not min-over-sweep)
 TAGS = {"Llama-3.2-3B": "llama-32-3b-instruct", "Qwen3-4B": "qwen3-4b",
         "Gemma-3-4B": "gemma-3-4b-it", "Phi-4-mini": "phi-4-mini-instruct"}
-ORDER = ["refusal", "power-seeking", "wealth-seeking", "deception",
+ORDER = ["refusal", "uncertainty", "power-seeking", "wealth-seeking", "deception",
          "corrigibility", "self-awareness", "self-rate-highly", "sycophancy"]
-LEFT, RIGHT = ORDER[:4], ORDER[4:]
+LEFT, RIGHT = ORDER[:5], ORDER[5:]
 MIN_BIAS = 0.10   # exhibited/not gate used by the pipeline
 NULL_BAND = 0.05  # below this -> genuinely at chance; between -> weak-but-ungated
 PPL_X = 1.05
@@ -117,6 +117,20 @@ def load_all():
                 pr = _prune_str(name, len(rf.get("L_star", [])), pt["sparsity"], pt.get("n_edges"))
                 out["refusal"][name] = ("ok", rf["base_refusal"], pt["refusal"],
                                         f"{_ppl_report(pt)*100:+.1f}%", pr)
+        # epistemic-uncertainty (hedging) removal, v2 protocol (split_3way on
+        # epistemic_pairs_v2.json); same beta/rho operating point as refusal.
+        un_path = f"results/blade_epistemic_els_{tag}_bladeg_v2.json"
+        if os.path.exists(un_path):
+            un = json.load(open(un_path))
+            sweep = un.get("remove_sweep", [])
+            if un.get("L_star") and sweep:
+                pt = next((s for s in sweep if abs(s["sparsity"] - FIXED_RHO) < 1e-9), None)
+                if pt is None:
+                    pt = min(sweep, key=lambda s: s["hedge_unanswerable"])
+                pr = _prune_str(name, len(un.get("L_star", [])), pt["sparsity"], pt.get("n_edges"))
+                out["uncertainty"][name] = ("ok", un["base_hedge_unanswerable"],
+                                            pt["hedge_unanswerable"],
+                                            f"{_ppl_report(pt)*100:+.1f}%", pr)
     # Gemma self-rate-highly is below the 0.10 gate (base 0.58) so the main run
     # skipped it; a gate-bypassed best-first probe shows it IS removable.
     pf = "results/blade_gemma_selfrate_probe.json"
@@ -147,7 +161,7 @@ def _safe(path):
 # pair it picks but stable in depth/result for this diffuse behavior). We report the
 # reproducible ~0.73; sycophancy is the weakest-removed behavior, consistent with the rest.
 
-CHANCE = {b: (0.0 if b == "refusal" else 0.5) for b in ORDER}
+CHANCE = {b: (0.0 if b in ("refusal", "uncertainty") else 0.5) for b in ORDER}
 
 
 def draw_panel(ax, behaviors):
@@ -226,7 +240,7 @@ with plt.style.context(["science", "no-latex"]):
     fig.subplots_adjust(wspace=0.92, bottom=0.21, top=0.965, left=0.125, right=0.94)
     fig.text(0.5, 0.125,
              "behavior score   (A/B: MC pick-rate, chance $=0.5$   |   "
-             "refusal: refusal-rate, target $=0$)      "
+             "refusal / uncertainty: refusal-rate / hedge-rate, target $=0$)      "
              r"arrow: base $\rightarrow$ post-BLADE  ($\beta=5\%,\ \rho=0.005$)",
              ha="center", fontsize=14)
     fig.text(0.5, 0.103,
