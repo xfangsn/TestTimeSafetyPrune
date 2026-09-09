@@ -43,6 +43,9 @@ plt.rcParams.update({
     "axes.linewidth": 1.0, "figure.dpi": 150,
 })
 
+# common x-span: bar width is meaningless, so every panel gets the same data-unit
+# extent (widest panel = most solo layers + the joint bar), keeping bars equal-width.
+XMAX = max(len(DATA[b]["solo"]) for b in ORDER) + 0.4 + 0.7
 ncol = 4 if len(ORDER) > 6 else 3
 figsize = (14.5, 2.9) if ncol == 4 else (11, 2.9)
 fig, axes = plt.subplots(2, ncol, figsize=figsize, sharey=True)
@@ -63,13 +66,16 @@ for ax, beh in zip(axes.flat, ORDER):
     ax.axhline(r["base"], ls=(0, (5, 2)), color=BASE_C, lw=1.3, zorder=2)
     if beh in AB:                      # chance level is an A/B-only notion
         ax.axhline(0.5, ls=(0, (1, 1.5)), color=CHANCE_C, lw=1.6, zorder=2)
+    for xp, v in list(zip(xs, vals)) + [(xj, r["joint"])]:
+        if v < 0.02:              # zero-height bar: annotate so the result stays visible
+            ax.text(xp, 0.035, f"{v:.2f}", ha="center", va="bottom", fontsize=10, color="#444")
     ax.set_xticks(xs + [xj])
     ax.set_xticklabels([str(l) for l in layers] + ["All"], fontsize=12)
     ax.get_xticklabels()[-1].set_color(JOINT)
     ax.get_xticklabels()[-1].set_fontweight("bold")
-    ax.set_ylim(0, 1.0)
+    ax.set_xlim(-0.7, XMAX)
+    ax.set_ylim(0, 1.04)          # keep a baseline at 1.0 (refusal) off the axis edge
     ax.set_title(EXTRA.get(beh, beh), pad=4, fontweight="bold")
-    ax.margins(x=0.04)
     ax.set_axisbelow(True)
     ax.yaxis.grid(True, ls="-", lw=0.5, color="#DfDfDf", zorder=0)
     ax.spines[["top", "right"]].set_visible(False)
