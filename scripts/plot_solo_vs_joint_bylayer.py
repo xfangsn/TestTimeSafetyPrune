@@ -83,7 +83,7 @@ for ax, beh in zip(axes.flat, ORDER):
 for ax in axes.flat[len(ORDER):]:      # unused cells in the grid
     ax.set_visible(False)
 
-fig.supylabel("behavior rate", fontsize=18, x=0.025)   # far left, outside the tick gutter   # single shared y-axis title
+fig.supylabel("behavior rate", fontsize=18, x=0.036)   # far left, outside the tick gutter   # single shared y-axis title
 for ax in axes[1, :]:
     if ax.get_visible():
         ax.set_xlabel("selected layer id")
@@ -97,7 +97,7 @@ handles = [
 fig.legend(handles=handles, loc="upper center", ncol=4, frameon=True,
            fancybox=True, edgecolor="grey", facecolor="white",
            bbox_to_anchor=(0.5, 1.10), fontsize=16)
-fig.tight_layout(rect=[0.016, 0, 1, 0.95])     # reserve left margin for supylabel
+fig.tight_layout(rect=[0.008, 0, 1, 0.95])     # reserve left margin for supylabel
 for ext in ("png", "pdf"):
     fig.savefig(FIG / f"solo_vs_joint_llama_bylayer.{ext}", dpi=300, bbox_inches="tight")
 print("saved figures/solo_vs_joint_llama_bylayer.png / .pdf")
