@@ -36,8 +36,8 @@ CHANCE_C = "#B8860B"
 
 plt.style.use(["science", "no-latex"])
 plt.rcParams.update({
-    "font.size": 16, "axes.labelsize": 18, "axes.titlesize": 19,
-    "xtick.labelsize": 15, "ytick.labelsize": 15,
+    "font.size": 18, "axes.labelsize": 21, "axes.titlesize": 22,
+    "xtick.labelsize": 17, "ytick.labelsize": 17,
     "xtick.direction": "out", "ytick.direction": "out",
     "xtick.top": False, "ytick.right": False,
     "axes.linewidth": 1.0, "figure.dpi": 150,
@@ -47,7 +47,7 @@ plt.rcParams.update({
 # extent (widest panel = most solo layers + the joint bar), keeping bars equal-width.
 XMAX = max(len(DATA[b]["solo"]) for b in ORDER) + 0.4 + 0.7
 ncol = 4 if len(ORDER) > 6 else 3
-figsize = (14.5, 3.4) if ncol == 4 else (11, 3.4)
+figsize = (14.5, 3.9) if ncol == 4 else (11, 3.9)
 fig, axes = plt.subplots(2, ncol, figsize=figsize, sharey=True)
 for ax, beh in zip(axes.flat, ORDER):
     r = DATA[beh]
@@ -68,9 +68,9 @@ for ax, beh in zip(axes.flat, ORDER):
         ax.axhline(0.5, ls=(0, (1, 1.5)), color=CHANCE_C, lw=1.6, zorder=2)
     for xp, v in list(zip(xs, vals)) + [(xj, r["joint"])]:
         if v < 0.02:              # zero-height bar: annotate so the result stays visible
-            ax.text(xp, 0.035, f"{v:.2f}", ha="center", va="bottom", fontsize=12, color="#444")
+            ax.text(xp, 0.035, f"{v:.2f}", ha="center", va="bottom", fontsize=14, color="#444")
     ax.set_xticks(xs + [xj])
-    ax.set_xticklabels([str(l) for l in layers] + ["All"], fontsize=14)
+    ax.set_xticklabels([str(l) for l in layers] + ["All"], fontsize=16)
     ax.get_xticklabels()[-1].set_color(JOINT)
     ax.get_xticklabels()[-1].set_fontweight("bold")
     ax.set_xlim(-0.7, XMAX)
@@ -83,7 +83,7 @@ for ax, beh in zip(axes.flat, ORDER):
 for ax in axes.flat[len(ORDER):]:      # unused cells in the grid
     ax.set_visible(False)
 
-fig.supylabel("behavior rate", fontsize=18, x=0.036)   # far left, outside the tick gutter   # single shared y-axis title
+fig.supylabel("behavior rate", fontsize=21, x=0.036)   # far left, outside the tick gutter   # single shared y-axis title
 for ax in axes[1, :]:
     if ax.get_visible():
         ax.set_xlabel("selected layer id")
@@ -96,7 +96,7 @@ handles = [
 ]
 fig.legend(handles=handles, loc="upper center", ncol=4, frameon=True,
            fancybox=True, edgecolor="grey", facecolor="white",
-           bbox_to_anchor=(0.5, 1.10), fontsize=16)
+           bbox_to_anchor=(0.5, 1.12), fontsize=18)
 fig.tight_layout(rect=[0.008, 0, 1, 0.95])     # reserve left margin for supylabel
 for ext in ("png", "pdf"):
     fig.savefig(FIG / f"solo_vs_joint_llama_bylayer.{ext}", dpi=300, bbox_inches="tight")
