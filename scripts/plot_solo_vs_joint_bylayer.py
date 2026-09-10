@@ -96,7 +96,7 @@ handles = [
 ]
 fig.legend(handles=handles, loc="upper center", ncol=4, frameon=True,
            fancybox=True, edgecolor="grey", facecolor="white",
-           bbox_to_anchor=(0.5, 1.09), fontsize=18)
+           bbox_to_anchor=(0.54, 1.09), fontsize=18)
 fig.tight_layout(rect=[0.008, 0, 1, 0.96])     # reserve left margin for supylabel
 for ext in ("png", "pdf"):
     fig.savefig(FIG / f"solo_vs_joint_llama_bylayer.{ext}", dpi=300, bbox_inches="tight")
